@@ -149,5 +149,5 @@ def get_investment_signal(df: pl.DataFrame) -> str:
         signal = "🔴 STRONG SELL"
         summary = "Our models detect strong negative pressure. **SELLING** or avoiding this coin is highly recommended to prevent losses."
         
-    final_text = f"## {signal}\n\n**Layman Summary:**\n{summary}\n\n**Detailed Technical Breakdown:**\n" + "\n\n".join([f"{r}" for r in reasons])
+    final_text = f"## {signal}\n\n**Suggestion:**\n{summary}\n\n**Detailed Technical Breakdown:**\n" + "\n\n".join([f"{r}" for r in reasons])
     return final_text

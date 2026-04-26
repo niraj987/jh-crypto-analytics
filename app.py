@@ -9,12 +9,21 @@ import auth_db
 
 st.set_page_config(page_title="JH Crypto Analytics", layout="wide", page_icon="📈")
 
+# Inject CSS to hide the image fullscreen button
+st.markdown("""
+    <style>
+        button[title="View fullscreen"] {
+            display: none;
+        }
+    </style>
+    """, unsafe_allow_html=True)
+
 # Initialize DB
 auth_db.init_db()
 
 if "logged_in" not in st.session_state:
     st.session_state.logged_in = False
-    st.session_state.user_name = ""
+    st.session_state.user_info = {}
 
 if "data" not in st.session_state:
     st.session_state.data = None
@@ -43,7 +52,7 @@ if not st.session_state.logged_in:
                     success, msg = auth_db.verify_login(email, password)
                     if success:
                         st.session_state.logged_in = True
-                        st.session_state.user_name = msg
+                        st.session_state.user_info = msg
                         st.rerun()
                     else:
                         st.error(msg)
@@ -53,26 +62,47 @@ if not st.session_state.logged_in:
                 st.subheader("Create a New Account")
                 reg_name = st.text_input("Full Name")
                 reg_email = st.text_input("Email Address")
+                reg_phone = st.text_input("Phone Number")
+                reg_gender = st.selectbox("Gender", ["Male", "Female", "Other", "Prefer not to say"])
                 reg_password = st.text_input("Password", type="password")
                 reg_dob = st.date_input("Date of Birth")
                 submit_reg = st.form_submit_button("Register")
                 
                 if submit_reg:
-                    if reg_name and reg_email and reg_password:
-                        success, msg = auth_db.register_user(reg_name, reg_email, reg_password, str(reg_dob))
+                    if reg_name and reg_email and reg_phone and reg_password:
+                        success, msg = auth_db.register_user(reg_name, reg_email, reg_phone, reg_gender, reg_password, str(reg_dob))
                         if success:
                             st.success(msg)
                         else:
                             st.error(msg)
                     else:
-                        st.error("Please fill all fields.")
+                        st.error("Please fill all required fields.")
                         
     st.stop() # Stop execution of the rest of the app if not logged in
 
 # --- MAIN DASHBOARD (If Logged In) ---
 
-st.title("📈 JH Crypto Analytics Terminal")
-st.markdown(f"Welcome back, **{st.session_state.user_name}**! Professional 2-year analysis engine powered by Polars.")
+# Top Header with Profile Popover
+header_col1, header_col2 = st.columns([8, 2])
+with header_col1:
+    st.title("📈 JH Crypto Analytics Terminal")
+    st.markdown(f"Welcome back, **{st.session_state.user_info.get('name', 'User')}**!")
+
+with header_col2:
+    st.write("") # Spacing to push it down slightly
+    with st.popover("👤 Profile", use_container_width=True):
+        st.markdown(f"**Customer ID:** `{st.session_state.user_info.get('customer_id', '')}`")
+        st.markdown(f"**Name:** {st.session_state.user_info.get('name', '')}")
+        st.markdown(f"**Email:** {st.session_state.user_info.get('email', '')}")
+        st.markdown(f"**Phone:** {st.session_state.user_info.get('phone', '')}")
+        st.markdown(f"**Gender:** {st.session_state.user_info.get('gender', '')}")
+        st.markdown(f"**DOB:** {st.session_state.user_info.get('dob', '')}")
+        st.divider()
+        if st.button("Logout", use_container_width=True, type="primary"):
+            st.session_state.logged_in = False
+            st.session_state.user_info = {}
+            st.session_state.data = None
+            st.rerun()
 
 # Sidebar configuration
 with st.sidebar:
@@ -91,12 +121,6 @@ with st.sidebar:
         }
         st.dataframe(coin_data, use_container_width=True, hide_index=True, height=250)
         
-    st.divider()
-    if st.button("Logout", use_container_width=True):
-        st.session_state.logged_in = False
-        st.session_state.user_name = ""
-        st.session_state.data = None
-        st.rerun()
 
 if fetch_btn or st.session_state.data is not None:
     if fetch_btn:
@@ -137,16 +161,19 @@ if fetch_btn or st.session_state.data is not None:
             st.divider()
             
             # --- CHARTS SECTION ---
-            chart_col, signal_col = st.columns([3, 1])
+            # Adjusted column width and added a large gap to make it not packed.
+            chart_col, signal_col = st.columns([5, 3], gap="large")
             
             with chart_col:
                 st.markdown(f"### 📈 {current_ticker} Price Action & Moving Averages")
                 price_fig = create_price_chart(df, current_ticker)
                 st.plotly_chart(price_fig, use_container_width=True, config={'displayModeBar': True})
                 
+                st.write("") # Spacer
+                
                 # Secondary Indicators
                 st.markdown("### 🔍 Technical Indicators")
-                ind_col1, ind_col2 = st.columns(2)
+                ind_col1, ind_col2 = st.columns(2, gap="medium")
                 with ind_col1:
                     macd_fig = create_macd_chart(df)
                     st.plotly_chart(macd_fig, use_container_width=True)
@@ -158,6 +185,9 @@ if fetch_btn or st.session_state.data is not None:
                 st.markdown("### 💡 AI Investment Signal")
                 signal_text = get_investment_signal(df)
                 st.info(signal_text)
+                
+                st.write("") # Spacer
+                st.write("") # Spacer
                 
                 st.markdown("### 📥 Export & Reports")
                 st.write("Download the processed dataset with all indicators or save the charts.")
@@ -185,6 +215,9 @@ if fetch_btn or st.session_state.data is not None:
                     mime="text/html",
                     use_container_width=True
                 )
+                
+            st.write("") # Spacer
+            st.write("") # Spacer
                 
             # --- DATA PREVIEW ---
             with st.expander("Preview Raw Data (Advanced Polars Backend)"):
