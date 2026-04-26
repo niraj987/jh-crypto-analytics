@@ -84,21 +84,12 @@ with st.sidebar:
     fetch_btn = st.button("Run Analysis", use_container_width=True, type="primary")
     
     with st.expander("Popular Supported Coins"):
-        st.markdown("""
-        You can search essentially any coin! Here are the most popular:
-        - **Bitcoin:** BTC
-        - **Ethereum:** ETH
-        - **Tether:** USDT
-        - **Binance Coin:** BNB
-        - **Solana:** SOL
-        - **XRP:** XRP
-        - **Dogecoin:** DOGE
-        - **Cardano:** ADA
-        - **Shiba Inu:** SHIB
-        - **Avalanche:** AVAX
-        - **Polkadot:** DOT
-        - **Chainlink:** LINK
-        """)
+        st.markdown("You can search essentially any coin! Here is a scrollable list of popular ones:")
+        coin_data = {
+            "Coin Name": ["Bitcoin", "Ethereum", "Tether", "BNB", "Solana", "USDC", "XRP", "Dogecoin", "Toncoin", "Cardano", "Shiba Inu", "Avalanche", "TRON", "Polkadot", "Bitcoin Cash", "Chainlink", "Polygon", "Litecoin", "Internet Computer", "NEAR Protocol", "UNUS SED LEO", "Dai", "Aptos", "Pepe", "Ethereum Classic", "Mantle", "Stacks", "Cronos", "Kaspa", "Render", "Cosmos", "Stellar", "Arbitrum", "OKB", "Filecoin", "Maker", "First Digital USD", "Immutable", "Injective", "Soros", "VeChain", "Optimism", "The Graph", "Fantom", "Theta Network", "Aave", "Arweave", "ThorChain", "Bitget Token", "Floki"],
+            "Ticker": ["BTC", "ETH", "USDT", "BNB", "SOL", "USDC", "XRP", "DOGE", "TON", "ADA", "SHIB", "AVAX", "TRX", "DOT", "BCH", "LINK", "MATIC", "LTC", "ICP", "NEAR", "LEO", "DAI", "APT", "PEPE", "ETC", "MNT", "STX", "CRO", "KAS", "RNDR", "ATOM", "XLM", "ARB", "OKB", "FIL", "MKR", "FDUSD", "IMX", "INJ", "SUI", "VET", "OP", "GRT", "FTM", "THETA", "AAVE", "AR", "RUNE", "BGB", "FLOKI"]
+        }
+        st.dataframe(coin_data, use_container_width=True, hide_index=True, height=250)
         
     st.divider()
     if st.button("Logout", use_container_width=True):
@@ -149,7 +140,7 @@ if fetch_btn or st.session_state.data is not None:
             chart_col, signal_col = st.columns([3, 1])
             
             with chart_col:
-                st.markdown("### 📈 Price Action & Volume")
+                st.markdown(f"### 📈 {current_ticker} Price Action & Moving Averages")
                 price_fig = create_price_chart(df, current_ticker)
                 st.plotly_chart(price_fig, use_container_width=True, config={'displayModeBar': True})
                 
@@ -198,6 +189,10 @@ if fetch_btn or st.session_state.data is not None:
             # --- DATA PREVIEW ---
             with st.expander("Preview Raw Data (Advanced Polars Backend)"):
                 st.dataframe(df.to_pandas().tail(100), use_container_width=True)
+                
+            # --- DISCLAIMER ---
+            st.divider()
+            st.markdown("> **Disclaimer:** This website uses historical data and Machine Learning models to predict and provide automated trading signals. It is designed for educational purposes and to give laymen an understanding of market trends. **Any buying, selling, or holding is strictly at your own risk.** The maker of this website and its authors are not responsible for any financial losses or faults. Please verify all information independently before making financial decisions.")
                 
         except Exception as e:
             st.error(f"Error analyzing data: {e}")

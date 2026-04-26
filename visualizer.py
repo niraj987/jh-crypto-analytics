@@ -4,7 +4,7 @@ import polars as pl
 
 def create_price_chart(df: pl.DataFrame, coin_name: str) -> go.Figure:
     fig = make_subplots(rows=2, cols=1, shared_xaxes=True, 
-                        vertical_spacing=0.03, subplot_titles=(f'{coin_name} Price & Moving Averages', 'Volume'),
+                        vertical_spacing=0.03,
                         row_width=[0.2, 0.8])
                         
     # Candlestick
