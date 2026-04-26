@@ -5,5 +5,3 @@ pandas
 xlsxwriter
 kaleido
 ta
-fastapi
-uvicorn
