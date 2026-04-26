@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Analysis | Next-Gen</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <!-- Plotly.js -->
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+    
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 3D Canvas Background -->
+    <canvas id="three-canvas"></canvas>
+
+    <!-- Glassmorphism Container -->
+    <div class="glass-container">
+        <header>
+            <h1 class="glow-text">CRYPTO <span class="gradient-text">NEXUS</span></h1>
+            <p>Advanced AI & Polars-driven 2-Year Analysis Engine</p>
+        </header>
+
+        <div class="search-bar">
+            <input type="text" id="ticker-input" placeholder="Enter Coin Ticker (e.g. BTC, ETH, SOL)" value="BTC">
+            <button id="analyze-btn">
+                <span class="btn-text" id="btn-text">Analyze</span>
+                <div class="loader" id="btn-loader" style="display: none;"></div>
+            </button>
+        </div>
+
+        <div id="error-msg" class="error" style="display: none;"></div>
+
+        <!-- Dashboard UI (Hidden until loaded) -->
+        <div id="dashboard" class="dashboard hidden">
+            
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <h3>Start Price (2 Yrs Ago)</h3>
+                    <div id="val-start" class="val">₹--</div>
+                </div>
+                <div class="metric-card">
+                    <h3>Current Price</h3>
+                    <div id="val-current" class="val">₹--</div>
+                    <div id="val-gain-pct" class="sub-val">--%</div>
+                </div>
+                <div class="metric-card highlight">
+                    <h3>Investment Signal</h3>
+                    <div id="val-signal" class="val text-sm">--</div>
+                </div>
+            </div>
+
+            <div class="charts-container">
+                <div class="chart-wrapper price-chart">
+                    <h2>Price Action & Moving Averages</h2>
+                    <div id="plot-price" class="plot-div"></div>
+                </div>
+                
+                <div class="bottom-charts">
+                    <div class="chart-wrapper">
+                        <h2>MACD Momentum</h2>
+                        <div id="plot-macd" class="plot-div"></div>
+                    </div>
+                    <div class="chart-wrapper">
+                        <h2>RSI Oscillator</h2>
+                        <div id="plot-rsi" class="plot-div"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Custom Scripts -->
+    <script src="three-bg.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

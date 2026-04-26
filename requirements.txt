@@ -1,4 +1,3 @@
-streamlit
 polars
 yfinance
 plotly
@@ -6,3 +5,5 @@ pandas
 xlsxwriter
 kaleido
 ta
+fastapi
+uvicorn
