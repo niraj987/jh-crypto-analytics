@@ -6,3 +6,5 @@ xlsxwriter
 kaleido
 ta
 bcrypt
+fastapi
+uvicorn
