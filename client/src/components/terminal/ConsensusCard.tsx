@@ -71,21 +71,21 @@ export default function ConsensusCard({ verdict, onRefresh, isLoading }: Consens
         />
       </div>
 
-      {/* Key Order Strategy Levels with Best-Fit Alignment & Distinct Background Colors */}
+      {/* Key Order Strategy Levels with Multi-Chromatic Alignment & Vibrant Gradients */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 my-6 w-full">
         
-        {/* Optimal Entry */}
-        <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-cyan-50/90 via-sky-50/50 to-white dark:from-[#0d1c2d] dark:via-[#091523] dark:to-[#060e18] border border-cyan-200/90 dark:border-cyan-800/80 shadow-md hover:-translate-y-1 hover:shadow-lg transition-all duration-200 flex flex-col justify-between min-h-[130px] overflow-hidden">
+        {/* Optimal Entry (Cyan & Amber Jewel) */}
+        <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-cyan-50/90 via-amber-50/30 to-white dark:from-[#061e29] dark:via-[#04141c] dark:to-[#020a0e] border border-cyan-300/90 dark:border-cyan-700/80 shadow-md hover:-translate-y-1 hover:shadow-xl transition-all duration-200 flex flex-col justify-between min-h-[130px] overflow-hidden">
           <div className="flex items-center justify-between gap-2">
             <span className="text-[11px] font-black uppercase tracking-wider text-cyan-800 dark:text-cyan-300 flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse" /> Optimal Entry
+              <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse shadow-[0_0_8px_#22d3ee]" /> Optimal Entry
             </span>
-            <span className="text-[9px] font-mono font-bold px-2 py-0.5 rounded-full bg-cyan-100 dark:bg-cyan-950/80 text-cyan-800 dark:text-cyan-300 border border-cyan-200 dark:border-cyan-800">
+            <span className="text-[9px] font-mono font-black px-2 py-0.5 rounded-full bg-cyan-100 dark:bg-cyan-950/80 text-cyan-800 dark:text-cyan-300 border border-cyan-300 dark:border-cyan-700">
               FILL
             </span>
           </div>
           <div className="my-2.5">
-            <span className="text-lg sm:text-xl md:text-2xl font-black font-mono tracking-tight text-slate-900 dark:text-white block truncate" title={formatINR(verdict.entryTarget)}>
+            <span className="text-lg sm:text-xl md:text-2xl font-black font-mono tracking-tight text-gradient-cyan block truncate" title={formatINR(verdict.entryTarget)}>
               {formatINR(verdict.entryTarget)}
             </span>
           </div>
@@ -99,68 +99,68 @@ export default function ConsensusCard({ verdict, onRefresh, isLoading }: Consens
           </div>
         </div>
 
-        {/* Target 1 (TP1) */}
-        <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-emerald-50/90 via-teal-50/50 to-white dark:from-[#0c241d] dark:via-[#081b16] dark:to-[#05110e] border border-emerald-300/90 dark:border-emerald-800/80 shadow-md hover:-translate-y-1 hover:shadow-lg transition-all duration-200 flex flex-col justify-between min-h-[130px] overflow-hidden">
+        {/* Target 1 (TP1) (Spring Lime & Emerald) */}
+        <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-lime-50/90 via-emerald-50/40 to-white dark:from-[#0a2310] dark:via-[#07170a] dark:to-[#030d05] border border-lime-300/90 dark:border-lime-700/80 shadow-md hover:-translate-y-1 hover:shadow-xl transition-all duration-200 flex flex-col justify-between min-h-[130px] overflow-hidden">
           <div className="flex items-center justify-between gap-2">
-            <span className="text-[11px] font-black uppercase tracking-wider text-emerald-800 dark:text-emerald-300 flex items-center gap-1.5">
-              <ArrowUpRight className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" /> Target 1 (TP1)
+            <span className="text-[11px] font-black uppercase tracking-wider text-lime-800 dark:text-lime-300 flex items-center gap-1.5">
+              <ArrowUpRight className="w-3.5 h-3.5 text-lime-600 dark:text-lime-400" /> Target 1 (TP1)
             </span>
-            <span className="text-[9px] font-mono font-bold px-2 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/80 text-emerald-800 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">
+            <span className="text-[9px] font-mono font-black px-2 py-0.5 rounded-full bg-lime-100 dark:bg-lime-950/80 text-lime-800 dark:text-lime-300 border border-lime-300 dark:border-lime-700">
               TAKE PROFIT
             </span>
           </div>
           <div className="my-2.5">
-            <span className="text-lg sm:text-xl md:text-2xl font-black font-mono tracking-tight text-emerald-700 dark:text-emerald-400 block truncate" title={formatINR(verdict.takeProfit1)}>
+            <span className="text-lg sm:text-xl md:text-2xl font-black font-mono tracking-tight text-gradient-lime block truncate" title={formatINR(verdict.takeProfit1)}>
               {formatINR(verdict.takeProfit1)}
             </span>
           </div>
-          <div className="pt-2 border-t border-emerald-100 dark:border-emerald-900/50 flex items-center justify-between">
-            <span className="text-[11px] font-bold text-emerald-700 dark:text-emerald-300">
+          <div className="pt-2 border-t border-lime-100 dark:border-lime-900/50 flex items-center justify-between">
+            <span className="text-[11px] font-bold text-lime-700 dark:text-lime-300">
               +6.5% Expected Move
             </span>
-            <span className="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 font-semibold">
+            <span className="text-[10px] font-mono text-lime-600 dark:text-lime-400 font-semibold">
               TP1
             </span>
           </div>
         </div>
 
-        {/* Target 2 (TP2) */}
-        <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-violet-50/90 via-indigo-50/50 to-white dark:from-[#1b1433] dark:via-[#130d25] dark:to-[#0a0714] border border-violet-300/90 dark:border-violet-800/80 shadow-md hover:-translate-y-1 hover:shadow-lg transition-all duration-200 flex flex-col justify-between min-h-[130px] overflow-hidden">
+        {/* Target 2 (TP2) (Neon Berry & Orchid Amethyst) */}
+        <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-fuchsia-50/90 via-pink-50/40 to-white dark:from-[#250926] dark:via-[#19061a] dark:to-[#0f0310] border border-fuchsia-300/90 dark:border-fuchsia-700/80 shadow-md hover:-translate-y-1 hover:shadow-xl transition-all duration-200 flex flex-col justify-between min-h-[130px] overflow-hidden">
           <div className="flex items-center justify-between gap-2">
-            <span className="text-[11px] font-black uppercase tracking-wider text-violet-800 dark:text-violet-300 flex items-center gap-1.5">
-              <ArrowUpRight className="w-3.5 h-3.5 text-violet-600 dark:text-violet-400" /> Target 2 (TP2)
+            <span className="text-[11px] font-black uppercase tracking-wider text-fuchsia-800 dark:text-fuchsia-300 flex items-center gap-1.5">
+              <ArrowUpRight className="w-3.5 h-3.5 text-fuchsia-600 dark:text-fuchsia-400" /> Target 2 (TP2)
             </span>
-            <span className="text-[9px] font-mono font-bold px-2 py-0.5 rounded-full bg-violet-100 dark:bg-violet-950/80 text-violet-800 dark:text-violet-300 border border-violet-200 dark:border-violet-800">
+            <span className="text-[9px] font-mono font-black px-2 py-0.5 rounded-full bg-fuchsia-100 dark:bg-fuchsia-950/80 text-fuchsia-800 dark:text-fuchsia-300 border border-fuchsia-300 dark:border-fuchsia-700">
               RUNNER
             </span>
           </div>
           <div className="my-2.5">
-            <span className="text-lg sm:text-xl md:text-2xl font-black font-mono tracking-tight text-violet-700 dark:text-violet-400 block truncate" title={formatINR(verdict.takeProfit2)}>
+            <span className="text-lg sm:text-xl md:text-2xl font-black font-mono tracking-tight text-gradient-berry block truncate" title={formatINR(verdict.takeProfit2)}>
               {formatINR(verdict.takeProfit2)}
             </span>
           </div>
-          <div className="pt-2 border-t border-violet-100 dark:border-violet-900/50 flex items-center justify-between">
-            <span className="text-[11px] font-bold text-violet-700 dark:text-violet-300">
+          <div className="pt-2 border-t border-fuchsia-100 dark:border-fuchsia-900/50 flex items-center justify-between">
+            <span className="text-[11px] font-bold text-fuchsia-700 dark:text-fuchsia-300">
               +12.4% Extended Runner
             </span>
-            <span className="text-[10px] font-mono text-violet-600 dark:text-violet-400 font-semibold">
+            <span className="text-[10px] font-mono text-fuchsia-600 dark:text-fuchsia-400 font-semibold">
               TP2
             </span>
           </div>
         </div>
 
-        {/* Stop Loss (SL) */}
-        <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-rose-50/90 via-orange-50/40 to-white dark:from-[#2a0e16] dark:via-[#1f0910] dark:to-[#110408] border border-rose-300/90 dark:border-rose-800/80 shadow-md hover:-translate-y-1 hover:shadow-lg transition-all duration-200 flex flex-col justify-between min-h-[130px] overflow-hidden">
+        {/* Stop Loss (SL) (Fiery Coral & Sunset Ruby) */}
+        <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-rose-50/90 via-orange-50/40 to-white dark:from-[#290a12] dark:via-[#1a050a] dark:to-[#0f0205] border border-rose-300/90 dark:border-rose-700/80 shadow-md hover:-translate-y-1 hover:shadow-xl transition-all duration-200 flex flex-col justify-between min-h-[130px] overflow-hidden">
           <div className="flex items-center justify-between gap-2">
             <span className="text-[11px] font-black uppercase tracking-wider text-rose-800 dark:text-rose-300 flex items-center gap-1.5">
               <ArrowDownRight className="w-3.5 h-3.5 text-rose-600 dark:text-rose-400" /> Stop Loss (SL)
             </span>
-            <span className="text-[9px] font-mono font-bold px-2 py-0.5 rounded-full bg-rose-100 dark:bg-rose-950/80 text-rose-800 dark:text-rose-300 border border-rose-200 dark:border-rose-800">
+            <span className="text-[9px] font-mono font-black px-2 py-0.5 rounded-full bg-rose-100 dark:bg-rose-950/80 text-rose-800 dark:text-rose-300 border border-rose-300 dark:border-rose-700">
               PROTECTION
             </span>
           </div>
           <div className="my-2.5">
-            <span className="text-lg sm:text-xl md:text-2xl font-black font-mono tracking-tight text-rose-700 dark:text-rose-400 block truncate" title={formatINR(verdict.stopLoss)}>
+            <span className="text-lg sm:text-xl md:text-2xl font-black font-mono tracking-tight text-gradient-sunset block truncate" title={formatINR(verdict.stopLoss)}>
               {formatINR(verdict.stopLoss)}
             </span>
           </div>

@@ -19,30 +19,33 @@ export default function ForecastCards({ forecast }: ForecastCardsProps) {
       sub: 'Intraday Scalp Envelope',
       icon: Clock,
       data: tf['24h'],
-      accentColor: 'text-sky-600 dark:text-sky-400',
-      accentBg: 'bg-sky-50 dark:bg-sky-950/60 border-sky-200 dark:border-sky-800',
-      cardBg: 'bg-gradient-to-br from-sky-50/90 via-white to-slate-50 dark:from-[#0c1626] dark:via-[#09101d] dark:to-[#070b14] border-sky-200/90 dark:border-slate-800 shadow-xl',
-      borderGlow: 'border-sky-300 dark:border-sky-800/80',
+      accentColor: 'text-amber-600 dark:text-amber-400',
+      accentBg: 'bg-amber-100 dark:bg-amber-950/60 border-amber-300 dark:border-amber-700',
+      cardBg: 'bg-gradient-to-br from-amber-50/90 via-orange-50/40 to-white dark:from-[#211204] dark:via-[#160b02] dark:to-[#0c0501] shadow-xl',
+      borderGlow: 'border-amber-300 dark:border-amber-700/80',
+      priceGradient: 'text-gradient-sunset',
     },
     {
       horizon: '7-Day Horizon',
       sub: 'Swing Momentum Corridor',
       icon: TrendingUp,
       data: tf['7d'],
-      accentColor: 'text-emerald-600 dark:text-emerald-400',
-      accentBg: 'bg-emerald-50 dark:bg-emerald-950/60 border-emerald-200 dark:border-emerald-800',
-      cardBg: 'bg-gradient-to-br from-emerald-50/90 via-white to-slate-50 dark:from-[#091a18] dark:via-[#071313] dark:to-[#050e0e] border-emerald-200/90 dark:border-slate-800 shadow-xl',
-      borderGlow: 'border-emerald-300 dark:border-emerald-800/80',
+      accentColor: 'text-lime-600 dark:text-lime-400',
+      accentBg: 'bg-lime-100 dark:bg-lime-950/60 border-lime-300 dark:border-lime-700',
+      cardBg: 'bg-gradient-to-br from-lime-50/90 via-emerald-50/40 to-white dark:from-[#0a2310] dark:via-[#07170a] dark:to-[#030d05] shadow-xl',
+      borderGlow: 'border-lime-300 dark:border-lime-700/80',
+      priceGradient: 'text-gradient-lime',
     },
     {
       horizon: '30-Day Horizon',
       sub: 'Regime Macro Projection',
       icon: Calendar,
       data: tf['30d'],
-      accentColor: 'text-purple-600 dark:text-purple-400',
-      accentBg: 'bg-purple-50 dark:bg-purple-950/60 border-purple-200 dark:border-purple-800',
-      cardBg: 'bg-gradient-to-br from-purple-50/90 via-white to-slate-50 dark:from-[#170d24] dark:via-[#11091b] dark:to-[#0a0511] border-purple-200/90 dark:border-slate-800 shadow-xl',
-      borderGlow: 'border-purple-300 dark:border-purple-800/80',
+      accentColor: 'text-fuchsia-600 dark:text-fuchsia-400',
+      accentBg: 'bg-fuchsia-100 dark:bg-fuchsia-950/60 border-fuchsia-300 dark:border-fuchsia-700',
+      cardBg: 'bg-gradient-to-br from-fuchsia-50/90 via-pink-50/40 to-white dark:from-[#250926] dark:via-[#19061a] dark:to-[#0f0310] shadow-xl',
+      borderGlow: 'border-fuchsia-300 dark:border-fuchsia-700/80',
+      priceGradient: 'text-gradient-berry',
     },
   ];
 
@@ -79,7 +82,7 @@ export default function ForecastCards({ forecast }: ForecastCardsProps) {
               <div className="my-5 font-mono">
                 <span className="text-xs text-slate-500 dark:text-slate-400 block font-bold uppercase">Expected Target (₹):</span>
                 <div className="flex flex-wrap items-baseline gap-2 mt-1">
-                  <span className="text-xl sm:text-2xl lg:text-3xl font-black text-slate-900 dark:text-white tracking-tight block truncate" title={formatINR(card.data.expected)}>
+                  <span className={`text-xl sm:text-2xl lg:text-3xl font-black ${card.priceGradient} tracking-tight block truncate`} title={formatINR(card.data.expected)}>
                     {formatINR(card.data.expected)}
                   </span>
                   <span

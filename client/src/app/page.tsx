@@ -58,24 +58,24 @@ export default function HomePage() {
           {/* Left Column: Brand & Hero Copy */}
           <div ref={heroRef} className="lg:col-span-7 space-y-6">
             
-            {/* Headline with Natural Warm & Green Tones */}
+            {/* Headline with Multi-Color Chromatic Tones */}
             <h1 className="text-4xl sm:text-6xl font-black tracking-tight text-slate-900 dark:text-white leading-[1.12]">
               Institutional Crypto Terminal Powered by{' '}
-              <span className="bg-gradient-to-r from-emerald-600 via-teal-700 to-sky-700 dark:from-emerald-400 dark:via-teal-300 dark:to-sky-400 bg-clip-text text-transparent">
+              <span className="text-gradient-rainbow">
                 Quantitative Intelligence
               </span>
             </h1>
 
             {/* Spacious Subtitle */}
             <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl font-normal">
-              Empowering professional crypto traders with sub-second Buy/Sell consensus calculations, Kelly Criterion position sizing, zero-impact smart order routing, and predictive market forecasting denominated in <strong>₹</strong>.
+              Empowering professional crypto traders with sub-second Buy/Sell consensus calculations, Kelly Criterion position sizing, zero-impact smart order routing, and predictive market forecasting denominated in <strong className="text-emerald-600 dark:text-emerald-400 font-black">₹</strong>.
             </p>
 
-            {/* Action Buttons */}
+            {/* Action Buttons with Vibrant Gradients */}
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <Link
                 href="/signals"
-                className="px-8 py-4 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-mono font-black text-sm flex items-center gap-2.5 shadow-lg shadow-emerald-600/25 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
+                className="px-8 py-4 rounded-2xl bg-gradient-to-r from-amber-500 via-rose-500 to-fuchsia-600 hover:from-amber-400 hover:to-fuchsia-500 text-white font-mono font-black text-sm flex items-center gap-2.5 shadow-lg shadow-rose-500/25 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
               >
                 <Activity className="w-4 h-4" />
                 <span>Launch Trading Signals Desk</span>
@@ -84,30 +84,30 @@ export default function HomePage() {
 
               <Link
                 href="/forecast"
-                className="px-8 py-4 rounded-2xl bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-900 dark:text-white font-mono font-bold text-sm flex items-center gap-2.5 border border-slate-200 dark:border-slate-800 shadow-sm hover:-translate-y-0.5 transition-all duration-200"
+                className="px-8 py-4 rounded-2xl bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-900 dark:text-white font-mono font-bold text-sm flex items-center gap-2.5 border border-purple-300 dark:border-purple-800 shadow-sm hover:shadow-purple-500/10 hover:-translate-y-0.5 transition-all duration-200"
               >
-                <TrendingUp className="w-4 h-4 text-purple-600 dark:text-purple-400" />
-                <span>Explore AI RAG Forecasting</span>
+                <TrendingUp className="w-4 h-4 text-fuchsia-600 dark:text-fuchsia-400" />
+                <span className="text-gradient-berry font-black">Explore AI RAG Forecasting</span>
               </Link>
             </div>
 
-            {/* Telemetry Highlights with Distinct Colored Background Tiles */}
+            {/* Telemetry Highlights with Distinct Vibrant Colored Background Tiles */}
             <div className="pt-6 grid grid-cols-2 sm:grid-cols-4 gap-4 font-mono text-xs">
-              <div className="p-4 rounded-2xl bg-gradient-to-br from-emerald-50/90 via-teal-50/40 to-white dark:from-[#091b1a] dark:via-[#071314] dark:to-[#050e0f] border border-emerald-200/90 dark:border-slate-800 shadow-sm hover:shadow-md transition-all">
-                <span className="text-emerald-800 dark:text-emerald-400 text-[10px] block font-bold uppercase">Currency</span>
-                <span className="text-emerald-950 dark:text-emerald-200 font-black text-sm">Real-Time (₹)</span>
+              <div className="p-4 rounded-2xl bg-gradient-to-br from-amber-50/90 via-orange-50/40 to-white dark:from-[#211204] dark:via-[#160b02] dark:to-[#0c0501] border border-amber-300/90 dark:border-amber-800/80 shadow-sm hover:shadow-md transition-all">
+                <span className="text-amber-800 dark:text-amber-300 text-[10px] block font-bold uppercase">Currency</span>
+                <span className="text-amber-950 dark:text-amber-200 font-black text-sm">Real-Time (₹)</span>
               </div>
-              <div className="p-4 rounded-2xl bg-gradient-to-br from-slate-100/90 via-slate-50 to-white dark:from-[#0d1627] dark:via-[#09101f] dark:to-[#070b16] border border-slate-300/80 dark:border-slate-800 shadow-sm hover:shadow-md transition-all">
-                <span className="text-slate-600 dark:text-slate-400 text-[10px] block font-bold uppercase">Token Catalog</span>
-                <span className="text-slate-950 dark:text-white font-black text-sm">48+ Active Pairs</span>
+              <div className="p-4 rounded-2xl bg-gradient-to-br from-cyan-50/90 via-sky-50/40 to-white dark:from-[#051722] dark:via-[#031018] dark:to-[#02080d] border border-cyan-300/90 dark:border-cyan-800/80 shadow-sm hover:shadow-md transition-all">
+                <span className="text-cyan-800 dark:text-cyan-300 text-[10px] block font-bold uppercase">Token Catalog</span>
+                <span className="text-cyan-950 dark:text-cyan-200 font-black text-sm">48+ Active Pairs</span>
               </div>
-              <div className="p-4 rounded-2xl bg-gradient-to-br from-purple-50/90 via-indigo-50/40 to-white dark:from-[#180d26] dark:via-[#11091b] dark:to-[#0b0512] border border-purple-200/90 dark:border-slate-800 shadow-sm hover:shadow-md transition-all">
-                <span className="text-purple-800 dark:text-purple-400 text-[10px] block font-bold uppercase">Risk Engine</span>
-                <span className="text-purple-950 dark:text-purple-200 font-black text-sm">Kelly Criterion</span>
+              <div className="p-4 rounded-2xl bg-gradient-to-br from-fuchsia-50/90 via-pink-50/40 to-white dark:from-[#22071d] dark:via-[#170413] dark:to-[#0d020a] border border-fuchsia-300/90 dark:border-fuchsia-800/80 shadow-sm hover:shadow-md transition-all">
+                <span className="text-fuchsia-800 dark:text-fuchsia-300 text-[10px] block font-bold uppercase">Risk Engine</span>
+                <span className="text-fuchsia-950 dark:text-fuchsia-200 font-black text-sm">Kelly Criterion</span>
               </div>
-              <div className="p-4 rounded-2xl bg-gradient-to-br from-sky-50/90 via-blue-50/40 to-white dark:from-[#0c1626] dark:via-[#09101d] dark:to-[#070b14] border border-sky-200/90 dark:border-slate-800 shadow-sm hover:shadow-md transition-all">
-                <span className="text-sky-800 dark:text-sky-400 text-[10px] block font-bold uppercase">Order Slicing</span>
-                <span className="text-sky-950 dark:text-sky-200 font-black text-sm">TWAP &amp; VWAP</span>
+              <div className="p-4 rounded-2xl bg-gradient-to-br from-lime-50/90 via-emerald-50/40 to-white dark:from-[#0c1f09] dark:via-[#071505] dark:to-[#030b02] border border-lime-300/90 dark:border-lime-800/80 shadow-sm hover:shadow-md transition-all">
+                <span className="text-lime-800 dark:text-lime-300 text-[10px] block font-bold uppercase">Order Slicing</span>
+                <span className="text-lime-950 dark:text-lime-200 font-black text-sm">TWAP &amp; VWAP</span>
               </div>
             </div>
 
@@ -246,22 +246,22 @@ export default function HomePage() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
           
-          {/* Card 1: Real Multi-Monitor Trader Screens */}
-          <div className="p-7 rounded-3xl bg-gradient-to-br from-sky-50/90 via-blue-50/20 to-white dark:from-[#0c1626] dark:via-[#09101d] dark:to-[#070b14] border border-sky-200/90 dark:border-slate-800 shadow-xl flex flex-col justify-between space-y-4">
+          {/* Card 1: Ocean Turquoise & Cyan */}
+          <div className="p-7 rounded-3xl bg-gradient-to-br from-cyan-50/90 via-sky-50/30 to-white dark:from-[#051722] dark:via-[#031018] dark:to-[#02080d] border border-cyan-300/90 dark:border-cyan-800/80 shadow-xl flex flex-col justify-between space-y-4 hover:-translate-y-1 hover:shadow-2xl transition-all duration-300">
             <div>
-              <div className="flex items-center justify-between pb-3 border-b border-sky-100 dark:border-slate-800 mb-4">
-                <span className="text-xs font-mono font-bold text-sky-800 dark:text-sky-400 uppercase">Trading Desks In Action</span>
-                <span className="text-xs font-mono font-bold text-emerald-800 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 px-2.5 py-0.5 rounded-full border border-emerald-200 dark:border-emerald-800">Active Live Floor</span>
+              <div className="flex items-center justify-between pb-3 border-b border-cyan-100 dark:border-cyan-900/50 mb-4">
+                <span className="text-xs font-mono font-bold text-cyan-800 dark:text-cyan-300 uppercase">Trading Desks In Action</span>
+                <span className="text-xs font-mono font-bold text-cyan-900 dark:text-cyan-300 bg-cyan-100 dark:bg-cyan-950/80 px-2.5 py-0.5 rounded-full border border-cyan-300 dark:border-cyan-700">Active Live Floor</span>
               </div>
-              <h3 className="text-lg font-black text-slate-900 dark:text-white mb-1.5">
-                Multi-Monitor Institutional Execution Terminals
+              <h3 className="text-lg font-black mb-1.5">
+                <span className="text-gradient-cyan">Multi-Monitor Institutional Execution Terminals</span>
               </h3>
               <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
                 Proprietary traders, quant analysts, and risk officers monitoring tick-by-tick order flow, depth charts, and multi-asset price action in real time.
               </p>
             </div>
 
-            <div className="relative rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-md bg-slate-950 flex items-center justify-center min-h-[260px] group">
+            <div className="relative rounded-2xl overflow-hidden border border-cyan-200 dark:border-cyan-900 shadow-md bg-slate-950 flex items-center justify-center min-h-[260px] group">
               <img
                 src="/photos/gettyimages-1309660543-612x612.jpg"
                 alt="Institutional Multi-Monitor Trader Screen"
@@ -269,29 +269,29 @@ export default function HomePage() {
                 style={{ maxHeight: '420px', aspectRatio: '16 / 10' }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none" />
-              <div className="absolute bottom-3 left-3 right-3 p-3 bg-slate-900/90 backdrop-blur-md rounded-xl text-white text-[11px] font-mono flex items-center justify-between border border-slate-800">
+              <div className="absolute bottom-3 left-3 right-3 p-3 bg-slate-900/90 backdrop-blur-md rounded-xl text-white text-[11px] font-mono flex items-center justify-between border border-cyan-800/60">
                 <span>Multi-Screen Execution Floor</span>
-                <span className="text-emerald-400 font-bold">Latency: 18ms</span>
+                <span className="text-cyan-300 font-bold">Latency: 18ms</span>
               </div>
             </div>
           </div>
 
-          {/* Card 2: Quantitative Candlestick & Geometry Terminal */}
-          <div className="p-7 rounded-3xl bg-gradient-to-br from-emerald-50/90 via-teal-50/20 to-white dark:from-[#091b1a] dark:via-[#071314] dark:to-[#050e0f] border border-emerald-200/90 dark:border-slate-800 shadow-xl flex flex-col justify-between space-y-4">
+          {/* Card 2: Spring Lime & Chartreuse Jade */}
+          <div className="p-7 rounded-3xl bg-gradient-to-br from-lime-50/90 via-emerald-50/30 to-white dark:from-[#0c1f09] dark:via-[#071505] dark:to-[#030b02] border border-lime-300/90 dark:border-lime-800/80 shadow-xl flex flex-col justify-between space-y-4 hover:-translate-y-1 hover:shadow-2xl transition-all duration-300">
             <div>
-              <div className="flex items-center justify-between pb-3 border-b border-emerald-100 dark:border-slate-800 mb-4">
-                <span className="text-xs font-mono font-bold text-emerald-800 dark:text-emerald-400 uppercase">Terminal Architecture</span>
-                <span className="text-xs font-mono font-bold text-sky-800 dark:text-sky-400 bg-sky-50 dark:bg-sky-950/60 px-2.5 py-0.5 rounded-full border border-sky-200 dark:border-sky-800">Sub-Second Ticks</span>
+              <div className="flex items-center justify-between pb-3 border-b border-lime-100 dark:border-lime-900/50 mb-4">
+                <span className="text-xs font-mono font-bold text-lime-800 dark:text-lime-300 uppercase">Terminal Architecture</span>
+                <span className="text-xs font-mono font-bold text-lime-900 dark:text-lime-300 bg-lime-100 dark:bg-lime-950/80 px-2.5 py-0.5 rounded-full border border-lime-300 dark:border-lime-700">Sub-Second Ticks</span>
               </div>
-              <h3 className="text-lg font-black text-slate-900 dark:text-white mb-1.5">
-                Real-Time Quantitative Signal Dashboard
+              <h3 className="text-lg font-black mb-1.5">
+                <span className="text-gradient-lime">Real-Time Quantitative Signal Dashboard</span>
               </h3>
               <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
                 Real-time algorithmic dashboard calculating RSI momentum, 50/200 SMA trend envelopes, and Kelly Criterion position sizing.
               </p>
             </div>
 
-            <div className="relative rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-md bg-slate-950 flex items-center justify-center min-h-[260px] group">
+            <div className="relative rounded-2xl overflow-hidden border border-lime-200 dark:border-lime-900 shadow-md bg-slate-950 flex items-center justify-center min-h-[260px] group">
               <img
                 src="/photos/behnam-norouzi-RDXcFY5g5O4-unsplash.jpg"
                 alt="Institutional Crypto Candlestick Terminal"
@@ -299,29 +299,29 @@ export default function HomePage() {
                 style={{ maxHeight: '420px', aspectRatio: '16 / 10' }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none" />
-              <div className="absolute bottom-3 left-3 right-3 p-3 bg-slate-900/90 backdrop-blur-md rounded-xl text-white text-[11px] font-mono flex items-center justify-between border border-slate-800">
+              <div className="absolute bottom-3 left-3 right-3 p-3 bg-slate-900/90 backdrop-blur-md rounded-xl text-white text-[11px] font-mono flex items-center justify-between border border-lime-800/60">
                 <span>Real-Time Candlestick Ticks</span>
-                <span className="text-sky-300 font-bold">1D &amp; 4H Confluence</span>
+                <span className="text-lime-300 font-bold">1D &amp; 4H Confluence</span>
               </div>
             </div>
           </div>
 
-          {/* Card 3: Macro Desk Collaboration */}
-          <div className="p-7 rounded-3xl bg-gradient-to-br from-purple-50/90 via-indigo-50/20 to-white dark:from-[#180d26] dark:via-[#11091b] dark:to-[#0b0512] border border-purple-200/90 dark:border-slate-800 shadow-xl flex flex-col justify-between space-y-4">
+          {/* Card 3: Neon Fuchsia & Berry Magenta */}
+          <div className="p-7 rounded-3xl bg-gradient-to-br from-fuchsia-50/90 via-pink-50/30 to-white dark:from-[#22071d] dark:via-[#170413] dark:to-[#0d020a] border border-fuchsia-300/90 dark:border-fuchsia-800/80 shadow-xl flex flex-col justify-between space-y-4 hover:-translate-y-1 hover:shadow-2xl transition-all duration-300">
             <div>
-              <div className="flex items-center justify-between pb-3 border-b border-purple-100 dark:border-slate-800 mb-4">
-                <span className="text-xs font-mono font-bold text-purple-800 dark:text-purple-400 uppercase">Trading Floor Operations</span>
-                <span className="text-xs font-mono font-bold text-purple-800 dark:text-purple-300 bg-purple-50 dark:bg-purple-950/60 px-2.5 py-0.5 rounded-full border border-purple-200 dark:border-purple-800">Macro &amp; Liquidity Hub</span>
+              <div className="flex items-center justify-between pb-3 border-b border-fuchsia-100 dark:border-fuchsia-900/50 mb-4">
+                <span className="text-xs font-mono font-bold text-fuchsia-800 dark:text-fuchsia-300 uppercase">Trading Floor Operations</span>
+                <span className="text-xs font-mono font-bold text-fuchsia-900 dark:text-fuchsia-300 bg-fuchsia-100 dark:bg-fuchsia-950/80 px-2.5 py-0.5 rounded-full border border-fuchsia-300 dark:border-fuchsia-700">Macro &amp; Liquidity Hub</span>
               </div>
-              <h3 className="text-lg font-black text-slate-900 dark:text-white mb-1.5">
-                Multi-Asset Trading Floor Collaboration
+              <h3 className="text-lg font-black mb-1.5">
+                <span className="text-gradient-berry">Multi-Asset Trading Floor Collaboration</span>
               </h3>
               <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
                 Multi-analyst desk layout showing the flow of market data through quant research, risk supervision, and algorithmic order routing.
               </p>
             </div>
 
-            <div className="relative rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-md bg-slate-950 flex items-center justify-center min-h-[260px] group">
+            <div className="relative rounded-2xl overflow-hidden border border-fuchsia-200 dark:border-fuchsia-900 shadow-md bg-slate-950 flex items-center justify-center min-h-[260px] group">
               <img
                 src="/photos/gettyimages-2112329817-612x612.jpg"
                 alt="Institutional Trading Floor"
@@ -329,29 +329,29 @@ export default function HomePage() {
                 style={{ maxHeight: '420px', aspectRatio: '16 / 10' }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none" />
-              <div className="absolute bottom-3 left-3 right-3 p-3 bg-slate-900/90 backdrop-blur-md rounded-xl text-white text-[11px] font-mono flex items-center justify-between border border-slate-800">
+              <div className="absolute bottom-3 left-3 right-3 p-3 bg-slate-900/90 backdrop-blur-md rounded-xl text-white text-[11px] font-mono flex items-center justify-between border border-fuchsia-800/60">
                 <span>Multi-Screen Analyst Hub</span>
-                <span className="text-purple-300 font-bold">24/7 Floor Coverage</span>
+                <span className="text-fuchsia-300 font-bold">24/7 Floor Coverage</span>
               </div>
             </div>
           </div>
 
-          {/* Card 4: Quantitative Mathematics & Stochastic Lab */}
-          <div className="p-7 rounded-3xl bg-gradient-to-br from-amber-50/90 via-orange-50/20 to-white dark:from-[#1b1509] dark:via-[#140f06] dark:to-[#0d0a04] border border-amber-200/90 dark:border-slate-800 shadow-xl flex flex-col justify-between space-y-4">
+          {/* Card 4: Sunset Tangerine & Honey Amber Gold */}
+          <div className="p-7 rounded-3xl bg-gradient-to-br from-amber-50/90 via-orange-50/30 to-white dark:from-[#211204] dark:via-[#160b02] dark:to-[#0c0501] border border-amber-300/90 dark:border-amber-800/80 shadow-xl flex flex-col justify-between space-y-4 hover:-translate-y-1 hover:shadow-2xl transition-all duration-300">
             <div>
-              <div className="flex items-center justify-between pb-3 border-b border-amber-100 dark:border-slate-800 mb-4">
-                <span className="text-xs font-mono font-bold text-amber-800 dark:text-amber-400 uppercase">Stochastic &amp; Risk Mathematics</span>
-                <span className="text-xs font-mono font-bold text-amber-800 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/60 px-2.5 py-0.5 rounded-full border border-amber-200 dark:border-amber-800">Mathematical Calibration</span>
+              <div className="flex items-center justify-between pb-3 border-b border-amber-100 dark:border-amber-900/50 mb-4">
+                <span className="text-xs font-mono font-bold text-amber-800 dark:text-amber-300 uppercase">Stochastic &amp; Risk Mathematics</span>
+                <span className="text-xs font-mono font-bold text-amber-900 dark:text-amber-300 bg-amber-100 dark:bg-amber-950/80 px-2.5 py-0.5 rounded-full border border-amber-300 dark:border-amber-700">Mathematical Calibration</span>
               </div>
-              <h3 className="text-lg font-black text-slate-900 dark:text-white mb-1.5">
-                Kelly Sizing, Brownian Motion &amp; VWAP Math
+              <h3 className="text-lg font-black mb-1.5">
+                <span className="text-gradient-sunset">Kelly Sizing, Brownian Motion &amp; VWAP Math</span>
               </h3>
               <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
                 Every trade suggestion and order slice is backed by verified stochastic formulas: Fractional Kelly allocation, jump diffusion, and Sharpe ratio maximization.
               </p>
             </div>
 
-            <div className="relative rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-md bg-slate-950 flex items-center justify-center min-h-[280px] group">
+            <div className="relative rounded-2xl overflow-hidden border border-amber-200 dark:border-amber-900 shadow-md bg-slate-950 flex items-center justify-center min-h-[280px] group">
               <img
                 src="/photos/pexels-thales13-39398846.jpg"
                 alt="Quantitative Mathematics Blackboard"
@@ -359,7 +359,7 @@ export default function HomePage() {
                 style={{ maxHeight: '420px', aspectRatio: '16 / 10' }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none" />
-              <div className="absolute bottom-3 left-3 right-3 p-3 bg-slate-900/90 backdrop-blur-md rounded-xl text-white text-[11px] font-mono flex items-center justify-between border border-slate-800">
+              <div className="absolute bottom-3 left-3 right-3 p-3 bg-slate-900/90 backdrop-blur-md rounded-xl text-white text-[11px] font-mono flex items-center justify-between border border-amber-800/60">
                 <span>Quantitative Research Lab</span>
                 <span className="text-amber-300 font-bold">Stochastic Calculus</span>
               </div>

@@ -26,13 +26,14 @@ export default function AboutPage() {
       id: 'pillar-1',
       step: '01 // SUGGEST (ALPHA)',
       title: 'How Top Firms Suggest (Alpha Generation)',
+      titleGradient: 'text-gradient-sunset',
       subtitle: 'Statistical Significance & Multi-Factor Scoring',
       image: '/photos/behnam-norouzi-hScr17JG74Q-unsplash.jpg',
       badge: 'Information Ratio > 1.5',
-      badgeColor: 'bg-sky-50 dark:bg-sky-950/60 text-sky-700 dark:text-sky-300 border-sky-300 dark:border-sky-800',
-      cardBg: 'bg-gradient-to-br from-sky-50/90 via-white to-slate-50 dark:from-[#0d1627] dark:via-[#09101f] dark:to-[#070b16] border-sky-200/90 dark:border-slate-800',
+      badgeColor: 'bg-orange-100 dark:bg-orange-950/80 text-orange-900 dark:text-orange-300 border-orange-300 dark:border-orange-700',
+      cardBg: 'bg-gradient-to-br from-orange-50/90 via-amber-50/40 to-white dark:from-[#211204] dark:via-[#160b02] dark:to-[#0c0501] border-orange-300/90 dark:border-orange-800/80',
       icon: Zap,
-      iconColor: 'text-sky-500',
+      iconColor: 'text-orange-500',
       formula: 'f(α) = Σ (w_i · Score_i) ∈ [-100, +100]',
       description:
         'Firms do not speculate on gut feeling. Hundreds of mathematical factors (RSI divergence, MACD volume momentum, Bollinger squeeze, on-chain reserve drain) are computed tick-by-tick. When composite alpha exceeds +35 with high statistical significance, the supervisor publishes an automated BUY recommendation with verified targets.',
@@ -41,13 +42,14 @@ export default function AboutPage() {
       id: 'pillar-2',
       step: '02 // RISK (KELLY SIZING)',
       title: 'How Top Firms Manage Risk (Capital Sizing)',
+      titleGradient: 'text-gradient-lime',
       subtitle: 'Quarter-Kelly Staking & Parametric VaR Limits',
       image: '/photos/gettyimages-2270333130-612x612.jpg',
       badge: 'Quarter-Kelly (0.25x)',
-      badgeColor: 'bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border-emerald-300 dark:border-emerald-800',
-      cardBg: 'bg-gradient-to-br from-emerald-50/90 via-white to-slate-50 dark:from-[#091b1a] dark:via-[#071314] dark:to-[#050e0f] border-emerald-200/90 dark:border-slate-800',
+      badgeColor: 'bg-lime-100 dark:bg-lime-950/80 text-lime-900 dark:text-lime-300 border-lime-300 dark:border-lime-700',
+      cardBg: 'bg-gradient-to-br from-lime-50/90 via-emerald-50/40 to-white dark:from-[#0a2310] dark:via-[#07170a] dark:to-[#030d05] border-lime-300/90 dark:border-lime-800/80',
       icon: ShieldCheck,
-      iconColor: 'text-emerald-500',
+      iconColor: 'text-lime-500',
       formula: 'f* = 0.25 × (p · b - q) / b',
       description:
         'Capital preservation always takes precedence over returns. Trading desks downscale the raw Kelly Criterion to Quarter-Kelly (0.25x) to eliminate ruin risk during fat-tailed drawdowns. 14-period ATR envelopes set dynamic stop-losses, and single-desk Value-at-Risk (VaR) is capped strictly at 2% of equity.',
@@ -56,13 +58,14 @@ export default function AboutPage() {
       id: 'pillar-3',
       step: '03 // BUY/SELL (SMART ROUTING)',
       title: 'How Top Firms Buy & Sell (Execution)',
+      titleGradient: 'text-gradient-cyan',
       subtitle: 'TWAP, VWAP Slicing & Anti-MEV Icebergs',
       image: '/photos/pierre-borthiry-peiobty-vBCVcWUyvyM-unsplash.jpg',
       badge: 'Zero Slippage Routing',
-      badgeColor: 'bg-amber-50 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300 border-amber-300 dark:border-amber-800',
-      cardBg: 'bg-gradient-to-br from-amber-50/90 via-white to-slate-50 dark:from-[#1b1509] dark:via-[#140f06] dark:to-[#0d0a04] border-amber-200/90 dark:border-slate-800',
+      badgeColor: 'bg-cyan-100 dark:bg-cyan-950/80 text-cyan-900 dark:text-cyan-300 border-cyan-300 dark:border-cyan-700',
+      cardBg: 'bg-gradient-to-br from-cyan-50/90 via-sky-50/40 to-white dark:from-[#051722] dark:via-[#031018] dark:to-[#02080d] border-cyan-300/90 dark:border-cyan-800/80',
       icon: SlidersHorizontal,
-      iconColor: 'text-amber-500',
+      iconColor: 'text-cyan-500',
       formula: 'VWAP = Σ (P_i · V_i) / Σ V_i',
       description:
         'Large institutional block orders (₹10,00,000+) are never sent as market orders. Smart order routers decompose orders into micro child slices over 30 to 60-minute windows using TWAP and VWAP algorithms. Iceberg orders mask cumulative sizes to prevent predatory front-running and MEV sandwich bots.',
@@ -71,13 +74,14 @@ export default function AboutPage() {
       id: 'pillar-4',
       step: '04 // MANAGE (DELTA-NEUTRAL)',
       title: 'How Top Firms Manage Portfolios (Hedging)',
+      titleGradient: 'text-gradient-berry',
       subtitle: 'Beta Hedging & Cross-Asset Market Neutrality',
       image: '/photos/gettyimages-2112329817-612x612.jpg',
       badge: 'Market Beta ≈ 0.00',
-      badgeColor: 'bg-purple-50 dark:bg-purple-950/60 text-purple-700 dark:text-purple-300 border-purple-300 dark:border-purple-800',
-      cardBg: 'bg-gradient-to-br from-purple-50/90 via-white to-slate-50 dark:from-[#180d26] dark:via-[#11091b] dark:to-[#0b0512] border-purple-200/90 dark:border-slate-800',
+      badgeColor: 'bg-fuchsia-100 dark:bg-fuchsia-950/80 text-fuchsia-900 dark:text-fuchsia-300 border-fuchsia-300 dark:border-fuchsia-700',
+      cardBg: 'bg-gradient-to-br from-fuchsia-50/90 via-pink-50/40 to-white dark:from-[#250926] dark:via-[#19061a] dark:to-[#0f0310] border-fuchsia-300/90 dark:border-fuchsia-800/80',
       icon: Layers,
-      iconColor: 'text-purple-500',
+      iconColor: 'text-fuchsia-500',
       formula: 'Hedge = - Σ (w_i · β_i) × Futures_BTC',
       description:
         'Firms neutralize broader directional volatility by maintaining a zero-beta portfolio. They hold high-conviction long positions in strong crypto assets while simultaneously shorting equivalent beta exposure on BTC/ETH perpetuals, unlocking uncorrelated returns regardless of market direction.',
@@ -88,12 +92,13 @@ export default function AboutPage() {
     {
       id: 'agent-1',
       title: 'Technical Indicator & Trend Specialist',
+      titleGradient: 'text-gradient-cyan',
       role: 'Multi-Timeframe Confluence & Volatility Envelopes',
       image: '/photos/pexels-thales13-39589930.jpg',
       icon: Zap,
-      accentText: 'text-sky-600 dark:text-sky-400',
-      accentBg: 'bg-sky-50 dark:bg-sky-950/50 border-sky-200 dark:border-sky-800',
-      cardBorder: 'border-sky-300/80 dark:border-sky-800/80',
+      accentText: 'text-cyan-600 dark:text-cyan-400',
+      accentBg: 'bg-cyan-100 dark:bg-cyan-950/60 border-cyan-300 dark:border-cyan-700',
+      cardBorder: 'border-cyan-300/90 dark:border-cyan-800/80',
       tag: '50/200 SMA · RSI(14) · ATR',
       description:
         'Computes dynamic 50/200 SMA golden and death crosses, 20 EMA trailing support, RSI(14) divergence regimes, MACD signal line crossovers, Bollinger Band squeeze breakout states, and 14-period Average True Range (ATR) volatility envelopes in real time.',
@@ -101,12 +106,13 @@ export default function AboutPage() {
     {
       id: 'agent-2',
       title: 'On-Chain & Liquidity Microstructure Specialist',
+      titleGradient: 'text-gradient-lime',
       role: 'Order Book Depth, Whale Inflows & Exchange Reserves',
       image: '/photos/kanchanara-7cmA9ZL5dDk-unsplash.jpg',
       icon: Database,
-      accentText: 'text-emerald-600 dark:text-emerald-400',
-      accentBg: 'bg-emerald-50 dark:bg-emerald-950/50 border-emerald-200 dark:border-emerald-800',
-      cardBorder: 'border-emerald-300/80 dark:border-emerald-800/80',
+      accentText: 'text-lime-600 dark:text-lime-400',
+      accentBg: 'bg-lime-100 dark:bg-lime-950/60 border-lime-300 dark:border-lime-700',
+      cardBorder: 'border-lime-300/90 dark:border-lime-800/80',
       tag: 'CEX Reserves · Net Inflows · Book Depth',
       description:
         'Monitors centralized exchange net deposit/withdrawal flows, 24-hour volume-to-market-cap velocity, perpetual funding rate overheating, open interest (OI) leverage clusters, and order book bid-ask liquidity absorption.',
@@ -114,12 +120,13 @@ export default function AboutPage() {
     {
       id: 'agent-3',
       title: 'Macro Narrative & RAG Analogs Specialist',
+      titleGradient: 'text-gradient-berry',
       role: 'Vector Embeddings, Halving Cycles & Fed Liquidity',
       image: '/photos/behnam-norouzi-RDXcFY5g5O4-unsplash.jpg',
       icon: Network,
-      accentText: 'text-purple-600 dark:text-purple-400',
-      accentBg: 'bg-purple-50 dark:bg-purple-950/50 border-purple-200 dark:border-purple-800',
-      cardBorder: 'border-purple-300/80 dark:border-purple-800/80',
+      accentText: 'text-fuchsia-600 dark:text-fuchsia-400',
+      accentBg: 'bg-fuchsia-100 dark:bg-fuchsia-950/60 border-fuchsia-300 dark:border-fuchsia-700',
+      cardBorder: 'border-fuchsia-300/90 dark:border-fuchsia-800/80',
       tag: 'Semantic RAG · Halving Supply · M2 Global',
       description:
         'Queries an in-memory semantic vector store containing deep domain knowledge: 2016, 2020, and 2024 post-halving structural supply constriction, Global M2 expansion correlation, Fed interest rate easing cycles, and spot ETF liquidity absorption.',
@@ -127,12 +134,13 @@ export default function AboutPage() {
     {
       id: 'agent-4',
       title: 'Predictive Horizon & Risk Boundary Specialist',
+      titleGradient: 'text-gradient-sunset',
       role: 'Monte Carlo Scenarios & Exact INR Target Invalidation',
       image: '/photos/kanchanara-GnWfl_nnZro-unsplash.jpg',
       icon: TrendingUp,
       accentText: 'text-amber-600 dark:text-amber-400',
-      accentBg: 'bg-amber-50 dark:bg-amber-950/50 border-amber-200 dark:border-amber-800',
-      cardBorder: 'border-amber-300/80 dark:border-amber-800/80',
+      accentBg: 'bg-amber-100 dark:bg-amber-950/60 border-amber-300 dark:border-amber-700',
+      cardBorder: 'border-amber-300/90 dark:border-amber-800/80',
       tag: 'Bull/Base/Bear · 24h/7d/30d · ₹ Targets',
       description:
         'Synthesizes multi-horizon price envelopes for 24 hours, 7 days, and 30 days. Generates dynamic Bull, Base, and Bear scenarios with explicit probabilities, optimal entry targets, and structural invalidation stop-loss levels in INR.',
@@ -234,8 +242,8 @@ export default function AboutPage() {
                       <Icon className={`w-5 h-5 ${p.iconColor}`} />
                     </div>
                     <div>
-                      <h3 className="text-lg sm:text-xl font-black text-slate-900 dark:text-white leading-snug">
-                        {p.title}
+                      <h3 className="text-lg sm:text-xl font-black leading-snug">
+                        <span className={p.titleGradient}>{p.title}</span>
                       </h3>
                       <p className="text-xs font-mono text-slate-500 dark:text-slate-400">
                         {p.subtitle}
@@ -370,8 +378,8 @@ export default function AboutPage() {
                         <Icon className={`w-5 h-5 ${ag.accentText}`} />
                       </div>
                       <div>
-                        <h4 className="text-base font-black text-slate-900 dark:text-white leading-tight">
-                          {ag.title}
+                        <h4 className="text-base font-black leading-tight">
+                          <span className={ag.titleGradient}>{ag.title}</span>
                         </h4>
                         <span className="text-xs font-mono text-slate-500 dark:text-slate-400 font-medium">
                           {ag.role}

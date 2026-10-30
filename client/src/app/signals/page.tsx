@@ -132,11 +132,11 @@ function SignalsTerminal() {
               <div className="flex flex-wrap items-center gap-2 sm:gap-3">
                 <Star className="w-4 h-4 sm:w-5 sm:h-5 text-amber-400 fill-amber-400" />
                 <h1 className="text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight">
-                  <span className="bg-gradient-to-r from-emerald-600 via-teal-600 to-sky-600 dark:from-emerald-400 dark:via-teal-300 dark:to-sky-400 bg-clip-text text-transparent">
-                    {currentAsset ? `${currentAsset.symbol}/INR` : `${selectedSymbol}/INR`}
+                  <span className="text-gradient-rainbow">
+                    {currentAsset ? `${currentAsset.symbol} / INR` : `${selectedSymbol} / INR`}
                   </span>
                 </h1>
-                <span className="text-[10px] sm:text-[11px] font-mono px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800 font-extrabold shadow-sm">
+                <span className="text-[10px] sm:text-[11px] font-mono px-3 py-1 rounded-full bg-cyan-50 dark:bg-cyan-950/60 text-cyan-800 dark:text-cyan-300 border border-cyan-300 dark:border-cyan-800 font-extrabold shadow-sm">
                   CoinSwitchX L2
                 </span>
               </div>
@@ -148,11 +148,11 @@ function SignalsTerminal() {
                   {currentAsset && currentAsset.change24h >= 0 ? '+' : ''}{currentAsset?.change24h}%
                 </span>
                 <span className="text-slate-300 dark:text-slate-700 hidden sm:inline">|</span>
-                <span className="text-[11px] sm:text-xs">24H High: <strong className="text-slate-900 dark:text-slate-200">{currentAsset ? formatINR(currentAsset.high24h) : '...'}</strong></span>
+                <span className="text-[11px] sm:text-xs">24H High: <strong className="text-amber-600 dark:text-amber-400 font-bold">{currentAsset ? formatINR(currentAsset.high24h) : '...'}</strong></span>
                 <span className="text-slate-300 dark:text-slate-700 hidden sm:inline">|</span>
-                <span className="text-[11px] sm:text-xs">24H Low: <strong className="text-slate-900 dark:text-slate-200">{currentAsset ? formatINR(currentAsset.low24h) : '...'}</strong></span>
+                <span className="text-[11px] sm:text-xs">24H Low: <strong className="text-rose-600 dark:text-rose-400 font-bold">{currentAsset ? formatINR(currentAsset.low24h) : '...'}</strong></span>
                 <span className="text-slate-300 dark:text-slate-700 hidden sm:inline">|</span>
-                <span className="text-[11px] sm:text-xs">24H Vol: <strong className="text-emerald-600 dark:text-emerald-400 font-black">{currentAsset ? formatINRLarge(currentAsset.volume24h) : '...'}</strong></span>
+                <span className="text-[11px] sm:text-xs">24H Vol: <strong className="text-cyan-600 dark:text-cyan-400 font-black">{currentAsset ? formatINRLarge(currentAsset.volume24h) : '...'}</strong></span>
               </div>
             </div>
           </div>
@@ -174,7 +174,7 @@ function SignalsTerminal() {
             <button
               onClick={() => fetchTerminalData(selectedSymbol)}
               disabled={isLoading}
-              className="px-5 py-2.5 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-700 hover:from-emerald-500 hover:to-teal-600 text-white font-mono font-black text-xs flex items-center gap-2 shadow-md transition-all disabled:opacity-50 hover:-translate-y-0.5 active:translate-y-0"
+              className="px-5 py-2.5 rounded-2xl bg-gradient-to-r from-amber-500 via-rose-500 to-fuchsia-600 hover:from-amber-400 hover:to-fuchsia-500 text-white font-mono font-black text-xs flex items-center gap-2 shadow-md transition-all disabled:opacity-50 hover:-translate-y-0.5 active:translate-y-0"
             >
               <RefreshCw className={`w-3.5 h-3.5 ${isLoading ? 'animate-spin' : ''}`} />
               <span>Re-Run Quant Consensus</span>
@@ -182,24 +182,24 @@ function SignalsTerminal() {
           </div>
         </div>
 
-        {/* Real-Time Price Metrics Strip */}
+        {/* Real-Time Price Metrics Strip with Multi-Color Tints */}
         {currentAsset && (
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 font-mono text-xs">
-            <div className="p-3.5 sm:p-4 rounded-2xl bg-slate-50 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 shadow-sm">
-              <span className="text-slate-500 dark:text-slate-400 text-[10px] block font-bold uppercase">24h High (₹)</span>
-              <span className="text-slate-950 dark:text-white font-black text-sm sm:text-base mt-1 block font-mono">{formatINR(currentAsset.high24h)}</span>
+            <div className="p-3.5 sm:p-4 rounded-2xl bg-gradient-to-br from-amber-50/90 via-orange-50/30 to-white dark:from-[#211204] dark:to-slate-950 border border-amber-300/90 dark:border-amber-700/80 shadow-sm hover:shadow-md transition-all">
+              <span className="text-amber-800 dark:text-amber-300 text-[10px] block font-bold uppercase">24h High (₹)</span>
+              <span className="text-gradient-gold font-black text-base sm:text-lg mt-1 block font-mono">{formatINR(currentAsset.high24h)}</span>
             </div>
-            <div className="p-3.5 sm:p-4 rounded-2xl bg-slate-50 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 shadow-sm">
-              <span className="text-slate-500 dark:text-slate-400 text-[10px] block font-bold uppercase">24h Low (₹)</span>
-              <span className="text-slate-950 dark:text-white font-black text-sm sm:text-base mt-1 block font-mono">{formatINR(currentAsset.low24h)}</span>
+            <div className="p-3.5 sm:p-4 rounded-2xl bg-gradient-to-br from-rose-50/90 via-red-50/30 to-white dark:from-[#26070e] dark:to-slate-950 border border-rose-300/90 dark:border-rose-700/80 shadow-sm hover:shadow-md transition-all">
+              <span className="text-rose-800 dark:text-rose-300 text-[10px] block font-bold uppercase">24h Low (₹)</span>
+              <span className="text-gradient-sunset font-black text-base sm:text-lg mt-1 block font-mono">{formatINR(currentAsset.low24h)}</span>
             </div>
-            <div className="p-3.5 sm:p-4 rounded-2xl bg-emerald-50/50 dark:bg-emerald-950/30 border border-emerald-200/90 dark:border-emerald-800/80 shadow-sm">
-              <span className="text-emerald-800 dark:text-emerald-400 text-[10px] block font-bold uppercase">24h Volume</span>
-              <span className="text-emerald-700 dark:text-emerald-300 font-black text-sm sm:text-base mt-1 block font-mono">{formatINRLarge(currentAsset.volume24h)}</span>
+            <div className="p-3.5 sm:p-4 rounded-2xl bg-gradient-to-br from-cyan-50/90 via-teal-50/30 to-white dark:from-[#041a22] dark:to-slate-950 border border-cyan-300/90 dark:border-cyan-700/80 shadow-sm hover:shadow-md transition-all">
+              <span className="text-cyan-800 dark:text-cyan-300 text-[10px] block font-bold uppercase">24h Volume</span>
+              <span className="text-gradient-cyan font-black text-base sm:text-lg mt-1 block font-mono">{formatINRLarge(currentAsset.volume24h)}</span>
             </div>
-            <div className="p-3.5 sm:p-4 rounded-2xl bg-sky-50/50 dark:bg-sky-950/30 border border-sky-200/90 dark:border-sky-800/80 shadow-sm">
-              <span className="text-sky-800 dark:text-sky-400 text-[10px] block font-bold uppercase">Market Cap</span>
-              <span className="text-sky-700 dark:text-sky-300 font-black text-sm sm:text-base mt-1 block font-mono">{formatINRLarge(currentAsset.marketCap)}</span>
+            <div className="p-3.5 sm:p-4 rounded-2xl bg-gradient-to-br from-fuchsia-50/90 via-purple-50/30 to-white dark:from-[#240822] dark:to-slate-950 border border-fuchsia-300/90 dark:border-fuchsia-700/80 shadow-sm hover:shadow-md transition-all">
+              <span className="text-fuchsia-800 dark:text-fuchsia-300 text-[10px] block font-bold uppercase">Market Cap</span>
+              <span className="text-gradient-berry font-black text-base sm:text-lg mt-1 block font-mono">{formatINRLarge(currentAsset.marketCap)}</span>
             </div>
           </div>
         )}

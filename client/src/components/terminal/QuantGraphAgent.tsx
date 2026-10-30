@@ -181,7 +181,7 @@ Optimal entry is favored near support at ${formatINR(supportLevelINR, true)}, wi
             </div>
 
             <h3 className="text-xl sm:text-2xl lg:text-3xl font-black tracking-tight leading-snug">
-              <span className="bg-gradient-to-r from-emerald-600 via-teal-600 to-sky-600 dark:from-emerald-400 dark:via-teal-300 dark:to-sky-400 bg-clip-text text-transparent">
+              <span className="text-gradient-rainbow">
                 AI Quantitative &amp; Graph Analysis Agent
               </span>
             </h3>
@@ -208,14 +208,14 @@ Optimal entry is favored near support at ${formatINR(supportLevelINR, true)}, wi
       {/* 3 Prominent Analysis Tiles with Rich Tinted Background Colors & Clear Spacing */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
         
-        {/* Tile 1: Quantitative Audit Tile (Rich Emerald / Teal Tint) */}
-        <div className="p-6 rounded-2xl bg-gradient-to-br from-emerald-50/90 via-teal-50/40 to-white dark:from-emerald-950/40 dark:via-[#0c1818] dark:to-slate-950 border border-emerald-200/90 dark:border-emerald-800/80 shadow-sm flex flex-col justify-between space-y-4 hover:-translate-y-1 hover:shadow-md transition-all duration-200">
-          <div className="flex items-center justify-between pb-3 border-b border-emerald-100 dark:border-emerald-900/50">
-            <span className="text-xs font-bold text-emerald-950 dark:text-emerald-300 uppercase tracking-wider flex items-center gap-1.5">
-              <Zap className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+        {/* Tile 1: Quantitative Audit Tile (Rich Cyan / Turquoise Tint) */}
+        <div className="p-6 rounded-2xl bg-gradient-to-br from-cyan-50/90 via-sky-50/30 to-white dark:from-[#081a24] dark:via-[#0c1620] dark:to-slate-950 border border-cyan-300/90 dark:border-cyan-700/80 shadow-sm flex flex-col justify-between space-y-4 hover:-translate-y-1 hover:shadow-md transition-all duration-200">
+          <div className="flex items-center justify-between pb-3 border-b border-cyan-100 dark:border-cyan-900/50">
+            <span className="text-xs font-bold text-cyan-950 dark:text-cyan-300 uppercase tracking-wider flex items-center gap-1.5">
+              <Zap className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />
               1. Quantitative Confluence
             </span>
-            <span className="text-xs font-mono font-black px-2.5 py-0.5 rounded-md bg-emerald-100 dark:bg-emerald-900/60 text-emerald-900 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-700">
+            <span className="text-xs font-mono font-black px-2.5 py-0.5 rounded-md bg-cyan-100 dark:bg-cyan-900/60 text-cyan-900 dark:text-cyan-300 border border-cyan-300 dark:border-cyan-700">
               {quantScore}/100 Score
             </span>
           </div>
@@ -241,19 +241,19 @@ Optimal entry is favored near support at ${formatINR(supportLevelINR, true)}, wi
             </div>
           </div>
 
-          <div className="p-3 rounded-xl bg-white/90 dark:bg-[#0c1017] border border-emerald-200/80 dark:border-emerald-900/60 text-xs text-emerald-950 dark:text-emerald-300 leading-relaxed font-normal">
+          <div className="p-3 rounded-xl bg-white/90 dark:bg-[#0c1017] border border-cyan-200/80 dark:border-cyan-900/60 text-xs text-cyan-950 dark:text-cyan-300 leading-relaxed font-normal">
             Statistical indicators reveal <strong>{quantScore >= 60 ? 'sustained institutional accumulation' : 'cautious range contraction'}</strong> across volume-weighted bands.
           </div>
         </div>
 
-        {/* Tile 2: Graph Analysis Tile (Rich Sky Blue / Cobalt Tint) */}
-        <div className="p-6 rounded-2xl bg-gradient-to-br from-sky-50/90 via-blue-50/40 to-white dark:from-sky-950/40 dark:via-[#0c1420] dark:to-slate-950 border border-sky-200/90 dark:border-sky-800/80 shadow-sm flex flex-col justify-between space-y-4 hover:-translate-y-1 hover:shadow-md transition-all duration-200">
-          <div className="flex items-center justify-between pb-3 border-b border-sky-100 dark:border-sky-900/50">
-            <span className="text-xs font-bold text-sky-950 dark:text-sky-300 uppercase tracking-wider flex items-center gap-1.5">
-              <BarChart3 className="w-4 h-4 text-sky-600 dark:text-sky-400" />
+        {/* Tile 2: Graph Analysis Tile (Warm Amber / Honey Gold Tint) */}
+        <div className="p-6 rounded-2xl bg-gradient-to-br from-amber-50/90 via-orange-50/30 to-white dark:from-[#221606] dark:via-[#191005] dark:to-slate-950 border border-amber-300/90 dark:border-amber-700/80 shadow-sm flex flex-col justify-between space-y-4 hover:-translate-y-1 hover:shadow-md transition-all duration-200">
+          <div className="flex items-center justify-between pb-3 border-b border-amber-100 dark:border-amber-900/50">
+            <span className="text-xs font-bold text-amber-950 dark:text-amber-300 uppercase tracking-wider flex items-center gap-1.5">
+              <BarChart3 className="w-4 h-4 text-amber-600 dark:text-amber-400" />
               2. Graph &amp; Price Action
             </span>
-            <span className="text-xs font-mono font-black px-2.5 py-0.5 rounded-md bg-sky-100 dark:bg-sky-900/60 text-sky-900 dark:text-sky-300 border border-sky-300 dark:border-sky-700">
+            <span className="text-xs font-mono font-black px-2.5 py-0.5 rounded-md bg-amber-100 dark:bg-amber-900/60 text-amber-900 dark:text-amber-300 border border-amber-300 dark:border-amber-700">
               1D Structure
             </span>
           </div>
@@ -273,7 +273,7 @@ Optimal entry is favored near support at ${formatINR(supportLevelINR, true)}, wi
             </div>
           </div>
 
-          <div className="p-3 rounded-xl bg-white/90 dark:bg-[#0c1017] border border-sky-200/80 dark:border-sky-900/60 text-xs text-sky-950 dark:text-sky-300 leading-relaxed font-normal">
+          <div className="p-3 rounded-xl bg-white/90 dark:bg-[#0c1017] border border-amber-200/80 dark:border-amber-900/60 text-xs text-amber-950 dark:text-amber-300 leading-relaxed font-normal">
             Candlestick geometry shows ascending swing-lows confirming support defence at <strong>{formatINR(supportLevelINR, true)}</strong>.
           </div>
         </div>
