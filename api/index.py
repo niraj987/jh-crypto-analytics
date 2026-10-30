@@ -9,7 +9,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from data_loader import fetch_crypto_data
 from indicators import add_all_indicators, get_investment_signal
-from visualizer import create_price_chart, create_macd_chart, create_rsi_chart
+from visualizer import create_price_chart, create_macd_chart, create_rsi_chart, create_atr_chart
 import auth_db
 
 # Initialize database
@@ -68,11 +68,13 @@ def analyze(ticker: str):
         price_fig = create_price_chart(df, ticker.upper())
         macd_fig = create_macd_chart(df)
         rsi_fig = create_rsi_chart(df)
+        atr_fig = create_atr_chart(df)
         
         # Strip background for web integration
         price_fig.update_layout(margin=dict(l=40, r=40, t=10, b=40), paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
         macd_fig.update_layout(margin=dict(l=40, r=40, t=50, b=40), paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
         rsi_fig.update_layout(margin=dict(l=40, r=40, t=50, b=40), paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+        atr_fig.update_layout(margin=dict(l=40, r=40, t=50, b=40), paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
         
         return {
             "success": True,
@@ -86,7 +88,8 @@ def analyze(ticker: str):
             "charts": {
                 "price": json.loads(price_fig.to_json()),
                 "macd": json.loads(macd_fig.to_json()),
-                "rsi": json.loads(rsi_fig.to_json())
+                "rsi": json.loads(rsi_fig.to_json()),
+                "atr": json.loads(atr_fig.to_json())
             }
         }
     except Exception as e:

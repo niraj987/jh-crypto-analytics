@@ -1,0 +1,29 @@
+{
+  "name": "crypto-ai-server",
+  "version": "1.0.0",
+  "description": "Multi-Agent Crypto Terminal Backend with LangGraph & Express",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "test:graph": "tsx test-graph.ts"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "ws": "^8.18.0",
+    "axios": "^1.7.9",
+    "@langchain/core": "^0.3.38",
+    "@langchain/langgraph": "^0.2.45"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "@types/express": "^5.0.0",
+    "@types/cors": "^2.8.17",
+    "@types/ws": "^8.5.13",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}

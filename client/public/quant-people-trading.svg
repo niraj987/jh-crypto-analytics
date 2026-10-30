@@ -1,0 +1,203 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="50%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#090d16" />
+    </linearGradient>
+    <linearGradient id="screenGlow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0ea5e9" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#10b981" stop-opacity="0.05" />
+    </linearGradient>
+    <linearGradient id="bullGreen" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#059669" />
+      <stop offset="100%" stop-color="#34d399" />
+    </linearGradient>
+    <linearGradient id="deskGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#334155" />
+      <stop offset="50%" stop-color="#475569" />
+      <stop offset="100%" stop-color="#334155" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background Floor & Architectural Grid -->
+  <rect width="800" height="480" fill="url(#bgGrad)" rx="24"/>
+  <path d="M 0 340 L 800 340 M 0 380 L 800 380 M 0 420 L 800 420 M 0 460 L 800 460" stroke="#334155" stroke-opacity="0.3" stroke-width="1"/>
+  <path d="M 100 340 L 40 480 M 250 340 L 200 480 M 400 340 L 400 480 M 550 340 L 600 480 M 700 340 L 760 480" stroke="#334155" stroke-opacity="0.3" stroke-width="1"/>
+
+  <!-- Background Big Curved Video Wall (Wall Street / London Quant Trading Floor) -->
+  <rect x="60" y="30" width="680" height="150" rx="16" fill="#111827" stroke="#38bdf8" stroke-opacity="0.4" stroke-width="1.5"/>
+  <rect x="60" y="30" width="680" height="150" rx="16" fill="url(#screenGlow)"/>
+
+  <!-- Video Wall Contents: Multi-Asset Depth & Candlestick Charts -->
+  <path d="M 80 130 L 120 110 L 160 125 L 200 95 L 240 105 L 280 75 L 320 85 L 360 55 L 400 70 L 440 45" fill="none" stroke="#10b981" stroke-width="2.5" filter="url(#glow)"/>
+  <path d="M 440 140 L 480 120 L 520 135 L 560 100 L 600 115 L 640 80 L 680 90 L 720 60" fill="none" stroke="#38bdf8" stroke-width="2" filter="url(#glow)"/>
+
+  <!-- Candlesticks on Wall -->
+  <g fill="#10b981" stroke="#10b981">
+    <line x1="120" y1="95" x2="120" y2="135" stroke-width="1"/>
+    <rect x="117" y="102" width="6" height="18" rx="1"/>
+    <line x1="150" y1="100" x2="150" y2="140" stroke-width="1"/>
+    <rect x="147" y="110" width="6" height="16" rx="1"/>
+    <line x1="180" y1="80" x2="180" y2="120" stroke-width="1"/>
+    <rect x="177" y="85" width="6" height="24" rx="1"/>
+    <line x1="210" y1="70" x2="210" y2="110" stroke-width="1"/>
+    <rect x="207" y="75" width="6" height="20" rx="1"/>
+    <line x1="240" y1="60" x2="240" y2="105" stroke-width="1"/>
+    <rect x="237" y="65" width="6" height="25" rx="1"/>
+  </g>
+  <g fill="#f43f5e" stroke="#f43f5e">
+    <line x1="270" y1="75" x2="270" y2="125" stroke-width="1"/>
+    <rect x="267" y="85" width="6" height="22" rx="1"/>
+    <line x1="300" y1="90" x2="300" y2="130" stroke-width="1"/>
+    <rect x="297" y="95" width="6" height="20" rx="1"/>
+  </g>
+
+  <!-- Wall Text & Institutional Metrics -->
+  <text x="80" y="55" fill="#f8fafc" font-family="monospace" font-size="12" font-weight="bold">JH CRYPTO ANALYTICS // INSTITUTIONAL DESK TICKER</text>
+  <text x="80" y="75" fill="#34d399" font-family="monospace" font-size="14" font-weight="bold">BTC/INR ₹58,01,175 (+3.4%)</text>
+  <text x="320" y="75" fill="#38bdf8" font-family="monospace" font-size="14" font-weight="bold">ETH/INR ₹3,02,670 (+2.1%)</text>
+  <text x="560" y="75" fill="#fbbf24" font-family="monospace" font-size="14" font-weight="bold">SOL/INR ₹15,603 (+5.8%)</text>
+
+  <!-- Order Book Depth columns on wall -->
+  <g opacity="0.6">
+    <rect x="520" y="95" width="30" height="50" fill="#10b981" rx="2" opacity="0.3"/>
+    <rect x="555" y="105" width="30" height="40" fill="#10b981" rx="2" opacity="0.4"/>
+    <rect x="590" y="115" width="30" height="30" fill="#10b981" rx="2" opacity="0.5"/>
+    <rect x="630" y="115" width="30" height="30" fill="#f43f5e" rx="2" opacity="0.5"/>
+    <rect x="665" y="105" width="30" height="40" fill="#f43f5e" rx="2" opacity="0.4"/>
+    <rect x="700" y="95" width="30" height="50" fill="#f43f5e" rx="2" opacity="0.3"/>
+  </g>
+
+  <!-- Institutional Trading Desks (Midground) -->
+  <rect x="70" y="270" width="310" height="14" rx="4" fill="url(#deskGrad)" stroke="#64748b" stroke-width="1"/>
+  <rect x="420" y="270" width="310" height="14" rx="4" fill="url(#deskGrad)" stroke="#64748b" stroke-width="1"/>
+
+  <!-- Trading Monitors on Desk 1 (Left Desk: 3 Monitors) -->
+  <!-- Monitor 1 (Left) -->
+  <rect x="90" y="210" width="75" height="52" rx="4" fill="#0f172a" stroke="#38bdf8" stroke-width="1.5"/>
+  <line x1="127" y1="262" x2="127" y2="270" stroke="#64748b" stroke-width="3"/>
+  <!-- Mini chart on monitor 1 -->
+  <path d="M 95 245 L 110 235 L 125 240 L 140 220 L 155 228" fill="none" stroke="#10b981" stroke-width="1.5"/>
+  
+  <!-- Monitor 2 (Center) -->
+  <rect x="180" y="195" width="90" height="65" rx="4" fill="#0f172a" stroke="#10b981" stroke-width="2"/>
+  <line x1="225" y1="260" x2="225" y2="270" stroke="#64748b" stroke-width="4"/>
+  <!-- Depth & Candlesticks on Center Monitor -->
+  <path d="M 188 235 L 202 225 L 216 230 L 230 212 L 244 218 L 258 208" fill="none" stroke="#34d399" stroke-width="2"/>
+  <circle cx="258" cy="208" r="3" fill="#34d399" filter="url(#glow)"/>
+
+  <!-- Monitor 3 (Right) -->
+  <rect x="285" y="210" width="75" height="52" rx="4" fill="#0f172a" stroke="#a855f7" stroke-width="1.5"/>
+  <line x1="322" y1="262" x2="322" y2="270" stroke="#64748b" stroke-width="3"/>
+  <!-- Terminal code lines on Monitor 3 -->
+  <line x1="292" y1="220" x2="340" y2="220" stroke="#a855f7" stroke-width="2"/>
+  <line x1="292" y1="228" x2="330" y2="228" stroke="#cbd5e1" stroke-width="1.5"/>
+  <line x1="292" y1="236" x2="350" y2="236" stroke="#cbd5e1" stroke-width="1.5"/>
+  <line x1="292" y1="244" x2="320" y2="244" stroke="#38bdf8" stroke-width="1.5"/>
+
+  <!-- Trading Monitors on Desk 2 (Right Desk: 3 Monitors) -->
+  <!-- Monitor 4 -->
+  <rect x="440" y="210" width="75" height="52" rx="4" fill="#0f172a" stroke="#f59e0b" stroke-width="1.5"/>
+  <line x1="477" y1="262" x2="477" y2="270" stroke="#64748b" stroke-width="3"/>
+  <!-- Heatmap on Monitor 4 -->
+  <rect x="448" y="218" width="16" height="16" fill="#10b981" rx="2" opacity="0.8"/>
+  <rect x="468" y="218" width="16" height="16" fill="#10b981" rx="2" opacity="0.6"/>
+  <rect x="488" y="218" width="16" height="16" fill="#f43f5e" rx="2" opacity="0.7"/>
+  <rect x="448" y="238" width="16" height="16" fill="#10b981" rx="2" opacity="0.9"/>
+  <rect x="468" y="238" width="16" height="16" fill="#f43f5e" rx="2" opacity="0.5"/>
+  <rect x="488" y="238" width="16" height="16" fill="#10b981" rx="2" opacity="0.7"/>
+
+  <!-- Monitor 5 (Center Right) -->
+  <rect x="530" y="195" width="90" height="65" rx="4" fill="#0f172a" stroke="#38bdf8" stroke-width="2"/>
+  <line x1="575" y1="260" x2="575" y2="270" stroke="#64748b" stroke-width="4"/>
+  <!-- Multi-Asset Wave on Monitor 5 -->
+  <path d="M 538 240 Q 555 210, 575 228 T 612 205" fill="none" stroke="#38bdf8" stroke-width="2"/>
+
+  <!-- Monitor 6 -->
+  <rect x="635" y="210" width="75" height="52" rx="4" fill="#0f172a" stroke="#10b981" stroke-width="1.5"/>
+  <line x1="672" y1="262" x2="672" y2="270" stroke="#64748b" stroke-width="3"/>
+  <circle cx="672" cy="235" r="14" fill="none" stroke="#10b981" stroke-width="3" stroke-dasharray="60 30"/>
+
+  <!-- PEOPLE TRADING: Quant Portfolio Manager & Algo Traders (Silhouette / Stylized Pro Vectors) -->
+  
+  <!-- Trader 1 (Left Desk Trader sitting focused at screens) -->
+  <g transform="translate(195, 240)">
+    <!-- Ergonomic Chair Back -->
+    <rect x="8" y="30" width="44" height="60" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+    <!-- Trader Head -->
+    <circle cx="30" cy="18" r="14" fill="#cbd5e1"/>
+    <!-- Headset -->
+    <path d="M 16 18 A 14 14 0 0 1 44 18" fill="none" stroke="#38bdf8" stroke-width="3"/>
+    <rect x="14" y="14" width="4" height="8" rx="2" fill="#38bdf8"/>
+    <rect x="42" y="14" width="4" height="8" rx="2" fill="#38bdf8"/>
+    <!-- Trader Torso & Jacket -->
+    <path d="M 10 35 L 50 35 L 55 90 L 5 90 Z" fill="#0284c7"/>
+    <!-- White Shirt Collar & Tie -->
+    <polygon points="26,35 34,35 32,55 30,60 28,55" fill="#f8fafc"/>
+    <polygon points="29,40 31,40 32,52 30,58 28,52" fill="#10b981"/>
+    <!-- Arm Gesturing toward Center Screen -->
+    <path d="M 45 42 L 68 32 L 72 34" stroke="#0284c7" stroke-width="8" stroke-linecap="round"/>
+  </g>
+
+  <!-- Trader 2 (Lead Quant Standing, pointing at Trading Floor Wall) -->
+  <g transform="translate(370, 200)">
+    <!-- Lead Quant Head -->
+    <circle cx="28" cy="14" r="13" fill="#e2e8f0"/>
+    <!-- Torso (Navy Blazer) -->
+    <path d="M 10 30 L 46 30 L 52 95 L 4 95 Z" fill="#0f172a" stroke="#1e293b" stroke-width="1"/>
+    <!-- Tie & Shirt -->
+    <polygon points="25,30 31,30 30,48 28,52 26,48" fill="#f8fafc"/>
+    <polygon points="27,33 29,33 30,45 28,50 26,45" fill="#f59e0b"/>
+    <!-- Right Arm pointing up toward Wall Board -->
+    <path d="M 44 38 L 65 15 L 75 8" stroke="#0f172a" stroke-width="7" stroke-linecap="round"/>
+    <circle cx="75" cy="8" r="3" fill="#e2e8f0"/>
+    <!-- Left Hand on Hip / Holding Tablet -->
+    <path d="M 12 38 L 0 55 L 8 68" stroke="#0f172a" stroke-width="7" stroke-linecap="round"/>
+    <!-- Tablet in hand with glowing screen -->
+    <rect x="5" y="60" width="16" height="22" rx="2" fill="#0284c7" stroke="#38bdf8" stroke-width="1"/>
+    <!-- Legs -->
+    <rect x="10" y="95" width="12" height="65" rx="3" fill="#1e293b"/>
+    <rect x="34" y="95" width="12" height="65" rx="3" fill="#1e293b"/>
+  </g>
+
+  <!-- Trader 3 (Right Desk Execution Trader analyzing risk) -->
+  <g transform="translate(545, 240)">
+    <!-- Ergonomic Chair -->
+    <rect x="8" y="30" width="44" height="60" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+    <!-- Trader Head -->
+    <circle cx="30" cy="18" r="14" fill="#cbd5e1"/>
+    <!-- Torso -->
+    <path d="M 10 35 L 50 35 L 55 90 L 5 90 Z" fill="#059669"/>
+    <!-- Collar & Tie -->
+    <polygon points="26,35 34,35 32,55 30,60 28,55" fill="#f8fafc"/>
+    <!-- Hands on Keyboard Typing Algo Orders -->
+    <path d="M 15 45 L 2 55 L 12 65" stroke="#059669" stroke-width="7" stroke-linecap="round"/>
+    <path d="M 45 45 L 58 55 L 48 65" stroke="#059669" stroke-width="7" stroke-linecap="round"/>
+  </g>
+
+  <!-- Desk Equipment & Glowing Keyboards -->
+  <rect x="200" y="272" width="50" height="4" rx="2" fill="#38bdf8" opacity="0.6"/>
+  <rect x="550" y="272" width="50" height="4" rx="2" fill="#10b981" opacity="0.6"/>
+
+  <!-- Quant Telemetry Overlay Badge (Top Right) -->
+  <g transform="translate(590, 40)">
+    <rect width="135" height="32" rx="8" fill="#0f172a" stroke="#10b981" stroke-width="1.2"/>
+    <circle cx="16" cy="16" r="4" fill="#10b981" filter="url(#glow)"/>
+    <text x="28" y="20" fill="#f8fafc" font-family="monospace" font-size="10" font-weight="bold">DESK: EXECUTING</text>
+  </g>
+
+  <!-- Quant Telemetry Overlay Badge (Top Left) -->
+  <g transform="translate(80, 40)">
+    <rect width="145" height="32" rx="8" fill="#0f172a" stroke="#38bdf8" stroke-width="1.2"/>
+    <circle cx="16" cy="16" r="4" fill="#38bdf8" filter="url(#glow)"/>
+    <text x="28" y="20" fill="#f8fafc" font-family="monospace" font-size="10" font-weight="bold">ALGO ENGINE: ACTIVE</text>
+  </g>
+</svg>

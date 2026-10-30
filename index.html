@@ -3,11 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JH Crypto Analytics</title>
+    <title>JH Institutional Crypto Terminal</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
     <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <!-- GSAP for advanced animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -19,25 +22,25 @@
         <div class="logo-wrapper">
             <img src="JH Analysis Logo.png" alt="JH Logo" class="brand-logo" onerror="this.style.display='none'">
         </div>
-        <h1 class="glow-text">JH <span class="gradient-text">Crypto Analytics</span></h1>
-        <p class="subtitle">Please log in or register to access the professional terminal.</p>
+        <h1 class="glow-text">JH <span class="gradient-text">Crypto Terminal</span></h1>
+        <p class="subtitle">Secure entry to the executive terminal. Master market trends with professional-grade clarity.</p>
         
         <div class="auth-tabs">
-            <button class="tab-btn active" id="tab-btn-login" onclick="switchTab('login')">Login</button>
-            <button class="tab-btn" id="tab-btn-register" onclick="switchTab('register')">Register</button>
+            <button class="tab-btn active" id="tab-btn-login" onclick="switchTab('login')">Access Key Login</button>
+            <button class="tab-btn" id="tab-btn-register" onclick="switchTab('register')">Register Credentials</button>
         </div>
 
         <div id="login-form" class="auth-form active">
-            <input type="email" id="login-email" placeholder="Email Address">
-            <input type="password" id="login-password" placeholder="Password">
-            <button class="btn-primary" onclick="login()">Login</button>
+            <input type="email" id="login-email" placeholder="Institutional Email">
+            <input type="password" id="login-password" placeholder="Terminal Passkey">
+            <button class="btn-primary" onclick="login()">Initialize Terminal</button>
             <div id="login-error" class="error"></div>
         </div>
 
         <div id="register-form" class="auth-form">
-            <input type="text" id="reg-name" placeholder="Full Name">
-            <input type="email" id="reg-email" placeholder="Email Address">
-            <input type="tel" id="reg-phone" placeholder="Phone Number">
+            <input type="text" id="reg-name" placeholder="Full Professional Name">
+            <input type="email" id="reg-email" placeholder="Corporate Email Address">
+            <input type="tel" id="reg-phone" placeholder="Contact Number">
             <select id="reg-gender">
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
@@ -45,8 +48,8 @@
                 <option value="Prefer not to say">Prefer not to say</option>
             </select>
             <input type="date" id="reg-dob" placeholder="Date of Birth">
-            <input type="password" id="reg-password" placeholder="Password">
-            <button class="btn-primary" onclick="register()">Register Account</button>
+            <input type="password" id="reg-password" placeholder="Passkey Password">
+            <button class="btn-primary" onclick="register()">Generate Access Credentials</button>
             <div id="reg-error" class="error"></div>
             <div id="reg-success" class="success"></div>
         </div>
@@ -59,83 +62,321 @@
         <nav class="glass-nav">
             <div class="nav-left">
                 <img src="JH Analysis Logo.png" alt="JH Logo" class="nav-logo" onerror="this.style.display='none'">
-                <h2>JH Crypto Analytics</h2>
+                <h2>JH Institutional Crypto Terminal</h2>
+                <span class="terminal-badge">SECURE QUANT CHANNEL</span>
             </div>
             <div class="nav-right">
                 <div class="profile-dropdown">
-                    <button class="profile-btn" onclick="toggleProfile()">👤 Profile</button>
+                    <button class="profile-btn" onclick="toggleProfile()">👤 Terminal Operator</button>
                     <div id="profile-menu" class="profile-menu hidden">
-                        <p><strong>ID:</strong> <span id="prof-id"></span></p>
+                        <p><strong>Operator ID:</strong> <span id="prof-id"></span></p>
                         <p><strong>Name:</strong> <span id="prof-name"></span></p>
                         <p><strong>Email:</strong> <span id="prof-email"></span></p>
                         <p><strong>Phone:</strong> <span id="prof-phone"></span></p>
                         <p><strong>Gender:</strong> <span id="prof-gender"></span></p>
                         <p><strong>DOB:</strong> <span id="prof-dob"></span></p>
                         <hr>
-                        <button class="btn-logout" onclick="logout()">Logout</button>
+                        <button class="btn-logout" onclick="logout()">Eject Secure Session</button>
                     </div>
                 </div>
             </div>
         </nav>
 
+        <!-- Dynamic Side-by-Side Bento Grid Layout -->
         <div class="dashboard-content">
-            <!-- Search & Overview -->
-            <div class="search-section glass-box">
-                <h3 id="welcome-msg">Welcome back!</h3>
-                <div class="search-bar">
-                    <input type="text" id="ticker-input" placeholder="Enter Coin Ticker (e.g. BTC, ETH)" value="BTC">
-                    <button class="btn-primary" id="analyze-btn" onclick="analyzeCrypto()">
-                        <span id="btn-text">Run Analysis</span>
-                        <div class="loader" id="btn-loader" style="display: none;"></div>
-                    </button>
-                </div>
-                <div id="dash-error" class="error"></div>
-            </div>
-
-            <!-- Dashboard Body -->
-            <div id="dash-body" class="hidden">
+            <div class="terminal-workspace">
                 
-                <div class="metrics-grid">
-                    <div class="metric-card">
-                        <h3>Start Price (2 Yrs Ago)</h3>
-                        <div id="val-start" class="val">₹--</div>
+                <!-- Left Sidebar: Quantitative Asset Catalog -->
+                <aside class="sidebar-catalog glass-box">
+                    <div class="catalog-header">
+                        <h3>📊 Asset Index Catalog</h3>
+                        <p class="catalog-subtitle">Select any digital asset to perform immediate quant synthesis</p>
                     </div>
-                    <div class="metric-card">
-                        <h3>Current Price</h3>
-                        <div id="val-current" class="val">₹--</div>
-                        <div id="val-gain-pct" class="sub-val">--%</div>
+                    
+                    <div class="catalog-tabs">
+                        <button class="cat-tab-btn active" id="cat-btn-bluechips" onclick="switchCatalog('bluechips')">👑 Major</button>
+                        <button class="cat-tab-btn" id="cat-btn-memes" onclick="switchCatalog('memes')">🐕 Meme</button>
+                        <button class="cat-tab-btn" id="cat-btn-defi" onclick="switchCatalog('defi')">🌐 DeFi</button>
                     </div>
-                </div>
-
-                <!-- 1. FULL WIDTH MAIN CHART -->
-                <div class="chart-wrapper full-width glass-box">
-                    <h2 id="main-chart-title">Price Action & Moving Averages</h2>
-                    <div id="plot-price" class="plot-div main-plot"></div>
-                </div>
-
-                <!-- 2. AI SUGGESTION -->
-                <div class="suggestion-wrapper full-width glass-box highlight-box">
-                    <h2>💡 AI Investment Suggestion</h2>
-                    <div id="val-signal" class="signal-text"></div>
-                </div>
-
-                <!-- 3. TWO SUB-CHARTS -->
-                <div class="subcharts-container">
-                    <div class="chart-wrapper glass-box">
-                        <h2>MACD Momentum</h2>
-                        <div id="plot-macd" class="plot-div sub"></div>
+                    
+                    <div class="catalog-lists">
+                        <!-- Blue Chips List -->
+                        <div id="cat-list-bluechips" class="catalog-list active">
+                            <div class="coin-card" onclick="selectCoin('BTC')">
+                                <span class="coin-emoji">🪙</span>
+                                <div class="coin-info">
+                                    <span class="coin-name">Bitcoin</span>
+                                    <span class="coin-symbol">BTC</span>
+                                </div>
+                                <span class="coin-badge blue">Blue Chip</span>
+                            </div>
+                            <div class="coin-card" onclick="selectCoin('ETH')">
+                                <span class="coin-emoji">💎</span>
+                                <div class="coin-info">
+                                    <span class="coin-name">Ethereum</span>
+                                    <span class="coin-symbol">ETH</span>
+                                </div>
+                                <span class="coin-badge blue">Blue Chip</span>
+                            </div>
+                            <div class="coin-card" onclick="selectCoin('SOL')">
+                                <span class="coin-emoji">☀️</span>
+                                <div class="coin-info">
+                                    <span class="coin-name">Solana</span>
+                                    <span class="coin-symbol">SOL</span>
+                                </div>
+                                <span class="coin-badge blue">High Speed</span>
+                            </div>
+                            <div class="coin-card" onclick="selectCoin('BNB')">
+                                <span class="coin-emoji">🔸</span>
+                                <div class="coin-info">
+                                    <span class="coin-name">BNB Coin</span>
+                                    <span class="coin-symbol">BNB</span>
+                                </div>
+                                <span class="coin-badge blue">Exchange</span>
+                            </div>
+                            <div class="coin-card" onclick="selectCoin('ADA')">
+                                <span class="coin-emoji">🔵</span>
+                                <div class="coin-info">
+                                    <span class="coin-name">Cardano</span>
+                                    <span class="coin-symbol">ADA</span>
+                                </div>
+                                <span class="coin-badge blue">Layer 1</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Meme Coins List -->
+                        <div id="cat-list-memes" class="catalog-list">
+                            <div class="coin-card" onclick="selectCoin('DOGE')">
+                                <span class="coin-emoji">🐕</span>
+                                <div class="coin-info">
+                                    <span class="coin-name">Dogecoin</span>
+                                    <span class="coin-symbol">DOGE</span>
+                                </div>
+                                <span class="coin-badge meme">Dog King</span>
+                            </div>
+                            <div class="coin-card" onclick="selectCoin('SHIB')">
+                                <span class="coin-emoji">🦊</span>
+                                <div class="coin-info">
+                                    <span class="coin-name">Shiba Inu</span>
+                                    <span class="coin-symbol">SHIB</span>
+                                </div>
+                                <span class="coin-badge meme">Shiba Eco</span>
+                            </div>
+                            <div class="coin-card" onclick="selectCoin('PEPE')">
+                                <span class="coin-emoji">🐸</span>
+                                <div class="coin-info">
+                                    <span class="coin-name">Pepe Coin</span>
+                                    <span class="coin-symbol">PEPE</span>
+                                </div>
+                                <span class="coin-badge meme">Frog Hype</span>
+                            </div>
+                            <div class="coin-card" onclick="selectCoin('WIF')">
+                                <span class="coin-emoji">🎩</span>
+                                <div class="coin-info">
+                                    <span class="coin-name">Dogwifhat</span>
+                                    <span class="coin-symbol">WIF</span>
+                                </div>
+                                <span class="coin-badge meme">Hat On</span>
+                            </div>
+                            <div class="coin-card" onclick="selectCoin('FLOKI')">
+                                <span class="coin-emoji">🛡️</span>
+                                <div class="coin-info">
+                                    <span class="coin-name">Floki Inu</span>
+                                    <span class="coin-symbol">FLOKI</span>
+                                </div>
+                                <span class="coin-badge meme">Viking</span>
+                            </div>
+                            <div class="coin-card" onclick="selectCoin('BONK')">
+                                <span class="coin-emoji">🐶</span>
+                                <div class="coin-info">
+                                    <span class="coin-name">Bonk Coin</span>
+                                    <span class="coin-symbol">BONK</span>
+                                </div>
+                                <span class="coin-badge meme">Sol Dog</span>
+                            </div>
+                        </div>
+                        
+                        <!-- DeFi & Web3 List -->
+                        <div id="cat-list-defi" class="catalog-list">
+                            <div class="coin-card" onclick="selectCoin('LINK')">
+                                <span class="coin-emoji">🔗</span>
+                                <div class="coin-info">
+                                    <span class="coin-name">Chainlink</span>
+                                    <span class="coin-symbol">LINK</span>
+                                </div>
+                                <span class="coin-badge defi">Oracles</span>
+                            </div>
+                            <div class="coin-card" onclick="selectCoin('UNI')">
+                                <span class="coin-emoji">🦄</span>
+                                <div class="coin-info">
+                                    <span class="coin-name">Uniswap</span>
+                                    <span class="coin-symbol">UNI</span>
+                                </div>
+                                <span class="coin-badge defi">DEX</span>
+                            </div>
+                            <div class="coin-card" onclick="selectCoin('DOT')">
+                                <span class="coin-emoji">🔴</span>
+                                <div class="coin-info">
+                                    <span class="coin-name">Polkadot</span>
+                                    <span class="coin-symbol">DOT</span>
+                                </div>
+                                <span class="coin-badge defi">Web3</span>
+                            </div>
+                            <div class="coin-card" onclick="selectCoin('MATIC')">
+                                <span class="coin-emoji">💜</span>
+                                <div class="coin-info">
+                                    <span class="coin-name">Polygon</span>
+                                    <span class="coin-symbol">MATIC</span>
+                                </div>
+                                <span class="coin-badge defi">Scaling</span>
+                            </div>
+                            <div class="coin-card" onclick="selectCoin('RNDR')">
+                                <span class="coin-emoji">🎨</span>
+                                <div class="coin-info">
+                                    <span class="coin-name">Render Network</span>
+                                    <span class="coin-symbol">RNDR</span>
+                                </div>
+                                <span class="coin-badge defi">AI Render</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="chart-wrapper glass-box">
-                        <h2>RSI Oscillator</h2>
-                        <div id="plot-rsi" class="plot-div sub"></div>
+                </aside>
+
+                <!-- Right Area: Core quantitative workspace -->
+                <main class="analysis-workspace">
+                    
+                    <!-- Search Bar Box -->
+                    <div class="search-section glass-box">
+                        <div class="search-greeting">
+                            <h3 id="welcome-msg">Welcome back!</h3>
+                            <p>Query any global asset index ticker for comprehensive quantitative breakdown.</p>
+                        </div>
+                        <div class="search-bar">
+                            <input type="text" id="ticker-input" placeholder="Type Asset Ticker (e.g. BTC, SOL, PEPE)" value="BTC">
+                            <button class="btn-primary" id="analyze-btn" onclick="analyzeCrypto()">
+                                <span id="btn-text">Execute Synthesis</span>
+                                <div class="loader" id="btn-loader" style="display: none;"></div>
+                            </button>
+                        </div>
+                        <div id="dash-error" class="error"></div>
                     </div>
-                </div>
 
-                <!-- 4. DISCLAIMER -->
-                <div class="disclaimer-wrapper glass-box">
-                    <p><strong>Disclaimer:</strong> This website uses historical data and Machine Learning models to predict and provide automated trading signals. It is designed for educational purposes and to give laymen an understanding of market trends. <strong>Any buying, selling, or holding is strictly at your own risk.</strong> The maker of this website and its authors are not responsible for any financial losses or faults. Please verify all information independently before making financial decisions.</p>
-                </div>
+                    <!-- Dashboard Data Display -->
+                    <div id="dash-body" class="hidden bento-grid">
+                        
+                        <!-- Real-time Professional Indicators Board -->
+                        <div class="layman-badges-row gsap-stagger glass-box-inner">
+                            <div class="layman-badge" id="indicator-trend">
+                                <span class="badge-icon">📈</span>
+                                <div class="badge-text">
+                                    <span class="badge-label">Primary Trend Path</span>
+                                    <span class="badge-val" id="indicator-trend-val">Synthesizing...</span>
+                                </div>
+                            </div>
+                            <div class="layman-badge" id="indicator-hype">
+                                <span class="badge-icon">🔥</span>
+                                <div class="badge-text">
+                                    <span class="badge-label">Relative Strength Index</span>
+                                    <span class="badge-val" id="indicator-hype-val">Synthesizing...</span>
+                                </div>
+                            </div>
+                            <div class="layman-badge" id="indicator-energy">
+                                <span class="badge-icon">⚡</span>
+                                <div class="badge-text">
+                                    <span class="badge-label">Momentum Direction</span>
+                                    <span class="badge-val" id="indicator-energy-val">Synthesizing...</span>
+                                </div>
+                            </div>
+                            <div class="layman-badge" id="indicator-risk">
+                                <span class="badge-icon">🌪️</span>
+                                <div class="badge-text">
+                                    <span class="badge-label">Standard Deviation Risk</span>
+                                    <span class="badge-val" id="indicator-risk-val">Synthesizing...</span>
+                                </div>
+                            </div>
+                        </div>
 
+                        <!-- Full Width Price Candlestick Chart -->
+                        <div class="chart-wrapper full-width glass-box gsap-stagger">
+                            <div class="chart-header">
+                                <h2 id="main-chart-title">Price Action & Moving Averages</h2>
+                                <span class="chart-desc-badge">PRICE & VOLUME CHANNELS</span>
+                            </div>
+                            <div id="plot-price" class="plot-div main-plot"></div>
+                        </div>
+
+                        <!-- Bento Row: Stats & AI Signal Side-By-Side -->
+                        <div class="bento-split-row">
+                            <div class="stats-box-col gsap-stagger">
+                                <div class="metric-card glass-box-inner bento-box">
+                                    <h3>Start Value (2-Year Baseline)</h3>
+                                    <div id="val-start" class="val">--</div>
+                                </div>
+                                <div class="metric-card glass-box-inner bento-box">
+                                    <h3>Current Value</h3>
+                                    <div id="val-current" class="val">--</div>
+                                    <div id="val-gain-pct" class="sub-val">--%</div>
+                                </div>
+                            </div>
+
+                            <!-- Executive Verdict Box -->
+                            <div class="suggestion-wrapper glass-box-inner highlight-box bento-box gsap-stagger">
+                                <h2>💎 Executive Market Verdict</h2>
+                                <div id="val-signal" class="signal-text"></div>
+                            </div>
+                        </div>
+
+                        <!-- Technical Intelligence Hub (Interactive Help) -->
+                        <div class="decoder-guide-card glass-box gsap-stagger">
+                            <div class="decoder-header" onclick="toggleDecoderGuide()">
+                                <h3>📊 Technical Intelligence Hub: Formula Guide</h3>
+                                <button class="decoder-toggle-btn" id="decoder-toggle-icon">＋ Expand Intelligence</button>
+                            </div>
+                            <div class="decoder-content hidden" id="decoder-content-area">
+                                <div class="decoder-grid">
+                                    <div class="decoder-item">
+                                        <h4>📈 Long/Short-Term Trend Lines (SMA)</h4>
+                                        <p>The <strong>50-Day (Cyan)</strong> and <strong>200-Day (Yellow)</strong> simple moving averages trace major support and resistance channels. Price closing above these levels marks long-term institutional strength.</p>
+                                    </div>
+                                    <div class="decoder-item">
+                                        <h4>🔥 Relative Strength Index (RSI)</h4>
+                                        <p>Tracks structural buy/sell exhaustion. Readings under 30 (Green Zone) show oversold discount opportunities, while readings over 70 (Red Zone) show speculative hype exhaustion (high risk).</p>
+                                    </div>
+                                    <div class="decoder-item">
+                                        <h4>⚡ Momentum Intensity (MACD)</h4>
+                                        <p>Moving Average Convergence Divergence. Emerald green bars signal accelerated buyer inflow and momentum strength. Hot crimson bars show aggressive seller pressure.</p>
+                                    </div>
+                                    <div class="decoder-item">
+                                        <h4>🌪️ Average Volatility Index (ATR)</h4>
+                                        <p>Tracks historical pricing dispersion. Higher ratios highlight wide, turbulent intraday price swings (typical for highly volatile meme coins), while lower ratios signal calm consolidation.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Three Sub-Charts Grid -->
+                        <div class="subcharts-container gsap-stagger">
+                            <div class="chart-wrapper glass-box bento-box">
+                                <h2>Momentum Intensity (MACD)</h2>
+                                <div id="plot-macd" class="plot-div sub"></div>
+                            </div>
+                            <div class="chart-wrapper glass-box bento-box">
+                                <h2>Relative Strength & Hype (RSI)</h2>
+                                <div id="plot-rsi" class="plot-div sub"></div>
+                            </div>
+                            <div class="chart-wrapper glass-box bento-box">
+                                <h2>Average Volatility (ATR)</h2>
+                                <div id="plot-atr" class="plot-div sub"></div>
+                            </div>
+                        </div>
+
+                        <!-- Disclaimer -->
+                        <div class="disclaimer-wrapper glass-box gsap-stagger bento-box-full">
+                            <p><strong>Executive Disclaimer:</strong> This terminal compiles advanced market pricing statistics. Past historical performance is not indicative of future returns. Crypto assets, especially meme coins, carry extreme volatility and financial risk. Exercise absolute caution.</p>
+                        </div>
+
+                    </div>
+                </main>
             </div>
         </div>
     </div>

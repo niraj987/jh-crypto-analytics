@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" width="100%" height="100%">
+  <defs>
+    <linearGradient id="mathBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="60%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#0b1329" />
+    </linearGradient>
+    <linearGradient id="goldAcc" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#fbbf24" />
+    </linearGradient>
+    <filter id="mathGlow">
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="900" height="520" fill="url(#mathBg)" rx="24" stroke="#334155" stroke-width="2"/>
+  
+  <!-- Subtle Blueprint Coordinates Grid -->
+  <g stroke="#334155" stroke-opacity="0.25" stroke-width="1">
+    <line x1="0" y1="60" x2="900" y2="60" />
+    <line x1="0" y1="180" x2="900" y2="180" />
+    <line x1="0" y1="300" x2="900" y2="300" />
+    <line x1="0" y1="420" x2="900" y2="420" />
+    <line x1="150" y1="0" x2="150" y2="520" />
+    <line x1="300" y1="0" x2="300" y2="520" />
+    <line x1="450" y1="0" x2="450" y2="520" />
+    <line x1="600" y1="0" x2="600" y2="520" />
+    <line x1="750" y1="0" x2="750" y2="520" />
+  </g>
+
+  <!-- Top Title Bar -->
+  <text x="40" y="42" fill="#38bdf8" font-family="monospace" font-size="14" font-weight="900" letter-spacing="1.5">
+    JH QUANTITATIVE RESEARCH // STOCHASTIC & RISK EQUATION LAB
+  </text>
+  <text x="710" y="42" fill="#34d399" font-family="monospace" font-size="12" font-weight="bold">
+    CALIBRATION: ACTIVE (₹)
+  </text>
+
+  <!-- FORMULA BOX 1: Kelly Criterion (Capital Allocation & Position Sizing) -->
+  <g transform="translate(40, 75)">
+    <rect width="390" height="115" rx="14" fill="#111c33" stroke="#0284c7" stroke-width="1.5"/>
+    <text x="20" y="28" fill="#38bdf8" font-family="monospace" font-size="11" font-weight="bold">01 // KELLY CRITERION (OPTIMAL SIZING FRACTION)</text>
+    <!-- Math formula f* = (p*b - q) / b -->
+    <text x="25" y="70" fill="#f8fafc" font-family="serif" font-size="28" font-style="italic" font-weight="bold">
+      f<tspan font-size="18" dy="-10">*</tspan><tspan dy="10"> </tspan>= 
+      <tspan fill="#34d399" font-family="serif"> (p · b - q) </tspan>
+      <tspan fill="#94a3b8">/</tspan>
+      <tspan fill="#38bdf8"> b </tspan>
+    </text>
+    <text x="22" y="98" fill="#94a3b8" font-family="monospace" font-size="10">
+      p = Win Probability, b = Profit/Loss Ratio, q = 1 - p
+    </text>
+  </g>
+
+  <!-- FORMULA BOX 2: Geometric Brownian Motion with Mean Reversion -->
+  <g transform="translate(470, 75)">
+    <rect width="390" height="115" rx="14" fill="#111c33" stroke="#10b981" stroke-width="1.5"/>
+    <text x="20" y="28" fill="#34d399" font-family="monospace" font-size="11" font-weight="bold">02 // STOCHASTIC PRICE DYNAMICS (GBM + JUMP)</text>
+    <!-- dS_t = mu * S_t * dt + sigma * S_t * dW_t -->
+    <text x="25" y="70" fill="#f8fafc" font-family="serif" font-size="26" font-style="italic" font-weight="bold">
+      dS<tspan font-size="16" dy="5">t</tspan><tspan dy="-5"> </tspan>= 
+      μ S<tspan font-size="16" dy="5">t</tspan><tspan dy="-5"> dt</tspan> + 
+      σ S<tspan font-size="16" dy="5">t</tspan><tspan dy="-5"> dW</tspan><tspan font-size="16" dy="5">t</tspan><tspan dy="-5"></tspan> + 
+      J<tspan font-size="16" dy="5">t</tspan><tspan dy="-5"> dN</tspan><tspan font-size="16" dy="5">t</tspan>
+    </text>
+    <text x="22" y="98" fill="#94a3b8" font-family="monospace" font-size="10">
+      μ = Drift, σ = Diffusion Volatility, W_t = Wiener Process, J = Jump
+    </text>
+  </g>
+
+  <!-- FORMULA BOX 3: Volume-Weighted Average Price (Smart Order Execution) -->
+  <g transform="translate(40, 215)">
+    <rect width="390" height="125" rx="14" fill="#111c33" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="20" y="28" fill="#fbbf24" font-family="monospace" font-size="11" font-weight="bold">03 // VWAP SMART ORDER EXECUTION ALGORITHM</text>
+    <!-- VWAP = sum(P_i * V_i) / sum(V_i) -->
+    <text x="25" y="72" fill="#f8fafc" font-family="serif" font-size="25" font-weight="bold">
+      VWAP = 
+      <tspan fill="#fbbf24" font-size="28">∑</tspan> 
+      <tspan font-size="20">(P<tspan font-size="14" dy="3">j</tspan><tspan dy="-3"> · Q</tspan><tspan font-size="14" dy="3">j</tspan><tspan dy="-3">)</tspan> 
+      <tspan fill="#94a3b8">/</tspan> 
+      <tspan fill="#fbbf24" font-size="28">∑</tspan> 
+      <tspan font-size="20">Q<tspan font-size="14" dy="3">j</tspan><tspan dy="-3"></tspan>
+    </text>
+    <text x="22" y="105" fill="#94a3b8" font-family="monospace" font-size="10">
+      Minimizes institutional market slippage across Indian Rupee order books
+    </text>
+  </g>
+
+  <!-- FORMULA BOX 4: Delta-Neutral Portfolio Hedge Ratio -->
+  <g transform="translate(470, 215)">
+    <rect width="390" height="125" rx="14" fill="#111c33" stroke="#a855f7" stroke-width="1.5"/>
+    <text x="20" y="28" fill="#c084fc" font-family="monospace" font-size="11" font-weight="bold">04 // DELTA-NEUTRAL HEDGE RATIO (β-NEUTRALITY)</text>
+    <!-- Delta_p = N_spot + beta * N_perp = 0 -->
+    <text x="25" y="72" fill="#f8fafc" font-family="serif" font-size="24" font-weight="bold">
+      Δ<tspan font-size="14" dy="4">Portfolio</tspan><tspan dy="-4"> </tspan>= 
+      <tspan fill="#34d399">w<tspan font-size="14" dy="4">A</tspan><tspan dy="-4"> · β</tspan><tspan font-size="14" dy="4">A</tspan><tspan dy="-4"></tspan> - 
+      <tspan fill="#f43f5e">w<tspan font-size="14" dy="4">Hedge</tspan><tspan dy="-4"> · β</tspan><tspan font-size="14" dy="4">BTC</tspan><tspan dy="-4"></tspan> = 0
+    </text>
+    <text x="22" y="105" fill="#94a3b8" font-family="monospace" font-size="10">
+      Extracts pure idiosyncratic alpha without directional crypto market beta
+    </text>
+  </g>
+
+  <!-- BOTTOM BAR: Sharpe Ratio, VaR, Information Ratio Strip -->
+  <g transform="translate(40, 365)">
+    <rect width="820" height="120" rx="16" fill="#0d1527" stroke="#334155" stroke-width="1.5"/>
+    
+    <g transform="translate(30, 25)">
+      <text x="0" y="15" fill="#38bdf8" font-family="monospace" font-size="11" font-weight="bold">SHARPE RATIO (SR)</text>
+      <text x="0" y="48" fill="#f8fafc" font-family="serif" font-size="22" font-style="italic">
+        SR = (E[R<tspan font-size="14" dy="3">p</tspan><tspan dy="-3">] - R<tspan font-size="14" dy="3">f</tspan><tspan dy="-3">) / σ<tspan font-size="14" dy="3">p</tspan><tspan dy="-3"></tspan>
+      </text>
+      <text x="0" y="74" fill="#64748b" font-family="monospace" font-size="10">Target SR: 3.42</text>
+    </g>
+
+    <line x1="285" y1="20" x2="285" y2="100" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(315, 25)">
+      <text x="0" y="15" fill="#34d399" font-family="monospace" font-size="11" font-weight="bold">PARAMETRIC VaR (99% CI)</text>
+      <text x="0" y="48" fill="#f8fafc" font-family="serif" font-size="22" font-style="italic">
+        VaR<tspan font-size="14" dy="3">99%</tspan><tspan dy="-3"> = Z<tspan font-size="14" dy="3">α</tspan><tspan dy="-3"> · σ · √Δt · AUM</tspan>
+      </text>
+      <text x="0" y="74" fill="#64748b" font-family="monospace" font-size="10">Max 1-Day Risk: ₹4.20 Lakhs</text>
+    </g>
+
+    <line x1="575" y1="20" x2="575" y2="100" stroke="#334155" stroke-width="1"/>
+
+    <g transform="translate(605, 25)">
+      <text x="0" y="15" fill="#fbbf24" font-family="monospace" font-size="11" font-weight="bold">INFORMATION RATIO (IR)</text>
+      <text x="0" y="48" fill="#f8fafc" font-family="serif" font-size="22" font-style="italic">
+        IR = (R<tspan font-size="14" dy="3">p</tspan><tspan dy="-3"> - R<tspan font-size="14" dy="3">b</tspan><tspan dy="-3">) / σ<tspan font-size="14" dy="3">tracking</tspan><tspan dy="-3"></tspan>
+      </text>
+      <text x="0" y="74" fill="#64748b" font-family="monospace" font-size="10">Alpha Persistence: 94.8%</text>
+    </g>
+  </g>
+</svg>
