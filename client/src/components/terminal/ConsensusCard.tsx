@@ -72,66 +72,108 @@ export default function ConsensusCard({ verdict, onRefresh, isLoading }: Consens
       </div>
 
       {/* Key Order Strategy Levels with Best-Fit Alignment & Distinct Background Colors */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 my-6 text-xs w-full">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 my-6 w-full">
+        
         {/* Optimal Entry */}
-        <div className="p-5 sm:p-6 rounded-2xl bg-gradient-to-br from-slate-100 via-slate-50 to-white dark:from-slate-900 dark:via-[#0f141d] dark:to-slate-950 border border-slate-300/80 dark:border-slate-800 shadow-sm hover:-translate-y-1 hover:shadow-md transition-all duration-200 flex flex-col justify-between min-h-[110px]">
-          <div>
-            <span className="text-slate-500 dark:text-slate-400 block text-[11px] uppercase tracking-wider font-bold">
-              Optimal Entry
+        <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-cyan-50/90 via-sky-50/50 to-white dark:from-[#0d1c2d] dark:via-[#091523] dark:to-[#060e18] border border-cyan-200/90 dark:border-cyan-800/80 shadow-md hover:-translate-y-1 hover:shadow-lg transition-all duration-200 flex flex-col justify-between min-h-[130px] overflow-hidden">
+          <div className="flex items-center justify-between gap-2">
+            <span className="text-[11px] font-black uppercase tracking-wider text-cyan-800 dark:text-cyan-300 flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse" /> Optimal Entry
             </span>
-            <span className="text-slate-950 dark:text-white font-black text-xl sm:text-2xl block mt-1.5 font-mono whitespace-nowrap">
+            <span className="text-[9px] font-mono font-bold px-2 py-0.5 rounded-full bg-cyan-100 dark:bg-cyan-950/80 text-cyan-800 dark:text-cyan-300 border border-cyan-200 dark:border-cyan-800">
+              FILL
+            </span>
+          </div>
+          <div className="my-2.5">
+            <span className="text-lg sm:text-xl md:text-2xl font-black font-mono tracking-tight text-slate-900 dark:text-white block truncate" title={formatINR(verdict.entryTarget)}>
               {formatINR(verdict.entryTarget)}
             </span>
           </div>
-          <span className="text-[11px] text-slate-600 dark:text-slate-400 font-medium block mt-2">
-            Recommended Fill
-          </span>
+          <div className="pt-2 border-t border-cyan-100 dark:border-cyan-900/50 flex items-center justify-between">
+            <span className="text-[11px] font-bold text-cyan-700 dark:text-cyan-300">
+              Recommended Fill
+            </span>
+            <span className="text-[10px] font-mono text-cyan-600 dark:text-cyan-400 font-semibold">
+              Limit
+            </span>
+          </div>
         </div>
 
         {/* Target 1 (TP1) */}
-        <div className="p-5 sm:p-6 rounded-2xl bg-gradient-to-br from-emerald-100/90 via-emerald-50 to-white dark:from-emerald-950/40 dark:via-[#0e1818] dark:to-slate-950 border border-emerald-300/90 dark:border-emerald-800/80 shadow-sm hover:-translate-y-1 hover:shadow-md transition-all duration-200 flex flex-col justify-between min-h-[110px]">
-          <div>
-            <span className="text-emerald-900 dark:text-emerald-300 block text-[11px] font-black uppercase tracking-wider flex items-center gap-1.5">
-              <ArrowUpRight className="w-4 h-4 text-emerald-600 dark:text-emerald-400" /> Target 1 (TP1)
+        <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-emerald-50/90 via-teal-50/50 to-white dark:from-[#0c241d] dark:via-[#081b16] dark:to-[#05110e] border border-emerald-300/90 dark:border-emerald-800/80 shadow-md hover:-translate-y-1 hover:shadow-lg transition-all duration-200 flex flex-col justify-between min-h-[130px] overflow-hidden">
+          <div className="flex items-center justify-between gap-2">
+            <span className="text-[11px] font-black uppercase tracking-wider text-emerald-800 dark:text-emerald-300 flex items-center gap-1.5">
+              <ArrowUpRight className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" /> Target 1 (TP1)
             </span>
-            <span className="text-emerald-800 dark:text-emerald-400 font-black text-xl sm:text-2xl block mt-1.5 font-mono whitespace-nowrap">
+            <span className="text-[9px] font-mono font-bold px-2 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/80 text-emerald-800 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">
+              TAKE PROFIT
+            </span>
+          </div>
+          <div className="my-2.5">
+            <span className="text-lg sm:text-xl md:text-2xl font-black font-mono tracking-tight text-emerald-700 dark:text-emerald-400 block truncate" title={formatINR(verdict.takeProfit1)}>
               {formatINR(verdict.takeProfit1)}
             </span>
           </div>
-          <span className="text-[11px] text-emerald-700 dark:text-emerald-400 font-bold block mt-2">
-            +6.5% Expected Move
-          </span>
+          <div className="pt-2 border-t border-emerald-100 dark:border-emerald-900/50 flex items-center justify-between">
+            <span className="text-[11px] font-bold text-emerald-700 dark:text-emerald-300">
+              +6.5% Expected Move
+            </span>
+            <span className="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 font-semibold">
+              TP1
+            </span>
+          </div>
         </div>
 
         {/* Target 2 (TP2) */}
-        <div className="p-5 sm:p-6 rounded-2xl bg-gradient-to-br from-sky-100/90 via-sky-50 to-white dark:from-sky-950/40 dark:via-[#0e1520] dark:to-slate-950 border border-sky-300/90 dark:border-sky-800/80 shadow-sm hover:-translate-y-1 hover:shadow-md transition-all duration-200 flex flex-col justify-between min-h-[110px]">
-          <div>
-            <span className="text-sky-900 dark:text-sky-300 block text-[11px] font-black uppercase tracking-wider flex items-center gap-1.5">
-              <ArrowUpRight className="w-4 h-4 text-sky-600 dark:text-sky-400" /> Target 2 (TP2)
+        <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-violet-50/90 via-indigo-50/50 to-white dark:from-[#1b1433] dark:via-[#130d25] dark:to-[#0a0714] border border-violet-300/90 dark:border-violet-800/80 shadow-md hover:-translate-y-1 hover:shadow-lg transition-all duration-200 flex flex-col justify-between min-h-[130px] overflow-hidden">
+          <div className="flex items-center justify-between gap-2">
+            <span className="text-[11px] font-black uppercase tracking-wider text-violet-800 dark:text-violet-300 flex items-center gap-1.5">
+              <ArrowUpRight className="w-3.5 h-3.5 text-violet-600 dark:text-violet-400" /> Target 2 (TP2)
             </span>
-            <span className="text-sky-800 dark:text-sky-400 font-black text-xl sm:text-2xl block mt-1.5 font-mono whitespace-nowrap">
+            <span className="text-[9px] font-mono font-bold px-2 py-0.5 rounded-full bg-violet-100 dark:bg-violet-950/80 text-violet-800 dark:text-violet-300 border border-violet-200 dark:border-violet-800">
+              RUNNER
+            </span>
+          </div>
+          <div className="my-2.5">
+            <span className="text-lg sm:text-xl md:text-2xl font-black font-mono tracking-tight text-violet-700 dark:text-violet-400 block truncate" title={formatINR(verdict.takeProfit2)}>
               {formatINR(verdict.takeProfit2)}
             </span>
           </div>
-          <span className="text-[11px] text-sky-700 dark:text-sky-400 font-bold block mt-2">
-            +12.4% Extended Runner
-          </span>
+          <div className="pt-2 border-t border-violet-100 dark:border-violet-900/50 flex items-center justify-between">
+            <span className="text-[11px] font-bold text-violet-700 dark:text-violet-300">
+              +12.4% Extended Runner
+            </span>
+            <span className="text-[10px] font-mono text-violet-600 dark:text-violet-400 font-semibold">
+              TP2
+            </span>
+          </div>
         </div>
 
         {/* Stop Loss (SL) */}
-        <div className="p-5 sm:p-6 rounded-2xl bg-gradient-to-br from-rose-100/90 via-rose-50 to-white dark:from-rose-950/40 dark:via-[#180e14] dark:to-slate-950 border border-rose-300/90 dark:border-rose-800/80 shadow-sm hover:-translate-y-1 hover:shadow-md transition-all duration-200 flex flex-col justify-between min-h-[110px]">
-          <div>
-            <span className="text-rose-900 dark:text-rose-300 block text-[11px] font-black uppercase tracking-wider flex items-center gap-1.5">
-              <ArrowDownRight className="w-4 h-4 text-rose-600 dark:text-rose-400" /> Stop Loss (SL)
+        <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-rose-50/90 via-orange-50/40 to-white dark:from-[#2a0e16] dark:via-[#1f0910] dark:to-[#110408] border border-rose-300/90 dark:border-rose-800/80 shadow-md hover:-translate-y-1 hover:shadow-lg transition-all duration-200 flex flex-col justify-between min-h-[130px] overflow-hidden">
+          <div className="flex items-center justify-between gap-2">
+            <span className="text-[11px] font-black uppercase tracking-wider text-rose-800 dark:text-rose-300 flex items-center gap-1.5">
+              <ArrowDownRight className="w-3.5 h-3.5 text-rose-600 dark:text-rose-400" /> Stop Loss (SL)
             </span>
-            <span className="text-rose-800 dark:text-rose-400 font-black text-xl sm:text-2xl block mt-1.5 font-mono whitespace-nowrap">
+            <span className="text-[9px] font-mono font-bold px-2 py-0.5 rounded-full bg-rose-100 dark:bg-rose-950/80 text-rose-800 dark:text-rose-300 border border-rose-200 dark:border-rose-800">
+              PROTECTION
+            </span>
+          </div>
+          <div className="my-2.5">
+            <span className="text-lg sm:text-xl md:text-2xl font-black font-mono tracking-tight text-rose-700 dark:text-rose-400 block truncate" title={formatINR(verdict.stopLoss)}>
               {formatINR(verdict.stopLoss)}
             </span>
           </div>
-          <span className="text-[11px] text-rose-700 dark:text-rose-400 font-bold block mt-2">
-            -4.5% Hard Invalidation Target
-          </span>
+          <div className="pt-2 border-t border-rose-100 dark:border-rose-900/50 flex items-center justify-between">
+            <span className="text-[11px] font-bold text-rose-700 dark:text-rose-400">
+              -4.5% Hard Invalidation Target
+            </span>
+            <span className="text-[10px] font-mono text-rose-600 dark:text-rose-400 font-semibold">
+              SL
+            </span>
+          </div>
         </div>
+
       </div>
 
       {/* Risk & Horizon Metadata */}

@@ -83,32 +83,34 @@ function ForecastWorkspace() {
     : null;
 
   return (
-    <div className="max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-12 py-10 space-y-10">
+    <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 py-6 sm:py-10 space-y-6 sm:space-y-10">
       
       {/* Top Banner with Company Logo & High Contrast Header */}
-      <div className="relative overflow-hidden flex flex-wrap items-center justify-between gap-6 p-7 sm:p-9 rounded-3xl bg-white dark:bg-[#0c1222] border border-slate-200 dark:border-slate-800 shadow-xl">
+      <div className="relative overflow-hidden flex flex-wrap items-center justify-between gap-6 p-6 sm:p-9 rounded-3xl bg-white dark:bg-[#0c1222] border border-slate-200 dark:border-slate-800 shadow-xl">
         <div className="relative z-10">
           <div className="flex items-center gap-4">
-            <div className="w-14 h-14 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-1 flex items-center justify-center shadow-sm">
+            <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-1 flex items-center justify-center shadow-md shrink-0">
               <Image
                 src="/jh-logo.png"
                 alt="JH Logo"
-                width={40}
-                height={40}
+                width={44}
+                height={44}
                 className="object-contain"
                 unoptimized
               />
             </div>
             <div>
-              <div className="flex flex-wrap items-center gap-3">
-                <h1 className="text-2xl sm:text-4xl font-black text-slate-900 dark:text-white tracking-tight">
-                  AI Predictive Scenario Forecasting
+              <div className="flex flex-wrap items-center gap-2.5 sm:gap-3">
+                <h1 className="text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight">
+                  <span className="bg-gradient-to-r from-violet-600 via-purple-600 to-sky-600 dark:from-violet-400 dark:via-purple-300 dark:to-sky-400 bg-clip-text text-transparent">
+                    AI Predictive Scenario Forecasting
+                  </span>
                 </h1>
-                <span className="text-[11px] font-mono px-3 py-1 rounded-full bg-purple-50 dark:bg-purple-950/60 text-purple-800 dark:text-purple-300 border border-purple-200 dark:border-purple-800 font-extrabold shadow-sm">
+                <span className="text-[10px] sm:text-[11px] font-mono px-3 py-1 rounded-full bg-purple-50 dark:bg-purple-950/60 text-purple-800 dark:text-purple-300 border border-purple-200 dark:border-purple-800 font-extrabold shadow-sm">
                   TARGETS (₹)
                 </span>
               </div>
-              <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-mono mt-1 font-medium">
+              <p className="text-xs sm:text-base text-slate-500 dark:text-slate-400 font-mono mt-1.5 font-medium">
                 Historical cycle analogs, halving supply dynamics, and probabilistic Monte Carlo price corridors
               </p>
             </div>
@@ -116,21 +118,21 @@ function ForecastWorkspace() {
         </div>
 
         {/* Ticker Search Box */}
-        <form onSubmit={handleSubmit} className="relative z-10 flex items-center gap-3">
-          <div className="relative">
+        <form onSubmit={handleSubmit} className="relative z-10 flex items-center gap-3 w-full sm:w-auto">
+          <div className="relative flex-1 sm:flex-initial">
             <input
               type="text"
               value={inputVal}
               onChange={(e) => setInputVal(e.target.value)}
               placeholder="Query Asset (BTC, ETH, SOL)..."
-              className="w-56 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-2xl py-2.5 pl-9 pr-3 text-xs text-slate-900 dark:text-white placeholder-slate-400 font-mono font-bold focus:outline-none focus:border-slate-800 dark:focus:border-slate-500 transition-all shadow-sm"
+              className="w-full sm:w-56 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-2xl py-2.5 pl-9 pr-3 text-xs text-slate-900 dark:text-white placeholder-slate-400 font-mono font-bold focus:outline-none focus:border-slate-800 dark:focus:border-slate-500 transition-all shadow-sm"
             />
             <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
           </div>
           <button
             type="submit"
             disabled={isLoading}
-            className="px-5 py-2.5 rounded-2xl bg-slate-900 dark:bg-emerald-600 hover:bg-slate-800 dark:hover:bg-emerald-500 text-white font-black text-xs font-mono flex items-center gap-2 shadow-md transition-all disabled:opacity-50 hover:-translate-y-0.5 active:translate-y-0"
+            className="px-5 py-2.5 rounded-2xl bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white font-black text-xs font-mono flex items-center gap-2 shadow-md transition-all disabled:opacity-50 hover:-translate-y-0.5 active:translate-y-0 shrink-0"
           >
             <RefreshCw className={`w-3.5 h-3.5 ${isLoading ? 'animate-spin' : ''}`} />
             <span>Forecast</span>

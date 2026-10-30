@@ -431,23 +431,23 @@ export default function CandlestickChart({ candles, symbol, sma50Val, sma200Val 
   const activeCandle = hoveredCandle || displayCandles[displayCandles.length - 1];
 
   return (
-    <div ref={containerRef} className="rounded-3xl bg-white dark:bg-[#0c1222] border border-slate-200 dark:border-slate-800 p-6 sm:p-7 shadow-xl flex flex-col space-y-4 transition-colors duration-200">
+    <div ref={containerRef} className="rounded-3xl bg-white dark:bg-[#0c1222] border border-slate-200 dark:border-slate-800 p-4 sm:p-6 lg:p-7 shadow-xl flex flex-col space-y-4 transition-colors duration-200">
       
       {/* Chart Top Bar with Options & Interactive Timeframe Switcher */}
       <div className="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-slate-100 dark:border-slate-800">
-        <div>
-          <div className="flex flex-wrap items-center gap-3">
-            <h2 className="text-lg sm:text-xl font-black text-slate-900 dark:text-white tracking-tight">
+        <div className="w-full sm:w-auto">
+          <div className="flex flex-wrap items-center gap-2.5 sm:gap-3">
+            <h2 className="text-base sm:text-xl font-black text-slate-900 dark:text-white tracking-tight">
               {symbol} / INR Institutional Candlesticks
             </h2>
             
             {/* Interactive Timeframe Buttons: 1D, 1W, 1M, 6M, 1Y, 5Y */}
-            <div className="flex items-center gap-1 p-1 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-inner">
+            <div className="flex items-center gap-1 p-1 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-inner overflow-x-auto max-w-full">
               {(['1D', '1W', '1M', '6M', '1Y', '5Y'] as TimeframeType[]).map((tf) => (
                 <button
                   key={tf}
                   onClick={() => setTimeframe(tf)}
-                  className={`px-3 py-1 rounded-lg text-xs font-mono font-black transition-all ${
+                  className={`px-2.5 sm:px-3 py-1 rounded-lg text-[11px] sm:text-xs font-mono font-black transition-all shrink-0 ${
                     timeframe === tf
                       ? 'bg-slate-900 dark:bg-emerald-600 text-white shadow-sm'
                       : 'text-slate-600 dark:text-slate-400 hover:text-slate-950 dark:hover:text-white hover:bg-white dark:hover:bg-slate-800'
@@ -461,7 +461,7 @@ export default function CandlestickChart({ candles, symbol, sma50Val, sma200Val 
           
           {/* Active Candle Inspection Ribbon */}
           {activeCandle && (
-            <div className="flex flex-wrap items-center gap-4 text-xs font-mono mt-2 text-slate-500 dark:text-slate-400">
+            <div className="flex flex-wrap items-center gap-2 sm:gap-4 text-[11px] sm:text-xs font-mono mt-2 text-slate-500 dark:text-slate-400">
               <span>Time: <strong className="text-slate-900 dark:text-slate-200">{activeCandle.date}</strong></span>
               <span>O: <strong className="text-slate-900 dark:text-slate-200">{formatINR(activeCandle.open)}</strong></span>
               <span>H: <strong className="text-emerald-600 dark:text-emerald-400">{formatINR(activeCandle.high)}</strong></span>

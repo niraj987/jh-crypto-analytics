@@ -60,7 +60,7 @@ export default function TradingFirmWorkflow({
   const shortHedgeINR = longAssetINR * betaValue;
 
   return (
-    <div className="rounded-3xl bg-white dark:bg-[#0c1222] border border-slate-200/90 dark:border-slate-800 p-8 shadow-xl space-y-8">
+    <div className="rounded-3xl bg-white dark:bg-[#0c1222] border border-slate-200/90 dark:border-slate-800 p-5 sm:p-8 shadow-xl space-y-6 sm:space-y-8">
       
       {/* Top Banner & Header */}
       <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b border-slate-200 dark:border-slate-800">
@@ -73,8 +73,10 @@ export default function TradingFirmWorkflow({
               WALL STREET &amp; CRYPTO PROP-DESK WORKFLOW
             </span>
           </div>
-          <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tracking-tight mt-2">
-            How JH Crypto Analytics Operates Like Top Trading Firms
+          <h2 className="text-2xl sm:text-3xl font-black tracking-tight mt-2">
+            <span className="bg-gradient-to-r from-emerald-600 via-teal-600 to-sky-600 dark:from-emerald-400 dark:via-teal-300 dark:to-sky-400 bg-clip-text text-transparent">
+              How JH Crypto Analytics Operates Like Top Trading Firms
+            </span>
           </h2>
           <p className="text-sm text-slate-600 dark:text-slate-300 mt-1 max-w-3xl font-medium">
             Explore the 4-phase quantitative engine: How institutional firms formulate signals, calibrate mathematical risk, slice zero-impact block orders, and maintain delta-neutral portfolios.

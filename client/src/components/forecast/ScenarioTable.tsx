@@ -93,7 +93,7 @@ export default function ScenarioTable({ scenarios }: ScenarioTableProps) {
                   <span className="text-[11px] text-slate-500 dark:text-slate-400 block font-bold uppercase">
                     Calculated Target (₹):
                   </span>
-                  <span className={`text-2xl sm:text-3xl font-black ${theme.priceColor} tracking-tight`}>
+                  <span className={`text-xl sm:text-2xl lg:text-3xl font-black ${theme.priceColor} tracking-tight block truncate`} title={formatINR(sc.targetPrice)}>
                     {formatINR(sc.targetPrice)}
                   </span>
                 </div>

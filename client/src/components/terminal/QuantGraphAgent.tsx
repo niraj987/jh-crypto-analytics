@@ -158,13 +158,13 @@ Optimal entry is favored near support at ${formatINR(supportLevelINR, true)}, wi
   };
 
   return (
-    <div className="rounded-3xl bg-white/95 dark:bg-[#121721] backdrop-blur-md border border-slate-200/90 dark:border-slate-800/90 p-8 shadow-[0_16px_40px_-12px_rgba(15,23,42,0.08)] space-y-7 transition-all duration-300 hover:shadow-[0_20px_50px_-12px_rgba(15,23,42,0.12)]">
+    <div className="rounded-3xl bg-white/95 dark:bg-[#121721] backdrop-blur-md border border-slate-200/90 dark:border-slate-800/90 p-5 sm:p-8 shadow-[0_16px_40px_-12px_rgba(15,23,42,0.08)] space-y-6 sm:space-y-7 transition-all duration-300 hover:shadow-[0_20px_50px_-12px_rgba(15,23,42,0.12)]">
       
       {/* Agent Header with Balanced Institutional Typography */}
       <div className="flex flex-wrap items-start justify-between gap-5 pb-6 border-b border-slate-100 dark:border-slate-800">
         <div className="flex items-start gap-4">
-          <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-600 via-teal-700 to-slate-900 flex items-center justify-center text-white shadow-lg shadow-emerald-700/25 shrink-0 mt-0.5">
-            <Bot className="w-7 h-7" />
+          <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br from-emerald-600 via-teal-700 to-slate-900 flex items-center justify-center text-white shadow-lg shadow-emerald-700/25 shrink-0 mt-0.5">
+            <Bot className="w-6 h-6 sm:w-7 sm:h-7" />
           </div>
 
           <div className="space-y-1.5 max-w-2xl">
@@ -177,14 +177,16 @@ Optimal entry is favored near support at ${formatINR(supportLevelINR, true)}, wi
                 <BrainCircuit className="w-3.5 h-3.5" />
                 Gemini 3.8 Flash Powered
               </span>
-              <span className="text-xs text-slate-500 dark:text-slate-400 font-medium">Sub-second Latency</span>
+              <span className="text-xs text-slate-500 dark:text-slate-400 font-medium hidden sm:inline">Sub-second Latency</span>
             </div>
 
-            <h3 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight leading-snug">
-              AI Quantitative &amp; Graph Analysis Agent
+            <h3 className="text-xl sm:text-2xl lg:text-3xl font-black tracking-tight leading-snug">
+              <span className="bg-gradient-to-r from-emerald-600 via-teal-600 to-sky-600 dark:from-emerald-400 dark:via-teal-300 dark:to-sky-400 bg-clip-text text-transparent">
+                AI Quantitative &amp; Graph Analysis Agent
+              </span>
             </h3>
 
-            <p className="text-sm text-slate-600 dark:text-slate-400 font-normal leading-relaxed">
+            <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 font-normal leading-relaxed">
               Autonomous dual-factor intelligence synthesizing real-time quantitative momentum, orderflow metrics, and structural chart geometry for actionable trade execution.
             </p>
           </div>

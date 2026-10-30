@@ -104,10 +104,10 @@ function SignalsTerminal() {
   };
 
   return (
-    <div className="max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-12 py-10 space-y-8">
+    <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 py-6 sm:py-10 space-y-6 sm:space-y-8">
       
       {/* Top Terminal Status Header */}
-      <div className="relative overflow-hidden flex flex-col gap-6 p-7 rounded-3xl bg-white dark:bg-[#0c1222] border border-slate-200/90 dark:border-slate-800 shadow-xl">
+      <div className="relative overflow-hidden flex flex-col gap-6 p-5 sm:p-8 rounded-3xl bg-white dark:bg-[#0c1222] border border-slate-200/90 dark:border-slate-800 shadow-xl">
         {/* Subtle Background Texture */}
         <div className="absolute inset-0 -z-10 pointer-events-none select-none overflow-hidden rounded-3xl opacity-[0.035] sm:opacity-[0.06] mix-blend-multiply dark:mix-blend-luminosity">
           <img
@@ -116,47 +116,49 @@ function SignalsTerminal() {
             className="w-full h-full object-cover filter grayscale contrast-125"
           />
         </div>
-        <div className="flex flex-wrap items-center justify-between gap-6 pb-6 border-b border-slate-100 dark:border-slate-800">
-          <div className="flex items-center gap-4">
-            <div className="w-14 h-14 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-1 flex items-center justify-center shadow-sm">
+        <div className="flex flex-wrap items-center justify-between gap-5 pb-6 border-b border-slate-100 dark:border-slate-800">
+          <div className="flex items-center gap-3.5 sm:gap-5">
+            <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-1 flex items-center justify-center shadow-md shrink-0">
               <Image
                 src="/jh-logo.png"
                 alt="JH Logo"
-                width={40}
-                height={40}
+                width={44}
+                height={44}
                 className="object-contain"
                 unoptimized
               />
             </div>
             <div>
-              <div className="flex items-center gap-3">
-                <Star className="w-5 h-5 text-amber-400 fill-amber-400" />
-                <h1 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tracking-tight">
-                  {currentAsset ? `${currentAsset.symbol}/INR` : `${selectedSymbol}/INR`}
+              <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+                <Star className="w-4 h-4 sm:w-5 sm:h-5 text-amber-400 fill-amber-400" />
+                <h1 className="text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight">
+                  <span className="bg-gradient-to-r from-emerald-600 via-teal-600 to-sky-600 dark:from-emerald-400 dark:via-teal-300 dark:to-sky-400 bg-clip-text text-transparent">
+                    {currentAsset ? `${currentAsset.symbol}/INR` : `${selectedSymbol}/INR`}
+                  </span>
                 </h1>
-                <span className="text-[11px] font-mono px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/50 text-emerald-800 dark:text-emerald-400 border border-emerald-300 dark:border-emerald-800 font-extrabold shadow-sm">
+                <span className="text-[10px] sm:text-[11px] font-mono px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800 font-extrabold shadow-sm">
                   CoinSwitchX L2
                 </span>
               </div>
-              <div className="flex flex-wrap items-center gap-3 text-xs font-mono mt-1 font-medium text-slate-600 dark:text-slate-400">
-                <span className="text-slate-950 dark:text-white font-black text-lg">
+              <div className="flex flex-wrap items-center gap-2 sm:gap-4 text-xs font-mono mt-1.5 font-medium text-slate-600 dark:text-slate-400">
+                <span className="text-slate-950 dark:text-white font-black text-xl sm:text-2xl font-mono tracking-tight">
                   {currentAsset ? formatINR(currentAsset.currentPrice) : '...'}
                 </span>
-                <span className={`font-black text-sm px-2 py-0.5 rounded ${currentAsset && currentAsset.change24h >= 0 ? 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400' : 'bg-rose-500/10 text-rose-600 dark:text-rose-400'}`}>
+                <span className={`font-black text-xs sm:text-sm px-2.5 py-0.5 rounded-lg border ${currentAsset && currentAsset.change24h >= 0 ? 'bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-300 border-emerald-300 dark:border-emerald-800' : 'bg-rose-50 dark:bg-rose-950/50 text-rose-700 dark:text-rose-300 border-rose-300 dark:border-rose-800'}`}>
                   {currentAsset && currentAsset.change24h >= 0 ? '+' : ''}{currentAsset?.change24h}%
                 </span>
-                <span className="text-slate-400">|</span>
-                <span>24H High: <strong className="text-slate-900 dark:text-slate-200">{currentAsset ? formatINR(currentAsset.high24h) : '...'}</strong></span>
-                <span className="text-slate-400">|</span>
-                <span>24H Low: <strong className="text-slate-900 dark:text-slate-200">{currentAsset ? formatINR(currentAsset.low24h) : '...'}</strong></span>
-                <span className="text-slate-400">|</span>
-                <span>24H Vol (INR): <strong className="text-emerald-600 dark:text-emerald-400">{currentAsset ? formatINRLarge(currentAsset.volume24h) : '...'}</strong></span>
+                <span className="text-slate-300 dark:text-slate-700 hidden sm:inline">|</span>
+                <span className="text-[11px] sm:text-xs">24H High: <strong className="text-slate-900 dark:text-slate-200">{currentAsset ? formatINR(currentAsset.high24h) : '...'}</strong></span>
+                <span className="text-slate-300 dark:text-slate-700 hidden sm:inline">|</span>
+                <span className="text-[11px] sm:text-xs">24H Low: <strong className="text-slate-900 dark:text-slate-200">{currentAsset ? formatINR(currentAsset.low24h) : '...'}</strong></span>
+                <span className="text-slate-300 dark:text-slate-700 hidden sm:inline">|</span>
+                <span className="text-[11px] sm:text-xs">24H Vol: <strong className="text-emerald-600 dark:text-emerald-400 font-black">{currentAsset ? formatINRLarge(currentAsset.volume24h) : '...'}</strong></span>
               </div>
             </div>
           </div>
 
           {/* Live Calculation Controls with Tactile Bevel */}
-          <div className="flex items-center gap-3">
+          <div className="flex flex-wrap items-center gap-2.5 sm:gap-3">
             <button
               onClick={() => setIsLiveActive(!isLiveActive)}
               className={`px-4 py-2.5 rounded-2xl text-xs font-mono font-bold flex items-center gap-2 border transition-all duration-200 ${
@@ -172,7 +174,7 @@ function SignalsTerminal() {
             <button
               onClick={() => fetchTerminalData(selectedSymbol)}
               disabled={isLoading}
-              className="px-5 py-2.5 rounded-2xl bg-slate-900 dark:bg-emerald-600 hover:bg-slate-800 dark:hover:bg-emerald-500 text-white font-mono font-black text-xs flex items-center gap-2 shadow-sm transition-all disabled:opacity-50 hover:-translate-y-0.5 active:translate-y-0"
+              className="px-5 py-2.5 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-700 hover:from-emerald-500 hover:to-teal-600 text-white font-mono font-black text-xs flex items-center gap-2 shadow-md transition-all disabled:opacity-50 hover:-translate-y-0.5 active:translate-y-0"
             >
               <RefreshCw className={`w-3.5 h-3.5 ${isLoading ? 'animate-spin' : ''}`} />
               <span>Re-Run Quant Consensus</span>
@@ -182,30 +184,30 @@ function SignalsTerminal() {
 
         {/* Real-Time Price Metrics Strip */}
         {currentAsset && (
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 font-mono text-xs">
-            <div className="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 font-mono text-xs">
+            <div className="p-3.5 sm:p-4 rounded-2xl bg-slate-50 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 shadow-sm">
               <span className="text-slate-500 dark:text-slate-400 text-[10px] block font-bold uppercase">24h High (₹)</span>
-              <span className="text-slate-950 dark:text-white font-black text-sm mt-0.5 block">{formatINR(currentAsset.high24h)}</span>
+              <span className="text-slate-950 dark:text-white font-black text-sm sm:text-base mt-1 block font-mono">{formatINR(currentAsset.high24h)}</span>
             </div>
-            <div className="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800">
+            <div className="p-3.5 sm:p-4 rounded-2xl bg-slate-50 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 shadow-sm">
               <span className="text-slate-500 dark:text-slate-400 text-[10px] block font-bold uppercase">24h Low (₹)</span>
-              <span className="text-slate-950 dark:text-white font-black text-sm mt-0.5 block">{formatINR(currentAsset.low24h)}</span>
+              <span className="text-slate-950 dark:text-white font-black text-sm sm:text-base mt-1 block font-mono">{formatINR(currentAsset.low24h)}</span>
             </div>
-            <div className="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800">
-              <span className="text-slate-500 dark:text-slate-400 text-[10px] block font-bold uppercase">24h Volume</span>
-              <span className="text-emerald-700 dark:text-emerald-400 font-black text-sm mt-0.5 block">{formatINRLarge(currentAsset.volume24h)}</span>
+            <div className="p-3.5 sm:p-4 rounded-2xl bg-emerald-50/50 dark:bg-emerald-950/30 border border-emerald-200/90 dark:border-emerald-800/80 shadow-sm">
+              <span className="text-emerald-800 dark:text-emerald-400 text-[10px] block font-bold uppercase">24h Volume</span>
+              <span className="text-emerald-700 dark:text-emerald-300 font-black text-sm sm:text-base mt-1 block font-mono">{formatINRLarge(currentAsset.volume24h)}</span>
             </div>
-            <div className="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800">
-              <span className="text-slate-500 dark:text-slate-400 text-[10px] block font-bold uppercase">Market Cap</span>
-              <span className="text-sky-700 dark:text-sky-400 font-black text-sm mt-0.5 block">{formatINRLarge(currentAsset.marketCap)}</span>
+            <div className="p-3.5 sm:p-4 rounded-2xl bg-sky-50/50 dark:bg-sky-950/30 border border-sky-200/90 dark:border-sky-800/80 shadow-sm">
+              <span className="text-sky-800 dark:text-sky-400 text-[10px] block font-bold uppercase">Market Cap</span>
+              <span className="text-sky-700 dark:text-sky-300 font-black text-sm sm:text-base mt-1 block font-mono">{formatINRLarge(currentAsset.marketCap)}</span>
             </div>
           </div>
         )}
 
         {/* Live CoinSwitch PRO Connected Account Banner */}
-        <div className="flex flex-wrap items-center justify-between gap-4 p-4 rounded-2xl bg-slate-900 text-white font-mono text-xs shadow-md">
+        <div className="flex flex-wrap items-center justify-between gap-4 p-4 rounded-2xl bg-gradient-to-r from-slate-900 via-slate-900 to-indigo-950 text-white font-mono text-xs shadow-md border border-slate-800">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-xl bg-emerald-500/20 border border-emerald-400/40 flex items-center justify-center text-emerald-400 font-bold">
+            <div className="w-8 h-8 rounded-xl bg-emerald-500/20 border border-emerald-400/40 flex items-center justify-center text-emerald-400 font-bold shrink-0">
               CS
             </div>
             <div>
@@ -213,16 +215,16 @@ function SignalsTerminal() {
                 <span className="font-black text-white text-sm">CoinSwitch PRO Account Connected</span>
                 <span className="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-400/40 font-bold">LIVE API</span>
               </div>
-              <p className="text-[11px] text-slate-400">Authenticated via Ed25519 Private Key • Direct coinswitchx INR Order Routing</p>
+              <p className="text-[11px] text-slate-400 hidden sm:block">Authenticated via Ed25519 Private Key • Direct coinswitchx INR Order Routing</p>
             </div>
           </div>
 
-          <div className="flex flex-wrap items-center gap-4 text-xs">
-            <div className="px-3 py-1.5 rounded-xl bg-slate-800 border border-slate-700">
+          <div className="flex flex-wrap items-center gap-3 sm:gap-4 text-xs">
+            <div className="px-3 py-1.5 rounded-xl bg-slate-800/90 border border-slate-700">
               <span className="text-slate-400 block text-[10px]">INR Cash Balance:</span>
               <span className="text-emerald-400 font-black text-sm">₹{csPortfolio?.balances.find((b: any) => b.currency === 'INR')?.main_balance || '0.30'}</span>
             </div>
-            <div className="px-3 py-1.5 rounded-xl bg-slate-800 border border-slate-700">
+            <div className="px-3 py-1.5 rounded-xl bg-slate-800/90 border border-slate-700">
               <span className="text-slate-400 block text-[10px]">Crypto Holdings:</span>
               <span className="text-white font-bold">
                 {csPortfolio?.balances.filter((b: any) => b.currency !== 'INR').map((b: any) => `${b.currency}: ${b.main_balance}`).join(' • ') || 'FLOKI: 1704.71 • PEPE: 2544.89'}

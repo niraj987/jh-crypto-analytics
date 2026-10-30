@@ -142,8 +142,8 @@ export default function AboutPage() {
   return (
     <div className="max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-12 py-10 space-y-16">
       
-      {/* Full Webpage Breadth Header: Exactly 1 to 2 Lines */}
-      <div className="w-full space-y-5 pt-2">
+      {/* Full Webpage Breadth Header: Exactly 1 to 2 Lines with Multi-Color Mix */}
+      <div className="w-full space-y-6 pt-2">
         <div className="inline-flex items-center gap-3 px-4 py-2 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
           <div className="w-8 h-8 rounded-xl overflow-hidden flex items-center justify-center p-0.5 border border-slate-100 dark:border-slate-800">
             <Image
@@ -160,13 +160,21 @@ export default function AboutPage() {
           </span>
         </div>
 
-        {/* 1 or 2 lines full width headline */}
-        <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-slate-900 dark:text-white tracking-tight leading-[1.15] w-full">
-          How Top Trading Firms Operate &amp; How Our Engine Executes
+        {/* 1 or 2 lines full width headline with vibrant multi-color gradient */}
+        <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.18] w-full">
+          <span className="bg-gradient-to-r from-sky-600 via-blue-600 to-indigo-600 dark:from-sky-400 dark:via-blue-400 dark:to-indigo-300 bg-clip-text text-transparent">
+            How Top Trading Firms Operate
+          </span>{' '}
+          <span className="text-amber-500 dark:text-amber-400 font-light mx-1">
+            &amp;
+          </span>{' '}
+          <span className="bg-gradient-to-r from-teal-600 via-emerald-600 to-cyan-500 dark:from-teal-300 dark:via-emerald-400 dark:to-cyan-300 bg-clip-text text-transparent">
+            How Our Engine Executes
+          </span>
         </h1>
 
-        <p className="text-slate-600 dark:text-slate-300 text-base sm:text-xl leading-relaxed font-normal w-full max-w-none">
-          <strong>JH Crypto Analytics</strong> delivers institutional hedge-fund capabilities to cryptocurrency traders: algorithmic multi-agent consensus, Half-Kelly risk sizing, zero-impact TWAP/VWAP order execution, and semantic RAG forecasting in <strong>Indian Rupee (₹)</strong>.
+        <p className="text-slate-600 dark:text-slate-300 text-base sm:text-xl lg:text-2xl leading-relaxed font-normal w-full max-w-none">
+          <strong className="text-slate-900 dark:text-white font-black">JH Crypto Analytics</strong> delivers institutional hedge-fund capabilities to cryptocurrency traders: algorithmic multi-agent consensus, Half-Kelly risk sizing, zero-impact TWAP/VWAP order execution, and semantic RAG forecasting in <strong className="text-emerald-600 dark:text-emerald-400 font-black">Indian Rupee (₹)</strong>.
         </p>
       </div>
 
@@ -181,20 +189,22 @@ export default function AboutPage() {
               <span className="text-xs font-mono font-bold text-emerald-700 dark:text-emerald-400 uppercase tracking-wider px-3.5 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800">
                 Institutional Prop-Trading Blueprint
               </span>
-              <h2 className="text-2xl sm:text-4xl font-black text-slate-900 dark:text-white mt-2 tracking-tight">
-                The 4 Pillars of a Quantitative Trading Firm
+              <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black mt-2 tracking-tight">
+                <span className="bg-gradient-to-r from-slate-900 via-indigo-900 to-slate-800 dark:from-white dark:via-sky-200 dark:to-emerald-300 bg-clip-text text-transparent">
+                  The 4 Pillars of a Quantitative Trading Firm
+                </span>
               </h2>
-              <p className="text-xs sm:text-sm font-mono text-slate-500 dark:text-slate-400 mt-1 font-medium">
+              <p className="text-sm sm:text-base font-mono text-slate-500 dark:text-slate-400 mt-2 font-medium">
                 How elite funds discover alpha, control ruin risk, execute block orders without slippage, and maintain delta neutrality
               </p>
             </div>
 
             <Link
               href="/signals"
-              className="px-5 py-2.5 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-mono font-black text-xs flex items-center gap-2 shadow-md transition-all"
+              className="px-6 py-3 rounded-2xl bg-gradient-to-r from-emerald-600 via-teal-600 to-sky-600 hover:from-emerald-500 hover:to-sky-500 text-white font-mono font-black text-xs sm:text-sm flex items-center gap-2.5 shadow-lg transition-all"
             >
               <span>Launch Live Signals Desk</span>
-              <ArrowRight className="w-3.5 h-3.5" />
+              <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </div>
@@ -334,11 +344,13 @@ export default function AboutPage() {
          ---------------------------------------------------- */}
       <section className="space-y-8">
         <div className="pb-4 border-b border-slate-200 dark:border-slate-800">
-          <h2 className="text-2xl sm:text-4xl font-black text-slate-900 dark:text-white flex items-center gap-3">
-            <Cpu className="w-8 h-8 text-emerald-600 dark:text-emerald-400" />
-            <span>The 4 Specialist Quantitative Deliberation Agents</span>
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black flex items-center gap-3">
+            <Cpu className="w-8 h-8 text-emerald-600 dark:text-emerald-400 shrink-0" />
+            <span className="bg-gradient-to-r from-sky-600 via-indigo-600 to-purple-600 dark:from-sky-300 dark:via-indigo-300 dark:to-purple-300 bg-clip-text text-transparent">
+              The 4 Specialist Quantitative Deliberation Agents
+            </span>
           </h2>
-          <p className="text-xs sm:text-sm font-mono text-slate-500 dark:text-slate-400 mt-1 font-medium">
+          <p className="text-sm sm:text-base font-mono text-slate-500 dark:text-slate-400 mt-2 font-medium">
             Independent agents deliberate concurrently and publish verified quantitative insights to the state matrix
           </p>
         </div>
