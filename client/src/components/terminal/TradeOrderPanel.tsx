@@ -136,23 +136,23 @@ export default function TradeOrderPanel({ symbol, currentPrice, verdict }: Trade
   };
 
   return (
-    <div className="rounded-3xl bg-white border border-slate-200/90 p-7 shadow-[0_12px_36px_-8px_rgba(15,23,42,0.06),inset_0_1px_0_0_rgba(255,255,255,0.9)] flex flex-col justify-between space-y-5 h-full">
+    <div className="rounded-3xl bg-white dark:bg-[#121721] border border-slate-200/90 dark:border-slate-800 p-7 shadow-sm flex flex-col justify-between space-y-5 h-full transition-colors duration-200">
       
       {/* Panel Top Header & Execution Mode Selector */}
-      <div className="space-y-3 pb-3.5 border-b border-slate-100">
+      <div className="space-y-3 pb-3.5 border-b border-slate-100 dark:border-slate-800">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div>
-            <h3 className="text-base font-extrabold text-slate-900 tracking-tight flex items-center gap-2">
+            <h3 className="text-base font-extrabold text-slate-900 dark:text-white tracking-tight flex items-center gap-2">
               <span>Order Execution &amp; Sizing Desk</span>
               <span className={`text-[10px] font-mono px-2 py-0.5 rounded-full font-bold border ${
                 executionMode === 'COINSWITCH'
-                  ? 'bg-emerald-50 text-emerald-800 border-emerald-300'
-                  : 'bg-slate-100 text-slate-700 border-slate-200'
+                  ? 'bg-emerald-50 dark:bg-emerald-950/40 text-emerald-800 dark:text-emerald-300 border-emerald-300 dark:border-emerald-800'
+                  : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700'
               }`}>
                 {executionMode === 'COINSWITCH' ? 'COINSWITCH PRO (LIVE)' : 'SIMULATED'}
               </span>
             </h3>
-            <p className="text-xs text-slate-500 font-mono mt-0.5">
+            <p className="text-xs text-slate-500 dark:text-slate-400 font-mono mt-0.5">
               {executionMode === 'COINSWITCH'
                 ? 'Connected to CoinSwitch PRO WebService using authenticated Ed25519 signing'
                 : 'Automated algorithmic paper order router with risk sizing & dynamic stop loss'}

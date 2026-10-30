@@ -161,14 +161,18 @@ export default function AboutPage() {
               Dedicated desks for technical indicators, on-chain order flow, macro RAG vectors, and risk supervisors.
             </p>
           </div>
-          <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-slate-950">
-            <Image
-              src="/quant-people-trading.svg"
+          <div className="relative rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-slate-950 flex items-center justify-center min-h-[260px] group">
+            <img
+              src="/photos/gettyimages-2240153407-612x612.jpg"
               alt="People Trading on Institutional Floor"
-              width={700}
-              height={420}
-              className="w-full h-auto object-contain"
+              className="w-full h-auto object-cover rounded-xl block transition-transform duration-500 group-hover:scale-105"
+              style={{ maxHeight: '420px', aspectRatio: '16 / 10' }}
             />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none" />
+            <div className="absolute bottom-3 left-3 right-3 p-3 bg-slate-900/90 backdrop-blur-md rounded-xl text-white text-[11px] font-mono flex items-center justify-between border border-slate-800">
+              <span>Analyst Trading Floor</span>
+              <span className="text-emerald-400 font-bold">Live Execution Matrix</span>
+            </div>
           </div>
         </div>
 
@@ -181,14 +185,18 @@ export default function AboutPage() {
               Stochastic differential equations (GBM), Kelly fractional staking, and Parametric VaR equations.
             </p>
           </div>
-          <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-slate-950">
-            <Image
-              src="/quant-math.svg"
-              alt="Mathematical Equations"
-              width={700}
-              height={420}
-              className="w-full h-auto object-contain"
+          <div className="relative rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-slate-950 flex items-center justify-center min-h-[260px] group">
+            <img
+              src="/photos/pexels-thales13-39398847.jpg"
+              alt="Mathematical Equations Blackboard"
+              className="w-full h-auto object-cover rounded-xl block transition-transform duration-500 group-hover:scale-105"
+              style={{ maxHeight: '420px', aspectRatio: '16 / 10' }}
             />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none" />
+            <div className="absolute bottom-3 left-3 right-3 p-3 bg-slate-900/90 backdrop-blur-md rounded-xl text-white text-[11px] font-mono flex items-center justify-between border border-slate-800">
+              <span>Stochastic Calculus Formulas</span>
+              <span className="text-amber-300 font-bold">GBM &amp; Kelly Lab</span>
+            </div>
           </div>
         </div>
       </section>

@@ -184,23 +184,23 @@ export default function CandlestickChart({ candles, symbol, sma50Val, sma200Val 
   }, [candles, showSMA50, showSMA200]);
 
   return (
-    <div ref={containerRef} className="rounded-3xl bg-white border border-slate-200 p-6 shadow-[0_12px_36px_-8px_rgba(15,23,42,0.06),inset_0_1px_0_0_rgba(255,255,255,0.9)] flex flex-col space-y-4">
+    <div ref={containerRef} className="rounded-3xl bg-white dark:bg-[#121721] border border-slate-200 dark:border-slate-800 p-6 shadow-sm flex flex-col space-y-4 transition-colors duration-200">
       {/* Chart Top Bar with Options */}
-      <div className="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-slate-100">
+      <div className="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-slate-100 dark:border-slate-800">
         <div>
           <div className="flex items-center gap-3">
-            <h2 className="text-lg font-black text-slate-900 tracking-tight">
+            <h2 className="text-lg font-black text-slate-900 dark:text-white tracking-tight">
               {symbol} / INR Institutional Candlesticks
             </h2>
-            <div className="flex items-center gap-1 p-1 rounded-xl bg-slate-100 border border-slate-200">
-              {(['1H', '4H', '1D', '1W'] as const).map((tf) => (
+            <div className="flex items-center gap-1 p-1 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+              {(['15m', '1H', '4H', '1D', '1W', '1Y'] as const).map((tf) => (
                 <button
                   key={tf}
-                  onClick={() => setTimeframe(tf)}
+                  onClick={() => setTimeframe(tf as any)}
                   className={`px-2.5 py-0.5 rounded-lg text-xs font-mono font-bold transition-all ${
                     timeframe === tf
-                      ? 'bg-slate-900 text-white shadow-sm'
-                      : 'text-slate-600 hover:text-slate-900 hover:bg-white'
+                      ? 'bg-slate-900 dark:bg-slate-700 text-white shadow-sm'
+                      : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-white dark:hover:bg-slate-800'
                   }`}
                 >
                   {tf}
@@ -208,7 +208,7 @@ export default function CandlestickChart({ candles, symbol, sma50Val, sma200Val 
               ))}
             </div>
           </div>
-          <p className="text-xs text-slate-500 font-mono mt-1">Multi-timeframe price discovery, volume channels & dynamic moving averages</p>
+          <p className="text-xs text-slate-500 dark:text-slate-400 font-mono mt-1">Multi-timeframe price discovery, volume channels & dynamic moving averages</p>
         </div>
 
         {/* Indicators Overlay Toggles & Preset Strategy */}
@@ -218,26 +218,26 @@ export default function CandlestickChart({ candles, symbol, sma50Val, sma200Val 
               onClick={() => setShowSMA50(!showSMA50)}
               className={`px-3 py-1.5 rounded-xl border flex items-center gap-2 transition-all ${
                 showSMA50
-                  ? 'bg-sky-50 text-sky-800 border-sky-300 font-bold'
-                  : 'bg-slate-50 text-slate-400 border-slate-200 hover:text-slate-700'
+                  ? 'bg-sky-50 dark:bg-sky-950/40 text-sky-800 dark:text-sky-300 border-sky-300 dark:border-sky-800 font-bold'
+                  : 'bg-slate-50 dark:bg-slate-900 text-slate-400 border-slate-200 dark:border-slate-800 hover:text-slate-700'
               }`}
             >
-              <span className="w-2.5 h-2.5 rounded-full bg-sky-600" />
+              <span className="w-2.5 h-2.5 rounded-full bg-sky-500" />
               <span>50 SMA</span>
-              {showSMA50 ? <Eye className="w-3.5 h-3.5 text-sky-700" /> : <EyeOff className="w-3.5 h-3.5" />}
+              {showSMA50 ? <Eye className="w-3.5 h-3.5 text-sky-600 dark:text-sky-400" /> : <EyeOff className="w-3.5 h-3.5" />}
             </button>
 
             <button
               onClick={() => setShowSMA200(!showSMA200)}
               className={`px-3 py-1.5 rounded-xl border flex items-center gap-2 transition-all ${
                 showSMA200
-                  ? 'bg-amber-50 text-amber-800 border-amber-300 font-bold'
-                  : 'bg-slate-50 text-slate-400 border-slate-200 hover:text-slate-700'
+                  ? 'bg-amber-50 dark:bg-amber-950/40 text-amber-800 dark:text-amber-300 border-amber-300 dark:border-amber-800 font-bold'
+                  : 'bg-slate-50 dark:bg-slate-900 text-slate-400 border-slate-200 dark:border-slate-800 hover:text-slate-700'
               }`}
             >
-              <span className="w-2.5 h-2.5 rounded-full bg-amber-600" />
+              <span className="w-2.5 h-2.5 rounded-full bg-amber-500" />
               <span>200 SMA</span>
-              {showSMA200 ? <Eye className="w-3.5 h-3.5 text-amber-700" /> : <EyeOff className="w-3.5 h-3.5" />}
+              {showSMA200 ? <Eye className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400" /> : <EyeOff className="w-3.5 h-3.5" />}
             </button>
           </div>
         </div>

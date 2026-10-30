@@ -86,7 +86,15 @@ function ForecastWorkspace() {
     <div className="max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-12 py-10 space-y-10">
       
       {/* Top Banner with Company Logo */}
-      <div className="flex flex-wrap items-center justify-between gap-6 p-7 rounded-3xl bg-white border border-slate-200 shadow-sm">
+      <div className="relative overflow-hidden flex flex-wrap items-center justify-between gap-6 p-7 rounded-3xl bg-white border border-slate-200 shadow-sm">
+        {/* Subtle Background Texture */}
+        <div className="absolute inset-0 -z-10 pointer-events-none select-none overflow-hidden rounded-3xl opacity-[0.035] mix-blend-multiply">
+          <img
+            src="/photos/gettyimages-2112329817-612x612.jpg"
+            alt="Forecasting Atmosphere"
+            className="w-full h-full object-cover filter grayscale contrast-125"
+          />
+        </div>
         <div>
           <div className="flex items-center gap-4">
             <div className="w-14 h-14 rounded-2xl bg-white border border-slate-200 p-1 flex items-center justify-center shadow-sm">

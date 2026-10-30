@@ -12,9 +12,12 @@ import IndicatorsGrid from '@/components/terminal/IndicatorsGrid';
 import QuantGraphAgent from '@/components/terminal/QuantGraphAgent';
 import ConsensusCard from '@/components/terminal/ConsensusCard';
 import TradeOrderPanel from '@/components/terminal/TradeOrderPanel';
+import CoinSwitchOrderBook from '@/components/terminal/CoinSwitchOrderBook';
+import CoinSwitchOrderTicket from '@/components/terminal/CoinSwitchOrderTicket';
+import TopGainersBar from '@/components/common/TopGainersBar';
 import TradingFirmWorkflow from '@/components/terminal/TradingFirmWorkflow';
 import AgentThinking from '@/components/common/AgentThinking';
-import { Activity, RefreshCw, Zap, TrendingUp, DollarSign } from 'lucide-react';
+import { Activity, RefreshCw, Zap, TrendingUp, DollarSign, Star } from 'lucide-react';
 
 function SignalsTerminal() {
   const searchParams = useSearchParams();
@@ -105,10 +108,18 @@ function SignalsTerminal() {
     <div className="max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-12 py-10 space-y-8">
       
       {/* Top Terminal Status Header */}
-      <div className="flex flex-col gap-6 p-7 rounded-3xl bg-white border border-slate-200/90 shadow-[0_10px_30px_-8px_rgba(15,23,42,0.05)]">
-        <div className="flex flex-wrap items-center justify-between gap-6 pb-6 border-b border-slate-100">
+      <div className="relative overflow-hidden flex flex-col gap-6 p-7 rounded-3xl bg-white border border-slate-200/90 shadow-[0_10px_30px_-8px_rgba(15,23,42,0.05)]">
+        {/* Subtle Background Texture */}
+        <div className="absolute inset-0 -z-10 pointer-events-none select-none overflow-hidden rounded-3xl opacity-[0.035] mix-blend-multiply">
+          <img
+            src="/photos/pierre-borthiry-peiobty-vBCVcWUyvyM-unsplash.jpg"
+            alt="Trading Atmosphere"
+            className="w-full h-full object-cover filter grayscale contrast-125"
+          />
+        </div>
+        <div className="flex flex-wrap items-center justify-between gap-6 pb-6 border-b border-slate-100 dark:border-slate-800">
           <div className="flex items-center gap-4">
-            <div className="w-14 h-14 rounded-2xl bg-white border border-slate-200 p-1 flex items-center justify-center shadow-sm">
+            <div className="w-14 h-14 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-1 flex items-center justify-center shadow-sm">
               <Image
                 src="/jh-logo.png"
                 alt="JH Logo"
@@ -120,24 +131,28 @@ function SignalsTerminal() {
             </div>
             <div>
               <div className="flex items-center gap-3">
-                <h1 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
-                  {currentAsset ? `${currentAsset.name} (${currentAsset.symbol})` : selectedSymbol}
+                <Star className="w-5 h-5 text-amber-400 fill-amber-400" />
+                <h1 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tracking-tight">
+                  {currentAsset ? `${currentAsset.symbol}/INR` : `${selectedSymbol}/INR`}
                 </h1>
-                <span className="text-[11px] font-mono px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-300 font-extrabold shadow-sm">
-                  LIVE REAL-TIME STREAM
+                <span className="text-[11px] font-mono px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/50 text-emerald-800 dark:text-emerald-400 border border-emerald-300 dark:border-emerald-800 font-extrabold shadow-sm">
+                  CoinSwitchX L2
                 </span>
               </div>
-              <p className="text-xs text-slate-600 font-mono mt-1 font-medium">
-                Live Price:{' '}
-                <strong className="text-slate-950 font-black text-base">
+              <div className="flex flex-wrap items-center gap-3 text-xs font-mono mt-1 font-medium text-slate-600 dark:text-slate-400">
+                <span className="text-slate-950 dark:text-white font-black text-lg">
                   {currentAsset ? formatINR(currentAsset.currentPrice) : '...'}
-                </strong>
-                {' '} | 24h Momentum:{' '}
-                <span className={`font-black text-sm ${currentAsset && currentAsset.change24h >= 0 ? 'text-emerald-700' : 'text-rose-700'}`}>
+                </span>
+                <span className={`font-black text-sm px-2 py-0.5 rounded ${currentAsset && currentAsset.change24h >= 0 ? 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400' : 'bg-rose-500/10 text-rose-600 dark:text-rose-400'}`}>
                   {currentAsset && currentAsset.change24h >= 0 ? '+' : ''}{currentAsset?.change24h}%
                 </span>
-                {' '} | Recalculated: <span className="text-slate-900 font-bold">{lastUpdated || 'Sub-second'}</span>
-              </p>
+                <span className="text-slate-400">|</span>
+                <span>24H High: <strong className="text-slate-900 dark:text-slate-200">{currentAsset ? formatINR(currentAsset.high24h) : '...'}</strong></span>
+                <span className="text-slate-400">|</span>
+                <span>24H Low: <strong className="text-slate-900 dark:text-slate-200">{currentAsset ? formatINR(currentAsset.low24h) : '...'}</strong></span>
+                <span className="text-slate-400">|</span>
+                <span>24H Vol (INR): <strong className="text-emerald-600 dark:text-emerald-400">{currentAsset ? formatINRLarge(currentAsset.volume24h) : '...'}</strong></span>
+              </div>
             </div>
           </div>
 
@@ -259,6 +274,24 @@ function SignalsTerminal() {
             />
           )}
 
+          {/* CoinSwitch PRO Real-Time L2 Order Book & Trade Execution Ticket (Matching Screenshot) */}
+          {currentAsset && (
+            <div className="grid grid-cols-1 xl:grid-cols-12 gap-8 items-stretch">
+              <div className="xl:col-span-7 h-full">
+                <CoinSwitchOrderBook
+                  currentPrice={toINR(currentAsset.currentPrice)}
+                  symbol={currentAsset.symbol}
+                />
+              </div>
+              <div className="xl:col-span-5 h-full">
+                <CoinSwitchOrderTicket
+                  currentPrice={toINR(currentAsset.currentPrice)}
+                  symbol={currentAsset.symbol}
+                />
+              </div>
+            </div>
+          )}
+
           {/* AI Buy/Sell Consensus Card & Trade Order Execution Desk - Aligned Equal Height Grid */}
           <div id="trade-order-desk" className="grid grid-cols-1 xl:grid-cols-2 gap-8 items-stretch scroll-mt-28">
             {verdict && (
@@ -300,6 +333,11 @@ function SignalsTerminal() {
 
         </div>
 
+      </div>
+
+      {/* Real-Time CoinSwitch PRO Top Gainers Bar */}
+      <div className="pt-4">
+        <TopGainersBar />
       </div>
 
     </div>

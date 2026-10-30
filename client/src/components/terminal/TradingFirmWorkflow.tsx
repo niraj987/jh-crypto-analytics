@@ -175,16 +175,20 @@ export default function TradingFirmWorkflow({
             </div>
 
             {/* Visual Screen Preview */}
-            <div className="lg:col-span-5 relative rounded-2xl overflow-hidden border border-slate-200 shadow-md bg-slate-950 p-1 flex items-center justify-center min-h-[260px]">
+            <div className="lg:col-span-5 relative rounded-2xl overflow-hidden border border-slate-200 shadow-md bg-slate-950 flex items-center justify-center min-h-[280px] group">
               <img
-                src="/quant-people-trading.svg"
-                alt="Institutional Trading Floor"
-                className="w-full h-auto object-cover rounded-xl block"
-                style={{ aspectRatio: '800 / 480' }}
+                src="/photos/sajad-nori-XihAgOYNHn4-unsplash.jpg"
+                alt="Institutional Candlestick Alpha Stream"
+                className="w-full h-auto object-cover rounded-xl block transition-transform duration-500 group-hover:scale-105"
+                style={{ maxHeight: '420px', aspectRatio: '16 / 10' }}
               />
-              <div className="absolute bottom-3 left-3 right-3 p-3 bg-slate-900/90 backdrop-blur-md rounded-xl text-white text-[11px] font-mono flex items-center justify-between">
-                <span>Proprietary Trading Floor Screen</span>
-                <span className="text-emerald-400 font-bold">Multi-Desk Execution</span>
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute bottom-3 left-3 right-3 p-3 bg-slate-900/90 backdrop-blur-md rounded-xl text-white text-[11px] font-mono flex items-center justify-between border border-slate-800">
+                <span className="flex items-center gap-1.5 font-bold">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                  Live Candlestick Alpha Stream
+                </span>
+                <span className="text-emerald-400 font-bold">Dual-Factor Confluence</span>
               </div>
             </div>
           </div>
@@ -322,15 +326,23 @@ export default function TradingFirmWorkflow({
             {/* Right Column: Quantitative Math Graphic */}
             <div className="lg:col-span-6 space-y-4">
               <span className="text-xs font-mono font-bold text-slate-500 uppercase tracking-wider">
-                Proprietary Risk Formulas
+                Proprietary Risk Formulas &amp; Stochastic Blackboard
               </span>
-              <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-slate-950 p-2 flex items-center justify-center min-h-[280px]">
+              <div className="relative rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-slate-950 flex items-center justify-center min-h-[280px] group">
                 <img
-                  src="/quant-math.svg"
-                  alt="Quantitative Risk Mathematics"
-                  className="w-full h-auto object-contain block"
-                  style={{ aspectRatio: '900 / 520' }}
+                  src="/photos/pexels-thales13-39398846.jpg"
+                  alt="Quantitative Risk Mathematics Blackboard"
+                  className="w-full h-auto object-cover rounded-xl block transition-transform duration-500 group-hover:scale-105"
+                  style={{ maxHeight: '420px', aspectRatio: '16 / 10' }}
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute bottom-3 left-3 right-3 p-3 bg-slate-900/90 backdrop-blur-md rounded-xl text-white text-[11px] font-mono flex items-center justify-between border border-slate-800">
+                  <span className="flex items-center gap-1.5 font-bold">
+                    <span className="w-2 h-2 rounded-full bg-purple-400 animate-pulse" />
+                    Stochastic Calculus &amp; Kelly Lab
+                  </span>
+                  <span className="text-purple-300 font-bold">f* = (bp - q) / b</span>
+                </div>
               </div>
               <p className="text-xs text-slate-600 font-mono leading-relaxed">
                 By enforcing <strong>Fractional Kelly sizing</strong> and <strong>Parametric Value at Risk (VaR)</strong> limits, firms maintain positive geometric growth through multi-month crypto market drawdowns.
@@ -446,15 +458,23 @@ export default function TradingFirmWorkflow({
             {/* Right Column: Execution Flow Graphic */}
             <div className="lg:col-span-6 space-y-4">
               <span className="text-xs font-mono font-bold text-slate-500 uppercase tracking-wider">
-                Full Execution Routing Flow
+                Full Execution Routing Flow &amp; Trading Floor
               </span>
-              <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-slate-950 p-2 flex items-center justify-center min-h-[260px]">
+              <div className="relative rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-slate-950 flex items-center justify-center min-h-[260px] group">
                 <img
-                  src="/trading-firm-flow.svg"
-                  alt="Trading Firm Workflow Pipeline"
-                  className="w-full h-auto object-contain block"
-                  style={{ aspectRatio: '960 / 400' }}
+                  src="/photos/gettyimages-2270333130-612x612.jpg"
+                  alt="Trading Firm Execution Floor"
+                  className="w-full h-auto object-cover rounded-xl block transition-transform duration-500 group-hover:scale-105"
+                  style={{ maxHeight: '420px', aspectRatio: '16 / 10' }}
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute bottom-3 left-3 right-3 p-3 bg-slate-900/90 backdrop-blur-md rounded-xl text-white text-[11px] font-mono flex items-center justify-between border border-slate-800">
+                  <span className="flex items-center gap-1.5 font-bold">
+                    <span className="w-2 h-2 rounded-full bg-sky-400 animate-pulse" />
+                    High-Frequency Execution Floor
+                  </span>
+                  <span className="text-sky-300 font-bold">Zero Market Impact</span>
+                </div>
               </div>
               <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 text-xs font-mono text-slate-600 leading-relaxed">
                 <strong>Why this matters:</strong> Institutional crypto traders never submit raw market orders. They execute via algorithmic routing engines that distribute volume across decentralized pools and centralized order books to achieve the volume-weighted average price (VWAP).
@@ -558,15 +578,23 @@ export default function TradingFirmWorkflow({
             {/* Right Column: Trading Screen & Firm Management Details */}
             <div className="lg:col-span-6 space-y-4">
               <span className="text-xs font-mono font-bold text-slate-500 uppercase tracking-wider">
-                Live Institutional Desk Screen
+                Live Institutional Risk &amp; Hedging Floor
               </span>
-              <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-md bg-slate-950 flex items-center justify-center min-h-[260px]">
+              <div className="relative rounded-2xl overflow-hidden border border-slate-200 shadow-md bg-slate-950 flex items-center justify-center min-h-[260px] group">
                 <img
-                  src="/trading-dashboard.png"
-                  alt="Institutional Trading Dashboard"
-                  className="w-full h-auto object-cover rounded-xl block"
-                  style={{ aspectRatio: '16 / 9' }}
+                  src="/photos/gettyimages-2240153407-612x612.jpg"
+                  alt="Institutional Trading Risk Management Floor"
+                  className="w-full h-auto object-cover rounded-xl block transition-transform duration-500 group-hover:scale-105"
+                  style={{ maxHeight: '420px', aspectRatio: '16 / 10' }}
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute bottom-3 left-3 right-3 p-3 bg-slate-900/90 backdrop-blur-md rounded-xl text-white text-[11px] font-mono flex items-center justify-between border border-slate-800">
+                  <span className="flex items-center gap-1.5 font-bold">
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                    Delta-Neutral Risk Supervision
+                  </span>
+                  <span className="text-emerald-300 font-bold">Dynamic Beta Hedging</span>
+                </div>
               </div>
               <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 text-xs font-mono text-slate-700 space-y-2">
                 <div className="flex items-center gap-2 font-bold text-slate-900">
