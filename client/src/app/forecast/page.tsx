@@ -102,14 +102,14 @@ function ForecastWorkspace() {
             <div>
               <div className="flex items-center gap-3">
                 <h1 className="text-2xl font-black text-slate-900 tracking-tight">
-                  AI RAG Predictive Scenario Forecasting
+                  AI Predictive Scenario Forecasting
                 </h1>
                 <span className="text-[11px] font-mono px-3 py-1 rounded-full bg-purple-50 text-purple-800 border border-purple-200 font-extrabold shadow-sm">
-                  INR (₹) TARGETS
+                  PRICE TARGETS (₹)
                 </span>
               </div>
               <p className="text-xs text-slate-500 font-mono mt-1 font-medium">
-                Historical cycle analogs, halving supply dynamics, and probabilistic Monte Carlo price corridors in Indian Rupee
+                Historical cycle analogs, halving supply dynamics, and probabilistic Monte Carlo price corridors
               </p>
             </div>
           </div>

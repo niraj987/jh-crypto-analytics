@@ -289,7 +289,7 @@ export default function TradeOrderPanel({ symbol, currentPrice, verdict }: Trade
           {orderType === 'LIMIT' && (
             <div className="space-y-1.5">
               <div className="flex items-center justify-between">
-                <span className="text-slate-600 font-bold uppercase">Limit Price (INR ₹):</span>
+                <span className="text-slate-600 font-bold uppercase">Limit Price (₹):</span>
                 <span className="text-emerald-700 font-black text-sm">{formatINR(csPriceINR, true)}</span>
               </div>
               <input
@@ -336,7 +336,7 @@ export default function TradeOrderPanel({ symbol, currentPrice, verdict }: Trade
         <form onSubmit={handleSimulatedTrade} className="space-y-4">
           <div className="space-y-2">
             <div className="flex items-center justify-between text-xs font-mono">
-              <span className="text-slate-600 font-bold uppercase">Order Capital (INR ₹):</span>
+              <span className="text-slate-600 font-bold uppercase">Order Capital (₹):</span>
               <span className="text-slate-900 font-black text-sm">{formatINR(amountInr, true)}</span>
             </div>
             <div className="relative">

@@ -44,23 +44,6 @@ export default function HomePage() {
           {/* Left Column: Brand & Hero Copy */}
           <div ref={heroRef} className="lg:col-span-7 space-y-6">
             
-            {/* Company Logo Badge */}
-            <div className="inline-flex items-center gap-3 px-4 py-2 rounded-2xl bg-white border border-slate-200/90 shadow-sm">
-              <div className="relative w-8 h-8 rounded-xl overflow-hidden flex items-center justify-center p-0.5 border border-slate-100">
-                <Image
-                  src="/jh-logo.png"
-                  alt="JH Logo"
-                  width={30}
-                  height={30}
-                  className="object-contain"
-                  unoptimized
-                />
-              </div>
-              <span className="text-xs font-mono font-black text-slate-900 tracking-wide">
-                JH CRYPTO ANALYTICS // INSTITUTIONAL DESK
-              </span>
-            </div>
-
             {/* Headline with Natural Warm & Green Tones */}
             <h1 className="text-4xl sm:text-6xl font-black tracking-tight text-slate-900 leading-[1.12]">
               Institutional Crypto Terminal Powered by{' '}
@@ -71,7 +54,7 @@ export default function HomePage() {
 
             {/* Spacious Subtitle */}
             <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl font-normal">
-              Empowering professional crypto traders with sub-second Buy/Sell consensus calculations, Kelly Criterion position sizing, zero-impact smart order routing, and predictive market forecasting denominated in <strong>Indian Rupee (INR ₹)</strong>.
+              Empowering professional crypto traders with sub-second Buy/Sell consensus calculations, Kelly Criterion position sizing, zero-impact smart order routing, and predictive market forecasting denominated in <strong>₹</strong>.
             </p>
 
             {/* Action Buttons */}
@@ -81,7 +64,7 @@ export default function HomePage() {
                 className="px-8 py-4 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-mono font-black text-sm flex items-center gap-2.5 shadow-lg shadow-emerald-600/25 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
               >
                 <Activity className="w-4 h-4" />
-                <span>Launch Signals Desk (INR ₹)</span>
+                <span>Launch Trading Signals Desk</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
 
@@ -98,7 +81,7 @@ export default function HomePage() {
             <div className="pt-6 grid grid-cols-2 sm:grid-cols-4 gap-4 font-mono text-xs">
               <div className="p-4 rounded-2xl bg-gradient-to-br from-emerald-50/90 via-teal-50/40 to-white border border-emerald-200/90 shadow-sm hover:shadow-md transition-all">
                 <span className="text-emerald-800 text-[10px] block font-bold uppercase">Currency</span>
-                <span className="text-emerald-950 font-black text-sm">INR (₹) Real-Time</span>
+                <span className="text-emerald-950 font-black text-sm">Real-Time (₹)</span>
               </div>
               <div className="p-4 rounded-2xl bg-gradient-to-br from-slate-100/90 via-slate-50 to-white border border-slate-300/80 shadow-sm hover:shadow-md transition-all">
                 <span className="text-slate-600 text-[10px] block font-bold uppercase">Token Catalog</span>
@@ -134,10 +117,10 @@ export default function HomePage() {
               </div>
               <div>
                 <h2 className="text-2xl font-black text-slate-900 tracking-tight">
-                  Comprehensive 48-Asset Institutional Index (INR ₹)
+                  Comprehensive 48-Asset Institutional Index
                 </h2>
                 <p className="text-xs text-slate-500 font-mono mt-0.5">
-                  Real-time Indian Rupee prices across Majors, Layer-1s, Memes, DeFi protocols, and AI tokens
+                  Real-time prices across Majors, Layer-1s, Memes, DeFi protocols, and AI tokens
                 </p>
               </div>
             </div>
@@ -259,14 +242,12 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-md bg-slate-950">
-              <Image
+            <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-md bg-slate-950 flex items-center justify-center min-h-[260px]">
+              <img
                 src="/trading-screen.png"
                 alt="Institutional Multi-Monitor Trader Screen"
-                width={800}
-                height={480}
-                className="w-full h-auto object-cover"
-                unoptimized
+                className="w-full h-auto object-cover rounded-xl block"
+                style={{ maxHeight: '460px', aspectRatio: '16 / 9' }}
               />
             </div>
           </div>
@@ -282,18 +263,16 @@ export default function HomePage() {
                 Real-Time Quantitative Signal Dashboard
               </h3>
               <p className="text-xs text-slate-600 leading-relaxed font-normal">
-                Real-time algorithmic dashboard calculating RSI momentum, 50/200 SMA trend envelopes, and Kelly Criterion position sizing in Indian Rupee.
+                Real-time algorithmic dashboard calculating RSI momentum, 50/200 SMA trend envelopes, and Kelly Criterion position sizing.
               </p>
             </div>
 
-            <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-md bg-slate-950">
-              <Image
+            <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-md bg-slate-950 flex items-center justify-center min-h-[260px]">
+              <img
                 src="/trading-dashboard.png"
                 alt="Institutional Crypto Terminal Dashboard"
-                width={800}
-                height={480}
-                className="w-full h-auto object-cover"
-                unoptimized
+                className="w-full h-auto object-cover rounded-xl block"
+                style={{ maxHeight: '460px', aspectRatio: '16 / 9' }}
               />
             </div>
           </div>
@@ -313,14 +292,12 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-md bg-slate-950">
-              <Image
+            <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-md bg-slate-950 p-2 flex items-center justify-center min-h-[260px]">
+              <img
                 src="/quant-people-trading.svg"
                 alt="Trading Floor Blueprint"
-                width={800}
-                height={480}
-                className="w-full h-auto object-contain"
-                unoptimized
+                className="w-full h-auto object-contain block"
+                style={{ maxHeight: '460px', aspectRatio: '800 / 480' }}
               />
             </div>
           </div>
@@ -340,14 +317,12 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-md bg-slate-950">
-              <Image
+            <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-md bg-slate-950 p-2 flex items-center justify-center min-h-[280px]">
+              <img
                 src="/quant-math.svg"
                 alt="Quantitative Mathematics"
-                width={800}
-                height={480}
-                className="w-full h-auto object-contain"
-                unoptimized
+                className="w-full h-auto object-contain block"
+                style={{ maxHeight: '460px', aspectRatio: '900 / 520' }}
               />
             </div>
           </div>
@@ -367,7 +342,7 @@ export default function HomePage() {
                 How JH Crypto Analytics Formulates Real-Time Buy/Sell Signals
               </h3>
               <p className="text-slate-600 leading-relaxed font-normal text-base">
-                At <strong>JH Crypto Analytics</strong>, our quantitative engine evaluates multiple market dimensions simultaneously: Multi-Timeframe Momentum, On-Chain Order Flow, Macro Historical Analogs, and Parametric Volatility Boundaries. Deliberations are weighted mathematically to produce audited Buy/Sell recommendations in Indian Rupee (INR ₹).
+                At <strong>JH Crypto Analytics</strong>, our quantitative engine evaluates multiple market dimensions simultaneously: Multi-Timeframe Momentum, On-Chain Order Flow, Macro Historical Analogs, and Parametric Volatility Boundaries. Deliberations are weighted mathematically to produce audited Buy/Sell recommendations in real time.
               </p>
               <div className="pt-2">
                 <Link
@@ -399,7 +374,7 @@ export default function HomePage() {
               <div className="p-6 rounded-3xl bg-gradient-to-br from-amber-50 via-orange-50/30 to-white border border-amber-200/90 shadow-sm hover:shadow-md transition-all">
                 <ShieldCheck className="w-6 h-6 text-amber-600 mb-3" />
                 <h5 className="font-extrabold text-slate-900 text-sm mb-1.5">Supervisor Node</h5>
-                <p className="text-slate-600 text-xs leading-relaxed">Resolves conflict, calculates entry, TP, and stop-loss in INR</p>
+                <p className="text-slate-600 text-xs leading-relaxed">Resolves conflict, calculates entry, TP, and stop-loss</p>
               </div>
             </div>
           </div>

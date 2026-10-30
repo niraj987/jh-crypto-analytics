@@ -5,7 +5,7 @@ import Footer from '@/components/layout/Footer';
 
 export const metadata: Metadata = {
   title: 'JH Crypto Analytics // Institutional Cryptocurrency Intelligence',
-  description: 'JH Crypto Analytics - Real-time institutional cryptocurrency execution platform, algorithmic signals, and AI forecasting in Indian Rupee (INR ₹).',
+  description: 'JH Crypto Analytics - Real-time institutional cryptocurrency execution platform, algorithmic signals, and AI forecasting with live targets.',
 };
 
 export default function RootLayout({

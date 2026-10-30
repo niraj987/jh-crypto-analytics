@@ -23,7 +23,7 @@ export default function TickerMarquee({ assets }: TickerMarqueeProps) {
 
       tweenRef.current = gsap.to(el, {
         x: `-=${totalWidth}`,
-        duration: 42,
+        duration: 110,
         ease: 'none',
         repeat: -1,
         modifiers: {

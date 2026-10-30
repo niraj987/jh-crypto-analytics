@@ -39,7 +39,7 @@ export default function ConsensusCard({ verdict, onRefresh, isLoading }: Consens
               QUANT REASONING
             </span>
           </h3>
-          <p className="text-xs text-slate-500 font-mono mt-0.5">Weighted algorithmic consensus signal with live Indian Rupee parameters</p>
+          <p className="text-xs text-slate-500 font-mono mt-0.5">Weighted algorithmic consensus signal with live targets</p>
         </div>
 
         <button

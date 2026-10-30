@@ -15,7 +15,7 @@ export default function AboutPage() {
       accentText: 'text-sky-700',
       accentBg: 'bg-sky-50 border-sky-200',
       description:
-        'Calculates real-time 50/200 SMA golden and death crosses, 20 EMA dynamic trailing support, RSI(14) divergence regimes, MACD signal line crossovers, Bollinger Band squeeze breakout states, and 14-period Average True Range (ATR) volatility envelopes in Indian Rupee (INR ₹).',
+        'Calculates real-time 50/200 SMA golden and death crosses, 20 EMA dynamic trailing support, RSI(14) divergence regimes, MACD signal line crossovers, Bollinger Band squeeze breakout states, and 14-period Average True Range (ATR) volatility envelopes in real time.',
     },
     {
       id: 'agent-2',
@@ -73,7 +73,7 @@ export default function AboutPage() {
           How Top Trading Firms Operate &amp; How Our Engine Executes
         </h1>
         <p className="text-slate-600 text-lg leading-relaxed">
-          <strong>JH Crypto Analytics</strong> bridges modern quantitative prop-trading mechanics with algorithmic intelligence. Powered by verified mathematical formulas, smart order execution algorithms (TWAP/VWAP), and real-time Indian Rupee (INR ₹) calculations.
+          <strong>JH Crypto Analytics</strong> bridges modern quantitative prop-trading mechanics with algorithmic intelligence. Powered by verified mathematical formulas, smart order execution algorithms (TWAP/VWAP), and real-time sub-second calculations.
         </p>
       </div>
 
@@ -92,14 +92,12 @@ export default function AboutPage() {
         </div>
 
         {/* Pipeline Diagram */}
-        <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-slate-950">
-          <Image
+        <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-slate-950 p-2 flex items-center justify-center min-h-[280px]">
+          <img
             src="/trading-firm-flow.svg"
             alt="Quantitative Trading Firm Pipeline"
-            width={950}
-            height={360}
-            className="w-full h-auto object-contain"
-            unoptimized
+            className="w-full h-auto object-contain block"
+            style={{ maxHeight: '420px', aspectRatio: '960 / 400' }}
           />
         </div>
 
@@ -260,7 +258,7 @@ export default function AboutPage() {
               <li>• Next.js 14 App Router</li>
               <li>• React 18 &amp; TypeScript</li>
               <li>• Interactive Three.js 3D Models</li>
-              <li>• Indian Rupee (INR ₹) Formatting</li>
+              <li>• Real-Time Currency Formatting</li>
               <li>• Warm Luminous Glassmorphic Design</li>
             </ul>
           </div>
@@ -295,7 +293,7 @@ export default function AboutPage() {
           href="/signals"
           className="inline-flex items-center gap-3 px-10 py-5 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-mono font-black text-sm shadow-xl shadow-emerald-600/25 hover:-translate-y-0.5 transition-all duration-200"
         >
-          <span>Launch Real-Time Quantitative Signals Terminal (INR ₹)</span>
+          <span>Launch Real-Time Quantitative Signals Terminal</span>
           <ArrowRight className="w-4 h-4" />
         </Link>
       </div>

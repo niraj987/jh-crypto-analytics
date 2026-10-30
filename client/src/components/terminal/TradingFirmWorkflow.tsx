@@ -175,14 +175,12 @@ export default function TradingFirmWorkflow({
             </div>
 
             {/* Visual Screen Preview */}
-            <div className="lg:col-span-5 relative rounded-2xl overflow-hidden border border-slate-200 shadow-md">
-              <Image
+            <div className="lg:col-span-5 relative rounded-2xl overflow-hidden border border-slate-200 shadow-md bg-slate-950 p-1 flex items-center justify-center min-h-[260px]">
+              <img
                 src="/quant-people-trading.svg"
                 alt="Institutional Trading Floor"
-                width={600}
-                height={380}
-                className="w-full h-auto object-cover"
-                unoptimized
+                className="w-full h-auto object-cover rounded-xl block"
+                style={{ aspectRatio: '800 / 480' }}
               />
               <div className="absolute bottom-3 left-3 right-3 p-3 bg-slate-900/90 backdrop-blur-md rounded-xl text-white text-[11px] font-mono flex items-center justify-between">
                 <span>Proprietary Trading Floor Screen</span>
@@ -326,14 +324,12 @@ export default function TradingFirmWorkflow({
               <span className="text-xs font-mono font-bold text-slate-500 uppercase tracking-wider">
                 Proprietary Risk Formulas
               </span>
-              <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-slate-950">
-                <Image
+              <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-slate-950 p-2 flex items-center justify-center min-h-[280px]">
+                <img
                   src="/quant-math.svg"
                   alt="Quantitative Risk Mathematics"
-                  width={650}
-                  height={420}
-                  className="w-full h-auto object-contain"
-                  unoptimized
+                  className="w-full h-auto object-contain block"
+                  style={{ aspectRatio: '900 / 520' }}
                 />
               </div>
               <p className="text-xs text-slate-600 font-mono leading-relaxed">
@@ -452,18 +448,16 @@ export default function TradingFirmWorkflow({
               <span className="text-xs font-mono font-bold text-slate-500 uppercase tracking-wider">
                 Full Execution Routing Flow
               </span>
-              <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-slate-950">
-                <Image
+              <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-slate-950 p-2 flex items-center justify-center min-h-[260px]">
+                <img
                   src="/trading-firm-flow.svg"
                   alt="Trading Firm Workflow Pipeline"
-                  width={650}
-                  height={320}
-                  className="w-full h-auto object-contain"
-                  unoptimized
+                  className="w-full h-auto object-contain block"
+                  style={{ aspectRatio: '960 / 400' }}
                 />
               </div>
               <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 text-xs font-mono text-slate-600 leading-relaxed">
-                <strong>Why this matters:</strong> Institutional crypto traders never submit raw market orders. They execute via algorithmic routing engines that distribute volume across decentralized pools (Uniswap, Raydium) and centralized order books to achieve the volume-weighted average price (VWAP).
+                <strong>Why this matters:</strong> Institutional crypto traders never submit raw market orders. They execute via algorithmic routing engines that distribute volume across decentralized pools and centralized order books to achieve the volume-weighted average price (VWAP).
               </div>
             </div>
 
@@ -566,13 +560,12 @@ export default function TradingFirmWorkflow({
               <span className="text-xs font-mono font-bold text-slate-500 uppercase tracking-wider">
                 Live Institutional Desk Screen
               </span>
-              <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-md">
-                <Image
+              <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-md bg-slate-950 flex items-center justify-center min-h-[260px]">
+                <img
                   src="/trading-dashboard.png"
                   alt="Institutional Trading Dashboard"
-                  width={650}
-                  height={380}
-                  className="w-full h-auto object-cover"
+                  className="w-full h-auto object-cover rounded-xl block"
+                  style={{ aspectRatio: '16 / 9' }}
                 />
               </div>
               <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 text-xs font-mono text-slate-700 space-y-2">

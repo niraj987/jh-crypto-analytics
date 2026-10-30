@@ -124,7 +124,7 @@ function SignalsTerminal() {
                   {currentAsset ? `${currentAsset.name} (${currentAsset.symbol})` : selectedSymbol}
                 </h1>
                 <span className="text-[11px] font-mono px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-300 font-extrabold shadow-sm">
-                  INR (₹) LIVE STREAM
+                  LIVE REAL-TIME STREAM
                 </span>
               </div>
               <p className="text-xs text-slate-600 font-mono mt-1 font-medium">
@@ -166,23 +166,23 @@ function SignalsTerminal() {
           </div>
         </div>
 
-        {/* Real-Time Indian Rupee Quick Metrics Strip */}
+        {/* Real-Time Price Metrics Strip */}
         {currentAsset && (
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 font-mono text-xs">
             <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200">
-              <span className="text-slate-500 text-[10px] block font-bold uppercase">24h High (INR)</span>
+              <span className="text-slate-500 text-[10px] block font-bold uppercase">24h High (₹)</span>
               <span className="text-slate-950 font-black text-sm mt-0.5 block">{formatINR(currentAsset.high24h)}</span>
             </div>
             <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200">
-              <span className="text-slate-500 text-[10px] block font-bold uppercase">24h Low (INR)</span>
+              <span className="text-slate-500 text-[10px] block font-bold uppercase">24h Low (₹)</span>
               <span className="text-slate-950 font-black text-sm mt-0.5 block">{formatINR(currentAsset.low24h)}</span>
             </div>
             <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200">
-              <span className="text-slate-500 text-[10px] block font-bold uppercase">24h Volume (INR)</span>
+              <span className="text-slate-500 text-[10px] block font-bold uppercase">24h Volume</span>
               <span className="text-emerald-700 font-black text-sm mt-0.5 block">{formatINRLarge(currentAsset.volume24h)}</span>
             </div>
             <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200">
-              <span className="text-slate-500 text-[10px] block font-bold uppercase">Market Cap (INR)</span>
+              <span className="text-slate-500 text-[10px] block font-bold uppercase">Market Cap</span>
               <span className="text-sky-700 font-black text-sm mt-0.5 block">{formatINRLarge(currentAsset.marketCap)}</span>
             </div>
           </div>

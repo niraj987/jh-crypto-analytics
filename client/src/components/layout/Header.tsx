@@ -36,30 +36,40 @@ export default function Header() {
     >
       <div className="max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-12 h-24 flex items-center justify-between">
         
-        {/* User's Company Logo & Brand */}
+        {/* User's Company Brand with 3D Glassball Orb Effect */}
         <Link href="/" className="flex items-center gap-4 group">
-          <div className="relative w-12 h-12 rounded-2xl bg-white border border-slate-200 shadow-sm overflow-hidden flex items-center justify-center p-1 group-hover:scale-105 group-hover:shadow-md transition-all duration-300">
-            <Image
-              src="/jh-logo.png"
-              alt="JH Crypto Analytics Logo"
-              width={44}
-              height={44}
-              className="object-contain"
-              priority
-              unoptimized
-            />
+          {/* Luminous 3D Glassball Sphere */}
+          <div className="relative flex items-center justify-center">
+            {/* Ambient Aura Ring */}
+            <div className="absolute -inset-1.5 rounded-full bg-gradient-to-tr from-emerald-400 via-sky-400 to-indigo-500 opacity-50 blur-md group-hover:opacity-85 transition-opacity duration-300 animate-pulse" />
+            
+            {/* Spherical Glass Orb with Inner Reflections & Specular Arc */}
+            <div className="relative w-12 h-12 rounded-full overflow-hidden p-1.5 bg-gradient-to-tr from-emerald-500/80 via-teal-400/50 to-sky-400/80 backdrop-blur-xl border border-white/90 shadow-[0_8px_24px_rgba(16,185,129,0.3),inset_0_4px_10px_rgba(255,255,255,0.9),inset_0_-6px_12px_rgba(2,132,199,0.4)] group-hover:scale-105 transition-all duration-300 flex items-center justify-center">
+              {/* Refractive Specular Glare Arc */}
+              <div className="absolute top-1 left-2 w-6 h-3 rounded-full bg-white/70 blur-[0.8px] -rotate-12 pointer-events-none" />
+              {/* Secondary Lower Bounce Caustic */}
+              <div className="absolute bottom-1 right-2.5 w-3.5 h-2 rounded-full bg-sky-200/50 blur-[1px] pointer-events-none" />
+              
+              <Image
+                src="/jh-logo.png"
+                alt="JH Crypto Analytics Logo"
+                width={36}
+                height={36}
+                className="object-contain relative z-10 drop-shadow-sm"
+                priority
+                unoptimized
+              />
+            </div>
           </div>
+
           <div>
-            <div className="flex items-center gap-2.5">
+            <div className="flex items-center gap-2">
               <span className="font-black tracking-tight text-xl text-slate-900 group-hover:text-emerald-700 transition-colors">
-                JH <span className="text-emerald-600">CRYPTO ANALYTICS</span>
-              </span>
-              <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-300 font-extrabold uppercase shadow-sm">
-                INR (₹) LIVE
+                JH <span className="bg-gradient-to-r from-emerald-600 via-teal-600 to-sky-600 bg-clip-text text-transparent">CRYPTO ANALYTICS</span>
               </span>
             </div>
-            <p className="text-[11px] font-mono text-slate-500 font-medium tracking-tight">
-              Institutional Quantitative Intelligence Desk
+            <p className="text-[11px] font-mono text-slate-500 font-semibold tracking-tight">
+              Quantitative Intelligence &amp; Execution Terminal
             </p>
           </div>
         </Link>
@@ -89,27 +99,15 @@ export default function Header() {
           })}
         </nav>
 
-        {/* Right Status & Profile Controls */}
+        {/* Clean, Innovative Right Controls: Launch CTA & Operator Dropdown */}
         <div className="flex items-center gap-3">
-          {/* CoinSwitch Connected Badge */}
-          <div className="hidden xl:flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-50 border border-emerald-300 text-emerald-900 text-xs font-mono font-bold shadow-sm">
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-            <span>COINSWITCH PRO: CONNECTED</span>
-          </div>
-
-          {/* Real-time Indian Rupee Badge */}
-          <div className="hidden sm:flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-300 text-slate-800 text-xs font-mono font-bold shadow-sm">
-            <span className="text-slate-500">CURRENCY:</span>
-            <span className="text-emerald-700 font-black">INR (₹) LIVE</span>
-          </div>
-
-          <div className="hidden lg:flex items-center gap-2.5 px-3.5 py-2 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-mono font-bold shadow-sm">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-600"></span>
-            </span>
-            <span className="tracking-wide">QUANT MESH: ACTIVE</span>
-          </div>
+          <Link
+            href="/signals"
+            className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-2xl bg-gradient-to-r from-emerald-600 via-teal-600 to-sky-600 hover:from-emerald-500 hover:to-sky-500 text-white font-mono font-black text-xs shadow-md shadow-emerald-600/20 hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
+          >
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>Launch Desk</span>
+          </Link>
 
           {/* Institutional Operator Dropdown */}
           <div className="relative">
@@ -142,12 +140,8 @@ export default function Header() {
                     <span className="text-emerald-700 font-bold">df55...1779 (Connected)</span>
                   </p>
                   <p className="flex justify-between">
-                    <span className="text-slate-400">Base Currency:</span>
-                    <span className="text-emerald-700 font-bold">Indian Rupee (INR ₹)</span>
-                  </p>
-                  <p className="flex justify-between">
                     <span className="text-slate-400">Status:</span>
-                    <span className="text-slate-900 font-bold">Real-Time Execution Active</span>
+                    <span className="text-slate-900 font-bold">Active Stream</span>
                   </p>
                 </div>
                 <div className="pt-3 border-t border-slate-100">

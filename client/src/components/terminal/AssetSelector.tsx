@@ -64,7 +64,7 @@ export default function AssetSelector({ assets, selectedSymbol, onSelect, onCust
             {filteredAssets.length} of {assets.length} Tokens
           </span>
         </div>
-        <p className="text-xs text-slate-500 font-mono mt-0.5">Select from 48+ active cryptocurrencies with real-time INR (₹) prices</p>
+        <p className="text-xs text-slate-500 font-mono mt-0.5">Select from 48+ active cryptocurrency pairs with live price streams</p>
       </div>
 
       {/* Search Bar */}

@@ -77,7 +77,7 @@ export default function ForecastCards({ forecast }: ForecastCardsProps) {
 
               {/* Expected Price Target in INR */}
               <div className="my-5 font-mono">
-                <span className="text-xs text-slate-500 block font-bold uppercase">Expected Target (INR):</span>
+                <span className="text-xs text-slate-500 block font-bold uppercase">Expected Target (₹):</span>
                 <div className="flex items-baseline gap-2.5 mt-1">
                   <span className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
                     {formatINR(card.data.expected)}

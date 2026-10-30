@@ -322,7 +322,7 @@ export default function QuantGraphAgent({
             <Bot className="w-5 h-5 text-emerald-700 shrink-0 mt-0.5" />
             <div className="space-y-1">
               <p className="font-bold">{customReply}</p>
-              <span className="text-[10px] text-emerald-700 block">Agent Verified • Real-Time INR Data</span>
+              <span className="text-[10px] text-emerald-700 block">Agent Verified • Real-Time Price Data</span>
             </div>
           </div>
         )}

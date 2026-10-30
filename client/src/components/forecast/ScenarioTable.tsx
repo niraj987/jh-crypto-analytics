@@ -55,13 +55,13 @@ export default function ScenarioTable({ scenarios }: ScenarioTableProps) {
     <div className="rounded-3xl bg-white border border-slate-200 p-8 shadow-sm">
       <div className="mb-8 pb-4 border-b border-slate-100">
         <h3 className="text-base font-black text-slate-900 flex items-center gap-2.5">
-          <span>RAG-Conditioned Scenario Probability Matrix (INR ₹)</span>
-          <span className="text-[10px] font-mono px-3 py-1 rounded-full bg-purple-50 text-purple-800 border border-purple-200 font-extrabold">
+          <span>Predictive Scenario Probability Matrix</span>
+          <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-purple-50 text-purple-800 border border-purple-200 font-extrabold">
             3 REGIMES
           </span>
         </h3>
         <p className="text-xs text-slate-500 font-mono mt-1 font-medium">
-          Dynamic scenario weights synthesized by historical cycle retrieval and real-time INR volatility
+          Dynamic scenario weights synthesized by historical cycle retrieval and market volatility
         </p>
       </div>
 
@@ -86,9 +86,9 @@ export default function ScenarioTable({ scenarios }: ScenarioTableProps) {
                   </span>
                 </div>
 
-                {/* Target Price in INR */}
+                {/* Target Price in ₹ */}
                 <div className="font-mono my-4">
-                  <span className="text-[11px] text-slate-500 block font-bold uppercase">Scenario Target (INR):</span>
+                  <span className="text-[11px] text-slate-500 block font-bold uppercase">Scenario Target (₹):</span>
                   <div className="flex items-baseline gap-2 mt-1">
                     <span className={`text-2xl font-black ${theme.priceColor} tracking-tight`}>
                       {formatINR(sc.targetPrice)}
