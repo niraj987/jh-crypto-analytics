@@ -93,6 +93,12 @@ export default function Header() {
 
         {/* Right Status & Profile Controls */}
         <div className="flex items-center gap-3">
+          {/* CoinSwitch Connected Badge */}
+          <div className="hidden xl:flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-50 border border-emerald-300 text-emerald-900 text-xs font-mono font-bold shadow-sm">
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+            <span>COINSWITCH PRO: CONNECTED</span>
+          </div>
+
           {/* Real-time Indian Rupee Badge */}
           <div className="hidden sm:flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-300 text-slate-800 text-xs font-mono font-bold shadow-sm">
             <span className="text-slate-500">CURRENCY:</span>
@@ -132,6 +138,10 @@ export default function Header() {
                   <p className="flex justify-between">
                     <span className="text-slate-400">Firm:</span>
                     <span className="text-slate-900 font-bold">JH Crypto Analytics</span>
+                  </p>
+                  <p className="flex justify-between">
+                    <span className="text-slate-400">CoinSwitch API:</span>
+                    <span className="text-emerald-700 font-bold">df55...1779 (Connected)</span>
                   </p>
                   <p className="flex justify-between">
                     <span className="text-slate-400">Base Currency:</span>

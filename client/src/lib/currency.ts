@@ -80,3 +80,4 @@ export function formatINRCompact(usdAmount: number): string {
   }
   return `₹${inr.toFixed(2)}`;
 }
+

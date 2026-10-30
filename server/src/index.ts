@@ -5,6 +5,7 @@ import agentRoutes from './routes/agentRoutes.js';
 import marketRoutes from './routes/marketRoutes.js';
 import ragRoutes from './routes/ragRoutes.js';
 import authRoutes from './routes/authRoutes.js';
+import coinswitchRoutes from './routes/coinswitchRoutes.js';
 
 dotenv.config();
 
@@ -24,6 +25,7 @@ app.use('/api/agents', agentRoutes);
 app.use('/api/market', marketRoutes);
 app.use('/api/rag', ragRoutes);
 app.use('/api/auth', authRoutes);
+app.use('/api/coinswitch', coinswitchRoutes);
 
 app.get('/api/health', (_req, res) => {
   res.json({
