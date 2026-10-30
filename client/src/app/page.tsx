@@ -53,6 +53,7 @@ export default function HomePage() {
                   width={30}
                   height={30}
                   className="object-contain"
+                  unoptimized
                 />
               </div>
               <span className="text-xs font-mono font-black text-slate-900 tracking-wide">
@@ -93,23 +94,23 @@ export default function HomePage() {
               </Link>
             </div>
 
-            {/* Telemetry Highlights */}
+            {/* Telemetry Highlights with Distinct Colored Background Tiles */}
             <div className="pt-6 grid grid-cols-2 sm:grid-cols-4 gap-4 font-mono text-xs">
-              <div className="p-4 rounded-2xl bg-white border border-slate-200 shadow-sm">
-                <span className="text-slate-500 text-[10px] block font-bold uppercase">Currency</span>
-                <span className="text-emerald-700 font-black text-sm">INR (₹) Real-Time</span>
+              <div className="p-4 rounded-2xl bg-gradient-to-br from-emerald-50/90 via-teal-50/40 to-white border border-emerald-200/90 shadow-sm hover:shadow-md transition-all">
+                <span className="text-emerald-800 text-[10px] block font-bold uppercase">Currency</span>
+                <span className="text-emerald-950 font-black text-sm">INR (₹) Real-Time</span>
               </div>
-              <div className="p-4 rounded-2xl bg-white border border-slate-200 shadow-sm">
-                <span className="text-slate-500 text-[10px] block font-bold uppercase">Token Catalog</span>
-                <span className="text-slate-900 font-black text-sm">48+ Active Pairs</span>
+              <div className="p-4 rounded-2xl bg-gradient-to-br from-slate-100/90 via-slate-50 to-white border border-slate-300/80 shadow-sm hover:shadow-md transition-all">
+                <span className="text-slate-600 text-[10px] block font-bold uppercase">Token Catalog</span>
+                <span className="text-slate-950 font-black text-sm">48+ Active Pairs</span>
               </div>
-              <div className="p-4 rounded-2xl bg-white border border-slate-200 shadow-sm">
-                <span className="text-slate-500 text-[10px] block font-bold uppercase">Risk Engine</span>
-                <span className="text-purple-700 font-black text-sm">Kelly Criterion</span>
+              <div className="p-4 rounded-2xl bg-gradient-to-br from-purple-50/90 via-indigo-50/40 to-white border border-purple-200/90 shadow-sm hover:shadow-md transition-all">
+                <span className="text-purple-800 text-[10px] block font-bold uppercase">Risk Engine</span>
+                <span className="text-purple-950 font-black text-sm">Kelly Criterion</span>
               </div>
-              <div className="p-4 rounded-2xl bg-white border border-slate-200 shadow-sm">
-                <span className="text-slate-500 text-[10px] block font-bold uppercase">Order Slicing</span>
-                <span className="text-sky-700 font-black text-sm">TWAP & VWAP</span>
+              <div className="p-4 rounded-2xl bg-gradient-to-br from-sky-50/90 via-blue-50/40 to-white border border-sky-200/90 shadow-sm hover:shadow-md transition-all">
+                <span className="text-sky-800 text-[10px] block font-bold uppercase">Order Slicing</span>
+                <span className="text-sky-950 font-black text-sm">TWAP &amp; VWAP</span>
               </div>
             </div>
 
@@ -149,19 +150,28 @@ export default function HomePage() {
           </Link>
         </div>
 
-        {/* 6 High-Impact Snapshot Cards with Spacious Padding */}
+        {/* 6 High-Impact Snapshot Cards with Rich Distinct Backgrounds */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {catalog.slice(0, 6).map((asset) => {
             const isUp = asset.change24h >= 0;
+            const tileBg = 
+              asset.category === 'Major'
+                ? 'bg-gradient-to-br from-sky-50/80 via-blue-50/30 to-white border-sky-200/90 shadow-[0_10px_25px_-5px_rgba(2,132,199,0.06)]'
+                : asset.category === 'Meme'
+                  ? 'bg-gradient-to-br from-amber-50/80 via-orange-50/30 to-white border-amber-200/90 shadow-[0_10px_25px_-5px_rgba(245,158,11,0.06)]'
+                  : asset.category === 'AI'
+                    ? 'bg-gradient-to-br from-purple-50/80 via-indigo-50/30 to-white border-purple-200/90 shadow-[0_10px_25px_-5px_rgba(168,85,247,0.06)]'
+                    : 'bg-gradient-to-br from-emerald-50/80 via-teal-50/30 to-white border-emerald-200/90 shadow-[0_10px_25px_-5px_rgba(16,185,129,0.06)]';
+
             return (
               <div
                 key={asset.symbol}
-                className="p-7 rounded-3xl bg-white border border-slate-200 shadow-[0_10px_25px_-5px_rgba(15,23,42,0.04)] hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
+                className={`p-7 rounded-3xl border ${tileBg} hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between`}
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center gap-3.5">
-                      <div className="w-12 h-12 rounded-2xl bg-slate-100 border border-slate-200 flex items-center justify-center font-black font-mono text-slate-800 text-sm shadow-sm">
+                      <div className="w-12 h-12 rounded-2xl bg-white border border-slate-200 flex items-center justify-center font-black font-mono text-slate-800 text-sm shadow-sm">
                         {asset.symbol.slice(0, 3)}
                       </div>
                       <div>
@@ -172,8 +182,8 @@ export default function HomePage() {
                     <span
                       className={`text-xs font-mono font-bold px-3 py-1 rounded-xl border ${
                         isUp 
-                          ? 'text-emerald-700 bg-emerald-50 border-emerald-200 shadow-sm' 
-                          : 'text-rose-700 bg-rose-50 border-rose-200 shadow-sm'
+                          ? 'text-emerald-800 bg-emerald-50 border-emerald-200 shadow-sm' 
+                          : 'text-rose-800 bg-rose-50 border-rose-200 shadow-sm'
                       }`}
                     >
                       {isUp ? '+' : ''}{asset.change24h}%
@@ -181,26 +191,26 @@ export default function HomePage() {
                   </div>
 
                   <div className="font-mono my-5">
-                    <span className="text-3xl font-black text-slate-900 tracking-tight">
+                    <span className="text-3xl font-black text-slate-950 tracking-tight">
                       {formatINR(asset.currentPrice)}
                     </span>
-                    <p className="text-xs text-slate-500 mt-1 font-medium">
-                      24h Vol: <span className="text-slate-800 font-bold">{formatINRLarge(asset.volume24h)}</span>
+                    <p className="text-xs text-slate-600 mt-1 font-medium">
+                      24h Vol: <span className="text-slate-900 font-bold">{formatINRLarge(asset.volume24h)}</span>
                     </p>
                   </div>
                 </div>
 
-                <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
+                <div className="pt-4 border-t border-slate-200/70 flex items-center justify-between">
                   <Link
                     href={`/signals?symbol=${asset.symbol}`}
-                    className="text-xs font-mono text-emerald-700 hover:text-emerald-900 font-bold flex items-center gap-1 transition-colors"
+                    className="text-xs font-mono text-emerald-800 hover:text-emerald-950 font-black flex items-center gap-1 transition-colors"
                   >
                     <span>Execute AI Calculation</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
                   <Link
                     href={`/forecast?symbol=${asset.symbol}`}
-                    className="text-xs font-mono text-purple-700 hover:text-purple-900 font-bold transition-colors"
+                    className="text-xs font-mono text-purple-800 hover:text-purple-950 font-black transition-colors"
                   >
                     RAG Forecast →
                   </Link>
@@ -216,7 +226,7 @@ export default function HomePage() {
         <TradingFirmWorkflow />
       </section>
 
-      {/* Institutional Visual Showcase: Trading Floor, Quant Math, and Execution Screens */}
+      {/* Institutional Visual Showcase: Real Multi-Monitor Trading Screens & Quantitative Mathematics */}
       <section className="px-6 sm:px-8 lg:px-12 max-w-[1440px] mx-auto py-12">
         <div className="flex items-center gap-3 mb-8">
           <div className="w-10 h-10 rounded-2xl bg-sky-50 border border-sky-200 flex items-center justify-center text-sky-700 shadow-sm">
@@ -227,45 +237,100 @@ export default function HomePage() {
               Institutional Trading Floor &amp; Mathematical Research Lab
             </h2>
             <p className="text-xs text-slate-500 font-mono mt-0.5">
-              Visualizing how our multi-analyst desks, stochastic models, and real-time execution terminals interact
+              Live multi-screen trading terminals, depth order flow monitors, and verified risk mathematical models
             </p>
           </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
           
-          {/* Card 1: People Trading / Institutional Trading Floor */}
-          <div className="p-6 rounded-3xl bg-white border border-slate-200 shadow-sm flex flex-col justify-between space-y-4">
+          {/* Card 1: Real Multi-Monitor Trader Screens */}
+          <div className="p-6 rounded-3xl bg-gradient-to-br from-sky-50/80 via-blue-50/20 to-white border border-sky-200/90 shadow-sm flex flex-col justify-between space-y-4">
             <div>
-              <div className="flex items-center justify-between pb-3 border-b border-slate-100 mb-4">
-                <span className="text-xs font-mono font-bold text-slate-500 uppercase">Trading Floor In Action</span>
-                <span className="text-xs font-mono font-bold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">Live Desk Operations</span>
+              <div className="flex items-center justify-between pb-3 border-b border-sky-100 mb-4">
+                <span className="text-xs font-mono font-bold text-sky-800 uppercase">Trading Desks In Action</span>
+                <span className="text-xs font-mono font-bold text-emerald-800 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">Active Live Floor</span>
               </div>
               <h3 className="text-lg font-black text-slate-900 mb-1.5">
-                Multi-Monitor Institutional Trader Floor
+                Multi-Monitor Institutional Execution Terminals
               </h3>
               <p className="text-xs text-slate-600 leading-relaxed font-normal">
-                Proprietary traders, quant portfolio managers, and risk supervisors monitor depth order books, real-time tick momentum, and multi-asset price waves.
+                Proprietary traders, quant analysts, and risk officers monitoring tick-by-tick order flow, depth charts, and multi-asset price action in real time.
               </p>
             </div>
 
-            <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-slate-950">
+            <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-md bg-slate-950">
               <Image
-                src="/quant-people-trading.svg"
-                alt="Institutional Traders Floor"
-                width={700}
-                height={420}
-                className="w-full h-auto object-contain"
+                src="/trading-screen.png"
+                alt="Institutional Multi-Monitor Trader Screen"
+                width={800}
+                height={480}
+                className="w-full h-auto object-cover"
+                unoptimized
               />
             </div>
           </div>
 
-          {/* Card 2: Mathematical Quant Formulas */}
-          <div className="p-6 rounded-3xl bg-white border border-slate-200 shadow-sm flex flex-col justify-between space-y-4">
+          {/* Card 2: Quantitative Terminal Dashboard */}
+          <div className="p-6 rounded-3xl bg-gradient-to-br from-emerald-50/80 via-teal-50/20 to-white border border-emerald-200/90 shadow-sm flex flex-col justify-between space-y-4">
             <div>
-              <div className="flex items-center justify-between pb-3 border-b border-slate-100 mb-4">
-                <span className="text-xs font-mono font-bold text-slate-500 uppercase">Stochastic &amp; Risk Equations</span>
-                <span className="text-xs font-mono font-bold text-sky-700 bg-sky-50 px-2.5 py-0.5 rounded-full border border-sky-200">Mathematical Calibration</span>
+              <div className="flex items-center justify-between pb-3 border-b border-emerald-100 mb-4">
+                <span className="text-xs font-mono font-bold text-emerald-800 uppercase">Terminal Architecture</span>
+                <span className="text-xs font-mono font-bold text-sky-800 bg-sky-50 px-2.5 py-0.5 rounded-full border border-sky-200">Sub-Second Ticks</span>
+              </div>
+              <h3 className="text-lg font-black text-slate-900 mb-1.5">
+                Real-Time Quantitative Signal Dashboard
+              </h3>
+              <p className="text-xs text-slate-600 leading-relaxed font-normal">
+                Real-time algorithmic dashboard calculating RSI momentum, 50/200 SMA trend envelopes, and Kelly Criterion position sizing in Indian Rupee.
+              </p>
+            </div>
+
+            <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-md bg-slate-950">
+              <Image
+                src="/trading-dashboard.png"
+                alt="Institutional Crypto Terminal Dashboard"
+                width={800}
+                height={480}
+                className="w-full h-auto object-cover"
+                unoptimized
+              />
+            </div>
+          </div>
+
+          {/* Card 3: Trading Floor Floorplan */}
+          <div className="p-6 rounded-3xl bg-gradient-to-br from-purple-50/80 via-indigo-50/20 to-white border border-purple-200/90 shadow-sm flex flex-col justify-between space-y-4">
+            <div>
+              <div className="flex items-center justify-between pb-3 border-b border-purple-100 mb-4">
+                <span className="text-xs font-mono font-bold text-purple-800 uppercase">Trading Floor Blueprint</span>
+                <span className="text-xs font-mono font-bold text-purple-800 bg-purple-50 px-2.5 py-0.5 rounded-full border border-purple-200">Desk Collaboration</span>
+              </div>
+              <h3 className="text-lg font-black text-slate-900 mb-1.5">
+                Desk Operations: Macro, Quant &amp; Execution
+              </h3>
+              <p className="text-xs text-slate-600 leading-relaxed font-normal">
+                Multi-analyst desk layout showing the flow of market data through quant research, risk supervision, and algorithmic order routing.
+              </p>
+            </div>
+
+            <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-md bg-slate-950">
+              <Image
+                src="/quant-people-trading.svg"
+                alt="Trading Floor Blueprint"
+                width={800}
+                height={480}
+                className="w-full h-auto object-contain"
+                unoptimized
+              />
+            </div>
+          </div>
+
+          {/* Card 4: Quantitative Math Formulas */}
+          <div className="p-6 rounded-3xl bg-gradient-to-br from-amber-50/80 via-orange-50/20 to-white border border-amber-200/90 shadow-sm flex flex-col justify-between space-y-4">
+            <div>
+              <div className="flex items-center justify-between pb-3 border-b border-amber-100 mb-4">
+                <span className="text-xs font-mono font-bold text-amber-800 uppercase">Stochastic &amp; Risk Mathematics</span>
+                <span className="text-xs font-mono font-bold text-amber-800 bg-amber-50 px-2.5 py-0.5 rounded-full border border-amber-200">Mathematical Calibration</span>
               </div>
               <h3 className="text-lg font-black text-slate-900 mb-1.5">
                 Kelly Sizing, Brownian Motion &amp; VWAP Math
@@ -275,13 +340,14 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-slate-950">
+            <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-md bg-slate-950">
               <Image
                 src="/quant-math.svg"
                 alt="Quantitative Mathematics"
-                width={700}
-                height={420}
+                width={800}
+                height={480}
                 className="w-full h-auto object-contain"
+                unoptimized
               />
             </div>
           </div>
@@ -295,13 +361,13 @@ export default function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-5">
               <span className="text-xs font-mono text-emerald-800 font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200">
-                Multi-Agent Quantitative Engine
+                Institutional Quantitative Consensus
               </span>
               <h3 className="text-2xl sm:text-4xl font-black text-slate-900 leading-tight">
                 How JH Crypto Analytics Formulates Real-Time Buy/Sell Signals
               </h3>
               <p className="text-slate-600 leading-relaxed font-normal text-base">
-                Rather than relying on single rule heuristics, <strong>JH Crypto Analytics</strong> deploys an autonomous state consensus graph containing 4 specialized quantitative nodes. Each analyzes distinct market dimensions: Technical Indicators, On-Chain Liquidity, Macro RAG Analogs, and Volatility Boundaries.
+                At <strong>JH Crypto Analytics</strong>, our quantitative engine evaluates multiple market dimensions simultaneously: Multi-Timeframe Momentum, On-Chain Order Flow, Macro Historical Analogs, and Parametric Volatility Boundaries. Deliberations are weighted mathematically to produce audited Buy/Sell recommendations in Indian Rupee (INR ₹).
               </p>
               <div className="pt-2">
                 <Link
@@ -315,22 +381,22 @@ export default function HomePage() {
             </div>
 
             <div className="grid grid-cols-2 gap-5 font-mono text-xs">
-              <div className="p-6 rounded-3xl bg-slate-50 border border-slate-200 shadow-sm hover:shadow-md transition-all">
+              <div className="p-6 rounded-3xl bg-gradient-to-br from-sky-50 via-blue-50/30 to-white border border-sky-200/90 shadow-sm hover:shadow-md transition-all">
                 <Zap className="w-6 h-6 text-sky-600 mb-3" />
                 <h5 className="font-extrabold text-slate-900 text-sm mb-1.5">Technical Agent</h5>
                 <p className="text-slate-600 text-xs leading-relaxed">RSI, MACD, BB, SMA 50/200 Golden Cross confluence</p>
               </div>
-              <div className="p-6 rounded-3xl bg-slate-50 border border-slate-200 shadow-sm hover:shadow-md transition-all">
+              <div className="p-6 rounded-3xl bg-gradient-to-br from-emerald-50 via-teal-50/30 to-white border border-emerald-200/90 shadow-sm hover:shadow-md transition-all">
                 <BarChart2 className="w-6 h-6 text-emerald-600 mb-3" />
                 <h5 className="font-extrabold text-slate-900 text-sm mb-1.5">On-Chain Flow</h5>
                 <p className="text-slate-600 text-xs leading-relaxed">Order-book imbalance, exchange reserves, whale net-flow</p>
               </div>
-              <div className="p-6 rounded-3xl bg-slate-50 border border-slate-200 shadow-sm hover:shadow-md transition-all">
+              <div className="p-6 rounded-3xl bg-gradient-to-br from-purple-50 via-indigo-50/30 to-white border border-purple-200/90 shadow-sm hover:shadow-md transition-all">
                 <Cpu className="w-6 h-6 text-purple-600 mb-3" />
-                <h5 className="font-extrabold text-slate-900 text-sm mb-1.5">RAG Intelligence</h5>
+                <h5 className="font-extrabold text-slate-900 text-sm mb-1.5">Macro Intelligence</h5>
                 <p className="text-slate-600 text-xs leading-relaxed">Historical post-halving analogs &amp; macro liquidity vectors</p>
               </div>
-              <div className="p-6 rounded-3xl bg-slate-50 border border-slate-200 shadow-sm hover:shadow-md transition-all">
+              <div className="p-6 rounded-3xl bg-gradient-to-br from-amber-50 via-orange-50/30 to-white border border-amber-200/90 shadow-sm hover:shadow-md transition-all">
                 <ShieldCheck className="w-6 h-6 text-amber-600 mb-3" />
                 <h5 className="font-extrabold text-slate-900 text-sm mb-1.5">Supervisor Node</h5>
                 <p className="text-slate-600 text-xs leading-relaxed">Resolves conflict, calculates entry, TP, and stop-loss in INR</p>

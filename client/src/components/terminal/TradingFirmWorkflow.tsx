@@ -182,6 +182,7 @@ export default function TradingFirmWorkflow({
                 width={600}
                 height={380}
                 className="w-full h-auto object-cover"
+                unoptimized
               />
               <div className="absolute bottom-3 left-3 right-3 p-3 bg-slate-900/90 backdrop-blur-md rounded-xl text-white text-[11px] font-mono flex items-center justify-between">
                 <span>Proprietary Trading Floor Screen</span>
@@ -332,6 +333,7 @@ export default function TradingFirmWorkflow({
                   width={650}
                   height={420}
                   className="w-full h-auto object-contain"
+                  unoptimized
                 />
               </div>
               <p className="text-xs text-slate-600 font-mono leading-relaxed">
@@ -457,6 +459,7 @@ export default function TradingFirmWorkflow({
                   width={650}
                   height={320}
                   className="w-full h-auto object-contain"
+                  unoptimized
                 />
               </div>
               <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 text-xs font-mono text-slate-600 leading-relaxed">

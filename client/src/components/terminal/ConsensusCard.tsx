@@ -34,19 +34,19 @@ export default function ConsensusCard({ verdict, onRefresh, isLoading }: Consens
       <div className="flex items-center justify-between pb-4 border-b border-slate-100">
         <div>
           <h3 className="text-base font-black text-slate-900 flex items-center gap-2.5">
-            <span>Executive Buy/Sell Consensus Matrix</span>
+            <span>Quantitative Buy/Sell Consensus Matrix</span>
             <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 font-bold">
-              LANGGRAPH REASONING
+              QUANT REASONING
             </span>
           </h3>
-          <p className="text-xs text-slate-500 font-mono mt-0.5">Multi-agent weighted quantitative signal with execution parameters</p>
+          <p className="text-xs text-slate-500 font-mono mt-0.5">Weighted algorithmic consensus signal with live Indian Rupee parameters</p>
         </div>
 
         <button
           onClick={onRefresh}
           disabled={isLoading}
           className="p-2.5 rounded-xl bg-slate-50 hover:bg-slate-100 text-slate-700 border border-slate-200 shadow-sm transition-all hover:scale-105 disabled:opacity-50"
-          title="Recalculate Multi-Agent Consensus"
+          title="Recalculate Quantitative Consensus"
         >
           <RefreshCw className={`w-4 h-4 ${isLoading ? 'animate-spin' : ''}`} />
         </button>
@@ -61,29 +61,29 @@ export default function ConsensusCard({ verdict, onRefresh, isLoading }: Consens
         />
       </div>
 
-      {/* Key Order Strategy Levels with Crisp White Pop-Up Cards */}
+      {/* Key Order Strategy Levels with Distinct Colored Background Tiles */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 my-4 font-mono text-xs">
-        <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 hover:-translate-y-1 hover:shadow-sm transition-all duration-200">
-          <span className="text-slate-500 block text-[10px] uppercase font-bold">Optimal Entry</span>
-          <span className="text-slate-900 font-black text-sm block mt-1">{formatINR(verdict.entryTarget)}</span>
+        <div className="p-4 rounded-2xl bg-gradient-to-br from-slate-100 via-slate-50 to-white border border-slate-300/80 shadow-sm hover:-translate-y-1 hover:shadow-md transition-all duration-200">
+          <span className="text-slate-600 block text-[10px] uppercase font-bold">Optimal Entry</span>
+          <span className="text-slate-950 font-black text-sm block mt-1">{formatINR(verdict.entryTarget)}</span>
         </div>
-        <div className="p-4 rounded-2xl bg-emerald-50/70 border border-emerald-200 hover:-translate-y-1 hover:shadow-sm transition-all duration-200">
-          <span className="text-emerald-800 block text-[10px] font-bold uppercase flex items-center gap-1">
-            <ArrowUpRight className="w-3.5 h-3.5" /> Target 1 (TP1)
+        <div className="p-4 rounded-2xl bg-gradient-to-br from-emerald-100/80 via-emerald-50 to-white border border-emerald-300/80 shadow-sm hover:-translate-y-1 hover:shadow-md transition-all duration-200">
+          <span className="text-emerald-900 block text-[10px] font-black uppercase flex items-center gap-1">
+            <ArrowUpRight className="w-3.5 h-3.5 text-emerald-600" /> Target 1 (TP1)
           </span>
-          <span className="text-emerald-700 font-black text-sm block mt-1">{formatINR(verdict.takeProfit1)}</span>
+          <span className="text-emerald-800 font-black text-sm block mt-1">{formatINR(verdict.takeProfit1)}</span>
         </div>
-        <div className="p-4 rounded-2xl bg-sky-50/70 border border-sky-200 hover:-translate-y-1 hover:shadow-sm transition-all duration-200">
-          <span className="text-sky-800 block text-[10px] font-bold uppercase flex items-center gap-1">
-            <ArrowUpRight className="w-3.5 h-3.5" /> Target 2 (TP2)
+        <div className="p-4 rounded-2xl bg-gradient-to-br from-sky-100/80 via-sky-50 to-white border border-sky-300/80 shadow-sm hover:-translate-y-1 hover:shadow-md transition-all duration-200">
+          <span className="text-sky-900 block text-[10px] font-black uppercase flex items-center gap-1">
+            <ArrowUpRight className="w-3.5 h-3.5 text-sky-600" /> Target 2 (TP2)
           </span>
-          <span className="text-sky-700 font-black text-sm block mt-1">{formatINR(verdict.takeProfit2)}</span>
+          <span className="text-sky-800 font-black text-sm block mt-1">{formatINR(verdict.takeProfit2)}</span>
         </div>
-        <div className="p-4 rounded-2xl bg-rose-50/70 border border-rose-200 hover:-translate-y-1 hover:shadow-sm transition-all duration-200">
-          <span className="text-rose-800 block text-[10px] font-bold uppercase flex items-center gap-1">
-            <ArrowDownRight className="w-3.5 h-3.5" /> Stop Loss (SL)
+        <div className="p-4 rounded-2xl bg-gradient-to-br from-rose-100/80 via-rose-50 to-white border border-rose-300/80 shadow-sm hover:-translate-y-1 hover:shadow-md transition-all duration-200">
+          <span className="text-rose-900 block text-[10px] font-black uppercase flex items-center gap-1">
+            <ArrowDownRight className="w-3.5 h-3.5 text-rose-600" /> Stop Loss (SL)
           </span>
-          <span className="text-rose-700 font-black text-sm block mt-1">{formatINR(verdict.stopLoss)}</span>
+          <span className="text-rose-800 font-black text-sm block mt-1">{formatINR(verdict.stopLoss)}</span>
         </div>
       </div>
 

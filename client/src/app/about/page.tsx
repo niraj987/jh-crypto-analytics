@@ -62,6 +62,7 @@ export default function AboutPage() {
               width={32}
               height={32}
               className="object-contain"
+              unoptimized
             />
           </div>
           <span className="text-xs font-mono font-black text-slate-900">
@@ -72,7 +73,7 @@ export default function AboutPage() {
           How Top Trading Firms Operate &amp; How Our Engine Executes
         </h1>
         <p className="text-slate-600 text-lg leading-relaxed">
-          <strong>JH Crypto Analytics</strong> bridges modern quantitative prop-trading mechanics with agentic artificial intelligence. Powered by verified mathematical formulas, smart order execution algorithms (TWAP/VWAP), and real-time Indian Rupee (INR ₹) calculations.
+          <strong>JH Crypto Analytics</strong> bridges modern quantitative prop-trading mechanics with algorithmic intelligence. Powered by verified mathematical formulas, smart order execution algorithms (TWAP/VWAP), and real-time Indian Rupee (INR ₹) calculations.
         </p>
       </div>
 
@@ -98,6 +99,7 @@ export default function AboutPage() {
             width={950}
             height={360}
             className="w-full h-auto object-contain"
+            unoptimized
           />
         </div>
 
@@ -211,7 +213,15 @@ export default function AboutPage() {
             return (
               <div
                 key={ag.id}
-                className="p-8 rounded-3xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition-all duration-200 space-y-4"
+                className={`p-8 rounded-3xl border shadow-sm hover:shadow-md transition-all duration-200 space-y-4 ${
+                  ag.id === 'agent-1'
+                    ? 'bg-gradient-to-br from-sky-50/80 via-blue-50/20 to-white border-sky-200/90'
+                    : ag.id === 'agent-2'
+                      ? 'bg-gradient-to-br from-emerald-50/80 via-teal-50/20 to-white border-emerald-200/90'
+                      : ag.id === 'agent-3'
+                        ? 'bg-gradient-to-br from-purple-50/80 via-indigo-50/20 to-white border-purple-200/90'
+                        : 'bg-gradient-to-br from-amber-50/80 via-orange-50/20 to-white border-amber-200/90'
+                }`}
               >
                 <div className="flex items-center gap-4">
                   <div className={`w-12 h-12 rounded-2xl flex items-center justify-center border shadow-sm ${ag.accentBg}`}>
@@ -222,7 +232,7 @@ export default function AboutPage() {
                     <p className="text-xs font-mono text-slate-500 mt-0.5">{ag.role}</p>
                   </div>
                 </div>
-                <p className="text-xs text-slate-600 font-mono leading-relaxed bg-slate-50 border border-slate-200 p-4 rounded-2xl">
+                <p className="text-xs text-slate-700 font-mono leading-relaxed bg-white/90 border border-slate-200/90 p-4 rounded-2xl shadow-inner">
                   {ag.description}
                 </p>
               </div>
@@ -244,9 +254,9 @@ export default function AboutPage() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 font-mono text-xs">
-          <div className="p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-4">
+          <div className="p-8 rounded-3xl bg-gradient-to-br from-sky-50/80 via-blue-50/30 to-white border border-sky-200/90 shadow-sm space-y-4">
             <h4 className="text-sm font-black text-sky-800 uppercase tracking-wider">Frontend Architecture</h4>
-            <ul className="space-y-2.5 text-slate-600 font-medium">
+            <ul className="space-y-2.5 text-slate-700 font-medium">
               <li>• Next.js 14 App Router</li>
               <li>• React 18 &amp; TypeScript</li>
               <li>• Interactive Three.js 3D Models</li>
@@ -255,9 +265,9 @@ export default function AboutPage() {
             </ul>
           </div>
 
-          <div className="p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-4">
+          <div className="p-8 rounded-3xl bg-gradient-to-br from-emerald-50/80 via-teal-50/30 to-white border border-emerald-200/90 shadow-sm space-y-4">
             <h4 className="text-sm font-black text-emerald-800 uppercase tracking-wider">Backend Service</h4>
-            <ul className="space-y-2.5 text-slate-600 font-medium">
+            <ul className="space-y-2.5 text-slate-700 font-medium">
               <li>• Express.js REST API</li>
               <li>• TypeScript Strict Type System</li>
               <li>• Real-Time 48-Token Tick Engine</li>
@@ -266,11 +276,11 @@ export default function AboutPage() {
             </ul>
           </div>
 
-          <div className="p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-4">
-            <h4 className="text-sm font-black text-purple-800 uppercase tracking-wider">Agentic AI &amp; RAG</h4>
-            <ul className="space-y-2.5 text-slate-600 font-medium">
-              <li>• LangGraph Consensus Engine</li>
-              <li>• Multi-Agent Supervisor Nodes</li>
+          <div className="p-8 rounded-3xl bg-gradient-to-br from-purple-50/80 via-indigo-50/30 to-white border border-purple-200/90 shadow-sm space-y-4">
+            <h4 className="text-sm font-black text-purple-800 uppercase tracking-wider">Quantitative Consensus</h4>
+            <ul className="space-y-2.5 text-slate-700 font-medium">
+              <li>• Quantitative Consensus Engine</li>
+              <li>• Multi-Factor Supervisor Nodes</li>
               <li>• Vector Embeddings &amp; Cosine Matching</li>
               <li>• Crypto Knowledge Base (KB-7)</li>
               <li>• Delta-Neutral Risk Modeling</li>

@@ -303,7 +303,7 @@ export default function TradeOrderPanel({ symbol, currentPrice, verdict }: Trade
           )}
 
           {/* CoinSwitch Order Summary Card */}
-          <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-1.5 text-xs text-slate-600">
+          <div className="p-4 rounded-2xl bg-gradient-to-br from-slate-100/90 via-slate-50 to-white border border-slate-300/80 space-y-1.5 text-xs text-slate-700 shadow-sm">
             <div className="flex justify-between">
               <span>Exchange Route:</span>
               <span className="text-slate-900 font-bold">coinswitchx (INR Direct)</span>
@@ -388,8 +388,8 @@ export default function TradeOrderPanel({ symbol, currentPrice, verdict }: Trade
 
           {/* TP & SL Grid */}
           <div className="grid grid-cols-2 gap-3 pt-1 font-mono text-xs">
-            <div className="p-3 rounded-2xl bg-emerald-50/60 border border-emerald-200/80">
-              <span className="text-emerald-800 font-bold block text-[10px] uppercase">Take Profit (INR)</span>
+            <div className="p-3.5 rounded-2xl bg-gradient-to-br from-emerald-50 via-teal-50/40 to-white border border-emerald-300 shadow-sm">
+              <span className="text-emerald-900 font-black block text-[10px] uppercase">Take Profit (INR)</span>
               <input
                 type="number"
                 step="any"
@@ -399,8 +399,8 @@ export default function TradeOrderPanel({ symbol, currentPrice, verdict }: Trade
               />
             </div>
 
-            <div className="p-3 rounded-2xl bg-rose-50/60 border border-rose-200/80">
-              <span className="text-rose-800 font-bold block text-[10px] uppercase">Stop Loss (INR)</span>
+            <div className="p-3.5 rounded-2xl bg-gradient-to-br from-rose-50 via-rose-100/30 to-white border border-rose-300 shadow-sm">
+              <span className="text-rose-900 font-black block text-[10px] uppercase">Stop Loss (INR)</span>
               <input
                 type="number"
                 step="any"

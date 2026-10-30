@@ -9,6 +9,7 @@ import { formatINR, formatINRLarge, toINR } from '@/lib/currency';
 import AssetSelector from '@/components/terminal/AssetSelector';
 import CandlestickChart from '@/components/terminal/CandlestickChart';
 import IndicatorsGrid from '@/components/terminal/IndicatorsGrid';
+import QuantGraphAgent from '@/components/terminal/QuantGraphAgent';
 import ConsensusCard from '@/components/terminal/ConsensusCard';
 import TradeOrderPanel from '@/components/terminal/TradeOrderPanel';
 import TradingFirmWorkflow from '@/components/terminal/TradingFirmWorkflow';
@@ -93,6 +94,13 @@ function SignalsTerminal() {
     setSelectedSymbol(query);
   };
 
+  const handleTradeAction = (action: 'BUY' | 'SELL', targetPrice: number) => {
+    const el = document.getElementById('trade-order-desk');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-12 py-10 space-y-8">
       
@@ -107,6 +115,7 @@ function SignalsTerminal() {
                 width={40}
                 height={40}
                 className="object-contain"
+                unoptimized
               />
             </div>
             <div>
@@ -230,6 +239,16 @@ function SignalsTerminal() {
             <IndicatorsGrid indicators={indicators} currentPrice={currentAsset.currentPrice} />
           )}
 
+          {/* AI Quantitative & Graph Analysis Copilot Agent */}
+          {currentAsset && (
+            <QuantGraphAgent
+              asset={currentAsset}
+              indicators={indicators}
+              verdict={verdict}
+              onTradeAction={handleTradeAction}
+            />
+          )}
+
           {/* Candlestick Price Chart with Multi-Timeframe Toggles */}
           {currentAsset && currentAsset.history && (
             <CandlestickChart
@@ -241,7 +260,7 @@ function SignalsTerminal() {
           )}
 
           {/* AI Buy/Sell Consensus Card & Trade Order Execution Desk - Aligned Equal Height Grid */}
-          <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 items-stretch">
+          <div id="trade-order-desk" className="grid grid-cols-1 xl:grid-cols-2 gap-8 items-stretch scroll-mt-28">
             {verdict && (
               <div className="h-full">
                 <ConsensusCard

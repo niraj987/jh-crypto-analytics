@@ -138,13 +138,15 @@ export default function AssetSelector({ assets, selectedSymbol, onSelect, onCust
               onClick={() => onSelect(asset.symbol)}
               className={`p-3.5 rounded-2xl border cursor-pointer transition-all duration-200 flex items-center justify-between ${
                 isSelected
-                  ? 'bg-slate-900 text-white border-slate-900 shadow-md translate-x-1'
-                  : 'bg-white border-slate-200 hover:border-slate-400 hover:shadow-sm hover:translate-x-1'
+                  ? 'bg-slate-900 text-white border-slate-900 shadow-lg translate-x-1 ring-2 ring-emerald-500/30'
+                  : 'bg-gradient-to-r from-slate-50/90 via-white to-slate-50/60 border-slate-200/90 hover:border-emerald-400 hover:shadow-md hover:from-emerald-50/40 hover:to-sky-50/30 hover:translate-x-1'
               }`}
             >
               <div className="flex items-center gap-3">
                 <div className={`w-10 h-10 rounded-xl flex items-center justify-center font-black text-xs font-mono shadow-sm ${
-                  isSelected ? 'bg-emerald-500 text-slate-950' : 'bg-slate-100 text-slate-800 border border-slate-200'
+                  isSelected 
+                    ? 'bg-emerald-500 text-slate-950 shadow-emerald-500/20' 
+                    : 'bg-gradient-to-br from-slate-100 to-slate-200 text-slate-800 border border-slate-200'
                 }`}>
                   {asset.symbol.slice(0, 3)}
                 </div>
@@ -153,8 +155,16 @@ export default function AssetSelector({ assets, selectedSymbol, onSelect, onCust
                     <span className={`text-xs font-extrabold tracking-wide ${isSelected ? 'text-white' : 'text-slate-900'}`}>
                       {asset.symbol}
                     </span>
-                    <span className={`text-[10px] font-mono px-1.5 py-0.5 rounded ${
-                      isSelected ? 'bg-slate-800 text-slate-300' : 'bg-slate-100 text-slate-500'
+                    <span className={`text-[10px] font-mono px-1.5 py-0.5 rounded font-bold ${
+                      isSelected 
+                        ? 'bg-slate-800 text-slate-300' 
+                        : asset.category === 'Major' 
+                          ? 'bg-sky-50 text-sky-700 border border-sky-200'
+                          : asset.category === 'Meme'
+                            ? 'bg-amber-50 text-amber-700 border border-amber-200'
+                            : asset.category === 'DeFi'
+                              ? 'bg-purple-50 text-purple-700 border border-purple-200'
+                              : 'bg-emerald-50 text-emerald-700 border border-emerald-200'
                     }`}>
                       {asset.category}
                     </span>
@@ -166,14 +176,14 @@ export default function AssetSelector({ assets, selectedSymbol, onSelect, onCust
               </div>
 
               <div className="text-right font-mono">
-                <span className={`text-xs font-black block ${isSelected ? 'text-white' : 'text-slate-900'}`}>
+                <span className={`text-xs font-black block ${isSelected ? 'text-white' : 'text-slate-950'}`}>
                   {formatINR(asset.currentPrice)}
                 </span>
                 <span
                   className={`text-[11px] font-bold px-2 py-0.5 rounded-md inline-block mt-0.5 ${
                     isUp 
-                      ? (isSelected ? 'text-emerald-300 bg-emerald-950/60' : 'text-emerald-700 bg-emerald-50 border border-emerald-200')
-                      : (isSelected ? 'text-rose-300 bg-rose-950/60' : 'text-rose-700 bg-rose-50 border border-rose-200')
+                      ? (isSelected ? 'text-emerald-300 bg-emerald-950/80' : 'text-emerald-700 bg-emerald-50 border border-emerald-200')
+                      : (isSelected ? 'text-rose-300 bg-rose-950/80' : 'text-rose-700 bg-rose-50 border border-rose-200')
                   }`}
                 >
                   {isUp ? '+' : ''}{asset.change24h}%

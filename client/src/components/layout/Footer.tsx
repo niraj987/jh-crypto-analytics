@@ -21,6 +21,7 @@ export default function Footer() {
                   width={34}
                   height={34}
                   className="object-contain"
+                  unoptimized
                 />
               </div>
               <span className="font-black text-slate-900 text-base tracking-tight">
@@ -76,20 +77,20 @@ export default function Footer() {
             </h4>
             <div className="space-y-2.5 font-mono text-[11px] text-slate-600">
               <div className="flex items-center justify-between py-1.5 border-b border-slate-200">
-                <span className="flex items-center gap-2"><Network className="w-3.5 h-3.5 text-emerald-600" /> Orchestrator</span>
-                <span className="text-slate-900 font-bold">LangGraph v0.2</span>
+                <span className="flex items-center gap-2"><Network className="w-3.5 h-3.5 text-emerald-600" /> Consensus Engine</span>
+                <span className="text-slate-900 font-bold">Consensus Engine v2.4</span>
               </div>
               <div className="flex items-center justify-between py-1.5 border-b border-slate-200">
                 <span className="flex items-center gap-2"><Database className="w-3.5 h-3.5 text-sky-600" /> Vector Memory</span>
-                <span className="text-slate-900 font-bold">KB-7 Embeddings</span>
+                <span className="text-slate-900 font-bold">Semantic Historical Index</span>
               </div>
               <div className="flex items-center justify-between py-1.5 border-b border-slate-200">
-                <span className="flex items-center gap-2"><Cpu className="w-3.5 h-3.5 text-rose-600" /> Realtime Recalc</span>
-                <span className="text-slate-900 font-bold">Sub-second Ticks</span>
+                <span className="flex items-center gap-2"><Cpu className="w-3.5 h-3.5 text-rose-600" /> Recalc Frequency</span>
+                <span className="text-slate-900 font-bold">Real-time Sub-second</span>
               </div>
               <div className="flex items-center justify-between py-1.5 border-b border-slate-200">
-                <span className="flex items-center gap-2"><Lock className="w-3.5 h-3.5 text-amber-600" /> Security Mode</span>
-                <span className="text-slate-900 font-bold">Airgap Verification</span>
+                <span className="flex items-center gap-2"><Lock className="w-3.5 h-3.5 text-amber-600" /> Execution Protocol</span>
+                <span className="text-slate-900 font-bold">Ed25519 Verified</span>
               </div>
             </div>
           </div>
@@ -101,7 +102,7 @@ export default function Footer() {
               Risk Disclosure
             </h4>
             <p className="text-[11px] text-slate-600 leading-relaxed bg-white border border-slate-200 p-3.5 rounded-2xl shadow-sm">
-              Cryptocurrency trading involves high financial variance. Algorithmic outputs, technical indicators, and LangGraph agent deliberations represent probabilistic models, not direct financial guarantees. Always exercise disciplined risk sizing.
+              Cryptocurrency trading carries substantial financial risk. Quantitative indicators, algorithmic consensus, and predictive forecasts represent mathematical models for institutional risk management, not guaranteed financial advice. Disciplined position sizing is advised.
             </p>
           </div>
 

@@ -58,8 +58,8 @@ const config: Config = {
         },
       },
       fontFamily: {
-        mono: ["JetBrains Mono", "SF Mono", "Fira Code", "monospace"],
-        sans: ["Outfit", "Inter", "-apple-system", "BlinkMacSystemFont", "sans-serif"],
+        mono: ["'JetBrains Mono'", "SF Mono", "Fira Code", "monospace"],
+        sans: ["'Plus Jakarta Sans'", "Inter", "-apple-system", "BlinkMacSystemFont", "sans-serif"],
       },
       boxShadow: {
         tile: "0 10px 30px -10px rgba(0, 0, 0, 0.5), inset 0 1px 0 0 rgba(255, 255, 255, 0.1)",

@@ -46,9 +46,7 @@ export default function Header() {
               height={44}
               className="object-contain"
               priority
-              onError={(e) => {
-                (e.target as HTMLElement).style.display = 'none';
-              }}
+              unoptimized
             />
           </div>
           <div>

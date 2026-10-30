@@ -20,6 +20,7 @@ export default function AgentThinking({ insights, logs = [] }: AgentThinkingProp
           icon: Activity,
           accentText: 'text-sky-700',
           accentBg: 'bg-sky-50 border-sky-200',
+          tileBg: 'bg-gradient-to-br from-sky-50/80 via-blue-50/30 to-white border-sky-200/90',
           barGrad: 'from-sky-600 to-indigo-600',
         };
       case 'agent-onchain-flow':
@@ -27,6 +28,7 @@ export default function AgentThinking({ insights, logs = [] }: AgentThinkingProp
           icon: Database,
           accentText: 'text-emerald-700',
           accentBg: 'bg-emerald-50 border-emerald-200',
+          tileBg: 'bg-gradient-to-br from-emerald-50/80 via-teal-50/30 to-white border-emerald-200/90',
           barGrad: 'from-emerald-600 to-teal-600',
         };
       case 'agent-sentiment-rag':
@@ -34,6 +36,7 @@ export default function AgentThinking({ insights, logs = [] }: AgentThinkingProp
           icon: BrainCircuit,
           accentText: 'text-purple-700',
           accentBg: 'bg-purple-50 border-purple-200',
+          tileBg: 'bg-gradient-to-br from-purple-50/80 via-indigo-50/30 to-white border-purple-200/90',
           barGrad: 'from-purple-600 to-sky-600',
         };
       case 'agent-predictive-forecast':
@@ -41,6 +44,7 @@ export default function AgentThinking({ insights, logs = [] }: AgentThinkingProp
           icon: TrendingUp,
           accentText: 'text-amber-700',
           accentBg: 'bg-amber-50 border-amber-200',
+          tileBg: 'bg-gradient-to-br from-amber-50/80 via-orange-50/30 to-white border-amber-200/90',
           barGrad: 'from-amber-600 to-emerald-600',
         };
       default:
@@ -48,6 +52,7 @@ export default function AgentThinking({ insights, logs = [] }: AgentThinkingProp
           icon: Bot,
           accentText: 'text-slate-700',
           accentBg: 'bg-slate-50 border-slate-200',
+          tileBg: 'bg-gradient-to-br from-slate-50 via-white to-slate-50/60 border-slate-200',
           barGrad: 'from-slate-600 to-slate-400',
         };
     }
@@ -68,12 +73,12 @@ export default function AgentThinking({ insights, logs = [] }: AgentThinkingProp
           </div>
           <div>
             <h3 className="text-lg font-black text-slate-900 flex items-center gap-2.5">
-              LangGraph Multi-Agent Consensus Stream
+              Institutional Quantitative Consensus Stream
               <span className="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-300 font-extrabold">
                 4 Specialized Nodes
               </span>
             </h3>
-            <p className="text-xs text-slate-500 font-mono mt-0.5">Autonomous state-graph deliberation synthesizing real-time quantitative conviction</p>
+            <p className="text-xs text-slate-500 font-mono mt-0.5">Multi-model algorithmic deliberation synthesizing real-time quantitative conviction</p>
           </div>
         </div>
 
@@ -81,7 +86,7 @@ export default function AgentThinking({ insights, logs = [] }: AgentThinkingProp
           onClick={() => setShowLogs(!showLogs)}
           className="text-xs font-mono font-bold px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-200 transition-all duration-200 shadow-sm"
         >
-          {showLogs ? 'Hide Graph Trace' : 'View Graph Trace'}
+          {showLogs ? 'Hide Execution Logs' : 'View Execution Logs'}
         </button>
       </div>
 
@@ -95,10 +100,10 @@ export default function AgentThinking({ insights, logs = [] }: AgentThinkingProp
           return (
             <div
               key={agent.agentId}
-              className={`rounded-2xl border transition-all duration-200 p-6 cursor-pointer ${
+              className={`rounded-2xl border transition-all duration-200 p-6 cursor-pointer shadow-sm ${theme.tileBg} ${
                 isExpanded
-                  ? 'bg-slate-50/80 border-slate-400 shadow-md -translate-y-1'
-                  : 'bg-white border-slate-200 hover:border-slate-300 hover:shadow-md hover:-translate-y-1'
+                  ? 'border-slate-400 shadow-md -translate-y-1'
+                  : 'hover:border-slate-400 hover:shadow-md hover:-translate-y-1'
               }`}
               onClick={() => setExpandedAgent(isExpanded ? null : agent.agentId)}
             >
@@ -169,7 +174,7 @@ export default function AgentThinking({ insights, logs = [] }: AgentThinkingProp
       {/* Graph Trace Logs */}
       {showLogs && logs.length > 0 && (
         <div className="mt-8 p-5 rounded-2xl bg-slate-900 text-slate-200 font-mono text-xs space-y-1.5 max-h-56 overflow-y-auto shadow-inner">
-          <p className="text-emerald-400 font-bold mb-2">// LangGraph State Transition Logs:</p>
+          <p className="text-emerald-400 font-bold mb-2">// Quantitative State Transition Logs:</p>
           {logs.map((log, idx) => (
             <p key={idx} className="text-slate-400 leading-relaxed">
               <span className="text-emerald-400 font-bold mr-2">{`>`}</span>

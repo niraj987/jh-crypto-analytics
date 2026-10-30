@@ -263,3 +263,4 @@ export class CoinSwitchService {
     return json.data || [];
   }
 }
+

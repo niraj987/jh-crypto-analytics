@@ -21,6 +21,7 @@ export default function ForecastCards({ forecast }: ForecastCardsProps) {
       data: tf['24h'],
       accentColor: 'text-sky-700',
       accentBg: 'bg-sky-50 border-sky-200',
+      cardBg: 'bg-gradient-to-br from-sky-50/80 via-blue-50/30 to-white border-sky-200/90 shadow-[0_10px_25px_-5px_rgba(2,132,199,0.06)]',
       corridorGrad: 'from-rose-500 via-amber-400 to-sky-500',
     },
     {
@@ -30,6 +31,7 @@ export default function ForecastCards({ forecast }: ForecastCardsProps) {
       data: tf['7d'],
       accentColor: 'text-emerald-700',
       accentBg: 'bg-emerald-50 border-emerald-200',
+      cardBg: 'bg-gradient-to-br from-emerald-50/80 via-teal-50/30 to-white border-emerald-200/90 shadow-[0_10px_25px_-5px_rgba(16,185,129,0.06)]',
       corridorGrad: 'from-rose-500 via-amber-400 to-emerald-500',
     },
     {
@@ -39,6 +41,7 @@ export default function ForecastCards({ forecast }: ForecastCardsProps) {
       data: tf['30d'],
       accentColor: 'text-purple-700',
       accentBg: 'bg-purple-50 border-purple-200',
+      cardBg: 'bg-gradient-to-br from-purple-50/80 via-indigo-50/30 to-white border-purple-200/90 shadow-[0_10px_25px_-5px_rgba(168,85,247,0.06)]',
       corridorGrad: 'from-rose-500 via-amber-400 to-purple-500',
     },
   ];
@@ -53,7 +56,7 @@ export default function ForecastCards({ forecast }: ForecastCardsProps) {
         return (
           <div
             key={card.horizon}
-            className="p-8 rounded-3xl bg-white border border-slate-200 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between"
+            className={`p-8 rounded-3xl border shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between ${card.cardBg}`}
           >
             {/* Header */}
             <div>

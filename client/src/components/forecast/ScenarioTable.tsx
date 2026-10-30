@@ -15,7 +15,8 @@ export default function ScenarioTable({ scenarios }: ScenarioTableProps) {
       case 'Bull Case':
         return {
           icon: TrendingUp,
-          border: 'border-emerald-200',
+          border: 'border-emerald-300',
+          cardBg: 'bg-gradient-to-br from-emerald-50/80 via-teal-50/30 to-white shadow-[0_8px_20px_rgba(16,185,129,0.06)]',
           badge: 'bg-emerald-50 text-emerald-800 border-emerald-300 shadow-sm',
           priceColor: 'text-emerald-700',
           dot: 'text-emerald-600',
@@ -23,7 +24,8 @@ export default function ScenarioTable({ scenarios }: ScenarioTableProps) {
       case 'Base Case':
         return {
           icon: MinusCircle,
-          border: 'border-sky-200',
+          border: 'border-sky-300',
+          cardBg: 'bg-gradient-to-br from-sky-50/80 via-blue-50/30 to-white shadow-[0_8px_20px_rgba(2,132,199,0.06)]',
           badge: 'bg-sky-50 text-sky-800 border-sky-300 shadow-sm',
           priceColor: 'text-sky-700',
           dot: 'text-sky-600',
@@ -31,7 +33,8 @@ export default function ScenarioTable({ scenarios }: ScenarioTableProps) {
       case 'Bear Case':
         return {
           icon: AlertTriangle,
-          border: 'border-rose-200',
+          border: 'border-rose-300',
+          cardBg: 'bg-gradient-to-br from-rose-50/80 via-rose-100/20 to-white shadow-[0_8px_20px_rgba(244,63,94,0.06)]',
           badge: 'bg-rose-50 text-rose-800 border-rose-300 shadow-sm',
           priceColor: 'text-rose-700',
           dot: 'text-rose-600',
@@ -40,6 +43,7 @@ export default function ScenarioTable({ scenarios }: ScenarioTableProps) {
         return {
           icon: TrendingUp,
           border: 'border-slate-200',
+          cardBg: 'bg-gradient-to-br from-slate-50 via-white to-slate-50',
           badge: 'bg-slate-100 text-slate-800',
           priceColor: 'text-slate-900',
           dot: 'text-slate-600',
@@ -69,7 +73,7 @@ export default function ScenarioTable({ scenarios }: ScenarioTableProps) {
           return (
             <div
               key={sc.name}
-              className={`p-7 rounded-3xl bg-slate-50/50 border ${theme.border} hover:bg-white hover:shadow-md transition-all duration-200 flex flex-col justify-between`}
+              className={`p-7 rounded-3xl border ${theme.border} ${theme.cardBg} hover:shadow-lg hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between`}
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
