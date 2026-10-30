@@ -28,7 +28,7 @@ interface TradingFirmWorkflowProps {
 
 export default function TradingFirmWorkflow({
   currentSymbol = 'BTC',
-  currentPriceINR = 5801175,
+  currentPriceINR = 7894796,
 }: TradingFirmWorkflowProps) {
   const [activeTab, setActiveTab] = useState<'alpha' | 'risk' | 'execution' | 'portfolio'>('alpha');
 
@@ -39,7 +39,6 @@ export default function TradingFirmWorkflow({
   const [kellyFraction, setKellyFraction] = useState<number>(0.25); // Quarter Kelly
 
   // Calculated Kelly Optimal Fraction
-  // f* = (p * b - q) / b where q = 1 - p
   const p = winRate / 100;
   const q = 1 - p;
   const b = payoffRatio;
@@ -61,29 +60,29 @@ export default function TradingFirmWorkflow({
   const shortHedgeINR = longAssetINR * betaValue;
 
   return (
-    <div className="rounded-3xl bg-white border border-slate-200/90 p-8 shadow-[0_16px_40px_-10px_rgba(15,23,42,0.06),inset_0_1px_0_0_rgba(255,255,255,0.95)] space-y-8">
+    <div className="rounded-3xl bg-white dark:bg-[#0c1222] border border-slate-200/90 dark:border-slate-800 p-8 shadow-xl space-y-8">
       
       {/* Top Banner & Header */}
-      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b border-slate-200">
+      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b border-slate-200 dark:border-slate-800">
         <div>
           <div className="flex items-center gap-3">
-            <span className="text-[11px] font-mono px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-300 font-extrabold uppercase shadow-sm">
+            <span className="text-[11px] font-mono px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800 font-extrabold uppercase shadow-sm">
               QUANTITATIVE ARCHITECTURE
             </span>
-            <span className="text-xs font-mono text-slate-500 font-bold">
-              WALL STREET & CRYPTO PROP-DESK WORKFLOW
+            <span className="text-xs font-mono text-slate-500 dark:text-slate-400 font-bold">
+              WALL STREET &amp; CRYPTO PROP-DESK WORKFLOW
             </span>
           </div>
-          <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight mt-2">
+          <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tracking-tight mt-2">
             How JH Crypto Analytics Operates Like Top Trading Firms
           </h2>
-          <p className="text-sm text-slate-600 mt-1 max-w-3xl font-medium">
+          <p className="text-sm text-slate-600 dark:text-slate-300 mt-1 max-w-3xl font-medium">
             Explore the 4-phase quantitative engine: How institutional firms formulate signals, calibrate mathematical risk, slice zero-impact block orders, and maintain delta-neutral portfolios.
           </p>
         </div>
 
         {/* Quick Phase Tabs */}
-        <div className="flex flex-wrap items-center gap-1.5 p-1.5 rounded-2xl bg-slate-100 border border-slate-200">
+        <div className="flex flex-wrap items-center gap-1.5 p-1.5 rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
           {[
             { id: 'alpha', label: '1. Suggest (Alpha)', icon: Zap },
             { id: 'risk', label: '2. Risk (Kelly Sizing)', icon: ShieldCheck },
@@ -98,11 +97,11 @@ export default function TradingFirmWorkflow({
                 onClick={() => setActiveTab(tab.id as any)}
                 className={`px-4 py-2.5 rounded-xl text-xs font-mono font-bold flex items-center gap-2 transition-all duration-200 ${
                   isActive
-                    ? 'bg-slate-900 text-white shadow-sm'
-                    : 'text-slate-600 hover:text-slate-950 hover:bg-white'
+                    ? 'bg-slate-900 dark:bg-emerald-600 text-white shadow-md'
+                    : 'text-slate-600 dark:text-slate-400 hover:text-slate-950 dark:hover:text-white hover:bg-white dark:hover:bg-slate-800'
                 }`}
               >
-                <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-emerald-400' : 'text-slate-500'}`} />
+                <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-emerald-400 dark:text-white' : 'text-slate-500'}`} />
                 <span>{tab.label}</span>
               </button>
             );
@@ -115,135 +114,137 @@ export default function TradingFirmWorkflow({
         <div className="space-y-6 animate-in fade-in duration-300">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-7 space-y-4">
-              <span className="text-xs font-mono font-bold text-sky-700 uppercase tracking-wider">
+              <span className="text-xs font-mono font-bold text-sky-700 dark:text-sky-400 uppercase tracking-wider">
                 Phase 1 // Multi-Factor Alpha Discovery
               </span>
-              <h3 className="text-xl font-black text-slate-900">
+              <h3 className="text-xl font-black text-slate-900 dark:text-white">
                 How Trading Firms Formulate High-Conviction Signals
               </h3>
-              <p className="text-sm text-slate-600 leading-relaxed font-normal">
+              <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
                 Trading firms do not gamble or rely on hunches. They decompose the market into independent quantitative factors:
               </p>
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2 font-mono text-xs">
-                <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 hover:border-slate-300 transition-all">
-                  <div className="flex items-center gap-2 text-slate-900 font-black mb-1">
-                    <TrendingUp className="w-4 h-4 text-emerald-600" />
+                <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 transition-all">
+                  <div className="flex items-center gap-2 text-slate-900 dark:text-white font-black mb-1">
+                    <TrendingUp className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
                     <span>Technical Factor (30%)</span>
                   </div>
-                  <p className="text-slate-600 text-[11px] leading-relaxed">
+                  <p className="text-slate-600 dark:text-slate-300 text-[11px] leading-relaxed">
                     Momentum (RSI), Trend (SMA 50/200), and Mean-Reversion (Bollinger Band width) to gauge exhaustion levels.
                   </p>
                 </div>
 
-                <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 hover:border-slate-300 transition-all">
-                  <div className="flex items-center gap-2 text-slate-900 font-black mb-1">
-                    <BarChart3 className="w-4 h-4 text-sky-600" />
-                    <span>Order Flow Imbalance (25%)</span>
+                <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 transition-all">
+                  <div className="flex items-center gap-2 text-slate-900 dark:text-white font-black mb-1">
+                    <BarChart3 className="w-4 h-4 text-sky-600 dark:text-sky-400" />
+                    <span>Microstructure (25%)</span>
                   </div>
-                  <p className="text-slate-600 text-[11px] leading-relaxed">
-                    Tracking real-time Bid/Ask depth skew and taker buy/sell ratios across Tier-1 liquidity order books.
+                  <p className="text-slate-600 dark:text-slate-300 text-[11px] leading-relaxed">
+                    Volume velocity, bid-ask spread liquidity, and centralized exchange net reserve outflow spikes.
                   </p>
                 </div>
 
-                <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 hover:border-slate-300 transition-all">
-                  <div className="flex items-center gap-2 text-slate-900 font-black mb-1">
-                    <Cpu className="w-4 h-4 text-purple-600" />
-                    <span>RAG Macro Analogs (25%)</span>
+                <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 transition-all">
+                  <div className="flex items-center gap-2 text-slate-900 dark:text-white font-black mb-1">
+                    <Cpu className="w-4 h-4 text-purple-600 dark:text-purple-400" />
+                    <span>RAG &amp; Macro (25%)</span>
                   </div>
-                  <p className="text-slate-600 text-[11px] leading-relaxed">
-                    Embedding historical post-halving and global liquidity regimes using vector embeddings to match structural setups.
+                  <p className="text-slate-600 dark:text-slate-300 text-[11px] leading-relaxed">
+                    Semantic vector matches against historical post-halving supply contractions and global liquidity expansion.
                   </p>
                 </div>
 
-                <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 hover:border-slate-300 transition-all">
-                  <div className="flex items-center gap-2 text-slate-900 font-black mb-1">
-                    <ShieldCheck className="w-4 h-4 text-amber-600" />
-                    <span>Supervisor Consensus (20%)</span>
+                <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 transition-all">
+                  <div className="flex items-center gap-2 text-slate-900 dark:text-white font-black mb-1">
+                    <ShieldCheck className="w-4 h-4 text-amber-600 dark:text-amber-400" />
+                    <span>Risk Calibration (20%)</span>
                   </div>
-                  <p className="text-slate-600 text-[11px] leading-relaxed">
-                    Resolving conflicting agent signals into a composite score [-100 to +100] with dynamic entry, TP, and SL.
+                  <p className="text-slate-600 dark:text-slate-300 text-[11px] leading-relaxed">
+                    Probabilistic scenario validation, volatility boundaries, and dynamic ATR invalidation levels.
                   </p>
                 </div>
               </div>
 
-              {/* Composite Score Rule */}
-              <div className="p-4 rounded-2xl bg-emerald-50/70 border border-emerald-300 font-mono text-xs text-emerald-950 flex items-center justify-between">
-                <span>Consensus Rule: Score &gt; +35 = <strong>BUY</strong> | Score &gt; +65 = <strong>STRONG BUY</strong></span>
-                <span className="font-extrabold text-emerald-700">JH Engine Calibrated</span>
+              <div className="p-4 rounded-2xl bg-emerald-50/80 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 text-xs font-mono text-emerald-900 dark:text-emerald-300">
+                <strong>Consensus Formula:</strong> Aggregate Score = (Technical × 0.30) + (Microstructure × 0.25) + (RAG × 0.25) + (Risk × 0.20).
+                If Aggregate Score &gt; +35, publish a <strong>STRONG BUY</strong> signal with calculated targets.
               </div>
             </div>
 
-            {/* Visual Screen Preview */}
-            <div className="lg:col-span-5 relative rounded-2xl overflow-hidden border border-slate-200 shadow-md bg-slate-950 flex items-center justify-center min-h-[280px] group">
-              <img
-                src="/photos/sajad-nori-XihAgOYNHn4-unsplash.jpg"
-                alt="Institutional Candlestick Alpha Stream"
-                className="w-full h-auto object-cover rounded-xl block transition-transform duration-500 group-hover:scale-105"
-                style={{ maxHeight: '420px', aspectRatio: '16 / 10' }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
-              <div className="absolute bottom-3 left-3 right-3 p-3 bg-slate-900/90 backdrop-blur-md rounded-xl text-white text-[11px] font-mono flex items-center justify-between border border-slate-800">
-                <span className="flex items-center gap-1.5 font-bold">
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                  Live Candlestick Alpha Stream
-                </span>
-                <span className="text-emerald-400 font-bold">Dual-Factor Confluence</span>
+            {/* Right Column: Visual Trading Screen */}
+            <div className="lg:col-span-5 space-y-4">
+              <span className="text-xs font-mono font-bold text-slate-500 uppercase tracking-wider">
+                Real Trading Screen &amp; Indicator Monitors
+              </span>
+              <div className="relative rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-md bg-slate-950 flex items-center justify-center min-h-[260px] group">
+                <img
+                  src="/photos/behnam-norouzi-hScr17JG74Q-unsplash.jpg"
+                  alt="Real Institutional Trading Screen"
+                  className="w-full h-auto object-cover rounded-xl block transition-transform duration-500 group-hover:scale-105"
+                  style={{ maxHeight: '420px', aspectRatio: '16 / 10' }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute bottom-3 left-3 right-3 p-3 bg-slate-900/90 backdrop-blur-md rounded-xl text-white text-[11px] font-mono flex items-center justify-between border border-slate-800">
+                  <span className="flex items-center gap-1.5 font-bold">
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                    Alpha Factor Engine
+                  </span>
+                  <span className="text-emerald-400 font-bold">Consensus: BUY</span>
+                </div>
               </div>
+              <p className="text-xs text-slate-500 dark:text-slate-400 font-mono text-center">
+                Institutional quants observe live confluence across multi-timeframe candle envelopes.
+              </p>
             </div>
           </div>
         </div>
       )}
 
-      {/* TAB 2: HOW FIRMS MANAGE RISK (KELLY POSITION SIZING) */}
+      {/* TAB 2: HOW FIRMS MANAGE RISK (KELLY SIZING) */}
       {activeTab === 'risk' && (
         <div className="space-y-6 animate-in fade-in duration-300">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             
-            {/* Left Column: Interactive Kelly Criterion Sizing in INR */}
+            {/* Left Column: Interactive Kelly Sizing Simulator */}
             <div className="lg:col-span-6 space-y-5">
               <div>
-                <span className="text-xs font-mono font-bold text-emerald-700 uppercase tracking-wider">
-                  Phase 2 // Capital Preservation
+                <span className="text-xs font-mono font-bold text-emerald-700 dark:text-emerald-400 uppercase tracking-wider">
+                  Phase 2 // Capital Risk Sizing
                 </span>
-                <h3 className="text-xl font-black text-slate-900 mt-1">
-                  Kelly Criterion Position Sizing Simulator (in ₹)
+                <h3 className="text-xl font-black text-slate-900 dark:text-white mt-1">
+                  How Top Trading Desks Calculate Exact Trade Sizing
                 </h3>
-                <p className="text-xs text-slate-600 mt-1 font-medium">
-                  Trading firms never risk random amounts. They use the mathematical <strong>Kelly Criterion</strong> to maximize compound growth while eliminating bankruptcy risk.
+                <p className="text-xs text-slate-600 dark:text-slate-300 mt-1 font-medium">
+                  Amateur traders bet random sums. Quantitative funds use the <strong>Kelly Criterion</strong> downscaled to <strong>Quarter-Kelly (0.25x)</strong> to maximize compounding growth while strictly preventing drawdown ruin.
                 </p>
               </div>
 
-              <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-4">
+              {/* Calculator Box */}
+              <div className="p-6 rounded-2xl bg-slate-50 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 space-y-4">
                 
-                {/* Total Portfolio Capital (INR) */}
+                {/* Capital Input */}
                 <div className="space-y-1.5">
                   <div className="flex justify-between text-xs font-mono">
-                    <span className="text-slate-600 font-bold">Total Trading Capital (INR):</span>
-                    <span className="text-slate-950 font-black text-sm">{formatINR(portfolioCapital, true)}</span>
+                    <span className="text-slate-600 dark:text-slate-400 font-bold">Desk Trading Capital:</span>
+                    <span className="text-slate-950 dark:text-white font-black text-sm">{formatINR(portfolioCapital, true)}</span>
                   </div>
-                  <div className="flex gap-2">
-                    {[1000000, 2500000, 5000000, 10000000].map((amt) => (
-                      <button
-                        key={amt}
-                        onClick={() => setPortfolioCapital(amt)}
-                        className={`px-2.5 py-1 rounded-lg text-xs font-mono font-bold border transition-all ${
-                          portfolioCapital === amt
-                            ? 'bg-slate-900 text-white border-slate-900'
-                            : 'bg-white text-slate-600 border-slate-200 hover:bg-slate-100'
-                        }`}
-                      >
-                        {formatINRLarge(amt / 85.50)}
-                      </button>
-                    ))}
-                  </div>
+                  <input
+                    type="range"
+                    min="500000"
+                    max="10000000"
+                    step="250000"
+                    value={portfolioCapital}
+                    onChange={(e) => setPortfolioCapital(Number(e.target.value))}
+                    className="w-full accent-emerald-600 cursor-pointer"
+                  />
                 </div>
 
                 {/* Win Probability Slider */}
                 <div className="space-y-1.5">
                   <div className="flex justify-between text-xs font-mono">
-                    <span className="text-slate-600 font-bold">Win Rate Probability (p):</span>
-                    <span className="text-emerald-700 font-black text-sm">{winRate}%</span>
+                    <span className="text-slate-600 dark:text-slate-400 font-bold">Win Rate Probability (p):</span>
+                    <span className="text-emerald-700 dark:text-emerald-400 font-black text-sm">{winRate}%</span>
                   </div>
                   <input
                     type="range"
@@ -258,8 +259,8 @@ export default function TradingFirmWorkflow({
                 {/* Payoff Ratio (Reward-to-Risk) */}
                 <div className="space-y-1.5">
                   <div className="flex justify-between text-xs font-mono">
-                    <span className="text-slate-600 font-bold">Payoff Ratio (b = Win Size / Loss Size):</span>
-                    <span className="text-sky-700 font-black text-sm">{payoffRatio}x</span>
+                    <span className="text-slate-600 dark:text-slate-400 font-bold">Payoff Ratio (b = Win Size / Loss Size):</span>
+                    <span className="text-sky-700 dark:text-sky-400 font-black text-sm">{payoffRatio}x</span>
                   </div>
                   <input
                     type="range"
@@ -275,8 +276,8 @@ export default function TradingFirmWorkflow({
                 {/* Safety Fraction (Quarter Kelly) */}
                 <div className="space-y-1.5">
                   <div className="flex justify-between text-xs font-mono">
-                    <span className="text-slate-600 font-bold">Institutional Safety Sizing:</span>
-                    <span className="text-purple-700 font-black text-sm">
+                    <span className="text-slate-600 dark:text-slate-400 font-bold">Institutional Safety Sizing:</span>
+                    <span className="text-purple-700 dark:text-purple-400 font-black text-sm">
                       {kellyFraction === 0.25 ? 'Quarter Kelly (0.25x - Institutional)' : 'Half Kelly (0.50x)'}
                     </span>
                   </div>
@@ -284,7 +285,7 @@ export default function TradingFirmWorkflow({
                     <button
                       onClick={() => setKellyFraction(0.25)}
                       className={`px-3 py-1 rounded-lg text-xs font-mono font-bold border ${
-                        kellyFraction === 0.25 ? 'bg-purple-600 text-white' : 'bg-white text-slate-700'
+                        kellyFraction === 0.25 ? 'bg-purple-600 text-white border-purple-600' : 'bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700'
                       }`}
                     >
                       0.25x Quarter Kelly (Recommended)
@@ -292,7 +293,7 @@ export default function TradingFirmWorkflow({
                     <button
                       onClick={() => setKellyFraction(0.50)}
                       className={`px-3 py-1 rounded-lg text-xs font-mono font-bold border ${
-                        kellyFraction === 0.50 ? 'bg-purple-600 text-white' : 'bg-white text-slate-700'
+                        kellyFraction === 0.50 ? 'bg-purple-600 text-white border-purple-600' : 'bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700'
                       }`}
                     >
                       0.50x Half Kelly
@@ -303,20 +304,20 @@ export default function TradingFirmWorkflow({
               </div>
 
               {/* Kelly Output Card */}
-              <div className="p-5 rounded-2xl bg-emerald-50 border border-emerald-300 font-mono text-xs space-y-2">
+              <div className="p-5 rounded-2xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-300 dark:border-emerald-800 font-mono text-xs space-y-2">
                 <div className="flex justify-between items-center">
-                  <span className="text-emerald-900 font-bold">Optimal Calculated Position Allocation:</span>
-                  <span className="text-emerald-950 font-black text-base">
+                  <span className="text-emerald-900 dark:text-emerald-300 font-bold">Optimal Calculated Position Allocation:</span>
+                  <span className="text-emerald-950 dark:text-emerald-200 font-black text-base">
                     {(adjustedKelly * 100).toFixed(1)}% of Capital
                   </span>
                 </div>
-                <div className="flex justify-between items-center text-sm pt-2 border-t border-emerald-200">
-                  <span className="text-emerald-900 font-bold">Recommended Order Size in INR:</span>
-                  <span className="text-emerald-800 font-black text-lg">
+                <div className="flex justify-between items-center text-sm pt-2 border-t border-emerald-200 dark:border-emerald-800">
+                  <span className="text-emerald-900 dark:text-emerald-300 font-bold">Recommended Order Size in INR:</span>
+                  <span className="text-emerald-800 dark:text-emerald-200 font-black text-lg">
                     {formatINR(recommendedPositionINR, true)}
                   </span>
                 </div>
-                <div className="flex justify-between items-center text-[11px] text-emerald-800 pt-1">
+                <div className="flex justify-between items-center text-[11px] text-emerald-800 dark:text-emerald-400 pt-1">
                   <span>Max Capital at Risk (5% ATR Stop Loss):</span>
                   <span className="font-bold">{formatINR(riskAmountINR, true)}</span>
                 </div>
@@ -328,9 +329,9 @@ export default function TradingFirmWorkflow({
               <span className="text-xs font-mono font-bold text-slate-500 uppercase tracking-wider">
                 Proprietary Risk Formulas &amp; Stochastic Blackboard
               </span>
-              <div className="relative rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-slate-950 flex items-center justify-center min-h-[280px] group">
+              <div className="relative rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm bg-slate-950 flex items-center justify-center min-h-[280px] group">
                 <img
-                  src="/photos/pexels-thales13-39398846.jpg"
+                  src="/photos/gettyimages-2270333130-612x612.jpg"
                   alt="Quantitative Risk Mathematics Blackboard"
                   className="w-full h-auto object-cover rounded-xl block transition-transform duration-500 group-hover:scale-105"
                   style={{ maxHeight: '420px', aspectRatio: '16 / 10' }}
@@ -338,68 +339,65 @@ export default function TradingFirmWorkflow({
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
                 <div className="absolute bottom-3 left-3 right-3 p-3 bg-slate-900/90 backdrop-blur-md rounded-xl text-white text-[11px] font-mono flex items-center justify-between border border-slate-800">
                   <span className="flex items-center gap-1.5 font-bold">
-                    <span className="w-2 h-2 rounded-full bg-purple-400 animate-pulse" />
-                    Stochastic Calculus &amp; Kelly Lab
+                    <Calculator className="w-4 h-4 text-emerald-400" />
+                    Kelly Staking Criterion
                   </span>
-                  <span className="text-purple-300 font-bold">f* = (bp - q) / b</span>
+                  <span className="text-amber-300 font-bold">f* = 0.25 × (bp - q) / b</span>
                 </div>
               </div>
-              <p className="text-xs text-slate-600 font-mono leading-relaxed">
-                By enforcing <strong>Fractional Kelly sizing</strong> and <strong>Parametric Value at Risk (VaR)</strong> limits, firms maintain positive geometric growth through multi-month crypto market drawdowns.
-              </p>
+              <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 text-xs font-mono text-slate-600 dark:text-slate-300 leading-relaxed">
+                <strong>Why this is critical:</strong> Full Kelly sizing has a 33% chance of experiencing a 50% capital drawdown. By enforcing Quarter-Kelly (0.25x), trading desks achieve ~75% of maximum growth with only a 2% risk of a serious drawdown.
+              </div>
             </div>
 
           </div>
         </div>
       )}
 
-      {/* TAB 3: HOW FIRMS BUY & SELL (SMART ORDER ROUTING) */}
+      {/* TAB 3: HOW FIRMS BUY & SELL (TWAP/VWAP EXECUTION) */}
       {activeTab === 'execution' && (
         <div className="space-y-6 animate-in fade-in duration-300">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             
-            {/* Left Column: TWAP / VWAP Order Slicer */}
+            {/* Left Column: TWAP / VWAP Order Slicer Simulator */}
             <div className="lg:col-span-6 space-y-5">
               <div>
-                <span className="text-xs font-mono font-bold text-amber-700 uppercase tracking-wider">
-                  Phase 3 // Zero-Impact Execution
+                <span className="text-xs font-mono font-bold text-amber-700 dark:text-amber-400 uppercase tracking-wider">
+                  Phase 3 // Smart Order Slicing &amp; Anti-Slippage
                 </span>
-                <h3 className="text-xl font-black text-slate-900 mt-1">
-                  How Trading Firms Buy & Sell (TWAP & Iceberg Slicing)
+                <h3 className="text-xl font-black text-slate-900 dark:text-white mt-1">
+                  How Trading Firms Buy and Sell Large Block Orders
                 </h3>
-                <p className="text-xs text-slate-600 mt-1 font-medium">
-                  When a trading firm wants to buy or sell ₹10,00,000+ of cryptocurrency, executing as a single market order causes massive slippage and attracts predatory MEV sandwich bots. Instead, firms slice orders using <strong>TWAP</strong>.
+                <p className="text-xs text-slate-600 dark:text-slate-300 mt-1 font-medium">
+                  If an institution buys ₹10,00,000 of crypto at market, the order sweeps the book, moves the price against them, and incurs massive slippage. Instead, they use <strong>TWAP (Time-Weighted)</strong> and <strong>VWAP (Volume-Weighted)</strong> order slicing with <strong>Iceberg orders</strong>.
                 </p>
               </div>
 
-              <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-4 font-mono text-xs">
+              {/* Slicer Simulator */}
+              <div className="p-6 rounded-2xl bg-slate-50 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 space-y-4 font-mono text-xs">
                 
-                {/* Total Order Amount */}
+                {/* Block Order Size */}
                 <div className="space-y-1.5">
                   <div className="flex justify-between">
-                    <span className="text-slate-600 font-bold">Total Block Order Size (INR):</span>
-                    <span className="text-slate-950 font-black text-sm">{formatINR(orderSizeINR, true)}</span>
+                    <span className="text-slate-600 dark:text-slate-400 font-bold">Total Block Order Size (INR):</span>
+                    <span className="text-amber-800 dark:text-amber-300 font-black text-sm">{formatINR(orderSizeINR, true)}</span>
                   </div>
-                  <div className="flex gap-2">
-                    {[500000, 1000000, 2500000, 5000000].map((amt) => (
-                      <button
-                        key={amt}
-                        onClick={() => setOrderSizeINR(amt)}
-                        className={`px-2.5 py-1 rounded-lg border font-bold ${
-                          orderSizeINR === amt ? 'bg-slate-900 text-white' : 'bg-white text-slate-700'
-                        }`}
-                      >
-                        {formatINRLarge(amt / 85.50)}
-                      </button>
-                    ))}
-                  </div>
+                  <input
+                    type="range"
+                    min="100000"
+                    max="5000000"
+                    step="100000"
+                    value={orderSizeINR}
+                    onChange={(e) => setOrderSizeINR(Number(e.target.value))}
+                    className="w-full accent-amber-600 cursor-pointer"
+                  />
                 </div>
 
-                {/* Slicing Duration */}
+                {/* Execution Duration */}
                 <div className="space-y-1.5">
                   <div className="flex justify-between">
-                    <span className="text-slate-600 font-bold">Execution Window:</span>
-                    <span className="text-amber-800 font-black">{twapMinutes} Minutes</span>
+                    <span className="text-slate-600 dark:text-slate-400 font-bold">Execution Window:</span>
+                    <span className="text-amber-800 dark:text-amber-300 font-black">{twapMinutes} Minutes</span>
                   </div>
                   <div className="flex gap-2">
                     {[15, 30, 60, 120].map((mins) => (
@@ -407,7 +405,7 @@ export default function TradingFirmWorkflow({
                         key={mins}
                         onClick={() => setTwapMinutes(mins)}
                         className={`px-3 py-1 rounded-lg border font-bold ${
-                          twapMinutes === mins ? 'bg-amber-600 text-white border-amber-600' : 'bg-white text-slate-700'
+                          twapMinutes === mins ? 'bg-amber-600 text-white border-amber-600' : 'bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700'
                         }`}
                       >
                         {mins} min
@@ -419,8 +417,8 @@ export default function TradingFirmWorkflow({
                 {/* Slices count */}
                 <div className="space-y-1.5">
                   <div className="flex justify-between">
-                    <span className="text-slate-600 font-bold">Child Order Slices:</span>
-                    <span className="text-slate-950 font-black">{sliceCount} Sub-Orders</span>
+                    <span className="text-slate-600 dark:text-slate-400 font-bold">Child Order Slices:</span>
+                    <span className="text-slate-950 dark:text-white font-black">{sliceCount} Sub-Orders</span>
                   </div>
                   <input
                     type="range"
@@ -433,20 +431,20 @@ export default function TradingFirmWorkflow({
                 </div>
 
                 {/* Slicer Output Telemetry */}
-                <div className="p-4 rounded-xl bg-white border border-slate-200 space-y-2 text-xs">
+                <div className="p-4 rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-2 text-xs">
                   <div className="flex justify-between">
                     <span className="text-slate-500">Each Child Order Size:</span>
-                    <span className="text-slate-950 font-black">{formatINR(sliceSizeINR, true)}</span>
+                    <span className="text-slate-950 dark:text-white font-black">{formatINR(sliceSizeINR, true)}</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-slate-500">Execution Frequency:</span>
-                    <span className="text-slate-950 font-black">Every {intervalSeconds.toFixed(0)} seconds</span>
+                    <span className="text-slate-950 dark:text-white font-black">Every {intervalSeconds.toFixed(0)} seconds</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-slate-500">Iceberg Stealth Queue:</span>
-                    <span className="text-emerald-700 font-black">90% Hidden / 10% Visible</span>
+                    <span className="text-emerald-700 dark:text-emerald-400 font-black">90% Hidden / 10% Visible</span>
                   </div>
-                  <div className="flex justify-between text-emerald-800 font-bold pt-1 border-t border-slate-100">
+                  <div className="flex justify-between text-emerald-800 dark:text-emerald-400 font-bold pt-1 border-t border-slate-100 dark:border-slate-800">
                     <span>Est. Slippage Reduction:</span>
                     <span>94.2% Lower Market Impact</span>
                   </div>
@@ -458,12 +456,12 @@ export default function TradingFirmWorkflow({
             {/* Right Column: Execution Flow Graphic */}
             <div className="lg:col-span-6 space-y-4">
               <span className="text-xs font-mono font-bold text-slate-500 uppercase tracking-wider">
-                Full Execution Routing Flow &amp; Trading Floor
+                Full Execution Routing Flow &amp; Exchange Ticker Tape
               </span>
-              <div className="relative rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-slate-950 flex items-center justify-center min-h-[260px] group">
+              <div className="relative rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm bg-slate-950 flex items-center justify-center min-h-[260px] group">
                 <img
-                  src="/photos/gettyimages-2270333130-612x612.jpg"
-                  alt="Trading Firm Execution Floor"
+                  src="/photos/pierre-borthiry-peiobty-vBCVcWUyvyM-unsplash.jpg"
+                  alt="Stock Exchange Ticker Tape"
                   className="w-full h-auto object-cover rounded-xl block transition-transform duration-500 group-hover:scale-105"
                   style={{ maxHeight: '420px', aspectRatio: '16 / 10' }}
                 />
@@ -471,12 +469,12 @@ export default function TradingFirmWorkflow({
                 <div className="absolute bottom-3 left-3 right-3 p-3 bg-slate-900/90 backdrop-blur-md rounded-xl text-white text-[11px] font-mono flex items-center justify-between border border-slate-800">
                   <span className="flex items-center gap-1.5 font-bold">
                     <span className="w-2 h-2 rounded-full bg-sky-400 animate-pulse" />
-                    High-Frequency Execution Floor
+                    High-Frequency Smart Router
                   </span>
                   <span className="text-sky-300 font-bold">Zero Market Impact</span>
                 </div>
               </div>
-              <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 text-xs font-mono text-slate-600 leading-relaxed">
+              <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 text-xs font-mono text-slate-600 dark:text-slate-300 leading-relaxed">
                 <strong>Why this matters:</strong> Institutional crypto traders never submit raw market orders. They execute via algorithmic routing engines that distribute volume across decentralized pools and centralized order books to achieve the volume-weighted average price (VWAP).
               </div>
             </div>
@@ -493,24 +491,24 @@ export default function TradingFirmWorkflow({
             {/* Left Column: Delta-Neutral Hedging Simulator */}
             <div className="lg:col-span-6 space-y-5">
               <div>
-                <span className="text-xs font-mono font-bold text-purple-700 uppercase tracking-wider">
-                  Phase 4 // Portfolio & Risk Management
+                <span className="text-xs font-mono font-bold text-purple-700 dark:text-purple-400 uppercase tracking-wider">
+                  Phase 4 // Portfolio &amp; Risk Management
                 </span>
-                <h3 className="text-xl font-black text-slate-900 mt-1">
+                <h3 className="text-xl font-black text-slate-900 dark:text-white mt-1">
                   How Trading Firms Manage Market Risk (Delta-Neutral Hedging)
                 </h3>
-                <p className="text-xs text-slate-600 mt-1 font-medium">
-                  Trading firms don&apos;t care if Bitcoin drops 20% or rallies 50%. They hedge directional market risk ($\beta = 0$) so they only profit from the relative outperformance (pure alpha $\alpha$).
+                <p className="text-xs text-slate-600 dark:text-slate-300 mt-1 font-medium">
+                  Trading firms don&apos;t care if Bitcoin drops 20% or rallies 50%. They hedge directional market risk (Beta ≈ 0) so they only profit from relative outperformance (pure alpha).
                 </p>
               </div>
 
-              <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-4 font-mono text-xs">
+              <div className="p-6 rounded-2xl bg-slate-50 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 space-y-4 font-mono text-xs">
                 
                 {/* Long Altcoin Position */}
                 <div className="space-y-1.5">
                   <div className="flex justify-between">
-                    <span className="text-slate-600 font-bold">1. Long High-Alpha Token (INR):</span>
-                    <span className="text-emerald-700 font-black text-sm">{formatINR(longAssetINR, true)} (SOL/INR)</span>
+                    <span className="text-slate-600 dark:text-slate-400 font-bold">1. Long High-Alpha Token (INR):</span>
+                    <span className="text-emerald-700 dark:text-emerald-400 font-black text-sm">{formatINR(longAssetINR, true)} (SOL/INR)</span>
                   </div>
                   <input
                     type="range"
@@ -526,8 +524,8 @@ export default function TradingFirmWorkflow({
                 {/* Asset Beta to Market */}
                 <div className="space-y-1.5">
                   <div className="flex justify-between">
-                    <span className="text-slate-600 font-bold">2. Token Relative Beta ($\beta$ vs BTC):</span>
-                    <span className="text-sky-700 font-black text-sm">{betaValue}x</span>
+                    <span className="text-slate-600 dark:text-slate-400 font-bold">2. Token Relative Beta (vs BTC):</span>
+                    <span className="text-sky-700 dark:text-sky-400 font-black text-sm">{betaValue}x</span>
                   </div>
                   <input
                     type="range"
@@ -539,51 +537,51 @@ export default function TradingFirmWorkflow({
                     className="w-full accent-sky-600 cursor-pointer"
                   />
                   <p className="text-[10px] text-slate-500">
-                    Beta &gt; 1 means token moves faster than BTC. To hedge, the firm shorts $\beta \times$ Position.
+                    Beta &gt; 1 means token moves faster than BTC. To hedge, the firm shorts Beta × Position.
                   </p>
                 </div>
 
                 {/* Short BTC Hedge Output */}
-                <div className="p-4 rounded-xl bg-purple-50/80 border border-purple-200 space-y-2">
+                <div className="p-4 rounded-xl bg-purple-50/80 dark:bg-purple-950/40 border border-purple-200 dark:border-purple-800 space-y-2">
                   <div className="flex justify-between text-xs">
-                    <span className="text-purple-900 font-bold">Required Short BTC Perpetual Hedge:</span>
-                    <span className="text-purple-950 font-black text-sm">{formatINR(shortHedgeINR, true)}</span>
+                    <span className="text-purple-900 dark:text-purple-300 font-bold">Required Short BTC Perpetual Hedge:</span>
+                    <span className="text-purple-950 dark:text-purple-200 font-black text-sm">{formatINR(shortHedgeINR, true)}</span>
                   </div>
-                  <div className="flex justify-between text-[11px] text-purple-800">
-                    <span>Portfolio Net Delta ($\Delta$):</span>
-                    <span className="font-bold">0.00 (Market Neutral)</span>
+                  <div className="flex justify-between text-xs">
+                    <span className="text-slate-600 dark:text-slate-400">Total Net Portfolio Beta:</span>
+                    <span className="text-emerald-700 dark:text-emerald-400 font-black">0.00 (Market Neutral)</span>
                   </div>
                 </div>
 
-                {/* Scenario Outcome */}
-                <div className="p-4 rounded-xl bg-white border border-slate-200 space-y-2 text-xs">
-                  <span className="font-bold text-slate-900 block">Stress Test Scenario: If BTC Drops 15%</span>
-                  <div className="flex justify-between text-rose-700">
+                {/* Stress Test Simulation */}
+                <div className="p-4 rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-1.5 text-xs">
+                  <span className="font-bold text-slate-900 dark:text-white block">Stress Test Scenario: If BTC Drops 15%</span>
+                  <div className="flex justify-between text-rose-700 dark:text-rose-400">
                     <span>Loss on Altcoin (Beta {betaValue}x):</span>
                     <span>-{formatINR(longAssetINR * 0.15 * betaValue, true)}</span>
                   </div>
-                  <div className="flex justify-between text-emerald-700">
+                  <div className="flex justify-between text-emerald-700 dark:text-emerald-400">
                     <span>Gain on Short BTC Perp:</span>
                     <span>+{formatINR(shortHedgeINR * 0.15, true)}</span>
                   </div>
-                  <div className="flex justify-between text-slate-950 font-black pt-1 border-t border-slate-100">
+                  <div className="flex justify-between text-slate-950 dark:text-white font-black pt-1 border-t border-slate-100 dark:border-slate-800">
                     <span>Net Market Drawdown:</span>
-                    <span className="text-emerald-700">₹0.00 Net Loss (100% Protected)</span>
+                    <span className="text-emerald-700 dark:text-emerald-400">₹0.00 Net Loss (100% Protected)</span>
                   </div>
                 </div>
 
               </div>
             </div>
 
-            {/* Right Column: Trading Screen & Firm Management Details */}
+            {/* Right Column: Strategic Ambition & Chess */}
             <div className="lg:col-span-6 space-y-4">
               <span className="text-xs font-mono font-bold text-slate-500 uppercase tracking-wider">
-                Live Institutional Risk &amp; Hedging Floor
+                Strategic Portfolio Management &amp; Hedging Desk
               </span>
-              <div className="relative rounded-2xl overflow-hidden border border-slate-200 shadow-md bg-slate-950 flex items-center justify-center min-h-[260px] group">
+              <div className="relative rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-md bg-slate-950 flex items-center justify-center min-h-[260px] group">
                 <img
-                  src="/photos/gettyimages-2240153407-612x612.jpg"
-                  alt="Institutional Trading Risk Management Floor"
+                  src="/photos/quant-ambition-chess.jpg"
+                  alt="Strategic Ambition and Hedging"
                   className="w-full h-auto object-cover rounded-xl block transition-transform duration-500 group-hover:scale-105"
                   style={{ maxHeight: '420px', aspectRatio: '16 / 10' }}
                 />
@@ -591,17 +589,17 @@ export default function TradingFirmWorkflow({
                 <div className="absolute bottom-3 left-3 right-3 p-3 bg-slate-900/90 backdrop-blur-md rounded-xl text-white text-[11px] font-mono flex items-center justify-between border border-slate-800">
                   <span className="flex items-center gap-1.5 font-bold">
                     <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                    Delta-Neutral Risk Supervision
+                    Delta-Neutral Supervision
                   </span>
                   <span className="text-emerald-300 font-bold">Dynamic Beta Hedging</span>
                 </div>
               </div>
-              <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 text-xs font-mono text-slate-700 space-y-2">
-                <div className="flex items-center gap-2 font-bold text-slate-900">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+              <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 text-xs font-mono text-slate-700 dark:text-slate-300 space-y-2">
+                <div className="flex items-center gap-2 font-bold text-slate-900 dark:text-white">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
                   <span>Real-Time P&amp;L Attribution</span>
                 </div>
-                <p className="text-[11px] text-slate-500">
+                <p className="text-[11px] text-slate-500 dark:text-slate-400">
                   Trading desks continuously track Sharpe ratio, funding rate arbitrage yield, and liquidation distance to ensure capital security 24 hours a day, 7 days a week.
                 </p>
               </div>
@@ -614,4 +612,3 @@ export default function TradingFirmWorkflow({
     </div>
   );
 }
-

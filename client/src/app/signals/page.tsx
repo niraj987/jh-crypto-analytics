@@ -108,9 +108,9 @@ function SignalsTerminal() {
     <div className="max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-12 py-10 space-y-8">
       
       {/* Top Terminal Status Header */}
-      <div className="relative overflow-hidden flex flex-col gap-6 p-7 rounded-3xl bg-white border border-slate-200/90 shadow-[0_10px_30px_-8px_rgba(15,23,42,0.05)]">
+      <div className="relative overflow-hidden flex flex-col gap-6 p-7 rounded-3xl bg-white dark:bg-[#0c1222] border border-slate-200/90 dark:border-slate-800 shadow-xl">
         {/* Subtle Background Texture */}
-        <div className="absolute inset-0 -z-10 pointer-events-none select-none overflow-hidden rounded-3xl opacity-[0.035] mix-blend-multiply">
+        <div className="absolute inset-0 -z-10 pointer-events-none select-none overflow-hidden rounded-3xl opacity-[0.035] sm:opacity-[0.06] mix-blend-multiply dark:mix-blend-luminosity">
           <img
             src="/photos/pierre-borthiry-peiobty-vBCVcWUyvyM-unsplash.jpg"
             alt="Trading Atmosphere"
@@ -162,18 +162,18 @@ function SignalsTerminal() {
               onClick={() => setIsLiveActive(!isLiveActive)}
               className={`px-4 py-2.5 rounded-2xl text-xs font-mono font-bold flex items-center gap-2 border transition-all duration-200 ${
                 isLiveActive
-                  ? 'bg-emerald-50 text-emerald-800 border-emerald-300 shadow-sm'
-                  : 'bg-slate-100 text-slate-600 border-slate-300'
+                  ? 'bg-emerald-50 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 border-emerald-300 dark:border-emerald-800 shadow-sm'
+                  : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border-slate-300 dark:border-slate-700'
               }`}
             >
-              <span className={`w-2.5 h-2.5 rounded-full ${isLiveActive ? 'bg-emerald-600 animate-pulse' : 'bg-slate-400'}`} />
+              <span className={`w-2.5 h-2.5 rounded-full ${isLiveActive ? 'bg-emerald-600 dark:bg-emerald-400 animate-pulse' : 'bg-slate-400'}`} />
               <span>{isLiveActive ? 'Live Recalc: ACTIVE (4s)' : 'Live Recalc: PAUSED'}</span>
             </button>
 
             <button
               onClick={() => fetchTerminalData(selectedSymbol)}
               disabled={isLoading}
-              className="px-5 py-2.5 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-mono font-black text-xs flex items-center gap-2 shadow-sm transition-all disabled:opacity-50 hover:-translate-y-0.5 active:translate-y-0"
+              className="px-5 py-2.5 rounded-2xl bg-slate-900 dark:bg-emerald-600 hover:bg-slate-800 dark:hover:bg-emerald-500 text-white font-mono font-black text-xs flex items-center gap-2 shadow-sm transition-all disabled:opacity-50 hover:-translate-y-0.5 active:translate-y-0"
             >
               <RefreshCw className={`w-3.5 h-3.5 ${isLoading ? 'animate-spin' : ''}`} />
               <span>Re-Run Quant Consensus</span>
@@ -184,21 +184,21 @@ function SignalsTerminal() {
         {/* Real-Time Price Metrics Strip */}
         {currentAsset && (
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 font-mono text-xs">
-            <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200">
-              <span className="text-slate-500 text-[10px] block font-bold uppercase">24h High (₹)</span>
-              <span className="text-slate-950 font-black text-sm mt-0.5 block">{formatINR(currentAsset.high24h)}</span>
+            <div className="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800">
+              <span className="text-slate-500 dark:text-slate-400 text-[10px] block font-bold uppercase">24h High (₹)</span>
+              <span className="text-slate-950 dark:text-white font-black text-sm mt-0.5 block">{formatINR(currentAsset.high24h)}</span>
             </div>
-            <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200">
-              <span className="text-slate-500 text-[10px] block font-bold uppercase">24h Low (₹)</span>
-              <span className="text-slate-950 font-black text-sm mt-0.5 block">{formatINR(currentAsset.low24h)}</span>
+            <div className="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800">
+              <span className="text-slate-500 dark:text-slate-400 text-[10px] block font-bold uppercase">24h Low (₹)</span>
+              <span className="text-slate-950 dark:text-white font-black text-sm mt-0.5 block">{formatINR(currentAsset.low24h)}</span>
             </div>
-            <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200">
-              <span className="text-slate-500 text-[10px] block font-bold uppercase">24h Volume</span>
-              <span className="text-emerald-700 font-black text-sm mt-0.5 block">{formatINRLarge(currentAsset.volume24h)}</span>
+            <div className="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800">
+              <span className="text-slate-500 dark:text-slate-400 text-[10px] block font-bold uppercase">24h Volume</span>
+              <span className="text-emerald-700 dark:text-emerald-400 font-black text-sm mt-0.5 block">{formatINRLarge(currentAsset.volume24h)}</span>
             </div>
-            <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200">
-              <span className="text-slate-500 text-[10px] block font-bold uppercase">Market Cap</span>
-              <span className="text-sky-700 font-black text-sm mt-0.5 block">{formatINRLarge(currentAsset.marketCap)}</span>
+            <div className="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800">
+              <span className="text-slate-500 dark:text-slate-400 text-[10px] block font-bold uppercase">Market Cap</span>
+              <span className="text-sky-700 dark:text-sky-400 font-black text-sm mt-0.5 block">{formatINRLarge(currentAsset.marketCap)}</span>
             </div>
           </div>
         )}

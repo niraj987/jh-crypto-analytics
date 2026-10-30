@@ -3,59 +3,180 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Network, Cpu, Database, TrendingUp, ShieldCheck, ArrowRight, Layers, Zap, SlidersHorizontal } from 'lucide-react';
+import { 
+  Network, 
+  Cpu, 
+  Database, 
+  TrendingUp, 
+  ShieldCheck, 
+  ArrowRight, 
+  Layers, 
+  Zap, 
+  SlidersHorizontal,
+  Activity,
+  CheckCircle2,
+  Sparkles,
+  BarChart2,
+  Compass
+} from 'lucide-react';
 
 export default function AboutPage() {
+  const pillars = [
+    {
+      id: 'pillar-1',
+      step: '01 // SUGGEST (ALPHA)',
+      title: 'How Top Firms Suggest (Alpha Generation)',
+      subtitle: 'Statistical Significance & Multi-Factor Scoring',
+      image: '/photos/behnam-norouzi-hScr17JG74Q-unsplash.jpg',
+      badge: 'Information Ratio > 1.5',
+      badgeColor: 'bg-sky-50 dark:bg-sky-950/60 text-sky-700 dark:text-sky-300 border-sky-300 dark:border-sky-800',
+      cardBg: 'bg-gradient-to-br from-sky-50/90 via-white to-slate-50 dark:from-[#0d1627] dark:via-[#09101f] dark:to-[#070b16] border-sky-200/90 dark:border-slate-800',
+      icon: Zap,
+      iconColor: 'text-sky-500',
+      formula: 'f(α) = Σ (w_i · Score_i) ∈ [-100, +100]',
+      description:
+        'Firms do not speculate on gut feeling. Hundreds of mathematical factors (RSI divergence, MACD volume momentum, Bollinger squeeze, on-chain reserve drain) are computed tick-by-tick. When composite alpha exceeds +35 with high statistical significance, the supervisor publishes an automated BUY recommendation with verified targets.',
+    },
+    {
+      id: 'pillar-2',
+      step: '02 // RISK (KELLY SIZING)',
+      title: 'How Top Firms Manage Risk (Capital Sizing)',
+      subtitle: 'Quarter-Kelly Staking & Parametric VaR Limits',
+      image: '/photos/gettyimages-2270333130-612x612.jpg',
+      badge: 'Quarter-Kelly (0.25x)',
+      badgeColor: 'bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border-emerald-300 dark:border-emerald-800',
+      cardBg: 'bg-gradient-to-br from-emerald-50/90 via-white to-slate-50 dark:from-[#091b1a] dark:via-[#071314] dark:to-[#050e0f] border-emerald-200/90 dark:border-slate-800',
+      icon: ShieldCheck,
+      iconColor: 'text-emerald-500',
+      formula: 'f* = 0.25 × (p · b - q) / b',
+      description:
+        'Capital preservation always takes precedence over returns. Trading desks downscale the raw Kelly Criterion to Quarter-Kelly (0.25x) to eliminate ruin risk during fat-tailed drawdowns. 14-period ATR envelopes set dynamic stop-losses, and single-desk Value-at-Risk (VaR) is capped strictly at 2% of equity.',
+    },
+    {
+      id: 'pillar-3',
+      step: '03 // BUY/SELL (SMART ROUTING)',
+      title: 'How Top Firms Buy & Sell (Execution)',
+      subtitle: 'TWAP, VWAP Slicing & Anti-MEV Icebergs',
+      image: '/photos/pierre-borthiry-peiobty-vBCVcWUyvyM-unsplash.jpg',
+      badge: 'Zero Slippage Routing',
+      badgeColor: 'bg-amber-50 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300 border-amber-300 dark:border-amber-800',
+      cardBg: 'bg-gradient-to-br from-amber-50/90 via-white to-slate-50 dark:from-[#1b1509] dark:via-[#140f06] dark:to-[#0d0a04] border-amber-200/90 dark:border-slate-800',
+      icon: SlidersHorizontal,
+      iconColor: 'text-amber-500',
+      formula: 'VWAP = Σ (P_i · V_i) / Σ V_i',
+      description:
+        'Large institutional block orders (₹10,00,000+) are never sent as market orders. Smart order routers decompose orders into micro child slices over 30 to 60-minute windows using TWAP and VWAP algorithms. Iceberg orders mask cumulative sizes to prevent predatory front-running and MEV sandwich bots.',
+    },
+    {
+      id: 'pillar-4',
+      step: '04 // MANAGE (DELTA-NEUTRAL)',
+      title: 'How Top Firms Manage Portfolios (Hedging)',
+      subtitle: 'Beta Hedging & Cross-Asset Market Neutrality',
+      image: '/photos/quant-ambition-chess.jpg',
+      badge: 'Market Beta ≈ 0.00',
+      badgeColor: 'bg-purple-50 dark:bg-purple-950/60 text-purple-700 dark:text-purple-300 border-purple-300 dark:border-purple-800',
+      cardBg: 'bg-gradient-to-br from-purple-50/90 via-white to-slate-50 dark:from-[#180d26] dark:via-[#11091b] dark:to-[#0b0512] border-purple-200/90 dark:border-slate-800',
+      icon: Layers,
+      iconColor: 'text-purple-500',
+      formula: 'Hedge = - Σ (w_i · β_i) × Futures_BTC',
+      description:
+        'Firms neutralize broader directional volatility by maintaining a zero-beta portfolio. They hold high-conviction long positions in strong crypto assets while simultaneously shorting equivalent beta exposure on BTC/ETH perpetuals, unlocking uncorrelated returns regardless of market direction.',
+    },
+  ];
+
   const agents = [
     {
       id: 'agent-1',
-      title: 'Quantitative Technical Specialist',
-      role: 'Multi-Timeframe Trend & Indicator Confluence',
+      title: 'Technical Indicator & Trend Specialist',
+      role: 'Multi-Timeframe Confluence & Volatility Envelopes',
+      image: '/photos/pexels-thales13-39589930.jpg',
       icon: Zap,
-      accentText: 'text-sky-700',
-      accentBg: 'bg-sky-50 border-sky-200',
+      accentText: 'text-sky-600 dark:text-sky-400',
+      accentBg: 'bg-sky-50 dark:bg-sky-950/50 border-sky-200 dark:border-sky-800',
+      cardBorder: 'border-sky-300/80 dark:border-sky-800/80',
+      tag: '50/200 SMA · RSI(14) · ATR',
       description:
-        'Calculates real-time 50/200 SMA golden and death crosses, 20 EMA dynamic trailing support, RSI(14) divergence regimes, MACD signal line crossovers, Bollinger Band squeeze breakout states, and 14-period Average True Range (ATR) volatility envelopes in real time.',
+        'Computes dynamic 50/200 SMA golden and death crosses, 20 EMA trailing support, RSI(14) divergence regimes, MACD signal line crossovers, Bollinger Band squeeze breakout states, and 14-period Average True Range (ATR) volatility envelopes in real time.',
     },
     {
       id: 'agent-2',
       title: 'On-Chain & Liquidity Microstructure Specialist',
-      role: 'Order Flow, Exchange Reserves & Whale Balances',
+      role: 'Order Book Depth, Whale Inflows & Exchange Reserves',
+      image: '/photos/kanchanara-7cmA9ZL5dDk-unsplash.jpg',
       icon: Database,
-      accentText: 'text-emerald-700',
-      accentBg: 'bg-emerald-50 border-emerald-200',
+      accentText: 'text-emerald-600 dark:text-emerald-400',
+      accentBg: 'bg-emerald-50 dark:bg-emerald-950/50 border-emerald-200 dark:border-emerald-800',
+      cardBorder: 'border-emerald-300/80 dark:border-emerald-800/80',
+      tag: 'CEX Reserves · Net Inflows · Book Depth',
       description:
-        'Analyzes 24-hour volume-to-market-cap velocity, centralized exchange net inflows and outflows, derivatives funding rate overheating, perpetual open interest (OI) leverage clusters, and order book bid-ask liquidity absorption.',
+        'Monitors centralized exchange net deposit/withdrawal flows, 24-hour volume-to-market-cap velocity, perpetual funding rate overheating, open interest (OI) leverage clusters, and order book bid-ask liquidity absorption.',
     },
     {
       id: 'agent-3',
-      title: 'Macro & RAG Narrative Intelligence Specialist',
-      role: 'Historical Regime Analogs & Vector Retrieval',
+      title: 'Macro Narrative & RAG Analogs Specialist',
+      role: 'Vector Embeddings, Halving Cycles & Fed Liquidity',
+      image: '/photos/quant-secular-trend-chart.jpg',
       icon: Network,
-      accentText: 'text-purple-700',
-      accentBg: 'bg-purple-50 border-purple-200',
+      accentText: 'text-purple-600 dark:text-purple-400',
+      accentBg: 'bg-purple-50 dark:bg-purple-950/50 border-purple-200 dark:border-purple-800',
+      cardBorder: 'border-purple-300/80 dark:border-purple-800/80',
+      tag: 'Semantic RAG · Halving Supply · M2 Global',
       description:
-        'Leverages an in-memory semantic vector store containing deep domain knowledge: 2016, 2020, and 2024 post-halving structural supply constriction, Global M2 expansion correlation, Fed interest rate easing cycles, and spot ETF liquidity absorption.',
+        'Queries an in-memory semantic vector store containing deep domain knowledge: 2016, 2020, and 2024 post-halving structural supply constriction, Global M2 expansion correlation, Fed interest rate easing cycles, and spot ETF liquidity absorption.',
     },
     {
       id: 'agent-4',
-      title: 'Predictive Horizon & Scenario Specialist',
-      role: 'Monte Carlo Envelopes & Risk Boundaries',
+      title: 'Predictive Horizon & Risk Boundary Specialist',
+      role: 'Monte Carlo Scenarios & Exact INR Target Invalidation',
+      image: '/photos/quant-3d-polar-chart.jpg',
       icon: TrendingUp,
-      accentText: 'text-amber-700',
-      accentBg: 'bg-amber-50 border-amber-200',
+      accentText: 'text-amber-600 dark:text-amber-400',
+      accentBg: 'bg-amber-50 dark:bg-amber-950/50 border-amber-200 dark:border-amber-800',
+      cardBorder: 'border-amber-300/80 dark:border-amber-800/80',
+      tag: 'Bull/Base/Bear · 24h/7d/30d · ₹ Targets',
       description:
         'Synthesizes multi-horizon price envelopes for 24 hours, 7 days, and 30 days. Generates dynamic Bull, Base, and Bear scenarios with explicit probabilities, optimal entry targets, and structural invalidation stop-loss levels in INR.',
     },
   ];
 
   return (
-    <div className="max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-12 py-16 space-y-16">
+    <div className="max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-12 py-12 space-y-16">
       
-      {/* Hero Intro with Company Logo */}
-      <div className="max-w-3xl space-y-5">
-        <div className="inline-flex items-center gap-3 px-4 py-2 rounded-2xl bg-white border border-slate-200 shadow-sm">
-          <div className="w-8 h-8 rounded-xl overflow-hidden flex items-center justify-center p-0.5 border border-slate-100">
+      {/* Ambition Top Banner Inspired by Real Institutional Quants */}
+      <div className="relative rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-xl bg-slate-950">
+        <div className="absolute inset-0">
+          <img
+            src="/photos/quant-ambition-chess.jpg"
+            alt="Institutional Ambition and Strategic Mastery"
+            className="w-full h-full object-cover opacity-35 filter contrast-125"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/85 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent" />
+        </div>
+
+        <div className="relative z-10 p-8 sm:p-12 lg:p-16 max-w-4xl space-y-4">
+          <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-sky-500/10 border border-sky-400/30 text-sky-400 text-xs font-mono font-bold uppercase tracking-wider backdrop-blur-md">
+            <Compass className="w-4 h-4 text-sky-400" />
+            <span>Strategic Mastery &amp; Mathematical Rigor</span>
+          </div>
+
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight uppercase leading-[1.08]">
+            Our Ambition is to be the World&apos;s Benchmark for{' '}
+            <span className="bg-gradient-to-r from-sky-400 via-teal-300 to-emerald-400 bg-clip-text text-transparent">
+              Crypto Quant Intelligence
+            </span>
+          </h2>
+
+          <p className="text-slate-300 text-sm sm:text-base leading-relaxed font-normal max-w-2xl">
+            Where institutional order book microstructure meets verified mathematical risk models. Operating with the discipline of elite quantitative desks.
+          </p>
+        </div>
+      </div>
+
+      {/* Main Title Header: High Contrast & Visible in Light and Dark Mode */}
+      <div className="max-w-4xl space-y-4 pt-2">
+        <div className="inline-flex items-center gap-3 px-4 py-2 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+          <div className="w-8 h-8 rounded-xl overflow-hidden flex items-center justify-center p-0.5 border border-slate-100 dark:border-slate-800">
             <Image
               src="/jh-logo.png"
               alt="JH Logo"
@@ -65,151 +186,190 @@ export default function AboutPage() {
               unoptimized
             />
           </div>
-          <span className="text-xs font-mono font-black text-slate-900">
+          <span className="text-xs font-mono font-black text-slate-900 dark:text-white">
             JH CRYPTO ANALYTICS // INSTITUTIONAL METHODOLOGY
           </span>
         </div>
-        <h1 className="text-4xl sm:text-6xl font-black text-slate-900 tracking-tight leading-[1.15]">
+
+        <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-slate-900 dark:text-white tracking-tight leading-[1.12]">
           How Top Trading Firms Operate &amp; How Our Engine Executes
         </h1>
-        <p className="text-slate-600 text-lg leading-relaxed">
-          <strong>JH Crypto Analytics</strong> bridges modern quantitative prop-trading mechanics with algorithmic intelligence. Powered by verified mathematical formulas, smart order execution algorithms (TWAP/VWAP), and real-time sub-second calculations.
+
+        <p className="text-slate-600 dark:text-slate-300 text-base sm:text-lg leading-relaxed font-normal">
+          <strong>JH Crypto Analytics</strong> delivers institutional hedge-fund capabilities to everyday cryptocurrency traders: algorithmic multi-agent consensus, Half-Kelly risk sizing, zero-impact TWAP/VWAP order execution, and semantic RAG forecasting in <strong>Indian Rupee (₹)</strong>.
         </p>
       </div>
 
-      {/* DETAILED SECTION: How Trading Firms Work */}
-      <section className="p-8 md:p-12 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-10">
-        <div className="pb-4 border-b border-slate-100">
-          <span className="text-xs font-mono font-bold text-emerald-800 uppercase tracking-wider px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200">
-            Institutional Prop-Trading Blueprint
-          </span>
-          <h2 className="text-2xl sm:text-3xl font-black text-slate-900 mt-2">
-            The 4 Pillars of a Quantitative Trading Firm
-          </h2>
-          <p className="text-xs font-mono text-slate-500 mt-1 font-medium">
-            How institutions suggest trades, manage capital risk, execute orders without slippage, and maintain delta-neutral portfolios
-          </p>
+      {/* ----------------------------------------------------
+          THE 4 PILLARS OF A QUANTITATIVE TRADING FIRM
+          (Visible Real Photos + 3D Realistic Card Tiles)
+         ---------------------------------------------------- */}
+      <section className="space-y-8">
+        <div className="pb-4 border-b border-slate-200 dark:border-slate-800">
+          <div className="flex flex-wrap items-center justify-between gap-4">
+            <div>
+              <span className="text-xs font-mono font-bold text-emerald-700 dark:text-emerald-400 uppercase tracking-wider px-3.5 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800">
+                Institutional Prop-Trading Blueprint
+              </span>
+              <h2 className="text-2xl sm:text-4xl font-black text-slate-900 dark:text-white mt-2 tracking-tight">
+                The 4 Pillars of a Quantitative Trading Firm
+              </h2>
+              <p className="text-xs sm:text-sm font-mono text-slate-500 dark:text-slate-400 mt-1 font-medium">
+                How elite funds discover alpha, control ruin risk, execute block orders without slippage, and maintain delta neutrality
+              </p>
+            </div>
+
+            <Link
+              href="/signals"
+              className="px-5 py-2.5 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-mono font-black text-xs flex items-center gap-2 shadow-md transition-all"
+            >
+              <span>Launch Live Signals Desk</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
         </div>
 
-        {/* Pipeline Diagram */}
-        <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-slate-950 p-2 flex items-center justify-center min-h-[280px]">
-          <img
-            src="/trading-firm-flow.svg"
-            alt="Quantitative Trading Firm Pipeline"
-            className="w-full h-auto object-contain block"
-            style={{ maxHeight: '420px', aspectRatio: '960 / 400' }}
-          />
-        </div>
+        {/* 4 Realistic 3D Card Tiles with Photos */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {pillars.map((p) => {
+            const Icon = p.icon;
+            return (
+              <div
+                key={p.id}
+                className={`p-7 sm:p-8 rounded-3xl border ${p.cardBg} shadow-xl hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between space-y-6 group`}
+              >
+                {/* Header & Badges */}
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between gap-3">
+                    <span className="text-[11px] font-mono font-black text-slate-500 dark:text-slate-400 uppercase">
+                      {p.step}
+                    </span>
+                    <span className={`text-[10px] font-mono font-black px-3 py-1 rounded-full border shadow-sm ${p.badgeColor}`}>
+                      {p.badge}
+                    </span>
+                  </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 font-mono text-xs">
-          
-          {/* Pillar 1: How Firms Suggest (Alpha Generation) */}
-          <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-3">
-            <div className="flex items-center gap-2.5 text-slate-900 font-black text-sm">
-              <Zap className="w-5 h-5 text-sky-600" />
-              <span>1. How Firms Suggest (Alpha Discovery)</span>
-            </div>
-            <p className="text-slate-600 leading-relaxed font-normal">
-              Firms do not guess. They generate hundreds of mathematical features, test for statistical persistence (Information Ratio above 1.5), and aggregate them into a composite score [-100 to +100]. If the score exceeds +35, the supervisor triggers a BUY recommendation with calculated Entry, Take-Profit, and Stop-Loss.
-            </p>
-          </div>
+                  <div className="flex items-center gap-3">
+                    <div className="p-2.5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+                      <Icon className={`w-5 h-5 ${p.iconColor}`} />
+                    </div>
+                    <div>
+                      <h3 className="text-lg sm:text-xl font-black text-slate-900 dark:text-white leading-snug">
+                        {p.title}
+                      </h3>
+                      <p className="text-xs font-mono text-slate-500 dark:text-slate-400">
+                        {p.subtitle}
+                      </p>
+                    </div>
+                  </div>
+                </div>
 
-          {/* Pillar 2: How Firms Manage Risk (Kelly Sizing) */}
-          <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-3">
-            <div className="flex items-center gap-2.5 text-slate-900 font-black text-sm">
-              <ShieldCheck className="w-5 h-5 text-emerald-600" />
-              <span>2. How Firms Manage Risk (Kelly Sizing)</span>
-            </div>
-            <p className="text-slate-600 leading-relaxed font-normal">
-              Capital preservation is paramount. Firms use the Kelly Criterion scaled down to Quarter-Kelly (0.25x). They enforce 14-period ATR dynamic stop-losses and cap daily Value at Risk (VaR) at 2% of total capital.
-            </p>
-          </div>
+                {/* Visible Real Institutional Photograph */}
+                <div className="relative rounded-2xl overflow-hidden border border-slate-200/90 dark:border-slate-800 shadow-md bg-slate-950 aspect-[16/9] group-hover:border-slate-400 dark:group-hover:border-slate-700 transition-colors">
+                  <img
+                    src={p.image}
+                    alt={p.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
+                  <div className="absolute bottom-3 left-3 right-3 p-2.5 bg-slate-900/90 dark:bg-slate-900/95 backdrop-blur-md rounded-xl text-white text-[11px] font-mono flex items-center justify-between border border-slate-800">
+                    <span className="font-semibold text-slate-300">{p.subtitle}</span>
+                    <span className="text-emerald-400 font-bold">{p.badge}</span>
+                  </div>
+                </div>
 
-          {/* Pillar 3: How Firms Buy & Sell (Smart Execution) */}
-          <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-3">
-            <div className="flex items-center gap-2.5 text-slate-900 font-black text-sm">
-              <SlidersHorizontal className="w-5 h-5 text-amber-600" />
-              <span>3. How Firms Buy &amp; Sell (TWAP &amp; Iceberg)</span>
-            </div>
-            <p className="text-slate-600 leading-relaxed font-normal">
-              Block orders of ₹10,00,000 or more are never executed in a single transaction. Instead, smart order routers divide them into micro child orders over 30 to 60 minutes via Time-Weighted (TWAP) and Volume-Weighted (VWAP) algorithms, hiding order sizes via iceberg orders to stop MEV front-runners.
-            </p>
-          </div>
+                {/* Mathematical Formula Box */}
+                <div className="p-3.5 rounded-xl bg-slate-100/90 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 font-mono text-xs flex items-center justify-between">
+                  <span className="text-[10px] text-slate-500 dark:text-slate-400 font-bold uppercase">Quantitative Proof:</span>
+                  <span className="text-slate-900 dark:text-white font-black tracking-wider">{p.formula}</span>
+                </div>
 
-          {/* Pillar 4: How Firms Manage Portfolio (Delta-Neutral Hedging) */}
-          <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-3">
-            <div className="flex items-center gap-2.5 text-slate-900 font-black text-sm">
-              <Layers className="w-5 h-5 text-purple-600" />
-              <span>4. How Firms Manage All (Delta-Neutral Hedging)</span>
-            </div>
-            <p className="text-slate-600 leading-relaxed font-normal">
-              Firms achieve market-neutrality (Beta = 0) by longing high-alpha tokens while shorting equivalent beta exposure in BTC/ETH perpetual futures. Even if the broader crypto market crashes 30%, the firm remains protected and captures pure idiosyncratic spread.
-            </p>
-          </div>
-
+                {/* Description */}
+                <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
+                  {p.description}
+                </p>
+              </div>
+            );
+          })}
         </div>
       </section>
 
-      {/* Visual Trading Floor & Mathematical Formulas Section */}
+      {/* ----------------------------------------------------
+          INSTITUTIONAL TRADING FLOOR & STOCHASTIC LAB
+         ---------------------------------------------------- */}
       <section className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
-        <div className="p-8 rounded-3xl bg-white border border-slate-200 shadow-sm flex flex-col justify-between space-y-4">
+        
+        {/* Trading Floor Desk */}
+        <div className="p-8 rounded-3xl bg-gradient-to-br from-slate-50 via-white to-sky-50/40 dark:from-[#0b1322] dark:via-[#090f1b] dark:to-[#070b14] border border-slate-200 dark:border-slate-800 shadow-xl flex flex-col justify-between space-y-6">
           <div>
-            <h3 className="text-lg font-black text-slate-900 mb-1">
-              Institutional Trading Floor &amp; Analyst Desks
+            <div className="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-800 mb-4">
+              <span className="text-xs font-mono font-bold text-sky-700 dark:text-sky-400 uppercase">Live Operations</span>
+              <span className="text-xs font-mono font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 px-3 py-0.5 rounded-full border border-emerald-300 dark:border-emerald-800">Latency: 18ms</span>
+            </div>
+            <h3 className="text-xl font-black text-slate-900 dark:text-white mb-2">
+              Multi-Screen Trading Floor &amp; Microstructure Desk
             </h3>
-            <p className="text-xs text-slate-600 font-mono">
-              Dedicated desks for technical indicators, on-chain order flow, macro RAG vectors, and risk supervisors.
+            <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              Proprietary execution specialists monitor sub-second order book depth, cross-exchange liquidity imbalances, and tick-by-tick order fills across centralized and decentralized venues.
             </p>
           </div>
-          <div className="relative rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-slate-950 flex items-center justify-center min-h-[260px] group">
+
+          <div className="relative rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-lg bg-slate-950 aspect-[16/10] group">
             <img
               src="/photos/gettyimages-2240153407-612x612.jpg"
-              alt="People Trading on Institutional Floor"
-              className="w-full h-auto object-cover rounded-xl block transition-transform duration-500 group-hover:scale-105"
-              style={{ maxHeight: '420px', aspectRatio: '16 / 10' }}
+              alt="Trading Floor in Action"
+              className="w-full h-full object-cover rounded-xl transition-transform duration-500 group-hover:scale-105"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none" />
-            <div className="absolute bottom-3 left-3 right-3 p-3 bg-slate-900/90 backdrop-blur-md rounded-xl text-white text-[11px] font-mono flex items-center justify-between border border-slate-800">
-              <span>Analyst Trading Floor</span>
-              <span className="text-emerald-400 font-bold">Live Execution Matrix</span>
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
+            <div className="absolute bottom-3 left-3 right-3 p-3 bg-slate-900/95 backdrop-blur-md rounded-xl text-white text-[11px] font-mono flex items-center justify-between border border-slate-800">
+              <span>High-Frequency Order Router</span>
+              <span className="text-emerald-400 font-bold">Ed25519 Verified</span>
             </div>
           </div>
         </div>
 
-        <div className="p-8 rounded-3xl bg-white border border-slate-200 shadow-sm flex flex-col justify-between space-y-4">
+        {/* Stochastic Research Lab */}
+        <div className="p-8 rounded-3xl bg-gradient-to-br from-slate-50 via-white to-amber-50/40 dark:from-[#171108] dark:via-[#110c05] dark:to-[#0a0703] border border-slate-200 dark:border-slate-800 shadow-xl flex flex-col justify-between space-y-6">
           <div>
-            <h3 className="text-lg font-black text-slate-900 mb-1">
-              Mathematical Risk &amp; Pricing Foundations
+            <div className="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-800 mb-4">
+              <span className="text-xs font-mono font-bold text-amber-700 dark:text-amber-400 uppercase">Mathematical Verification</span>
+              <span className="text-xs font-mono font-bold text-purple-700 dark:text-purple-400 bg-purple-50 dark:bg-purple-950/60 px-3 py-0.5 rounded-full border border-purple-300 dark:border-purple-800">GBM &amp; Jump Diffusion</span>
+            </div>
+            <h3 className="text-xl font-black text-slate-900 dark:text-white mb-2">
+              Stochastic Calculus &amp; Risk Research Lab
             </h3>
-            <p className="text-xs text-slate-600 font-mono">
-              Stochastic differential equations (GBM), Kelly fractional staking, and Parametric VaR equations.
+            <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              Every buy/sell suggestion is bounded by verified mathematical mechanics: geometric Brownian motion for volatility corridors, Kelly optimal fractions for trade sizes, and conditional Value-at-Risk limits.
             </p>
           </div>
-          <div className="relative rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-slate-950 flex items-center justify-center min-h-[260px] group">
+
+          <div className="relative rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-lg bg-slate-950 aspect-[16/10] group">
             <img
               src="/photos/pexels-thales13-39398847.jpg"
-              alt="Mathematical Equations Blackboard"
-              className="w-full h-auto object-cover rounded-xl block transition-transform duration-500 group-hover:scale-105"
-              style={{ maxHeight: '420px', aspectRatio: '16 / 10' }}
+              alt="Stochastic Equations and Math Lab"
+              className="w-full h-full object-cover rounded-xl transition-transform duration-500 group-hover:scale-105"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none" />
-            <div className="absolute bottom-3 left-3 right-3 p-3 bg-slate-900/90 backdrop-blur-md rounded-xl text-white text-[11px] font-mono flex items-center justify-between border border-slate-800">
-              <span>Stochastic Calculus Formulas</span>
-              <span className="text-amber-300 font-bold">GBM &amp; Kelly Lab</span>
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
+            <div className="absolute bottom-3 left-3 right-3 p-3 bg-slate-900/95 backdrop-blur-md rounded-xl text-white text-[11px] font-mono flex items-center justify-between border border-slate-800">
+              <span>Risk Calibration Models</span>
+              <span className="text-amber-300 font-bold">Sharpe Ratio &gt; 2.4</span>
             </div>
           </div>
         </div>
+
       </section>
 
-      {/* 4 Agent Nodes Breakdown */}
+      {/* ----------------------------------------------------
+          THE 4 SPECIALIST QUANTITATIVE AGENTS
+         ---------------------------------------------------- */}
       <section className="space-y-8">
-        <div className="pb-3 border-b border-slate-200">
-          <h2 className="text-2xl font-black text-slate-900 flex items-center gap-3">
-            <Cpu className="w-7 h-7 text-emerald-600" />
-            <span>The 4 Specialist Quantitative Agents</span>
+        <div className="pb-4 border-b border-slate-200 dark:border-slate-800">
+          <h2 className="text-2xl sm:text-4xl font-black text-slate-900 dark:text-white flex items-center gap-3">
+            <Cpu className="w-8 h-8 text-emerald-600 dark:text-emerald-400" />
+            <span>The 4 Specialist Quantitative Deliberation Agents</span>
           </h2>
-          <p className="text-xs font-mono text-slate-500 mt-1 font-medium">
-            Independent agents deliberate concurrently and publish structured state annotations to the state mesh
+          <p className="text-xs sm:text-sm font-mono text-slate-500 dark:text-slate-400 mt-1 font-medium">
+            Independent agents deliberate concurrently and publish verified quantitative insights to the state matrix
           </p>
         </div>
 
@@ -219,89 +379,71 @@ export default function AboutPage() {
             return (
               <div
                 key={ag.id}
-                className={`p-8 rounded-3xl border shadow-sm hover:shadow-md transition-all duration-200 space-y-4 ${
-                  ag.id === 'agent-1'
-                    ? 'bg-gradient-to-br from-sky-50/80 via-blue-50/20 to-white border-sky-200/90'
-                    : ag.id === 'agent-2'
-                      ? 'bg-gradient-to-br from-emerald-50/80 via-teal-50/20 to-white border-emerald-200/90'
-                      : ag.id === 'agent-3'
-                        ? 'bg-gradient-to-br from-purple-50/80 via-indigo-50/20 to-white border-purple-200/90'
-                        : 'bg-gradient-to-br from-amber-50/80 via-orange-50/20 to-white border-amber-200/90'
-                }`}
+                className={`p-7 rounded-3xl bg-white dark:bg-[#0c1324] border ${ag.cardBorder} shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between space-y-5`}
               >
-                <div className="flex items-center gap-4">
-                  <div className={`w-12 h-12 rounded-2xl flex items-center justify-center border shadow-sm ${ag.accentBg}`}>
-                    <Icon className={`w-6 h-6 ${ag.accentText}`} />
+                <div>
+                  <div className="flex items-center justify-between gap-3 mb-4">
+                    <div className="flex items-center gap-3">
+                      <div className={`w-11 h-11 rounded-2xl flex items-center justify-center border shadow-sm ${ag.accentBg}`}>
+                        <Icon className={`w-5 h-5 ${ag.accentText}`} />
+                      </div>
+                      <div>
+                        <h4 className="text-base font-black text-slate-900 dark:text-white leading-tight">
+                          {ag.title}
+                        </h4>
+                        <span className="text-xs font-mono text-slate-500 dark:text-slate-400 font-medium">
+                          {ag.role}
+                        </span>
+                      </div>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="text-base font-black text-slate-900">{ag.title}</h3>
-                    <p className="text-xs font-mono text-slate-500 mt-0.5">{ag.role}</p>
+
+                  {/* Micro Visual Image Preview */}
+                  <div className="relative rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 aspect-[16/8] mb-4 bg-slate-950">
+                    <img
+                      src={ag.image}
+                      alt={ag.title}
+                      className="w-full h-full object-cover opacity-80"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
+                    <span className="absolute bottom-2 left-3 text-[10px] font-mono font-bold text-slate-300 bg-slate-900/90 px-2 py-0.5 rounded-md border border-slate-800">
+                      {ag.tag}
+                    </span>
                   </div>
+
+                  <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
+                    {ag.description}
+                  </p>
                 </div>
-                <p className="text-xs text-slate-700 font-mono leading-relaxed bg-white/90 border border-slate-200/90 p-4 rounded-2xl shadow-inner">
-                  {ag.description}
-                </p>
+
+                <div className="pt-3 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between text-xs font-mono">
+                  <span className="text-emerald-700 dark:text-emerald-400 font-black flex items-center gap-1.5">
+                    <CheckCircle2 className="w-3.5 h-3.5" /> Live Consensus Contributor
+                  </span>
+                  <span className="text-slate-500 font-bold">Sub-Second Refresh</span>
+                </div>
               </div>
             );
           })}
         </div>
       </section>
 
-      {/* Full Stack Tech Specifications */}
-      <section className="space-y-8">
-        <div className="pb-3 border-b border-slate-200">
-          <h2 className="text-2xl font-black text-slate-900 flex items-center gap-3">
-            <Layers className="w-7 h-7 text-emerald-600" />
-            <span>Full-Stack Architecture &amp; Deployment</span>
-          </h2>
-          <p className="text-xs font-mono text-slate-500 mt-1 font-medium">
-            Engineered with React, Next.js 14, Express.js, TypeScript, Three.js, and Google GSAP 3
+      {/* Bottom CTA to Live Trading Desk */}
+      <div className="p-8 sm:p-12 rounded-3xl bg-gradient-to-r from-emerald-600 via-teal-700 to-sky-700 text-white shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="space-y-2">
+          <h3 className="text-2xl sm:text-3xl font-black tracking-tight">
+            Ready to Analyze Real-Time Crypto Prices in Indian Rupee (₹)?
+          </h3>
+          <p className="text-emerald-100 text-sm max-w-xl font-normal">
+            Step onto the institutional execution desk with live ticking L2 order book, AI consensus matrix, and direct order tickets.
           </p>
         </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 font-mono text-xs">
-          <div className="p-8 rounded-3xl bg-gradient-to-br from-sky-50/80 via-blue-50/30 to-white border border-sky-200/90 shadow-sm space-y-4">
-            <h4 className="text-sm font-black text-sky-800 uppercase tracking-wider">Frontend Architecture</h4>
-            <ul className="space-y-2.5 text-slate-700 font-medium">
-              <li>• Next.js 14 App Router</li>
-              <li>• React 18 &amp; TypeScript</li>
-              <li>• Interactive Three.js 3D Models</li>
-              <li>• Real-Time Currency Formatting</li>
-              <li>• Warm Luminous Glassmorphic Design</li>
-            </ul>
-          </div>
-
-          <div className="p-8 rounded-3xl bg-gradient-to-br from-emerald-50/80 via-teal-50/30 to-white border border-emerald-200/90 shadow-sm space-y-4">
-            <h4 className="text-sm font-black text-emerald-800 uppercase tracking-wider">Backend Service</h4>
-            <ul className="space-y-2.5 text-slate-700 font-medium">
-              <li>• Express.js REST API</li>
-              <li>• TypeScript Strict Type System</li>
-              <li>• Real-Time 48-Token Tick Engine</li>
-              <li>• Mathematical Indicators Engine</li>
-              <li>• Kelly Criterion &amp; TWAP Slicing</li>
-            </ul>
-          </div>
-
-          <div className="p-8 rounded-3xl bg-gradient-to-br from-purple-50/80 via-indigo-50/30 to-white border border-purple-200/90 shadow-sm space-y-4">
-            <h4 className="text-sm font-black text-purple-800 uppercase tracking-wider">Quantitative Consensus</h4>
-            <ul className="space-y-2.5 text-slate-700 font-medium">
-              <li>• Quantitative Consensus Engine</li>
-              <li>• Multi-Factor Supervisor Nodes</li>
-              <li>• Vector Embeddings &amp; Cosine Matching</li>
-              <li>• Crypto Knowledge Base (KB-7)</li>
-              <li>• Delta-Neutral Risk Modeling</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      {/* Bottom CTA */}
-      <div className="text-center pt-8">
         <Link
           href="/signals"
-          className="inline-flex items-center gap-3 px-10 py-5 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-mono font-black text-sm shadow-xl shadow-emerald-600/25 hover:-translate-y-0.5 transition-all duration-200"
+          className="px-8 py-4 rounded-2xl bg-white text-slate-900 hover:bg-slate-100 font-mono font-black text-sm flex items-center gap-2.5 shadow-xl hover:-translate-y-0.5 transition-all duration-200 whitespace-nowrap"
         >
-          <span>Launch Real-Time Quantitative Signals Terminal</span>
+          <Activity className="w-4 h-4 text-emerald-600" />
+          <span>Launch Trading Signals Desk</span>
           <ArrowRight className="w-4 h-4" />
         </Link>
       </div>

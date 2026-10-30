@@ -8,7 +8,7 @@ import { RAGForecastResult, RAGDocument } from '@/lib/types';
 import ForecastCards from '@/components/forecast/ForecastCards';
 import ScenarioTable from '@/components/forecast/ScenarioTable';
 import RagDocumentsViewer from '@/components/forecast/RagDocumentsViewer';
-import { TrendingUp, Sliders, RefreshCw, Search } from 'lucide-react';
+import { TrendingUp, Sliders, RefreshCw, Search, Activity, Sparkles, BarChart2, Compass, Layers } from 'lucide-react';
 
 function ForecastWorkspace() {
   const searchParams = useSearchParams();
@@ -19,6 +19,7 @@ function ForecastWorkspace() {
   const [forecast, setForecast] = useState<RAGForecastResult | null>(null);
   const [retrievedDocs, setRetrievedDocs] = useState<RAGDocument[]>([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [activeVisualTab, setActiveVisualTab] = useState<'secular' | 'polar'>('secular');
 
   // Scenario Simulator interactive sliders
   const [macroBias, setMacroBias] = useState<number>(0); // -30% to +30%
@@ -55,11 +56,11 @@ function ForecastWorkspace() {
         timeframeForecasts: {
           '24h': {
             ...forecast.timeframeForecasts['24h'],
-            expected: Number((forecast.timeframeForecasts['24h'].expected * (1 + macroBias / 100 * 0.15)).toFixed(2)),
+            expected: Number((forecast.timeframeForecasts['24h'].expected * (1 + (macroBias / 100) * 0.15)).toFixed(2)),
           },
           '7d': {
             ...forecast.timeframeForecasts['7d'],
-            expected: Number((forecast.timeframeForecasts['7d'].expected * (1 + macroBias / 100 * 0.5)).toFixed(2)),
+            expected: Number((forecast.timeframeForecasts['7d'].expected * (1 + (macroBias / 100) * 0.5)).toFixed(2)),
           },
           '30d': {
             ...forecast.timeframeForecasts['30d'],
@@ -85,19 +86,11 @@ function ForecastWorkspace() {
   return (
     <div className="max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-12 py-10 space-y-10">
       
-      {/* Top Banner with Company Logo */}
-      <div className="relative overflow-hidden flex flex-wrap items-center justify-between gap-6 p-7 rounded-3xl bg-white border border-slate-200 shadow-sm">
-        {/* Subtle Background Texture */}
-        <div className="absolute inset-0 -z-10 pointer-events-none select-none overflow-hidden rounded-3xl opacity-[0.035] mix-blend-multiply">
-          <img
-            src="/photos/gettyimages-2112329817-612x612.jpg"
-            alt="Forecasting Atmosphere"
-            className="w-full h-full object-cover filter grayscale contrast-125"
-          />
-        </div>
-        <div>
+      {/* Top Banner with Company Logo & High Contrast Header */}
+      <div className="relative overflow-hidden flex flex-wrap items-center justify-between gap-6 p-7 sm:p-9 rounded-3xl bg-white dark:bg-[#0c1222] border border-slate-200 dark:border-slate-800 shadow-xl">
+        <div className="relative z-10">
           <div className="flex items-center gap-4">
-            <div className="w-14 h-14 rounded-2xl bg-white border border-slate-200 p-1 flex items-center justify-center shadow-sm">
+            <div className="w-14 h-14 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-1 flex items-center justify-center shadow-sm">
               <Image
                 src="/jh-logo.png"
                 alt="JH Logo"
@@ -108,15 +101,15 @@ function ForecastWorkspace() {
               />
             </div>
             <div>
-              <div className="flex items-center gap-3">
-                <h1 className="text-2xl font-black text-slate-900 tracking-tight">
+              <div className="flex flex-wrap items-center gap-3">
+                <h1 className="text-2xl sm:text-4xl font-black text-slate-900 dark:text-white tracking-tight">
                   AI Predictive Scenario Forecasting
                 </h1>
-                <span className="text-[11px] font-mono px-3 py-1 rounded-full bg-purple-50 text-purple-800 border border-purple-200 font-extrabold shadow-sm">
-                  PRICE TARGETS (₹)
+                <span className="text-[11px] font-mono px-3 py-1 rounded-full bg-purple-50 dark:bg-purple-950/60 text-purple-800 dark:text-purple-300 border border-purple-200 dark:border-purple-800 font-extrabold shadow-sm">
+                  TARGETS (₹)
                 </span>
               </div>
-              <p className="text-xs text-slate-500 font-mono mt-1 font-medium">
+              <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-mono mt-1 font-medium">
                 Historical cycle analogs, halving supply dynamics, and probabilistic Monte Carlo price corridors
               </p>
             </div>
@@ -124,21 +117,21 @@ function ForecastWorkspace() {
         </div>
 
         {/* Ticker Search Box */}
-        <form onSubmit={handleSubmit} className="flex items-center gap-3">
+        <form onSubmit={handleSubmit} className="relative z-10 flex items-center gap-3">
           <div className="relative">
             <input
               type="text"
               value={inputVal}
               onChange={(e) => setInputVal(e.target.value)}
-              placeholder="Query Asset (BTC, SOL, SUI)..."
-              className="w-56 bg-slate-50 border border-slate-200 rounded-2xl py-2.5 pl-9 pr-3 text-xs text-slate-900 placeholder-slate-400 font-mono font-bold focus:outline-none focus:border-slate-800 focus:bg-white transition-all shadow-sm"
+              placeholder="Query Asset (BTC, ETH, SOL)..."
+              className="w-56 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-2xl py-2.5 pl-9 pr-3 text-xs text-slate-900 dark:text-white placeholder-slate-400 font-mono font-bold focus:outline-none focus:border-slate-800 dark:focus:border-slate-500 transition-all shadow-sm"
             />
             <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
           </div>
           <button
             type="submit"
             disabled={isLoading}
-            className="px-5 py-2.5 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-black text-xs font-mono flex items-center gap-2 shadow-sm transition-all disabled:opacity-50 hover:-translate-y-0.5 active:translate-y-0"
+            className="px-5 py-2.5 rounded-2xl bg-slate-900 dark:bg-emerald-600 hover:bg-slate-800 dark:hover:bg-emerald-500 text-white font-black text-xs font-mono flex items-center gap-2 shadow-md transition-all disabled:opacity-50 hover:-translate-y-0.5 active:translate-y-0"
           >
             <RefreshCw className={`w-3.5 h-3.5 ${isLoading ? 'animate-spin' : ''}`} />
             <span>Forecast</span>
@@ -146,31 +139,133 @@ function ForecastWorkspace() {
         </form>
       </div>
 
+      {/* ----------------------------------------------------
+          VISUAL MACRO MODELS & INNOVATIVE CHART SHOWCASE
+         ---------------------------------------------------- */}
+      <div className="rounded-3xl bg-white dark:bg-[#0c1222] border border-slate-200 dark:border-slate-800 p-8 shadow-xl space-y-6">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-200 dark:border-slate-800">
+          <div>
+            <div className="flex items-center gap-2 text-xs font-mono font-bold text-sky-600 dark:text-sky-400 uppercase tracking-wider">
+              <Compass className="w-4 h-4" />
+              <span>Institutional Quantitative Projection Models</span>
+            </div>
+            <h3 className="text-xl font-black text-slate-900 dark:text-white mt-1">
+              Multi-Year Secular Cycles &amp; 3D Polar Volatility Dial
+            </h3>
+          </div>
+
+          {/* Toggle between Secular Trend and 3D Polar Dial */}
+          <div className="flex items-center gap-2 p-1 rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+            <button
+              onClick={() => setActiveVisualTab('secular')}
+              className={`px-4 py-2 rounded-xl text-xs font-mono font-bold flex items-center gap-2 transition-all ${
+                activeVisualTab === 'secular'
+                  ? 'bg-slate-900 dark:bg-sky-600 text-white shadow-sm'
+                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-950 dark:hover:text-white'
+              }`}
+            >
+              <TrendingUp className="w-3.5 h-3.5" />
+              <span>Secular Halving Trend</span>
+            </button>
+            <button
+              onClick={() => setActiveVisualTab('polar')}
+              className={`px-4 py-2 rounded-xl text-xs font-mono font-bold flex items-center gap-2 transition-all ${
+                activeVisualTab === 'polar'
+                  ? 'bg-slate-900 dark:bg-purple-600 text-white shadow-sm'
+                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-950 dark:hover:text-white'
+              }`}
+            >
+              <Compass className="w-3.5 h-3.5" />
+              <span>3D Polar Dial</span>
+            </button>
+          </div>
+        </div>
+
+        {/* Visual Frame */}
+        <div className="relative rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-[#060a14] shadow-2xl min-h-[300px] flex items-center justify-center">
+          {activeVisualTab === 'secular' ? (
+            <div className="w-full relative group">
+              <img
+                src="/photos/quant-secular-trend-chart.jpg"
+                alt="Long-Term Secular Candlestick Trend"
+                className="w-full h-auto max-h-[460px] object-contain block mx-auto transition-transform duration-500 group-hover:scale-[1.01]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute bottom-4 left-4 right-4 p-3.5 bg-slate-900/90 dark:bg-slate-900/95 backdrop-blur-md rounded-2xl text-white text-xs font-mono flex flex-wrap items-center justify-between border border-slate-800 gap-2">
+                <div className="flex items-center gap-2">
+                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping" />
+                  <span className="font-bold text-slate-200">Historical Cycle Analogs Active:</span>
+                  <span className="text-emerald-400 font-extrabold">2016, 2020, 2024 Regimes</span>
+                </div>
+                <span className="text-slate-400 font-medium">Secular Multi-Decade Expansion Corridor</span>
+              </div>
+            </div>
+          ) : (
+            <div className="w-full relative group">
+              <img
+                src="/photos/quant-3d-polar-chart.jpg"
+                alt="3D Polar Candlestick Volatility Dial"
+                className="w-full h-auto max-h-[460px] object-contain block mx-auto transition-transform duration-500 group-hover:scale-[1.01]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute bottom-4 left-4 right-4 p-3.5 bg-slate-900/90 dark:bg-slate-900/95 backdrop-blur-md rounded-2xl text-white text-xs font-mono flex flex-wrap items-center justify-between border border-slate-800 gap-2">
+                <div className="flex items-center gap-2">
+                  <span className="w-2.5 h-2.5 rounded-full bg-purple-400 animate-pulse" />
+                  <span className="font-bold text-slate-200">Radial Candlestick Projection:</span>
+                  <span className="text-purple-300 font-extrabold">14-Period ATR Multi-Timeframe</span>
+                </div>
+                <span className="text-slate-400 font-medium">360-Degree Order Book Momentum Dispersion</span>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+
       {/* Interactive Scenario Adjuster Controls */}
-      <div className="p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-6">
-        <div className="flex items-center justify-between pb-4 border-b border-slate-100">
+      <div className="p-8 rounded-3xl bg-white dark:bg-[#0c1222] border border-slate-200 dark:border-slate-800 shadow-xl space-y-6">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-200 dark:border-slate-800">
           <div className="flex items-center gap-3">
-            <div className="p-2 rounded-xl bg-purple-50 text-purple-700 border border-purple-200 shadow-sm">
+            <div className="p-2.5 rounded-2xl bg-purple-50 dark:bg-purple-950/60 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800 shadow-sm">
               <Sliders className="w-5 h-5" />
             </div>
             <div>
-              <h3 className="text-base font-black text-slate-900 tracking-tight">Interactive Macro Scenario Stress-Testing</h3>
-              <p className="text-xs text-slate-500 font-mono mt-0.5">Dynamically stress-test price projections against macro liquidity shocks and volatility spikes</p>
+              <h3 className="text-base sm:text-lg font-black text-slate-900 dark:text-white tracking-tight">
+                Interactive Macro Scenario Stress-Testing
+              </h3>
+              <p className="text-xs text-slate-500 dark:text-slate-400 font-mono mt-0.5">
+                Dynamically stress-test price projections against macro liquidity shifts and volatility shocks
+              </p>
             </div>
           </div>
-          <button
-            onClick={() => { setMacroBias(0); setVolatilityMultiplier(1.0); }}
-            className="text-xs font-mono font-bold text-slate-500 hover:text-slate-900 underline transition-colors"
-          >
-            Reset Simulator
-          </button>
+
+          {/* Quick Scenario Preset Buttons */}
+          <div className="flex flex-wrap items-center gap-2">
+            <button
+              onClick={() => { setMacroBias(18); setVolatilityMultiplier(1.3); }}
+              className="px-3 py-1.5 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 hover:bg-emerald-100 text-emerald-800 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800 text-xs font-mono font-bold transition-all"
+            >
+              +18% Fed Rate Cut
+            </button>
+            <button
+              onClick={() => { setMacroBias(-15); setVolatilityMultiplier(1.6); }}
+              className="px-3 py-1.5 rounded-xl bg-rose-50 dark:bg-rose-950/50 hover:bg-rose-100 text-rose-800 dark:text-rose-300 border border-rose-200 dark:border-rose-800 text-xs font-mono font-bold transition-all"
+            >
+              -15% Liquidity Squeeze
+            </button>
+            <button
+              onClick={() => { setMacroBias(0); setVolatilityMultiplier(1.0); }}
+              className="px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 text-slate-700 dark:text-slate-300 text-xs font-mono font-bold transition-all"
+            >
+              Reset
+            </button>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 font-mono text-xs">
-          <div className="bg-slate-50 border border-slate-200 p-5 rounded-2xl space-y-2">
+          <div className="bg-slate-50 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 p-5 rounded-2xl space-y-2">
             <div className="flex items-center justify-between">
-              <span className="text-slate-600 font-bold uppercase">Macro Liquidity Shift Bias:</span>
-              <span className={`font-black text-sm ${macroBias > 0 ? 'text-emerald-700' : macroBias < 0 ? 'text-rose-700' : 'text-slate-700'}`}>
+              <span className="text-slate-600 dark:text-slate-400 font-bold uppercase">Macro Liquidity Shift Bias:</span>
+              <span className={`font-black text-sm ${macroBias > 0 ? 'text-emerald-700 dark:text-emerald-400' : macroBias < 0 ? 'text-rose-700 dark:text-rose-400' : 'text-slate-700 dark:text-slate-300'}`}>
                 {macroBias > 0 ? '+' : ''}{macroBias}% ({macroBias > 0 ? 'Risk-On Expansion' : macroBias < 0 ? 'Tightening Shock' : 'Neutral'})
               </span>
             </div>
@@ -180,14 +275,14 @@ function ForecastWorkspace() {
               max="30"
               value={macroBias}
               onChange={(e) => setMacroBias(Number(e.target.value))}
-              className="w-full accent-slate-900 cursor-pointer mt-1"
+              className="w-full accent-slate-900 dark:accent-emerald-500 cursor-pointer mt-1"
             />
           </div>
 
-          <div className="bg-slate-50 border border-slate-200 p-5 rounded-2xl space-y-2">
+          <div className="bg-slate-50 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 p-5 rounded-2xl space-y-2">
             <div className="flex items-center justify-between">
-              <span className="text-slate-600 font-bold uppercase">Volatility Envelope Multiplier:</span>
-              <span className="font-black text-sm text-sky-700">{volatilityMultiplier.toFixed(1)}x (ATR Scaling)</span>
+              <span className="text-slate-600 dark:text-slate-400 font-bold uppercase">Volatility Envelope Multiplier:</span>
+              <span className="font-black text-sm text-sky-700 dark:text-sky-400">{volatilityMultiplier.toFixed(1)}x (ATR Scaling)</span>
             </div>
             <input
               type="range"
@@ -196,7 +291,7 @@ function ForecastWorkspace() {
               step="0.1"
               value={volatilityMultiplier}
               onChange={(e) => setVolatilityMultiplier(Number(e.target.value))}
-              className="w-full accent-slate-900 cursor-pointer mt-1"
+              className="w-full accent-slate-900 dark:accent-sky-500 cursor-pointer mt-1"
             />
           </div>
         </div>
@@ -225,7 +320,7 @@ function ForecastWorkspace() {
 export default function ForecastPage() {
   return (
     <Suspense fallback={
-      <div className="min-h-[60vh] flex items-center justify-center text-slate-800 font-mono text-sm font-bold">
+      <div className="min-h-[60vh] flex items-center justify-center text-slate-800 dark:text-slate-200 font-mono text-sm font-bold">
         Initializing RAG Forecasting Engine...
       </div>
     }>

@@ -104,17 +104,24 @@ export default function Header() {
         {/* Clean, Innovative Right Controls: Theme Switcher, Launch CTA & Operator Dropdown */}
         <div className="flex items-center gap-3">
           
-          {/* Theme Toggle Button (Dark / Light Switcher) */}
+          {/* Theme Toggle Button (Sunshine / Sunrise Ripple Switcher) */}
           <button
-            onClick={toggleTheme}
-            className="p-2.5 rounded-2xl bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800 shadow-sm text-slate-800 dark:text-slate-200 transition-all hover:scale-105 active:scale-95"
-            title={theme === 'dark' ? 'Switch to Warm Light Theme' : 'Switch to Institutional Dark Theme'}
-            aria-label="Toggle Dark/Light Mode"
+            onClick={(e) => toggleTheme(e)}
+            className="relative p-2.5 rounded-2xl bg-white dark:bg-slate-900/90 hover:bg-slate-50 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800 shadow-sm text-slate-800 dark:text-slate-200 transition-all hover:scale-105 active:scale-95 group overflow-hidden"
+            title={theme === 'dark' ? 'Sunrise: Switch to Light Theme' : 'Twilight: Switch to Dark Theme'}
+            aria-label="Toggle Dark/Light Mode with Sunrise Effect"
           >
+            {/* Ambient Button Flare */}
+            <span className="absolute inset-0 bg-gradient-to-r from-amber-400/10 via-amber-300/20 to-transparent dark:from-amber-400/15 opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl" />
+            
             {theme === 'dark' ? (
-              <Sun className="w-4 h-4 text-amber-400 hover:rotate-45 transition-transform" />
+              <div className="relative flex items-center justify-center">
+                <Sun className="w-4 h-4 text-amber-400 group-hover:rotate-90 transition-transform duration-500 drop-shadow-[0_0_6px_rgba(251,191,36,0.6)]" />
+              </div>
             ) : (
-              <Moon className="w-4 h-4 text-indigo-600 hover:-rotate-12 transition-transform" />
+              <div className="relative flex items-center justify-center">
+                <Moon className="w-4 h-4 text-indigo-600 group-hover:-rotate-12 transition-transform duration-500 drop-shadow-[0_0_6px_rgba(99,102,241,0.5)]" />
+              </div>
             )}
           </button>
 

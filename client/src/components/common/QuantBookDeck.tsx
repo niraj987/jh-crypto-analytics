@@ -95,7 +95,7 @@ const DECK_PAGES: SlidePage[] = [
     title: 'Institutional Execution Floor & Delta-Neutral Hedging',
     category: 'Chapter 04 // Portfolio Preservation',
     badge: 'HEDGE FUND OPERATIONS',
-    image: '/photos/gettyimages-2270333130-612x612.jpg',
+    image: '/photos/quant-ambition-chess.jpg',
     subtitle: 'Eliminating directional market beta exposure to extract pure idiosyncratic risk-adjusted return.',
     bulletPoints: [
       'Simultaneous long exposure on high-alpha crypto tokens paired with systematic short index hedges.',

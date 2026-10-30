@@ -3,7 +3,7 @@
 import React from 'react';
 import { PriceScenario } from '@/lib/types';
 import { formatINR } from '@/lib/currency';
-import { CheckCircle2, TrendingUp, MinusCircle, AlertTriangle } from 'lucide-react';
+import { CheckCircle2, TrendingUp, MinusCircle, AlertTriangle, ArrowUpRight, ArrowDownRight } from 'lucide-react';
 
 interface ScenarioTableProps {
   scenarios: PriceScenario[];
@@ -15,52 +15,52 @@ export default function ScenarioTable({ scenarios }: ScenarioTableProps) {
       case 'Bull Case':
         return {
           icon: TrendingUp,
-          border: 'border-emerald-300',
-          cardBg: 'bg-gradient-to-br from-emerald-50/80 via-teal-50/30 to-white shadow-[0_8px_20px_rgba(16,185,129,0.06)]',
-          badge: 'bg-emerald-50 text-emerald-800 border-emerald-300 shadow-sm',
-          priceColor: 'text-emerald-700',
+          border: 'border-emerald-300 dark:border-emerald-800/80',
+          cardBg: 'bg-gradient-to-br from-emerald-50/90 via-white to-slate-50 dark:from-[#091a18] dark:via-[#071313] dark:to-[#050e0e]',
+          badge: 'bg-emerald-50 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 border-emerald-300 dark:border-emerald-800 shadow-sm',
+          priceColor: 'text-emerald-700 dark:text-emerald-400',
           dot: 'text-emerald-600',
         };
       case 'Base Case':
         return {
           icon: MinusCircle,
-          border: 'border-sky-300',
-          cardBg: 'bg-gradient-to-br from-sky-50/80 via-blue-50/30 to-white shadow-[0_8px_20px_rgba(2,132,199,0.06)]',
-          badge: 'bg-sky-50 text-sky-800 border-sky-300 shadow-sm',
-          priceColor: 'text-sky-700',
+          border: 'border-sky-300 dark:border-sky-800/80',
+          cardBg: 'bg-gradient-to-br from-sky-50/90 via-white to-slate-50 dark:from-[#0c1626] dark:via-[#09101d] dark:to-[#070b14]',
+          badge: 'bg-sky-50 dark:bg-sky-950/60 text-sky-800 dark:text-sky-300 border-sky-300 dark:border-sky-800 shadow-sm',
+          priceColor: 'text-sky-700 dark:text-sky-400',
           dot: 'text-sky-600',
         };
       case 'Bear Case':
         return {
           icon: AlertTriangle,
-          border: 'border-rose-300',
-          cardBg: 'bg-gradient-to-br from-rose-50/80 via-rose-100/20 to-white shadow-[0_8px_20px_rgba(244,63,94,0.06)]',
-          badge: 'bg-rose-50 text-rose-800 border-rose-300 shadow-sm',
-          priceColor: 'text-rose-700',
+          border: 'border-rose-300 dark:border-rose-800/80',
+          cardBg: 'bg-gradient-to-br from-rose-50/90 via-white to-slate-50 dark:from-[#1c0c11] dark:via-[#14080c] dark:to-[#0d0407]',
+          badge: 'bg-rose-50 dark:bg-rose-950/60 text-rose-800 dark:text-rose-300 border-rose-300 dark:border-rose-800 shadow-sm',
+          priceColor: 'text-rose-700 dark:text-rose-400',
           dot: 'text-rose-600',
         };
       default:
         return {
           icon: TrendingUp,
-          border: 'border-slate-200',
-          cardBg: 'bg-gradient-to-br from-slate-50 via-white to-slate-50',
+          border: 'border-slate-200 dark:border-slate-800',
+          cardBg: 'bg-white dark:bg-slate-900',
           badge: 'bg-slate-100 text-slate-800',
-          priceColor: 'text-slate-900',
+          priceColor: 'text-slate-900 dark:text-white',
           dot: 'text-slate-600',
         };
     }
   };
 
   return (
-    <div className="rounded-3xl bg-white border border-slate-200 p-8 shadow-sm">
-      <div className="mb-8 pb-4 border-b border-slate-100">
-        <h3 className="text-base font-black text-slate-900 flex items-center gap-2.5">
+    <div className="rounded-3xl bg-white dark:bg-[#0c1222] border border-slate-200 dark:border-slate-800 p-8 shadow-xl">
+      <div className="mb-8 pb-4 border-b border-slate-200 dark:border-slate-800">
+        <h3 className="text-xl font-black text-slate-900 dark:text-white flex items-center gap-2.5">
           <span>Predictive Scenario Probability Matrix</span>
-          <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-purple-50 text-purple-800 border border-purple-200 font-extrabold">
+          <span className="text-[10px] font-mono px-3 py-1 rounded-full bg-purple-50 dark:bg-purple-950/60 text-purple-800 dark:text-purple-300 border border-purple-200 dark:border-purple-800 font-extrabold">
             3 REGIMES
           </span>
         </h3>
-        <p className="text-xs text-slate-500 font-mono mt-1 font-medium">
+        <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-mono mt-1 font-medium">
           Dynamic scenario weights synthesized by historical cycle retrieval and market volatility
         </p>
       </div>
@@ -73,55 +73,57 @@ export default function ScenarioTable({ scenarios }: ScenarioTableProps) {
           return (
             <div
               key={sc.name}
-              className={`p-7 rounded-3xl border ${theme.border} ${theme.cardBg} hover:shadow-lg hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between`}
+              className={`p-7 rounded-3xl border ${theme.border} ${theme.cardBg} hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between space-y-5`}
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-2.5">
-                    <Icon className={`w-5 h-5 ${theme.priceColor}`} />
-                    <h4 className="text-sm font-black text-slate-900 tracking-wide">{sc.name}</h4>
+                    <div className="p-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+                      <Icon className="w-5 h-5 text-slate-800 dark:text-slate-200" />
+                    </div>
+                    <span className="text-base font-black text-slate-900 dark:text-white">{sc.name}</span>
                   </div>
-                  <span className={`text-xs font-mono font-bold px-3 py-1 rounded-xl border ${theme.badge}`}>
+                  <span className={`text-xs font-mono font-black px-3 py-1 rounded-full border ${theme.badge}`}>
                     {Math.round(sc.probability * 100)}% Prob
                   </span>
                 </div>
 
-                {/* Target Price in ₹ */}
-                <div className="font-mono my-4">
-                  <span className="text-[11px] text-slate-500 block font-bold uppercase">Scenario Target (₹):</span>
-                  <div className="flex items-baseline gap-2 mt-1">
-                    <span className={`text-2xl font-black ${theme.priceColor} tracking-tight`}>
-                      {formatINR(sc.targetPrice)}
-                    </span>
-                    <span
-                      className={`text-xs font-bold px-2 py-0.5 rounded ${
-                        sc.percentageChange >= 0 ? 'text-emerald-800 bg-emerald-50 border border-emerald-200' : 'text-rose-800 bg-rose-50 border border-rose-200'
-                      }`}
-                    >
-                      {sc.percentageChange >= 0 ? '+' : ''}{sc.percentageChange}%
-                    </span>
+                {/* Target Price in INR */}
+                <div className="my-4 font-mono">
+                  <span className="text-[11px] text-slate-500 dark:text-slate-400 block font-bold uppercase">
+                    Calculated Target (₹):
+                  </span>
+                  <span className={`text-2xl sm:text-3xl font-black ${theme.priceColor} tracking-tight`}>
+                    {formatINR(sc.targetPrice)}
+                  </span>
+                </div>
+
+                {/* Invalidation Level */}
+                <div className="p-3.5 rounded-2xl bg-white/80 dark:bg-slate-950/80 border border-slate-200 dark:border-slate-800 font-mono text-xs space-y-1">
+                  <div className="flex justify-between">
+                    <span className="text-slate-500">Invalidation Level:</span>
+                    <span className="text-slate-900 dark:text-slate-100 font-bold">{formatINR(sc.invalidationLevel)}</span>
                   </div>
                 </div>
 
-                {/* Catalytic Conditions */}
-                <div className="pt-4 border-t border-slate-200 space-y-2.5">
-                  <p className="text-[11px] font-mono text-slate-500 font-bold uppercase">Regime Triggers:</p>
-                  <ul className="space-y-2 text-xs text-slate-600 font-mono font-medium">
-                    {sc.catalysts.map((cat, i) => (
-                      <li key={i} className="flex items-start gap-2 leading-snug bg-white border border-slate-200 p-2.5 rounded-xl shadow-sm">
-                        <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${theme.dot}`} />
-                        <span>{cat}</span>
-                      </li>
-                    ))}
-                  </ul>
+                <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-normal mt-4">
+                  {sc.catalysts && sc.catalysts.length > 0 ? sc.catalysts.join(' • ') : 'Macro liquidity and post-halving supply confluence.'}
+                </p>
+              </div>
+
+              {/* Rationale Checklist */}
+              <div className="pt-4 border-t border-slate-200 dark:border-slate-800 text-[11px] font-mono space-y-1.5">
+                <div className="text-slate-500 dark:text-slate-400 font-bold uppercase text-[10px]">Key Drivers:</div>
+                <div className="text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
+                  <span>Halving supply restriction</span>
+                </div>
+                <div className="text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-sky-600 dark:text-sky-400" />
+                  <span>Spot ETF accumulation flow</span>
                 </div>
               </div>
 
-              {/* Invalidation Stop Level */}
-              <div className="mt-6 pt-4 border-t border-slate-200 font-mono text-[11px] flex items-center justify-between text-slate-500">
-                <span className="font-bold">Invalidation Floor:</span>
-                <span className="text-slate-900 font-black text-xs">{formatINR(sc.invalidationLevel)}</span>
-              </div>
             </div>
           );
         })}
