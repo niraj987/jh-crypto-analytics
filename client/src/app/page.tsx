@@ -306,62 +306,62 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Card 3: Macro Secular Cycle Projections */}
+          {/* Card 3: Macro Desk Collaboration */}
           <div className="p-7 rounded-3xl bg-gradient-to-br from-purple-50/90 via-indigo-50/20 to-white dark:from-[#180d26] dark:via-[#11091b] dark:to-[#0b0512] border border-purple-200/90 dark:border-slate-800 shadow-xl flex flex-col justify-between space-y-4">
             <div>
               <div className="flex items-center justify-between pb-3 border-b border-purple-100 dark:border-slate-800 mb-4">
-                <span className="text-xs font-mono font-bold text-purple-800 dark:text-purple-400 uppercase">Macro Regime Discovery</span>
-                <span className="text-xs font-mono font-bold text-purple-800 dark:text-purple-300 bg-purple-50 dark:bg-purple-950/60 px-2.5 py-0.5 rounded-full border border-purple-200 dark:border-purple-800">Halving Analogs</span>
+                <span className="text-xs font-mono font-bold text-purple-800 dark:text-purple-400 uppercase">Trading Floor Operations</span>
+                <span className="text-xs font-mono font-bold text-purple-800 dark:text-purple-300 bg-purple-50 dark:bg-purple-950/60 px-2.5 py-0.5 rounded-full border border-purple-200 dark:border-purple-800">Macro &amp; Liquidity Hub</span>
               </div>
               <h3 className="text-lg font-black text-slate-900 dark:text-white mb-1.5">
-                Long-Term Secular Candlestick Trends
+                Multi-Asset Trading Floor Collaboration
               </h3>
               <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
-                Multi-year macro candlestick cycle analogs capturing post-halving supply constrictions and global liquidity inflection corridors.
+                Multi-analyst desk layout showing the flow of market data through quant research, risk supervision, and algorithmic order routing.
               </p>
             </div>
 
             <div className="relative rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-md bg-slate-950 flex items-center justify-center min-h-[260px] group">
               <img
-                src="/photos/quant-secular-trend-chart.jpg"
-                alt="Long-Term Secular Candlestick Trends"
+                src="/photos/gettyimages-2112329817-612x612.jpg"
+                alt="Institutional Trading Floor"
                 className="w-full h-auto object-cover rounded-xl block transition-transform duration-500 group-hover:scale-105"
                 style={{ maxHeight: '420px', aspectRatio: '16 / 10' }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none" />
               <div className="absolute bottom-3 left-3 right-3 p-3 bg-slate-900/90 backdrop-blur-md rounded-xl text-white text-[11px] font-mono flex items-center justify-between border border-slate-800">
-                <span>Multi-Cycle Secular Projection</span>
-                <span className="text-purple-300 font-bold">1993 - 2024</span>
+                <span>Multi-Screen Analyst Hub</span>
+                <span className="text-purple-300 font-bold">24/7 Floor Coverage</span>
               </div>
             </div>
           </div>
 
-          {/* Card 4: 3D Polar Volatility Dial */}
+          {/* Card 4: Quantitative Mathematics & Stochastic Lab */}
           <div className="p-7 rounded-3xl bg-gradient-to-br from-amber-50/90 via-orange-50/20 to-white dark:from-[#1b1509] dark:via-[#140f06] dark:to-[#0d0a04] border border-amber-200/90 dark:border-slate-800 shadow-xl flex flex-col justify-between space-y-4">
             <div>
               <div className="flex items-center justify-between pb-3 border-b border-amber-100 dark:border-slate-800 mb-4">
-                <span className="text-xs font-mono font-bold text-amber-800 dark:text-amber-400 uppercase">3D Volatility Geometry</span>
-                <span className="text-xs font-mono font-bold text-amber-800 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/60 px-2.5 py-0.5 rounded-full border border-amber-200 dark:border-amber-800">Radial Projection</span>
+                <span className="text-xs font-mono font-bold text-amber-800 dark:text-amber-400 uppercase">Stochastic &amp; Risk Mathematics</span>
+                <span className="text-xs font-mono font-bold text-amber-800 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/60 px-2.5 py-0.5 rounded-full border border-amber-200 dark:border-amber-800">Mathematical Calibration</span>
               </div>
               <h3 className="text-lg font-black text-slate-900 dark:text-white mb-1.5">
-                3D Polar Candlestick Volatility Dial
+                Kelly Sizing, Brownian Motion &amp; VWAP Math
               </h3>
               <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
-                Multi-dimensional angular volatility dispersion mapping order-book depth across 360-degree radial timeframe horizons.
+                Every trade suggestion and order slice is backed by verified stochastic formulas: Fractional Kelly allocation, jump diffusion, and Sharpe ratio maximization.
               </p>
             </div>
 
             <div className="relative rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-md bg-slate-950 flex items-center justify-center min-h-[280px] group">
               <img
-                src="/photos/quant-3d-polar-chart.jpg"
-                alt="3D Polar Candlestick Dial"
+                src="/photos/pexels-thales13-39398846.jpg"
+                alt="Quantitative Mathematics Blackboard"
                 className="w-full h-auto object-cover rounded-xl block transition-transform duration-500 group-hover:scale-105"
                 style={{ maxHeight: '420px', aspectRatio: '16 / 10' }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none" />
               <div className="absolute bottom-3 left-3 right-3 p-3 bg-slate-900/90 backdrop-blur-md rounded-xl text-white text-[11px] font-mono flex items-center justify-between border border-slate-800">
-                <span>Radial Volatility Dial</span>
-                <span className="text-amber-300 font-bold">Multi-Timeframe 3D</span>
+                <span>Quantitative Research Lab</span>
+                <span className="text-amber-300 font-bold">Stochastic Calculus</span>
               </div>
             </div>
           </div>

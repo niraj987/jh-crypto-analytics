@@ -11,7 +11,6 @@ import CandlestickChart from '@/components/terminal/CandlestickChart';
 import IndicatorsGrid from '@/components/terminal/IndicatorsGrid';
 import QuantGraphAgent from '@/components/terminal/QuantGraphAgent';
 import ConsensusCard from '@/components/terminal/ConsensusCard';
-import TradeOrderPanel from '@/components/terminal/TradeOrderPanel';
 import CoinSwitchOrderBook from '@/components/terminal/CoinSwitchOrderBook';
 import CoinSwitchOrderTicket from '@/components/terminal/CoinSwitchOrderTicket';
 import TopGainersBar from '@/components/common/TopGainersBar';
@@ -98,7 +97,7 @@ function SignalsTerminal() {
   };
 
   const handleTradeAction = (action: 'BUY' | 'SELL', targetPrice: number) => {
-    const el = document.getElementById('trade-order-desk');
+    const el = document.getElementById('trade-ticket-desk');
     if (el) {
       el.scrollIntoView({ behavior: 'smooth' });
     }
@@ -276,7 +275,7 @@ function SignalsTerminal() {
 
           {/* CoinSwitch PRO Real-Time L2 Order Book & Trade Execution Ticket (Matching Screenshot) */}
           {currentAsset && (
-            <div className="grid grid-cols-1 xl:grid-cols-12 gap-8 items-stretch">
+            <div id="trade-ticket-desk" className="grid grid-cols-1 xl:grid-cols-12 gap-8 items-stretch scroll-mt-28">
               <div className="xl:col-span-7 h-full">
                 <CoinSwitchOrderBook
                   currentPrice={toINR(currentAsset.currentPrice)}
@@ -292,28 +291,16 @@ function SignalsTerminal() {
             </div>
           )}
 
-          {/* AI Buy/Sell Consensus Card & Trade Order Execution Desk - Aligned Equal Height Grid */}
-          <div id="trade-order-desk" className="grid grid-cols-1 xl:grid-cols-2 gap-8 items-stretch scroll-mt-28">
-            {verdict && (
-              <div className="h-full">
-                <ConsensusCard
-                  verdict={verdict}
-                  onRefresh={() => fetchTerminalData(selectedSymbol)}
-                  isLoading={isLoading}
-                />
-              </div>
-            )}
-
-            {currentAsset && (
-              <div className="h-full">
-                <TradeOrderPanel
-                  symbol={currentAsset.symbol}
-                  currentPrice={currentAsset.currentPrice}
-                  verdict={verdict}
-                />
-              </div>
-            )}
-          </div>
+          {/* AI Buy/Sell Consensus Card - Full Width Best-Fit Matrix */}
+          {verdict && (
+            <div id="consensus-matrix-desk" className="w-full scroll-mt-28">
+              <ConsensusCard
+                verdict={verdict}
+                onRefresh={() => fetchTerminalData(selectedSymbol)}
+                isLoading={isLoading}
+              />
+            </div>
+          )}
 
           {/* Multi-Agent Quant Deliberation Stream */}
           {verdict && (

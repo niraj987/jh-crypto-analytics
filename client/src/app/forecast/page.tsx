@@ -8,7 +8,7 @@ import { RAGForecastResult, RAGDocument } from '@/lib/types';
 import ForecastCards from '@/components/forecast/ForecastCards';
 import ScenarioTable from '@/components/forecast/ScenarioTable';
 import RagDocumentsViewer from '@/components/forecast/RagDocumentsViewer';
-import { TrendingUp, Sliders, RefreshCw, Search, Activity, Sparkles, BarChart2, Compass, Layers } from 'lucide-react';
+import { TrendingUp, Sliders, RefreshCw, Search, Activity, Sparkles, BarChart2, Layers } from 'lucide-react';
 
 function ForecastWorkspace() {
   const searchParams = useSearchParams();
@@ -19,7 +19,6 @@ function ForecastWorkspace() {
   const [forecast, setForecast] = useState<RAGForecastResult | null>(null);
   const [retrievedDocs, setRetrievedDocs] = useState<RAGDocument[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [activeVisualTab, setActiveVisualTab] = useState<'secular' | 'polar'>('secular');
 
   // Scenario Simulator interactive sliders
   const [macroBias, setMacroBias] = useState<number>(0); // -30% to +30%
@@ -137,88 +136,6 @@ function ForecastWorkspace() {
             <span>Forecast</span>
           </button>
         </form>
-      </div>
-
-      {/* ----------------------------------------------------
-          VISUAL MACRO MODELS & INNOVATIVE CHART SHOWCASE
-         ---------------------------------------------------- */}
-      <div className="rounded-3xl bg-white dark:bg-[#0c1222] border border-slate-200 dark:border-slate-800 p-8 shadow-xl space-y-6">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-200 dark:border-slate-800">
-          <div>
-            <div className="flex items-center gap-2 text-xs font-mono font-bold text-sky-600 dark:text-sky-400 uppercase tracking-wider">
-              <Compass className="w-4 h-4" />
-              <span>Institutional Quantitative Projection Models</span>
-            </div>
-            <h3 className="text-xl font-black text-slate-900 dark:text-white mt-1">
-              Multi-Year Secular Cycles &amp; 3D Polar Volatility Dial
-            </h3>
-          </div>
-
-          {/* Toggle between Secular Trend and 3D Polar Dial */}
-          <div className="flex items-center gap-2 p-1 rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
-            <button
-              onClick={() => setActiveVisualTab('secular')}
-              className={`px-4 py-2 rounded-xl text-xs font-mono font-bold flex items-center gap-2 transition-all ${
-                activeVisualTab === 'secular'
-                  ? 'bg-slate-900 dark:bg-sky-600 text-white shadow-sm'
-                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-950 dark:hover:text-white'
-              }`}
-            >
-              <TrendingUp className="w-3.5 h-3.5" />
-              <span>Secular Halving Trend</span>
-            </button>
-            <button
-              onClick={() => setActiveVisualTab('polar')}
-              className={`px-4 py-2 rounded-xl text-xs font-mono font-bold flex items-center gap-2 transition-all ${
-                activeVisualTab === 'polar'
-                  ? 'bg-slate-900 dark:bg-purple-600 text-white shadow-sm'
-                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-950 dark:hover:text-white'
-              }`}
-            >
-              <Compass className="w-3.5 h-3.5" />
-              <span>3D Polar Dial</span>
-            </button>
-          </div>
-        </div>
-
-        {/* Visual Frame */}
-        <div className="relative rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-[#060a14] shadow-2xl min-h-[300px] flex items-center justify-center">
-          {activeVisualTab === 'secular' ? (
-            <div className="w-full relative group">
-              <img
-                src="/photos/quant-secular-trend-chart.jpg"
-                alt="Long-Term Secular Candlestick Trend"
-                className="w-full h-auto max-h-[460px] object-contain block mx-auto transition-transform duration-500 group-hover:scale-[1.01]"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
-              <div className="absolute bottom-4 left-4 right-4 p-3.5 bg-slate-900/90 dark:bg-slate-900/95 backdrop-blur-md rounded-2xl text-white text-xs font-mono flex flex-wrap items-center justify-between border border-slate-800 gap-2">
-                <div className="flex items-center gap-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping" />
-                  <span className="font-bold text-slate-200">Historical Cycle Analogs Active:</span>
-                  <span className="text-emerald-400 font-extrabold">2016, 2020, 2024 Regimes</span>
-                </div>
-                <span className="text-slate-400 font-medium">Secular Multi-Decade Expansion Corridor</span>
-              </div>
-            </div>
-          ) : (
-            <div className="w-full relative group">
-              <img
-                src="/photos/quant-3d-polar-chart.jpg"
-                alt="3D Polar Candlestick Volatility Dial"
-                className="w-full h-auto max-h-[460px] object-contain block mx-auto transition-transform duration-500 group-hover:scale-[1.01]"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
-              <div className="absolute bottom-4 left-4 right-4 p-3.5 bg-slate-900/90 dark:bg-slate-900/95 backdrop-blur-md rounded-2xl text-white text-xs font-mono flex flex-wrap items-center justify-between border border-slate-800 gap-2">
-                <div className="flex items-center gap-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-purple-400 animate-pulse" />
-                  <span className="font-bold text-slate-200">Radial Candlestick Projection:</span>
-                  <span className="text-purple-300 font-extrabold">14-Period ATR Multi-Timeframe</span>
-                </div>
-                <span className="text-slate-400 font-medium">360-Degree Order Book Momentum Dispersion</span>
-              </div>
-            </div>
-          )}
-        </div>
       </div>
 
       {/* Interactive Scenario Adjuster Controls */}

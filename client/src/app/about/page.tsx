@@ -72,7 +72,7 @@ export default function AboutPage() {
       step: '04 // MANAGE (DELTA-NEUTRAL)',
       title: 'How Top Firms Manage Portfolios (Hedging)',
       subtitle: 'Beta Hedging & Cross-Asset Market Neutrality',
-      image: '/photos/quant-ambition-chess.jpg',
+      image: '/photos/gettyimages-2112329817-612x612.jpg',
       badge: 'Market Beta ≈ 0.00',
       badgeColor: 'bg-purple-50 dark:bg-purple-950/60 text-purple-700 dark:text-purple-300 border-purple-300 dark:border-purple-800',
       cardBg: 'bg-gradient-to-br from-purple-50/90 via-white to-slate-50 dark:from-[#180d26] dark:via-[#11091b] dark:to-[#0b0512] border-purple-200/90 dark:border-slate-800',
@@ -115,7 +115,7 @@ export default function AboutPage() {
       id: 'agent-3',
       title: 'Macro Narrative & RAG Analogs Specialist',
       role: 'Vector Embeddings, Halving Cycles & Fed Liquidity',
-      image: '/photos/quant-secular-trend-chart.jpg',
+      image: '/photos/behnam-norouzi-RDXcFY5g5O4-unsplash.jpg',
       icon: Network,
       accentText: 'text-purple-600 dark:text-purple-400',
       accentBg: 'bg-purple-50 dark:bg-purple-950/50 border-purple-200 dark:border-purple-800',
@@ -128,7 +128,7 @@ export default function AboutPage() {
       id: 'agent-4',
       title: 'Predictive Horizon & Risk Boundary Specialist',
       role: 'Monte Carlo Scenarios & Exact INR Target Invalidation',
-      image: '/photos/quant-3d-polar-chart.jpg',
+      image: '/photos/kanchanara-GnWfl_nnZro-unsplash.jpg',
       icon: TrendingUp,
       accentText: 'text-amber-600 dark:text-amber-400',
       accentBg: 'bg-amber-50 dark:bg-amber-950/50 border-amber-200 dark:border-amber-800',
@@ -140,41 +140,10 @@ export default function AboutPage() {
   ];
 
   return (
-    <div className="max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-12 py-12 space-y-16">
+    <div className="max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-12 py-10 space-y-16">
       
-      {/* Ambition Top Banner Inspired by Real Institutional Quants */}
-      <div className="relative rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-xl bg-slate-950">
-        <div className="absolute inset-0">
-          <img
-            src="/photos/quant-ambition-chess.jpg"
-            alt="Institutional Ambition and Strategic Mastery"
-            className="w-full h-full object-cover opacity-35 filter contrast-125"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/85 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent" />
-        </div>
-
-        <div className="relative z-10 p-8 sm:p-12 lg:p-16 max-w-4xl space-y-4">
-          <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-sky-500/10 border border-sky-400/30 text-sky-400 text-xs font-mono font-bold uppercase tracking-wider backdrop-blur-md">
-            <Compass className="w-4 h-4 text-sky-400" />
-            <span>Strategic Mastery &amp; Mathematical Rigor</span>
-          </div>
-
-          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight uppercase leading-[1.08]">
-            Our Ambition is to be the World&apos;s Benchmark for{' '}
-            <span className="bg-gradient-to-r from-sky-400 via-teal-300 to-emerald-400 bg-clip-text text-transparent">
-              Crypto Quant Intelligence
-            </span>
-          </h2>
-
-          <p className="text-slate-300 text-sm sm:text-base leading-relaxed font-normal max-w-2xl">
-            Where institutional order book microstructure meets verified mathematical risk models. Operating with the discipline of elite quantitative desks.
-          </p>
-        </div>
-      </div>
-
-      {/* Main Title Header: High Contrast & Visible in Light and Dark Mode */}
-      <div className="max-w-4xl space-y-4 pt-2">
+      {/* Full Webpage Breadth Header: Exactly 1 to 2 Lines */}
+      <div className="w-full space-y-5 pt-2">
         <div className="inline-flex items-center gap-3 px-4 py-2 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
           <div className="w-8 h-8 rounded-xl overflow-hidden flex items-center justify-center p-0.5 border border-slate-100 dark:border-slate-800">
             <Image
@@ -191,12 +160,13 @@ export default function AboutPage() {
           </span>
         </div>
 
-        <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-slate-900 dark:text-white tracking-tight leading-[1.12]">
+        {/* 1 or 2 lines full width headline */}
+        <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-slate-900 dark:text-white tracking-tight leading-[1.15] w-full">
           How Top Trading Firms Operate &amp; How Our Engine Executes
         </h1>
 
-        <p className="text-slate-600 dark:text-slate-300 text-base sm:text-lg leading-relaxed font-normal">
-          <strong>JH Crypto Analytics</strong> delivers institutional hedge-fund capabilities to everyday cryptocurrency traders: algorithmic multi-agent consensus, Half-Kelly risk sizing, zero-impact TWAP/VWAP order execution, and semantic RAG forecasting in <strong>Indian Rupee (₹)</strong>.
+        <p className="text-slate-600 dark:text-slate-300 text-base sm:text-xl leading-relaxed font-normal w-full max-w-none">
+          <strong>JH Crypto Analytics</strong> delivers institutional hedge-fund capabilities to cryptocurrency traders: algorithmic multi-agent consensus, Half-Kelly risk sizing, zero-impact TWAP/VWAP order execution, and semantic RAG forecasting in <strong>Indian Rupee (₹)</strong>.
         </p>
       </div>
 

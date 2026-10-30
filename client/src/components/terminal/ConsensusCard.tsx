@@ -29,11 +29,11 @@ export default function ConsensusCard({ verdict, onRefresh, isLoading }: Consens
   };
 
   return (
-    <div className="rounded-3xl bg-white/95 dark:bg-[#121721] backdrop-blur-md border border-slate-200/90 dark:border-slate-800/90 p-8 shadow-[0_16px_40px_-12px_rgba(15,23,42,0.08)] flex flex-col justify-between transition-all duration-300 hover:shadow-[0_20px_50px_-12px_rgba(15,23,42,0.12)]">
+    <div className="w-full rounded-3xl bg-white/95 dark:bg-[#121721] backdrop-blur-md border border-slate-200/90 dark:border-slate-800/90 p-7 sm:p-9 shadow-xl flex flex-col justify-between transition-all duration-300">
       
       {/* Top Header with Generous Spacing & Balanced Typography */}
       <div className="flex flex-wrap items-start justify-between gap-4 pb-6 border-b border-slate-100 dark:border-slate-800">
-        <div className="space-y-1.5 max-w-xl">
+        <div className="space-y-1.5 max-w-2xl">
           <div className="flex items-center gap-2.5">
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/50 text-emerald-800 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800 text-xs font-bold tracking-wider uppercase shadow-sm">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
@@ -63,7 +63,7 @@ export default function ConsensusCard({ verdict, onRefresh, isLoading }: Consens
       </div>
 
       {/* Main Gauge Visualizer */}
-      <div className="py-4 flex justify-center">
+      <div className="py-6 flex justify-center">
         <GaugeMeter
           score={verdict.aggregateScore}
           action={verdict.finalAction}
@@ -71,40 +71,66 @@ export default function ConsensusCard({ verdict, onRefresh, isLoading }: Consens
         />
       </div>
 
-      {/* Key Order Strategy Levels with Distinct Colored Background Tiles */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 my-5 text-xs">
+      {/* Key Order Strategy Levels with Best-Fit Alignment & Distinct Background Colors */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 my-6 text-xs w-full">
         {/* Optimal Entry */}
-        <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-slate-100 via-slate-50 to-white dark:from-slate-900 dark:via-[#0f141d] dark:to-slate-950 border border-slate-300/80 dark:border-slate-800 shadow-sm hover:-translate-y-1 hover:shadow-md transition-all duration-200">
-          <span className="text-slate-500 dark:text-slate-400 block text-[11px] uppercase tracking-wider font-bold">Optimal Entry</span>
-          <span className="text-slate-950 dark:text-white font-black text-base sm:text-lg block mt-1.5 font-mono">{formatINR(verdict.entryTarget)}</span>
-          <span className="text-[10px] text-slate-500 dark:text-slate-400 block mt-1">Recommended Fill</span>
+        <div className="p-5 sm:p-6 rounded-2xl bg-gradient-to-br from-slate-100 via-slate-50 to-white dark:from-slate-900 dark:via-[#0f141d] dark:to-slate-950 border border-slate-300/80 dark:border-slate-800 shadow-sm hover:-translate-y-1 hover:shadow-md transition-all duration-200 flex flex-col justify-between min-h-[110px]">
+          <div>
+            <span className="text-slate-500 dark:text-slate-400 block text-[11px] uppercase tracking-wider font-bold">
+              Optimal Entry
+            </span>
+            <span className="text-slate-950 dark:text-white font-black text-xl sm:text-2xl block mt-1.5 font-mono whitespace-nowrap">
+              {formatINR(verdict.entryTarget)}
+            </span>
+          </div>
+          <span className="text-[11px] text-slate-600 dark:text-slate-400 font-medium block mt-2">
+            Recommended Fill
+          </span>
         </div>
 
         {/* Target 1 (TP1) */}
-        <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-emerald-100/90 via-emerald-50 to-white dark:from-emerald-950/40 dark:via-[#0e1818] dark:to-slate-950 border border-emerald-300/90 dark:border-emerald-800/80 shadow-sm hover:-translate-y-1 hover:shadow-md transition-all duration-200">
-          <span className="text-emerald-900 dark:text-emerald-300 block text-[11px] font-black uppercase tracking-wider flex items-center gap-1">
-            <ArrowUpRight className="w-4 h-4 text-emerald-600 dark:text-emerald-400" /> Target 1 (TP1)
+        <div className="p-5 sm:p-6 rounded-2xl bg-gradient-to-br from-emerald-100/90 via-emerald-50 to-white dark:from-emerald-950/40 dark:via-[#0e1818] dark:to-slate-950 border border-emerald-300/90 dark:border-emerald-800/80 shadow-sm hover:-translate-y-1 hover:shadow-md transition-all duration-200 flex flex-col justify-between min-h-[110px]">
+          <div>
+            <span className="text-emerald-900 dark:text-emerald-300 block text-[11px] font-black uppercase tracking-wider flex items-center gap-1.5">
+              <ArrowUpRight className="w-4 h-4 text-emerald-600 dark:text-emerald-400" /> Target 1 (TP1)
+            </span>
+            <span className="text-emerald-800 dark:text-emerald-400 font-black text-xl sm:text-2xl block mt-1.5 font-mono whitespace-nowrap">
+              {formatINR(verdict.takeProfit1)}
+            </span>
+          </div>
+          <span className="text-[11px] text-emerald-700 dark:text-emerald-400 font-bold block mt-2">
+            +6.5% Expected Move
           </span>
-          <span className="text-emerald-800 dark:text-emerald-400 font-black text-base sm:text-lg block mt-1.5 font-mono">{formatINR(verdict.takeProfit1)}</span>
-          <span className="text-[10px] text-emerald-700 dark:text-emerald-500 block mt-1 font-semibold">+6.5% Expected Move</span>
         </div>
 
         {/* Target 2 (TP2) */}
-        <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-sky-100/90 via-sky-50 to-white dark:from-sky-950/40 dark:via-[#0e1520] dark:to-slate-950 border border-sky-300/90 dark:border-sky-800/80 shadow-sm hover:-translate-y-1 hover:shadow-md transition-all duration-200">
-          <span className="text-sky-900 dark:text-sky-300 block text-[11px] font-black uppercase tracking-wider flex items-center gap-1">
-            <ArrowUpRight className="w-4 h-4 text-sky-600 dark:text-sky-400" /> Target 2 (TP2)
+        <div className="p-5 sm:p-6 rounded-2xl bg-gradient-to-br from-sky-100/90 via-sky-50 to-white dark:from-sky-950/40 dark:via-[#0e1520] dark:to-slate-950 border border-sky-300/90 dark:border-sky-800/80 shadow-sm hover:-translate-y-1 hover:shadow-md transition-all duration-200 flex flex-col justify-between min-h-[110px]">
+          <div>
+            <span className="text-sky-900 dark:text-sky-300 block text-[11px] font-black uppercase tracking-wider flex items-center gap-1.5">
+              <ArrowUpRight className="w-4 h-4 text-sky-600 dark:text-sky-400" /> Target 2 (TP2)
+            </span>
+            <span className="text-sky-800 dark:text-sky-400 font-black text-xl sm:text-2xl block mt-1.5 font-mono whitespace-nowrap">
+              {formatINR(verdict.takeProfit2)}
+            </span>
+          </div>
+          <span className="text-[11px] text-sky-700 dark:text-sky-400 font-bold block mt-2">
+            +12.4% Extended Runner
           </span>
-          <span className="text-sky-800 dark:text-sky-400 font-black text-base sm:text-lg block mt-1.5 font-mono">{formatINR(verdict.takeProfit2)}</span>
-          <span className="text-[10px] text-sky-700 dark:text-sky-500 block mt-1 font-semibold">+12.4% Extended Runner</span>
         </div>
 
         {/* Stop Loss (SL) */}
-        <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-rose-100/90 via-rose-50 to-white dark:from-rose-950/40 dark:via-[#180e14] dark:to-slate-950 border border-rose-300/90 dark:border-rose-800/80 shadow-sm hover:-translate-y-1 hover:shadow-md transition-all duration-200">
-          <span className="text-rose-900 dark:text-rose-300 block text-[11px] font-black uppercase tracking-wider flex items-center gap-1">
-            <ArrowDownRight className="w-4 h-4 text-rose-600 dark:text-rose-400" /> Stop Loss (SL)
+        <div className="p-5 sm:p-6 rounded-2xl bg-gradient-to-br from-rose-100/90 via-rose-50 to-white dark:from-rose-950/40 dark:via-[#180e14] dark:to-slate-950 border border-rose-300/90 dark:border-rose-800/80 shadow-sm hover:-translate-y-1 hover:shadow-md transition-all duration-200 flex flex-col justify-between min-h-[110px]">
+          <div>
+            <span className="text-rose-900 dark:text-rose-300 block text-[11px] font-black uppercase tracking-wider flex items-center gap-1.5">
+              <ArrowDownRight className="w-4 h-4 text-rose-600 dark:text-rose-400" /> Stop Loss (SL)
+            </span>
+            <span className="text-rose-800 dark:text-rose-400 font-black text-xl sm:text-2xl block mt-1.5 font-mono whitespace-nowrap">
+              {formatINR(verdict.stopLoss)}
+            </span>
+          </div>
+          <span className="text-[11px] text-rose-700 dark:text-rose-400 font-bold block mt-2">
+            -4.5% Hard Invalidation Target
           </span>
-          <span className="text-rose-800 dark:text-rose-400 font-black text-base sm:text-lg block mt-1.5 font-mono">{formatINR(verdict.stopLoss)}</span>
-          <span className="text-[10px] text-rose-700 dark:text-rose-500 block mt-1 font-semibold">-4.5% Hard Invalidation</span>
         </div>
       </div>
 
