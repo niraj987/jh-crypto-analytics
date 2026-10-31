@@ -1,9 +1,9 @@
 /**
  * JH Crypto Analytics - Indian Rupee (INR ₹) Currency Conversion Utility
- * Real-time conversion multiplier: 1 USD = 85.50 INR
+ * Real-time conversion multiplier: 1 USD = 86.85 INR
  */
 
-export const USD_TO_INR = 85.50;
+export const USD_TO_INR = 86.85;
 
 /**
  * Converts a USD value to INR

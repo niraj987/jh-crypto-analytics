@@ -7,7 +7,7 @@ import {
   getFallbackRealtimeTick,
 } from './offlineFallback';
 
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
+const API_BASE = typeof window !== 'undefined' ? '/api' : (process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api');
 
 export class ApiClient {
   public static async getCatalog(): Promise<CryptoAsset[]> {

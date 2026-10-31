@@ -133,9 +133,9 @@ export default function HomePage() {
 
           </div>
 
-          {/* Right Column: Three.js Interactive 3D Model with INR Price */}
+          {/* Right Column: Three.js Interactive 3D Model with Real-Time INR Price */}
           <div className="lg:col-span-5">
-            <MarketScene3D symbol="BTC" price={toINR(67850)} />
+            <MarketScene3D symbol="BTC" price={toINR(catalog[0]?.currentPrice || 77635)} />
           </div>
 
         </div>
