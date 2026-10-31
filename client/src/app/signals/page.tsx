@@ -5,7 +5,7 @@ import { useSearchParams } from 'next/navigation';
 import Image from 'next/image';
 import { ApiClient } from '@/lib/api';
 import { CryptoAsset, TechnicalIndicators, ConsensusVerdict, AgentInsight } from '@/lib/types';
-import { formatINR, formatINRLarge, toINR } from '@/lib/currency';
+import { formatINR, formatINRLarge, toINR, toUSD } from '@/lib/currency';
 import AssetSelector from '@/components/terminal/AssetSelector';
 import CandlestickChart from '@/components/terminal/CandlestickChart';
 import IndicatorsGrid from '@/components/terminal/IndicatorsGrid';
@@ -144,6 +144,11 @@ function SignalsTerminal() {
                 <span className="text-slate-950 dark:text-white font-black text-xl sm:text-2xl font-mono tracking-tight">
                   {currentAsset ? formatINR(currentAsset.currentPrice) : '...'}
                 </span>
+                {currentAsset && (
+                  <span className="text-xs sm:text-sm font-mono font-bold text-slate-500 dark:text-slate-400">
+                    (${toUSD(currentAsset.currentPrice).toLocaleString('en-US')})
+                  </span>
+                )}
                 <span className={`font-black text-xs sm:text-sm px-2.5 py-0.5 rounded-lg border ${currentAsset && currentAsset.change24h >= 0 ? 'bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-300 border-emerald-300 dark:border-emerald-800' : 'bg-rose-50 dark:bg-rose-950/50 text-rose-700 dark:text-rose-300 border-rose-300 dark:border-rose-800'}`}>
                   {currentAsset && currentAsset.change24h >= 0 ? '+' : ''}{currentAsset?.change24h}%
                 </span>
@@ -219,7 +224,7 @@ function SignalsTerminal() {
 
           <div className="flex flex-wrap items-center gap-3 sm:gap-4 text-xs">
             <div className="px-3 py-1.5 rounded-xl bg-slate-800/90 border border-slate-700">
-              <span className="text-slate-400 block text-[10px]">INR Cash Balance:</span>
+              <span className="text-slate-400 block text-[10px]">Cash Balance:</span>
               <span className="text-emerald-400 font-black text-sm">₹{csPortfolio?.balances.find((b: any) => b.currency === 'INR')?.main_balance || '0.30'}</span>
             </div>
             <div className="px-3 py-1.5 rounded-xl bg-slate-800/90 border border-slate-700">

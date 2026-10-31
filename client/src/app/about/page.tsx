@@ -143,7 +143,7 @@ export default function AboutPage() {
       cardBorder: 'border-amber-300/90 dark:border-amber-800/80',
       tag: 'Bull/Base/Bear · 24h/7d/30d · ₹ Targets',
       description:
-        'Synthesizes multi-horizon price envelopes for 24 hours, 7 days, and 30 days. Generates dynamic Bull, Base, and Bear scenarios with explicit probabilities, optimal entry targets, and structural invalidation stop-loss levels in INR.',
+        'Synthesizes multi-horizon price envelopes for 24 hours, 7 days, and 30 days. Generates dynamic Bull, Base, and Bear scenarios with explicit probabilities, optimal entry targets, and structural invalidation stop-loss levels.',
     },
   ];
 
@@ -182,7 +182,7 @@ export default function AboutPage() {
         </h1>
 
         <p className="text-slate-600 dark:text-slate-300 text-base sm:text-xl lg:text-2xl leading-relaxed font-normal w-full max-w-none">
-          <strong className="text-slate-900 dark:text-white font-black">Our firm</strong> delivers advanced quantitative capabilities to cryptocurrency traders: algorithmic multi-agent consensus, Half-Kelly risk sizing, zero-impact TWAP/VWAP order execution, and semantic RAG forecasting in <strong className="text-emerald-600 dark:text-emerald-400 font-black">Indian Rupee (₹)</strong>.
+          <strong className="text-slate-900 dark:text-white font-black">Our firm</strong> delivers advanced quantitative capabilities to cryptocurrency traders: algorithmic multi-agent consensus, disciplined risk sizing, zero-impact order execution, and semantic scenario forecasting across 48 liquid crypto assets.
         </p>
       </div>
 
@@ -422,7 +422,7 @@ export default function AboutPage() {
       <div className="p-8 sm:p-12 rounded-3xl bg-gradient-to-r from-emerald-600 via-teal-700 to-sky-700 text-white shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="space-y-2">
           <h3 className="text-2xl sm:text-3xl font-black tracking-tight">
-            Ready to Analyze Real-Time Crypto Prices in Indian Rupee (₹)?
+            Ready to Launch the Live Trading Desk?
           </h3>
           <p className="text-emerald-100 text-sm max-w-xl font-normal">
             Step onto our firm&apos;s execution desk with live ticking L2 order book, AI consensus matrix, and direct order tickets.

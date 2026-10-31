@@ -63,6 +63,34 @@ export function formatINRLarge(usdAmount: number): string {
 }
 
 /**
+ * Converts an INR value to USD
+ */
+export function toUSD(inrAmount: number): number {
+  return Number((inrAmount / USD_TO_INR).toFixed(2));
+}
+
+/**
+ * Formats a USD amount in standard US Dollar notation ($)
+ * Example: 67850 -> $67,850.00
+ */
+export function formatUSD(usdAmount: number): string {
+  if (usdAmount === undefined || usdAmount === null || isNaN(usdAmount)) {
+    return '$0.00';
+  }
+  if (Math.abs(usdAmount) < 0.01 && usdAmount > 0) {
+    return `$${usdAmount.toFixed(6)}`;
+  } else if (Math.abs(usdAmount) < 1 && usdAmount > 0) {
+    return `$${usdAmount.toFixed(4)}`;
+  }
+  return new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  }).format(usdAmount);
+}
+
+/**
  * Compact INR formatter for chart axes and small labels
  */
 export function formatINRCompact(usdAmount: number): string {

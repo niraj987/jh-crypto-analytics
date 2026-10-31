@@ -12,6 +12,7 @@ interface TickerToken {
 }
 
 const INITIAL_TOKENS: TickerToken[] = [
+  { pair: 'USD/INR', price: 86.85, change: 0.14, decimals: 2 },
   { pair: 'MARSCOIN/INR', price: 12.20, change: 1008.99, decimals: 4 },
   { pair: 'PARTI/INR', price: 5.3996, change: 37.87, decimals: 4 },
   { pair: 'M3M3/INR', price: 0.0324, change: 28.06, decimals: 4 },

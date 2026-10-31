@@ -295,7 +295,7 @@ export default function TradingFirmWorkflow({
                   </span>
                 </div>
                 <div className="flex justify-between items-center text-sm pt-2 border-t border-emerald-200 dark:border-emerald-800">
-                  <span className="text-emerald-900 dark:text-emerald-300 font-bold">Recommended Order Size in INR:</span>
+                  <span className="text-emerald-900 dark:text-emerald-300 font-bold">Recommended Order Size:</span>
                   <span className="text-emerald-800 dark:text-emerald-200 font-black text-lg">
                     {formatINR(recommendedPositionINR, true)}
                   </span>

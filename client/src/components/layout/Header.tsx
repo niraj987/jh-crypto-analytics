@@ -101,7 +101,7 @@ export default function Header() {
               </span>
             </div>
             <p className="text-[10px] sm:text-[11px] font-mono text-slate-500 dark:text-slate-400 font-medium tracking-tight hidden xs:block">
-              Quantitative Alpha &amp; Predictive Forecasting Desk &bull; INR (&#8377;)
+              Quantitative Alpha &amp; Predictive Forecasting Desk
             </p>
           </div>
         </Link>
@@ -137,6 +137,13 @@ export default function Header() {
         {/* Right Institutional Controls */}
         <div className="flex items-center gap-2.5 sm:gap-3">
           
+          {/* Live USD to Rupee Conversion Pill */}
+          <div className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-100/90 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 text-[11px] font-mono shadow-sm">
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+            <span className="text-slate-500 dark:text-slate-400 font-bold">$1 USD =</span>
+            <span className="text-slate-900 dark:text-white font-black text-xs">₹86.85</span>
+          </div>
+
           {/* Theme Switcher Button with Ripple Effect */}
           <button
             onClick={(e) => toggleTheme(e)}
@@ -219,10 +226,10 @@ export default function Header() {
             </Link>
 
             <div className="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-xs font-mono">
-              <span className="text-slate-500 dark:text-slate-400">Desk Status:</span>
-              <span className="text-emerald-600 dark:text-emerald-400 font-bold flex items-center gap-1.5">
+              <span className="text-slate-500 dark:text-slate-400">Live Forex:</span>
+              <span className="text-slate-900 dark:text-white font-bold flex items-center gap-1.5">
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                24/7 Live INR (₹)
+                $1 USD = ₹86.85
               </span>
             </div>
           </div>

@@ -33,11 +33,11 @@ export class CoinSwitchService {
   }
 
   private static get apiKey(): string {
-    return process.env.COINSWITCH_API_KEY || 'df55d419bca54fd6a204a1cf5617116f466b64b746b69271725fabdb4b901779';
+    return process.env.COINSWITCH_API_KEY || '';
   }
 
   private static get secretKey(): string {
-    return process.env.COINSWITCH_SECRET_KEY || '2c6e747ae402a27fc5cefc5ac452dfc5a46a5901c8885afb734d77f1fd09f2f3';
+    return process.env.COINSWITCH_SECRET_KEY || '';
   }
 
   /**

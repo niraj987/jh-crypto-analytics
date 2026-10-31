@@ -69,7 +69,7 @@ export default function Footer() {
               <span>Multi-Asset Liquidity Matrix</span>
             </div>
             <div className="hidden lg:flex items-center gap-1.5 text-slate-400">
-              <span className="text-amber-400 font-bold">Base Currency: INR (₹)</span>
+              <span className="text-amber-400 font-bold">Forex: $1 USD = ₹86.85</span>
             </div>
           </div>
 
@@ -116,7 +116,7 @@ export default function Footer() {
             </div>
 
             <p className="text-slate-400 leading-relaxed text-xs">
-              Our firm provides advanced algorithmic execution and predictive crypto intelligence denominated in Indian Rupee (&#8377;). Engineered with mathematical risk boundaries, Level 2 orderbook microstructure inspection, and predictive forecasting scenarios.
+              Our firm provides advanced algorithmic execution and predictive crypto intelligence across liquid digital asset pairs. Engineered with mathematical risk boundaries, Level 2 orderbook microstructure inspection, and predictive forecasting scenarios.
             </p>
 
             <div className="text-[11px] font-mono space-y-1 text-slate-400 pt-3 border-t border-slate-800/80">
@@ -124,7 +124,7 @@ export default function Footer() {
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
                 <span>Operational Status: All Systems Active</span>
               </p>
-              <p className="text-slate-500">Base Currency: INR (₹) • 48 Liquid Assets</p>
+              <p className="text-slate-500">48 Liquid Digital Assets Active</p>
             </div>
           </div>
 

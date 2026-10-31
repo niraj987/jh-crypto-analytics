@@ -57,7 +57,7 @@ const DECK_PAGES: SlidePage[] = [
     category: 'Chapter 02: Market Liquidity & Spreads',
     badge: 'COINSWITCH PRO GATEWAY',
     image: '/photos/gettyimages-2112329817-612x612.jpg',
-    subtitle: 'Deep liquidity scanning to detect hidden iceberg orders and optimize fill prices denominated in INR.',
+    subtitle: 'Deep liquidity scanning to detect hidden iceberg orders and optimize fill prices.',
     bulletPoints: [
       'Sub-second Level 2 order book inspection tracking real-time bid-to-ask depth imbalance ratios.',
       'Slippage mitigation routing ensuring large block tickets execute at or better than VWAP.',
@@ -105,7 +105,7 @@ const DECK_PAGES: SlidePage[] = [
     metrics: [
       { label: 'Net Beta', value: '0.00 Beta', color: 'text-sky-500' },
       { label: 'Floor Uptime', value: '99.98%', color: 'text-emerald-500' },
-      { label: 'Currency Base', value: 'INR (₹)', color: 'text-amber-500' },
+      { label: 'Execution', value: 'Sub-Second', color: 'text-amber-500' },
     ],
     quote: '"When the entire crypto market crashes 30%, a truly delta-neutral desk remains fully protected, collecting funding yield and relative spread."',
   },

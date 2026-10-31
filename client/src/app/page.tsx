@@ -6,7 +6,7 @@ import Image from 'next/image';
 import gsap from 'gsap';
 import { ApiClient } from '@/lib/api';
 import { CryptoAsset } from '@/lib/types';
-import { formatINR, formatINRLarge, toINR } from '@/lib/currency';
+import { formatINR, formatINRLarge, toINR, toUSD } from '@/lib/currency';
 import TickerMarquee from '@/components/common/TickerMarquee';
 import TopGainersBar from '@/components/common/TopGainersBar';
 import MarketScene3D from '@/components/common/MarketScene3D';
@@ -68,7 +68,7 @@ export default function HomePage() {
 
             {/* Spacious Subtitle */}
             <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl font-normal">
-              Delivering disciplined quantitative intelligence, precision risk management, and algorithmic market execution denominated in <strong className="text-amber-600 dark:text-amber-400 font-black">Indian Rupee (₹)</strong>.
+              Delivering disciplined quantitative intelligence, precision risk management, and algorithmic market execution across global crypto markets.
             </p>
 
             {/* Action Buttons with Institutional Color Scheme */}
@@ -165,9 +165,14 @@ export default function HomePage() {
                   </div>
 
                   <div className="font-mono my-5">
-                    <span className="text-3xl font-black text-slate-950 dark:text-white tracking-tight">
-                      {formatINR(asset.currentPrice)}
-                    </span>
+                    <div className="flex items-baseline gap-2.5 flex-wrap">
+                      <span className="text-3xl font-black text-slate-950 dark:text-white tracking-tight">
+                        {formatINR(asset.currentPrice)}
+                      </span>
+                      <span className="text-xs font-mono font-bold text-slate-500 dark:text-slate-400">
+                        (${toUSD(asset.currentPrice).toLocaleString('en-US')})
+                      </span>
+                    </div>
                     <p className="text-xs text-slate-600 dark:text-slate-400 mt-1 font-medium">
                       24h Vol: <span className="text-slate-900 dark:text-slate-200 font-bold">{formatINRLarge(asset.volume24h)}</span>
                     </p>
@@ -337,7 +342,7 @@ export default function HomePage() {
               Without Directional Bias.
             </h2>
             <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 font-normal leading-relaxed max-w-3xl pt-2">
-              At our firm, we formulate real-time Buy and Sell intelligence across 48 digital assets by synthesizing multi-timeframe price momentum, order book microstructure, macroeconomic analogs, and continuous capital risk boundaries denominated in Indian Rupee (₹).
+              At our firm, we formulate real-time Buy and Sell intelligence across 48 digital assets by synthesizing multi-timeframe price momentum, order book microstructure, macroeconomic analogs, and continuous capital risk boundaries.
             </p>
           </div>
 

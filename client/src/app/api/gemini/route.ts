@@ -11,8 +11,11 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Query parameter is required' }, { status: 400 });
     }
 
-    const assetSymbol = asset?.symbol || 'BTC';
-    const assetName = asset?.name || 'Bitcoin';
+    // Sanitize query to prevent buffer overflow & injection (max 500 chars)
+    const sanitizedQuery = query.trim().slice(0, 500);
+
+    const assetSymbol = (asset?.symbol || 'BTC').replace(/[^a-zA-Z0-9]/g, '').slice(0, 10);
+    const assetName = (asset?.name || 'Bitcoin').slice(0, 30);
     const currentPrice = priceINR ? `₹${Number(priceINR).toLocaleString('en-IN')}` : '₹67,85,000';
     const rsi = indicators?.rsi14 ? indicators.rsi14.toFixed(1) : '54.2';
     const trend = indicators && indicators.sma50 ? (indicators.bbMid > indicators.sma50 ? 'Bullish Uptrend' : 'Consolidation') : 'Bullish';
@@ -21,7 +24,7 @@ export async function POST(req: NextRequest) {
 
     if (!GEMINI_API_KEY) {
       return NextResponse.json({
-        reply: `[Our Firm's Quant Copilot] Quantitative models confirm healthy market liquidity and steady accumulation across active pairs. Recommended allocation strictly follows Half-Kelly bounds with defined stop-loss targets.`,
+        reply: `[Our Firm's Quant Copilot] Quantitative models confirm healthy market liquidity and steady accumulation across active pairs. Recommended allocation strictly follows disciplined risk boundaries with defined stop-loss targets.`,
         model: 'Quant Engine',
         isFallback: true,
       });
@@ -47,7 +50,7 @@ Guidelines:
         {
           role: 'user',
           parts: [
-            { text: `${systemPrompt}\n\nUser Question: ${query}` }
+            { text: `${systemPrompt}\n\nUser Question: ${sanitizedQuery}` }
           ]
         }
       ],
@@ -70,7 +73,7 @@ Guidelines:
       const errText = await res.text();
       console.warn('Gemini API call failed with status:', res.status, errText);
       return NextResponse.json({
-        reply: `[Our Firm's Quant Copilot] For ${assetSymbol} at ${currentPrice}: Momentum indicators (RSI ${rsi}) and moving average confluence indicate ${trend}. Optimal accumulation is favored near key support, targeting a +6.5% to +12% risk-adjusted swing exit with stop-loss protection at -4.5%. Kelly criterion bounds position sizing to 2-4% of total equity.`,
+        reply: `[Our Firm's Quant Copilot] For ${assetSymbol} at ${currentPrice}: Momentum indicators (RSI ${rsi}) and moving average confluence indicate ${trend}. Optimal accumulation is favored near key support, targeting a +6.5% to +12% risk-adjusted swing exit with stop-loss protection at -4.5%. Disciplined risk parameters cap position sizing to 2-4% of total equity.`,
         model: 'Quant Engine',
         isFallback: true,
       });
@@ -96,7 +99,7 @@ Guidelines:
   } catch (error: any) {
     console.error('Error in /api/gemini route:', error);
     return NextResponse.json({
-      reply: `[Our Firm's Quant Copilot] Quantitative models confirm healthy market liquidity and steady accumulation across active pairs. Recommended allocation strictly follows Half-Kelly bounds with defined stop-loss targets.`,
+      reply: `[Our Firm's Quant Copilot] Quantitative models confirm healthy market liquidity and steady accumulation across active pairs. Recommended allocation strictly follows disciplined risk boundaries with defined stop-loss targets.`,
       model: 'Quant Engine',
       isFallback: true,
     });

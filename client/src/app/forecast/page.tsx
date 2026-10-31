@@ -109,7 +109,7 @@ function ForecastWorkspace() {
                 </h1>
               </div>
               <p className="text-xs sm:text-base text-slate-500 dark:text-slate-400 font-mono mt-1.5 font-medium">
-                Historical cycle analogs, halving supply dynamics, and probabilistic boundary corridors denominated in INR (₹)
+                Historical cycle analogs, halving supply dynamics, and probabilistic boundary corridors
               </p>
             </div>
           </div>
