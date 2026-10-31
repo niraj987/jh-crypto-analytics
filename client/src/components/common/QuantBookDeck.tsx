@@ -61,41 +61,41 @@ const DECK_PAGES: SlidePage[] = [
     bulletPoints: [
       'Sub-second Level 2 order book inspection tracking real-time bid-to-ask depth imbalance ratios.',
       'Slippage mitigation routing ensuring large block tickets execute at or better than VWAP.',
-      'Direct Ed25519 cryptographic handshake with CoinSwitchX high-frequency execution nodes.',
+      'Direct high-frequency cryptographic handshake with CoinSwitchX execution nodes.',
     ],
     metrics: [
       { label: 'Average Spread', value: '0.45%', color: 'text-amber-500' },
       { label: 'Bid Ratio', value: '88% Depth', color: 'text-emerald-500' },
-      { label: 'Protocol', value: 'Ed25519', color: 'text-indigo-500' },
+      { label: 'Gateway Latency', value: 'Sub-Second', color: 'text-indigo-500' },
     ],
     quote: '"Large market orders move the book against you. Smart execution slices liquidity into imperceptible algorithmic fills."',
   },
   {
     id: 3,
-    title: 'Stochastic Calculus, Brownian Motion & Kelly Sizing',
-    category: 'Chapter 03: Mathematical Risk Calibration',
-    badge: 'STOCHASTIC LAB',
+    title: 'Systematic Probability & Mathematical Capital Allocation',
+    category: 'Chapter 03: Capital Risk Boundaries',
+    badge: 'RISK DESK',
     image: '/photos/pexels-thales13-39398846.jpg',
-    subtitle: 'Replacing human emotional bias with verified mathematical probability distributions and geometric growth optimization.',
-    equation: 'f* = (bp - q) / b  |  dS_t = μ S_t dt + σ S_t dW_t',
+    subtitle: 'Eliminating emotional bias with disciplined quantitative boundaries and long-term capital preservation.',
+    equation: 'Risk Tolerance Constraint: Ruin Probability < 0.01%',
     bulletPoints: [
-      'Fractional Kelly Criterion bounds stake sizing so that maximum drawdown never exceeds risk tolerance limits.',
-      'Geometric Brownian Motion (GBM) with Monte Carlo 10,000 iterations projects price boundary corridors.',
+      'Dynamic risk fraction bounds position sizing so that maximum drawdown remains strictly capped.',
+      'Probabilistic scenario modeling projects disciplined price boundary corridors.',
       'Parametric Value-at-Risk (VaR 99%) enforces automatic hard stop-loss invalidation levels.',
     ],
     metrics: [
-      { label: 'Half-Kelly Fraction', value: '3.5% Equity', color: 'text-purple-500' },
+      { label: 'Risk Fraction', value: 'Conservative', color: 'text-purple-500' },
       { label: 'Sharpe Ratio', value: '2.42', color: 'text-emerald-500' },
       { label: 'VaR (99%)', value: '4.5% Cap', color: 'text-rose-500' },
     ],
-    quote: '"In quantitative trading, survival is paramount. The Kelly Criterion guarantees that your portfolio grows at the maximum possible geometric rate without ruin."',
+    quote: '"In quantitative trading, survival is paramount. Disciplined position sizing guarantees that capital compounds consistently without catastrophic drawdown ruin."',
   },
   {
     id: 4,
     title: 'Our Firm\'s Execution Floor & Delta-Neutral Hedging',
     category: 'Chapter 04: Portfolio Preservation',
     badge: 'HEDGE FUND OPERATIONS',
-    image: '/photos/quant-ambition-chess.jpg',
+    image: '',
     subtitle: 'Eliminating directional market beta exposure to extract pure idiosyncratic risk-adjusted return.',
     bulletPoints: [
       'Simultaneous long exposure on high-alpha crypto tokens paired with systematic short index hedges.',
@@ -145,16 +145,7 @@ export default function QuantBookDeck() {
       {/* Top Deck Controls Header */}
       <div className="flex flex-wrap items-center justify-between gap-4 pb-5 border-b border-slate-100 dark:border-slate-800">
         <div>
-          <div className="flex items-center gap-2.5">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/40 text-emerald-800 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800 text-xs font-bold tracking-wider uppercase">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              DYNAMIC PRESENTATION DECK
-            </span>
-            <span className="text-xs text-slate-500 dark:text-slate-400 font-medium">
-              Interactive Financial Book
-            </span>
-          </div>
-          <h3 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight mt-1">
+          <h3 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight">
             Our Firm&apos;s Quantitative Methodology Deck
           </h3>
         </div>
@@ -219,7 +210,7 @@ export default function QuantBookDeck() {
         {/* Content Container */}
         <div 
           key={page.id}
-          className={`grid grid-cols-1 lg:grid-cols-12 gap-8 items-center p-6 sm:p-10 transition-all duration-500 ${
+          className={`grid grid-cols-1 ${page.image ? 'lg:grid-cols-12' : 'lg:grid-cols-1'} gap-8 items-center p-6 sm:p-10 transition-all duration-500 ${
             viewMode === 'book'
               ? 'animate-in fade-in zoom-in-95'
               : pageDirection === 'next'
@@ -227,8 +218,8 @@ export default function QuantBookDeck() {
                 : 'animate-in slide-in-from-left-8 duration-300'
           }`}
         >
-          {/* Left Column: Rich Presentation Typography */}
-          <div className="lg:col-span-7 space-y-5">
+          {/* Main Column: Rich Presentation Typography */}
+          <div className={`${page.image ? 'lg:col-span-7' : 'max-w-4xl mx-auto w-full'} space-y-5`}>
             <div className="flex flex-wrap items-center gap-2.5">
               <span className="text-xs font-mono font-bold text-amber-600 dark:text-amber-400 uppercase tracking-wider">
                 {page.category}
@@ -265,7 +256,7 @@ export default function QuantBookDeck() {
             </ul>
 
             {/* Metrics Row */}
-            <div className="grid grid-cols-3 gap-3 pt-2">
+            <div className={`grid ${page.image ? 'grid-cols-3' : 'grid-cols-3 sm:grid-cols-3'} gap-3 pt-2`}>
               {page.metrics.map((m, idx) => (
                 <div key={idx} className="p-3 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center">
                   <span className="text-[10px] text-slate-500 font-mono block uppercase">{m.label}</span>
@@ -280,23 +271,25 @@ export default function QuantBookDeck() {
             </div>
           </div>
 
-          {/* Right Column: Visual Photo Card with Interactive Zoom */}
-          <div className="lg:col-span-5 relative rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-xl bg-slate-950 group">
-            <img
-              src={page.image}
-              alt={page.title}
-              className="w-full h-auto object-cover rounded-2xl block transition-transform duration-700 group-hover:scale-105"
-              style={{ maxHeight: '420px', aspectRatio: '16 / 11' }}
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
-            <div className="absolute bottom-4 left-4 right-4 p-3.5 bg-slate-900/90 backdrop-blur-md rounded-2xl text-white text-xs font-mono flex items-center justify-between border border-slate-800">
-              <span className="font-bold flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                {page.badge}
-              </span>
-              <span className="text-emerald-400 font-bold">Slide {currentPage + 1} of {DECK_PAGES.length}</span>
+          {/* Right Column: Visual Photo Card with Interactive Zoom (Only rendered if image exists) */}
+          {page.image && (
+            <div className="lg:col-span-5 relative rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-xl bg-slate-950 group">
+              <img
+                src={page.image}
+                alt={page.title}
+                className="w-full h-auto object-cover rounded-2xl block transition-transform duration-700 group-hover:scale-105"
+                style={{ maxHeight: '420px', aspectRatio: '16 / 11' }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute bottom-4 left-4 right-4 p-3.5 bg-slate-900/90 backdrop-blur-md rounded-2xl text-white text-xs font-mono flex items-center justify-between border border-slate-800">
+                <span className="font-bold flex items-center gap-1.5">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                  {page.badge}
+                </span>
+                <span className="text-emerald-400 font-bold">Slide {currentPage + 1} of {DECK_PAGES.length}</span>
+              </div>
             </div>
-          </div>
+          )}
         </div>
 
       </div>

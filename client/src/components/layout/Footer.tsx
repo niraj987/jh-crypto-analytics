@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { 
   ShieldAlert, 
+  ShieldCheck,
   ArrowUpRight, 
   Clock, 
   Activity, 
@@ -57,19 +58,18 @@ export default function Footer() {
           <div className="flex flex-wrap items-center gap-4 sm:gap-6">
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-              <span className="text-white font-bold">DESK ENGINE v2.4</span>
+              <span className="text-white font-bold">Proprietary Analytics Feed Active</span>
             </div>
             <div className="hidden sm:flex items-center gap-1.5 text-slate-400">
-              <Lock className="w-3.5 h-3.5 text-amber-400" />
-              <span>Ed25519 Cryptographic Routing</span>
+              <ShieldCheck className="w-3.5 h-3.5 text-amber-400" />
+              <span>Cryptographic Security Verified</span>
             </div>
             <div className="hidden md:flex items-center gap-1.5 text-slate-400">
               <Activity className="w-3.5 h-3.5 text-cyan-400" />
-              <span>Kelly Bound: &le; 3.5% Equity</span>
+              <span>Multi-Asset Liquidity Matrix</span>
             </div>
             <div className="hidden lg:flex items-center gap-1.5 text-slate-400">
-              <Cpu className="w-3.5 h-3.5 text-purple-400" />
-              <span>Monte Carlo: 10,000 Iterations</span>
+              <span className="text-amber-400 font-bold">Base Currency: INR (₹)</span>
             </div>
           </div>
 
@@ -123,12 +123,12 @@ export default function Footer() {
 
             <div className="p-3 rounded-xl bg-slate-900 border border-slate-800/90 text-[11px] font-mono space-y-1.5">
               <div className="flex justify-between items-center">
-                <span className="text-slate-400">Consensus Nodes:</span>
-                <span className="text-emerald-400 font-bold">12 Clusters Active</span>
+                <span className="text-slate-400">System Status:</span>
+                <span className="text-emerald-400 font-bold">Operational</span>
               </div>
               <div className="flex justify-between items-center">
                 <span className="text-slate-400">Execution Protocol:</span>
-                <span className="text-white font-bold">Ed25519 Verified</span>
+                <span className="text-white font-bold">Cryptographically Verified</span>
               </div>
               <div className="flex justify-between items-center">
                 <span className="text-slate-400">Base Currency:</span>
@@ -175,17 +175,17 @@ export default function Footer() {
           <div className="lg:col-span-2 p-6 sm:p-7 rounded-2xl bg-slate-950/60 border border-slate-800/80 space-y-4">
             <h4 className="text-cyan-400 font-bold text-xs uppercase font-mono tracking-wider flex items-center gap-2">
               <Cpu className="w-3.5 h-3.5" />
-              Quant Engines
+              Quant Desks
             </h4>
             <ul className="space-y-3 font-mono text-xs">
               <li>
                 <Link href="/signals" className="hover:text-white transition-colors block">
-                  Kelly Capital Sizing
+                  Capital Risk Allocation
                 </Link>
               </li>
               <li>
                 <Link href="/signals" className="hover:text-white transition-colors block">
-                  TWAP / VWAP Router
+                  Smart Execution Router
                 </Link>
               </li>
               <li>
@@ -195,7 +195,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/forecast" className="hover:text-white transition-colors block">
-                  Monte Carlo Corridors
+                  Predictive Horizon Scenarios
                 </Link>
               </li>
             </ul>
@@ -247,7 +247,7 @@ export default function Footer() {
             <span>Risk Disclosure &amp; Regulatory Transparency</span>
           </div>
           <p className="text-slate-400 text-[11px] leading-relaxed">
-            Cryptocurrency assets and digital token derivatives involve significant market risk and high volatility. All quantitative models, consensus matrix signals, and predictive forecasting corridors provided by <strong>our firm</strong> are mathematical formulations intended for analytical risk management and market research purposes only, and do not constitute personal financial or investment advice. Orders routed through connected exchange gateways (CoinSwitch PRO) execute under authenticated Ed25519 signing. Desk capital management protocols and fractional sizing bounds are strictly recommended.
+            Cryptocurrency assets and digital token derivatives involve significant market risk and high volatility. All quantitative models, consensus matrix signals, and predictive forecasting corridors provided by <strong>our firm</strong> are mathematical formulations intended for analytical risk management and market research purposes only, and do not constitute personal financial or investment advice. Orders routed through connected exchange gateways (CoinSwitch PRO) execute under authenticated cryptographic verification. Capital management protocols and strict risk boundaries are continuously applied.
           </p>
         </div>
 

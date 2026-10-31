@@ -10,7 +10,6 @@ import {
   Activity, 
   TrendingUp, 
   Compass, 
-  User, 
   Sparkles, 
   Sun, 
   Moon, 
@@ -24,7 +23,6 @@ import { useTheme } from '@/components/common/ThemeProvider';
 export default function Header() {
   const pathname = usePathname();
   const navRef = useRef<HTMLDivElement>(null);
-  const [profileOpen, setProfileOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
 
@@ -101,9 +99,6 @@ export default function Header() {
               <span className="font-black tracking-tight text-base sm:text-lg lg:text-xl text-slate-900 dark:text-white transition-colors">
                 JH <span className="text-gradient-gold">CRYPTO ANALYTICS</span>
               </span>
-              <span className="hidden xl:inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-[10px] font-mono font-bold text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
-                OUR FIRM
-              </span>
             </div>
             <p className="text-[10px] sm:text-[11px] font-mono text-slate-500 dark:text-slate-400 font-medium tracking-tight hidden xs:block">
               Quantitative Alpha &amp; Predictive Forecasting Desk &bull; INR (&#8377;)
@@ -142,14 +137,6 @@ export default function Header() {
         {/* Right Institutional Controls */}
         <div className="flex items-center gap-2.5 sm:gap-3">
           
-          {/* Live Desk Telemetry Pill (Desktop) */}
-          <div className="hidden xl:flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 font-mono text-[11px]">
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-            <span className="text-slate-700 dark:text-slate-300 font-bold">DESK LIVE</span>
-            <span className="text-slate-300 dark:text-slate-700">|</span>
-            <span className="text-cyan-600 dark:text-cyan-400 font-semibold">12ms</span>
-          </div>
-
           {/* Theme Switcher Button with Ripple Effect */}
           <button
             onClick={(e) => toggleTheme(e)}
@@ -173,53 +160,6 @@ export default function Header() {
             <span>Launch Terminal</span>
             <ArrowUpRight className="w-3.5 h-3.5 opacity-70" />
           </Link>
-
-          {/* Institutional Operator Dropdown */}
-          <div className="relative hidden md:block">
-            <button
-              onClick={() => setProfileOpen(!profileOpen)}
-              className="flex items-center gap-2 px-3 py-2 rounded-xl bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800 shadow-sm text-slate-800 dark:text-slate-200 text-xs font-mono font-bold transition-all"
-            >
-              <User className="w-3.5 h-3.5 text-amber-500" />
-              <span className="font-bold text-slate-900 dark:text-white">OUR DESK</span>
-            </button>
-
-            {profileOpen && (
-              <div className="absolute right-0 mt-3 w-80 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-5 shadow-2xl z-50 animate-in fade-in slide-in-from-top-2 duration-200">
-                <div className="flex items-center gap-3.5 pb-4 border-b border-slate-100 dark:border-slate-800">
-                  <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center font-black text-slate-900 dark:text-white text-sm">
-                    JH
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-black text-slate-900 dark:text-white">Our Quant Desk</h4>
-                    <p className="text-xs text-slate-500 dark:text-slate-400 font-mono">Proprietary Quantitative Firm</p>
-                  </div>
-                </div>
-                <div className="py-3.5 text-xs space-y-2.5 font-mono text-slate-600 dark:text-slate-400">
-                  <p className="flex justify-between">
-                    <span className="text-slate-400 dark:text-slate-500">Theme:</span>
-                    <span className="text-slate-900 dark:text-slate-200 font-bold capitalize">{theme} Mode</span>
-                  </p>
-                  <p className="flex justify-between">
-                    <span className="text-slate-400 dark:text-slate-500">Gateway:</span>
-                    <span className="text-emerald-600 dark:text-emerald-400 font-bold">Ed25519 Active</span>
-                  </p>
-                  <p className="flex justify-between">
-                    <span className="text-slate-400 dark:text-slate-500">Denomination:</span>
-                    <span className="text-slate-900 dark:text-slate-200 font-bold">INR (₹)</span>
-                  </p>
-                </div>
-                <div className="pt-3 border-t border-slate-100 dark:border-slate-800">
-                  <button 
-                    onClick={() => setProfileOpen(false)}
-                    className="w-full py-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-xs font-bold font-mono text-slate-800 dark:text-slate-200 transition-colors"
-                  >
-                    Close Session Panel
-                  </button>
-                </div>
-              </div>
-            )}
-          </div>
 
           {/* Mobile & Tablet Hamburger */}
           <button

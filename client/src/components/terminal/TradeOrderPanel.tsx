@@ -154,7 +154,7 @@ export default function TradeOrderPanel({ symbol, currentPrice, verdict }: Trade
             </h3>
             <p className="text-xs text-slate-500 dark:text-slate-400 font-mono mt-0.5">
               {executionMode === 'COINSWITCH'
-                ? 'Connected to CoinSwitch PRO WebService using authenticated Ed25519 signing'
+                ? 'Connected to CoinSwitch PRO WebService using authenticated cryptographic verification'
                 : 'Automated algorithmic paper order router with risk sizing & dynamic stop loss'}
             </p>
           </div>
@@ -192,7 +192,7 @@ export default function TradeOrderPanel({ symbol, currentPrice, verdict }: Trade
             <div className="flex items-center gap-2">
               <Lock className="w-3.5 h-3.5 text-emerald-700" />
               <span className="text-slate-700">CoinSwitch API Key:</span>
-              <span className="text-emerald-950 font-black">{csStatus.apiKeyMasked} (Ed25519 Active)</span>
+              <span className="text-emerald-950 font-black">{csStatus.apiKeyMasked} (Active Session)</span>
             </div>
 
             <div className="flex items-center gap-4">
@@ -314,7 +314,7 @@ export default function TradeOrderPanel({ symbol, currentPrice, verdict }: Trade
             </div>
             <div className="flex justify-between">
               <span>Authentication Protocol:</span>
-              <span className="text-emerald-700 font-bold">Ed25519 Signed / Epoch Verified</span>
+              <span className="text-emerald-700 font-bold">Cryptographically Signed / Epoch Verified</span>
             </div>
           </div>
 

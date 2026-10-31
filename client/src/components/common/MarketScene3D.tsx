@@ -256,22 +256,6 @@ export default function MarketScene3D({ symbol = 'BTC', price = 67850 }: MarketS
       {/* Three.js Canvas Container */}
       <div ref={mountRef} className="w-full h-full cursor-grab active:cursor-grabbing" />
 
-      {/* Floating Info Overlay */}
-      <div className="absolute top-4 left-5 pointer-events-none">
-        <div className="flex items-center gap-2">
-          <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping" />
-          <span className="text-xs font-mono font-bold text-slate-800 uppercase tracking-wider">
-            3D Quantum Helix &bull; {symbol}
-          </span>
-          <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-bold border border-emerald-300">
-            Holographic Matrix
-          </span>
-        </div>
-        <p className="text-[11px] font-mono text-slate-500 mt-1">
-          Interactive Three.js volumetric order-flow helix & dynamic price wave
-        </p>
-      </div>
-
       {/* Floating Controls */}
       <div className="absolute bottom-4 right-5 flex items-center gap-2">
         <button

@@ -245,7 +245,7 @@ export default function CoinSwitchOrderTicket({ currentPrice, symbol }: OrderTic
       <div className="flex items-center justify-between text-[10px] text-slate-500 dark:text-slate-400 pt-2 border-t border-slate-100 dark:border-slate-800">
         <span className="flex items-center gap-1">
           <ShieldCheck className="w-3.5 h-3.5 text-emerald-500" />
-          Ed25519 Signed Gateway
+          Cryptographically Verified Gateway
         </span>
         <span className="text-slate-400">CoinSwitchX Pro L2</span>
       </div>

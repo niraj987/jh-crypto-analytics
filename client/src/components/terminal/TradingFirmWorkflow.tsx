@@ -72,21 +72,21 @@ export default function TradingFirmWorkflow({
           </div>
           <h2 className="text-2xl sm:text-3xl font-black tracking-tight mt-2">
             <span className="bg-gradient-to-r from-emerald-600 via-teal-600 to-sky-600 dark:from-emerald-400 dark:via-teal-300 dark:to-sky-400 bg-clip-text text-transparent">
-              How Our Firm Operates Like Top Trading Firms
+              Proprietary Quantitative Execution Framework
             </span>
           </h2>
           <p className="text-sm text-slate-600 dark:text-slate-300 mt-1 max-w-3xl font-medium">
-            Explore the 4-phase quantitative engine: How our firm formulates signals, calibrates mathematical risk, slices zero-impact block orders, and maintains delta-neutral portfolios.
+            A disciplined multi-phase methodology integrating alpha formulation, capital risk boundaries, precision order execution, and continuous portfolio supervision.
           </p>
         </div>
 
         {/* Quick Phase Tabs */}
         <div className="flex flex-wrap items-center gap-1.5 p-1.5 rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
           {[
-            { id: 'alpha', label: '1. Suggest (Alpha)', icon: Zap },
-            { id: 'risk', label: '2. Risk (Kelly Sizing)', icon: ShieldCheck },
-            { id: 'execution', label: '3. Buy/Sell (TWAP/VWAP)', icon: SlidersHorizontal },
-            { id: 'portfolio', label: '4. Manage (Delta-Neutral)', icon: Layers },
+            { id: 'alpha', label: '1. Alpha Formulation', icon: Zap },
+            { id: 'risk', label: '2. Capital Risk Sizing', icon: ShieldCheck },
+            { id: 'execution', label: '3. Smart Execution', icon: SlidersHorizontal },
+            { id: 'portfolio', label: '4. Portfolio Supervision', icon: Layers },
           ].map((tab) => {
             const Icon = tab.icon;
             const isActive = activeTab === tab.id;
@@ -215,7 +215,7 @@ export default function TradingFirmWorkflow({
                   How Top Trading Desks Calculate Exact Trade Sizing
                 </h3>
                 <p className="text-xs text-slate-600 dark:text-slate-300 mt-1 font-medium">
-                  Amateur traders bet random sums. Quantitative funds use the <strong>Kelly Criterion</strong> downscaled to <strong>Quarter-Kelly (0.25x)</strong> to maximize compounding growth while strictly preventing drawdown ruin.
+                  Amateur traders bet arbitrary sums. Our firm applies disciplined mathematical risk scaling downscaled to conservative fractions to maximize compounding growth while strictly preventing drawdown ruin.
                 </p>
               </div>
 

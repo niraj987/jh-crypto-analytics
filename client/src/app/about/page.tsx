@@ -34,46 +34,46 @@ export default function AboutPage() {
       cardBg: 'bg-gradient-to-br from-orange-50/90 via-amber-50/40 to-white dark:from-[#211204] dark:via-[#160b02] dark:to-[#0c0501] border-orange-300/90 dark:border-orange-800/80',
       icon: Zap,
       iconColor: 'text-orange-500',
-      formula: 'f(α) = Σ (w_i · Score_i) ∈ [-100, +100]',
+      formula: 'Information Edge: α > +35 Consensus',
       description:
-        'Firms do not speculate on gut feeling. Hundreds of mathematical factors (RSI divergence, MACD volume momentum, Bollinger squeeze, on-chain reserve drain) are computed tick-by-tick. When composite alpha exceeds +35 with high statistical significance, the supervisor publishes an automated BUY recommendation with verified targets.',
+        'Our firm does not speculate on gut feeling. Statistical indicators (RSI divergence, volume momentum, Bollinger squeeze, on-chain reserve drain) are computed tick-by-tick. When composite alpha exceeds +35 with high statistical significance, the supervisor publishes an automated BUY recommendation with verified targets.',
     },
     {
       id: 'pillar-2',
-      step: '02. RISK (KELLY SIZING)',
-      title: 'How Top Firms Manage Risk (Capital Sizing)',
+      step: '02. RISK (CAPITAL SIZING)',
+      title: 'How Our Firm Manages Risk (Capital Sizing)',
       titleGradient: 'text-gradient-lime',
-      subtitle: 'Quarter-Kelly Staking & Parametric VaR Limits',
+      subtitle: 'Dynamic Capital Sizing & Parametric VaR Limits',
       image: '/photos/gettyimages-2270333130-612x612.jpg',
-      badge: 'Quarter-Kelly (0.25x)',
+      badge: 'Controlled Sizing (0.25x)',
       badgeColor: 'bg-lime-100 dark:bg-lime-950/80 text-lime-900 dark:text-lime-300 border-lime-300 dark:border-lime-700',
       cardBg: 'bg-gradient-to-br from-lime-50/90 via-emerald-50/40 to-white dark:from-[#0a2310] dark:via-[#07170a] dark:to-[#030d05] border-lime-300/90 dark:border-lime-800/80',
       icon: ShieldCheck,
       iconColor: 'text-lime-500',
-      formula: 'f* = 0.25 × (p · b - q) / b',
+      formula: 'Risk Objective: Ruin Probability < 0.01%',
       description:
-        'Capital preservation always takes precedence over returns. Trading desks downscale the raw Kelly Criterion to Quarter-Kelly (0.25x) to eliminate ruin risk during fat-tailed drawdowns. 14-period ATR envelopes set dynamic stop-losses, and single-desk Value-at-Risk (VaR) is capped strictly at 2% of equity.',
+        'Capital preservation always takes precedence over returns. Our trading desk scales trade size conservatively to eliminate ruin risk during fat-tailed drawdowns. Dynamic ATR envelopes set strict stop-losses, and single-desk Value-at-Risk (VaR) is capped strictly at 2% of equity.',
     },
     {
       id: 'pillar-3',
       step: '03. BUY/SELL (SMART ROUTING)',
-      title: 'How Top Firms Buy & Sell (Execution)',
+      title: 'How Our Firm Executes (Smart Order Routing)',
       titleGradient: 'text-gradient-cyan',
-      subtitle: 'TWAP, VWAP Slicing & Anti-MEV Icebergs',
+      subtitle: 'Algorithmic Slicing & Anti-MEV Icebergs',
       image: '/photos/pierre-borthiry-peiobty-vBCVcWUyvyM-unsplash.jpg',
       badge: 'Zero Slippage Routing',
       badgeColor: 'bg-cyan-100 dark:bg-cyan-950/80 text-cyan-900 dark:text-cyan-300 border-cyan-300 dark:border-cyan-700',
       cardBg: 'bg-gradient-to-br from-cyan-50/90 via-sky-50/40 to-white dark:from-[#051722] dark:via-[#031018] dark:to-[#02080d] border-cyan-300/90 dark:border-cyan-800/80',
       icon: SlidersHorizontal,
       iconColor: 'text-cyan-500',
-      formula: 'VWAP = Σ (P_i · V_i) / Σ V_i',
+      formula: 'Execution Objective: Slippage < 0.05%',
       description:
-        'Large block orders (₹10,00,000+) are never sent as raw market orders. Smart order routers decompose orders into micro child slices over 30 to 60-minute windows using TWAP and VWAP algorithms. Iceberg orders mask cumulative sizes to prevent predatory front-running and MEV sandwich bots.',
+        'Large block orders (₹10,00,000+) are never sent as raw market orders. Smart order routers decompose orders into micro child slices over 30 to 60-minute windows using proprietary execution algorithms. Iceberg orders mask cumulative sizes to prevent predatory front-running and MEV sandwich bots.',
     },
     {
       id: 'pillar-4',
       step: '04. MANAGE (DELTA-NEUTRAL)',
-      title: 'How Top Firms Manage Portfolios (Hedging)',
+      title: 'How Our Firm Manages Portfolios (Hedging)',
       titleGradient: 'text-gradient-berry',
       subtitle: 'Beta Hedging & Cross-Asset Market Neutrality',
       image: '/photos/gettyimages-2112329817-612x612.jpg',
@@ -82,7 +82,7 @@ export default function AboutPage() {
       cardBg: 'bg-gradient-to-br from-fuchsia-50/90 via-pink-50/40 to-white dark:from-[#250926] dark:via-[#19061a] dark:to-[#0f0310] border-fuchsia-300/90 dark:border-fuchsia-800/80',
       icon: Layers,
       iconColor: 'text-fuchsia-500',
-      formula: 'Hedge = - Σ (w_i · β_i) × Futures_BTC',
+      formula: 'Hedging Objective: Portfolio Beta ≈ 0.00',
       description:
         'Firms neutralize broader directional volatility by maintaining a zero-beta portfolio. They hold high-conviction long positions in strong crypto assets while simultaneously shorting equivalent beta exposure on BTC/ETH perpetuals, unlocking uncorrelated returns regardless of market direction.',
     },
@@ -135,7 +135,7 @@ export default function AboutPage() {
       id: 'agent-4',
       title: 'Predictive Horizon & Risk Boundary Specialist',
       titleGradient: 'text-gradient-sunset',
-      role: 'Monte Carlo Scenarios & Exact INR Target Invalidation',
+      role: 'Predictive Scenarios & Exact INR Target Invalidation',
       image: '/photos/kanchanara-GnWfl_nnZro-unsplash.jpg',
       icon: TrendingUp,
       accentText: 'text-amber-600 dark:text-amber-400',
@@ -266,9 +266,9 @@ export default function AboutPage() {
                   </div>
                 </div>
 
-                {/* Mathematical Formula Box */}
+                {/* Mathematical Target Box */}
                 <div className="p-3.5 rounded-xl bg-slate-100/90 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 font-mono text-xs flex items-center justify-between">
-                  <span className="text-[10px] text-slate-500 dark:text-slate-400 font-bold uppercase">Quantitative Proof:</span>
+                  <span className="text-[10px] text-slate-500 dark:text-slate-400 font-bold uppercase">Quantitative Benchmark:</span>
                   <span className="text-slate-900 dark:text-white font-black tracking-wider">{p.formula}</span>
                 </div>
 
@@ -311,7 +311,7 @@ export default function AboutPage() {
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
             <div className="absolute bottom-3 left-3 right-3 p-3 bg-slate-900/95 backdrop-blur-md rounded-xl text-white text-[11px] font-mono flex items-center justify-between border border-slate-800">
               <span>High-Frequency Order Router</span>
-              <span className="text-emerald-400 font-bold">Ed25519 Verified</span>
+              <span className="text-emerald-400 font-bold">Cryptographically Verified</span>
             </div>
           </div>
         </div>

@@ -68,7 +68,7 @@ export default function HomePage() {
 
             {/* Spacious Subtitle */}
             <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl font-normal">
-              Empowering professional crypto traders with sub-second Buy/Sell consensus calculations, Kelly Criterion position sizing, zero-impact smart order routing, and predictive market forecasting denominated in <strong className="text-amber-600 dark:text-amber-400 font-black">INR (₹)</strong>.
+              Delivering disciplined quantitative intelligence, precision risk management, and algorithmic market execution denominated in <strong className="text-amber-600 dark:text-amber-400 font-black">Indian Rupee (₹)</strong>.
             </p>
 
             {/* Action Buttons with Institutional Color Scheme */}
@@ -103,11 +103,11 @@ export default function HomePage() {
               </div>
               <div className="p-4 rounded-2xl bg-gradient-to-br from-fuchsia-50/90 via-pink-50/40 to-white dark:from-[#22071d] dark:via-[#170413] dark:to-[#0d020a] border border-fuchsia-300/90 dark:border-fuchsia-800/80 shadow-sm hover:shadow-md transition-all">
                 <span className="text-fuchsia-800 dark:text-fuchsia-300 text-[10px] block font-bold uppercase">Risk Engine</span>
-                <span className="text-fuchsia-950 dark:text-fuchsia-200 font-black text-sm">Kelly Criterion</span>
+                <span className="text-fuchsia-950 dark:text-fuchsia-200 font-black text-sm">Dynamic Sizing</span>
               </div>
               <div className="p-4 rounded-2xl bg-gradient-to-br from-lime-50/90 via-emerald-50/40 to-white dark:from-[#0c1f09] dark:via-[#071505] dark:to-[#030b02] border border-lime-300/90 dark:border-lime-800/80 shadow-sm hover:shadow-md transition-all">
                 <span className="text-lime-800 dark:text-lime-300 text-[10px] block font-bold uppercase">Order Slicing</span>
-                <span className="text-lime-950 dark:text-lime-200 font-black text-sm">TWAP &amp; VWAP</span>
+                <span className="text-lime-950 dark:text-lime-200 font-black text-sm">Smart Routing</span>
               </div>
             </div>
 
@@ -133,9 +133,6 @@ export default function HomePage() {
                 <h2 className="text-2xl font-black text-slate-900 dark:text-white tracking-tight">
                   Comprehensive 48-Asset Market Index
                 </h2>
-                <p className="text-xs text-slate-500 dark:text-slate-400 font-mono mt-0.5">
-                  Real-time prices across Majors, Layer-1s, Memes, DeFi protocols, and AI tokens
-                </p>
               </div>
             </div>
           </div>
@@ -268,11 +265,6 @@ export default function HomePage() {
                 className="w-full h-auto object-cover rounded-xl block transition-transform duration-500 group-hover:scale-105"
                 style={{ maxHeight: '420px', aspectRatio: '16 / 10' }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none" />
-              <div className="absolute bottom-3 left-3 right-3 p-3 bg-slate-900/90 backdrop-blur-md rounded-xl text-white text-[11px] font-mono flex items-center justify-between border border-cyan-800/60">
-                <span>Multi-Screen Execution Floor</span>
-                <span className="text-cyan-300 font-bold">Latency: 18ms</span>
-              </div>
             </div>
           </div>
 
@@ -287,7 +279,7 @@ export default function HomePage() {
                 <span className="text-gradient-lime">Real-Time Quantitative Signal Dashboard</span>
               </h3>
               <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
-                Real-time algorithmic dashboard calculating RSI momentum, 50/200 SMA trend envelopes, and Kelly Criterion position sizing.
+                Real-time algorithmic dashboard calculating RSI momentum, 50/200 SMA trend envelopes, and disciplined position sizing.
               </p>
             </div>
 
@@ -344,10 +336,10 @@ export default function HomePage() {
                 <span className="text-xs font-mono font-bold text-amber-900 dark:text-amber-300 bg-amber-100 dark:bg-amber-950/80 px-2.5 py-0.5 rounded-full border border-amber-300 dark:border-amber-700">Mathematical Calibration</span>
               </div>
               <h3 className="text-lg font-black mb-1.5">
-                <span className="text-gradient-sunset">Kelly Sizing, Brownian Motion &amp; VWAP Math</span>
+                <span className="text-gradient-sunset">Systematic Capital Allocation &amp; Risk Mathematics</span>
               </h3>
               <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
-                Every trade suggestion and order slice is backed by verified stochastic formulas: Fractional Kelly allocation, jump diffusion, and Sharpe ratio maximization.
+                Every trade suggestion and order slice is backed by verified stochastic models: dynamic capital sizing, volatility corridors, and risk-adjusted return optimization.
               </p>
             </div>
 
