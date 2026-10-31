@@ -118,12 +118,12 @@ function SignalsTerminal() {
         </div>
         <div className="flex flex-wrap items-center justify-between gap-5 pb-6 border-b border-slate-100 dark:border-slate-800">
           <div className="flex items-center gap-3.5 sm:gap-5">
-            <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-1 flex items-center justify-center shadow-md shrink-0">
+            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-white dark:bg-[#0c1222] border border-slate-200/90 dark:border-slate-800 p-1.5 flex items-center justify-center shadow-sm shrink-0">
               <Image
                 src="/jh-logo.png"
                 alt="JH Logo"
-                width={44}
-                height={44}
+                width={40}
+                height={40}
                 className="object-contain"
                 unoptimized
               />
@@ -131,8 +131,8 @@ function SignalsTerminal() {
             <div>
               <div className="flex flex-wrap items-center gap-2 sm:gap-3">
                 <Star className="w-4 h-4 sm:w-5 sm:h-5 text-amber-400 fill-amber-400" />
-                <h1 className="text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight">
-                  <span className="text-gradient-rainbow">
+                <h1 className="text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight text-slate-900 dark:text-white">
+                  <span className="text-gradient-cyan">
                     {currentAsset ? `${currentAsset.symbol} / INR` : `${selectedSymbol} / INR`}
                   </span>
                 </h1>

@@ -89,24 +89,25 @@ function ForecastWorkspace() {
       <div className="relative overflow-hidden flex flex-wrap items-center justify-between gap-6 p-6 sm:p-9 rounded-3xl bg-white dark:bg-[#0c1222] border border-slate-200 dark:border-slate-800 shadow-xl">
         <div className="relative z-10">
           <div className="flex items-center gap-4">
-            <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-1 flex items-center justify-center shadow-md shrink-0">
+            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-white dark:bg-[#0c1222] border border-slate-200/90 dark:border-slate-800 p-1.5 flex items-center justify-center shadow-sm shrink-0">
               <Image
                 src="/jh-logo.png"
                 alt="JH Logo"
-                width={44}
-                height={44}
+                width={40}
+                height={40}
                 className="object-contain"
                 unoptimized
               />
             </div>
             <div>
               <div className="flex flex-wrap items-center gap-2.5 sm:gap-3">
-                <h1 className="text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight">
-                  <span className="text-gradient-rainbow">
-                    AI Predictive Scenario Forecasting
+                <h1 className="text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight text-slate-900 dark:text-white">
+                  AI Predictive{' '}
+                  <span className="text-gradient-cyan">
+                    Scenario Forecasting
                   </span>
                 </h1>
-                <span className="text-[10px] sm:text-[11px] font-mono px-3 py-1 rounded-full bg-fuchsia-50 dark:bg-fuchsia-950/60 text-fuchsia-800 dark:text-fuchsia-300 border border-fuchsia-300 dark:border-fuchsia-800 font-extrabold shadow-sm">
+                <span className="text-[10px] sm:text-[11px] font-mono px-3 py-1 rounded-full bg-cyan-50 dark:bg-cyan-950/60 text-cyan-800 dark:text-cyan-300 border border-cyan-300 dark:border-cyan-800 font-extrabold shadow-sm">
                   TARGETS (₹)
                 </span>
               </div>

@@ -58,36 +58,36 @@ export default function HomePage() {
           {/* Left Column: Brand & Hero Copy */}
           <div ref={heroRef} className="lg:col-span-7 space-y-6">
             
-            {/* Headline with Multi-Color Chromatic Tones */}
+            {/* Headline with Prestigious Institutional Typography */}
             <h1 className="text-4xl sm:text-6xl font-black tracking-tight text-slate-900 dark:text-white leading-[1.12]">
               Institutional Crypto Terminal Powered by{' '}
-              <span className="text-gradient-rainbow">
+              <span className="text-gradient-gold">
                 Quantitative Intelligence
               </span>
             </h1>
 
             {/* Spacious Subtitle */}
             <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl font-normal">
-              Empowering professional crypto traders with sub-second Buy/Sell consensus calculations, Kelly Criterion position sizing, zero-impact smart order routing, and predictive market forecasting denominated in <strong className="text-emerald-600 dark:text-emerald-400 font-black">₹</strong>.
+              Empowering professional crypto traders with sub-second Buy/Sell consensus calculations, Kelly Criterion position sizing, zero-impact smart order routing, and predictive market forecasting denominated in <strong className="text-amber-600 dark:text-amber-400 font-black">INR (₹)</strong>.
             </p>
 
-            {/* Action Buttons with Vibrant Gradients */}
+            {/* Action Buttons with Institutional Color Scheme */}
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <Link
                 href="/signals"
-                className="px-8 py-4 rounded-2xl bg-gradient-to-r from-amber-500 via-rose-500 to-fuchsia-600 hover:from-amber-400 hover:to-fuchsia-500 text-white font-mono font-black text-sm flex items-center gap-2.5 shadow-lg shadow-rose-500/25 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
+                className="px-8 py-4 rounded-2xl bg-slate-900 hover:bg-slate-800 dark:bg-slate-100 dark:hover:bg-white text-white dark:text-slate-950 font-mono font-black text-sm flex items-center gap-2.5 shadow-lg shadow-slate-900/15 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
               >
-                <Activity className="w-4 h-4" />
+                <Activity className="w-4 h-4 text-amber-400 dark:text-amber-600" />
                 <span>Launch Trading Signals Desk</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
 
               <Link
                 href="/forecast"
-                className="px-8 py-4 rounded-2xl bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-900 dark:text-white font-mono font-bold text-sm flex items-center gap-2.5 border border-purple-300 dark:border-purple-800 shadow-sm hover:shadow-purple-500/10 hover:-translate-y-0.5 transition-all duration-200"
+                className="px-8 py-4 rounded-2xl bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-900 dark:text-white font-mono font-bold text-sm flex items-center gap-2.5 border border-slate-300 dark:border-slate-700 shadow-sm hover:-translate-y-0.5 transition-all duration-200"
               >
-                <TrendingUp className="w-4 h-4 text-fuchsia-600 dark:text-fuchsia-400" />
-                <span className="text-gradient-berry font-black">Explore AI RAG Forecasting</span>
+                <TrendingUp className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />
+                <span className="text-gradient-cyan font-black">Explore AI RAG Forecasting</span>
               </Link>
             </div>
 

@@ -181,7 +181,7 @@ Optimal entry is favored near support at ${formatINR(supportLevelINR, true)}, wi
             </div>
 
             <h3 className="text-xl sm:text-2xl lg:text-3xl font-black tracking-tight leading-snug">
-              <span className="text-gradient-rainbow">
+              <span className="text-gradient-cyan">
                 AI Quantitative &amp; Graph Analysis Agent
               </span>
             </h3>
