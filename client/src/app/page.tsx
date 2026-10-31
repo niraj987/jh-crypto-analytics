@@ -91,26 +91,6 @@ export default function HomePage() {
               </Link>
             </div>
 
-            {/* Telemetry Highlights with Distinct Vibrant Colored Background Tiles */}
-            <div className="pt-6 grid grid-cols-2 sm:grid-cols-4 gap-4 font-mono text-xs">
-              <div className="p-4 rounded-2xl bg-gradient-to-br from-amber-50/90 via-orange-50/40 to-white dark:from-[#211204] dark:via-[#160b02] dark:to-[#0c0501] border border-amber-300/90 dark:border-amber-800/80 shadow-sm hover:shadow-md transition-all">
-                <span className="text-amber-800 dark:text-amber-300 text-[10px] block font-bold uppercase">Currency</span>
-                <span className="text-amber-950 dark:text-amber-200 font-black text-sm">Real-Time (₹)</span>
-              </div>
-              <div className="p-4 rounded-2xl bg-gradient-to-br from-cyan-50/90 via-sky-50/40 to-white dark:from-[#051722] dark:via-[#031018] dark:to-[#02080d] border border-cyan-300/90 dark:border-cyan-800/80 shadow-sm hover:shadow-md transition-all">
-                <span className="text-cyan-800 dark:text-cyan-300 text-[10px] block font-bold uppercase">Token Catalog</span>
-                <span className="text-cyan-950 dark:text-cyan-200 font-black text-sm">48+ Active Pairs</span>
-              </div>
-              <div className="p-4 rounded-2xl bg-gradient-to-br from-fuchsia-50/90 via-pink-50/40 to-white dark:from-[#22071d] dark:via-[#170413] dark:to-[#0d020a] border border-fuchsia-300/90 dark:border-fuchsia-800/80 shadow-sm hover:shadow-md transition-all">
-                <span className="text-fuchsia-800 dark:text-fuchsia-300 text-[10px] block font-bold uppercase">Risk Engine</span>
-                <span className="text-fuchsia-950 dark:text-fuchsia-200 font-black text-sm">Dynamic Sizing</span>
-              </div>
-              <div className="p-4 rounded-2xl bg-gradient-to-br from-lime-50/90 via-emerald-50/40 to-white dark:from-[#0c1f09] dark:via-[#071505] dark:to-[#030b02] border border-lime-300/90 dark:border-lime-800/80 shadow-sm hover:shadow-md transition-all">
-                <span className="text-lime-800 dark:text-lime-300 text-[10px] block font-bold uppercase">Order Slicing</span>
-                <span className="text-lime-950 dark:text-lime-200 font-black text-sm">Smart Routing</span>
-              </div>
-            </div>
-
           </div>
 
           {/* Right Column: Three.js Interactive 3D Model with INR Price */}
@@ -235,9 +215,6 @@ export default function HomePage() {
             <h2 className="text-2xl font-black text-slate-900 dark:text-white tracking-tight">
               Our Firm&apos;s Trading Floor &amp; Mathematical Research Lab
             </h2>
-            <p className="text-xs text-slate-500 dark:text-slate-400 font-mono mt-0.5">
-              Live multi-screen trading terminals, depth order flow monitors, and verified risk mathematical models
-            </p>
           </div>
         </div>
 
@@ -290,11 +267,6 @@ export default function HomePage() {
                 className="w-full h-auto object-cover rounded-xl block transition-transform duration-500 group-hover:scale-105"
                 style={{ maxHeight: '420px', aspectRatio: '16 / 10' }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none" />
-              <div className="absolute bottom-3 left-3 right-3 p-3 bg-slate-900/90 backdrop-blur-md rounded-xl text-white text-[11px] font-mono flex items-center justify-between border border-lime-800/60">
-                <span>Real-Time Candlestick Ticks</span>
-                <span className="text-lime-300 font-bold">1D &amp; 4H Confluence</span>
-              </div>
             </div>
           </div>
 
@@ -320,11 +292,6 @@ export default function HomePage() {
                 className="w-full h-auto object-cover rounded-xl block transition-transform duration-500 group-hover:scale-105"
                 style={{ maxHeight: '420px', aspectRatio: '16 / 10' }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none" />
-              <div className="absolute bottom-3 left-3 right-3 p-3 bg-slate-900/90 backdrop-blur-md rounded-xl text-white text-[11px] font-mono flex items-center justify-between border border-fuchsia-800/60">
-                <span>Multi-Screen Analyst Hub</span>
-                <span className="text-fuchsia-300 font-bold">24/7 Floor Coverage</span>
-              </div>
             </div>
           </div>
 
@@ -350,64 +317,79 @@ export default function HomePage() {
                 className="w-full h-auto object-cover rounded-xl block transition-transform duration-500 group-hover:scale-105"
                 style={{ maxHeight: '420px', aspectRatio: '16 / 10' }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none" />
-              <div className="absolute bottom-3 left-3 right-3 p-3 bg-slate-900/90 backdrop-blur-md rounded-xl text-white text-[11px] font-mono flex items-center justify-between border border-amber-800/60">
-                <span>Quantitative Research Lab</span>
-                <span className="text-amber-300 font-bold">Stochastic Calculus</span>
-              </div>
             </div>
           </div>
 
         </div>
       </section>
 
-      {/* Multi-Agent Architecture Explainer Banner */}
-      <section className="px-6 sm:px-8 lg:px-12 max-w-[1440px] mx-auto py-16">
-        <div className="rounded-3xl bg-white dark:bg-[#0c1222] border border-slate-200 dark:border-slate-800 p-10 md:p-14 shadow-2xl">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-5">
-              <span className="text-xs font-mono text-emerald-800 dark:text-emerald-400 font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800">
-                Our Firm&apos;s Quantitative Consensus
-              </span>
-              <h3 className="text-2xl sm:text-4xl font-black text-slate-900 dark:text-white leading-tight">
-                How Our Firm Formulates Real-Time Buy/Sell Signals
-              </h3>
-              <p className="text-slate-600 dark:text-slate-300 leading-relaxed font-normal text-base">
-                At <strong>our firm</strong>, our quantitative engine evaluates multiple market dimensions simultaneously: Multi-Timeframe Momentum, On-Chain Order Flow, Macro Historical Analogs, and Parametric Volatility Boundaries. Deliberations are weighted mathematically to produce audited Buy/Sell recommendations in real time.
+      {/* High-Impact Typographic Ambition & Methodological Statement */}
+      <section className="px-6 sm:px-8 lg:px-12 max-w-[1440px] mx-auto py-20 border-t border-slate-200/80 dark:border-slate-800/80">
+        <div className="space-y-12">
+          {/* Eyebrow & Headline in Big/Small Dynamic Typographic Hierarchy */}
+          <div className="max-w-4xl space-y-4">
+            <span className="text-xs font-mono font-bold tracking-widest text-amber-600 dark:text-amber-400 uppercase block">
+              Proprietary Mathematical Discipline
+            </span>
+            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black text-slate-900 dark:text-white tracking-tight leading-[1.08]">
+              Our Ambition Is To Deliver{' '}
+              <span className="text-gradient-gold">Precision Quantitative Alpha</span>{' '}
+              Without Directional Bias.
+            </h2>
+            <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 font-normal leading-relaxed max-w-3xl pt-2">
+              At our firm, we formulate real-time Buy and Sell intelligence across 48 digital assets by synthesizing multi-timeframe price momentum, order book microstructure, macroeconomic analogs, and continuous capital risk boundaries denominated in Indian Rupee (₹).
+            </p>
+          </div>
+
+          {/* Clean Open Minimalist Principles (No Rigid Clutter Boxes) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pt-4">
+            <div className="space-y-2 border-l-2 border-cyan-500/80 pl-4">
+              <span className="text-xs font-mono font-bold text-cyan-600 dark:text-cyan-400 block uppercase tracking-wider">01. Momentum Confluence</span>
+              <h4 className="text-xl font-black text-slate-900 dark:text-white">Multi-Timeframe Signals</h4>
+              <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-mono">
+                RSI momentum envelopes and 50/200 moving averages evaluated tick-by-tick.
               </p>
-              <div className="pt-2">
-                <Link
-                  href="/about"
-                  className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-2xl bg-slate-900 dark:bg-emerald-600 hover:bg-slate-800 dark:hover:bg-emerald-500 text-white font-mono text-xs font-bold shadow-md transition-all duration-200 hover:-translate-y-0.5"
-                >
-                  <span>Read Complete Architecture Whitepaper</span>
-                  <ArrowRight className="w-4 h-4 text-emerald-400 dark:text-white" />
-                </Link>
-              </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-5 font-mono text-xs">
-              <div className="p-6 rounded-3xl bg-gradient-to-br from-sky-50 via-blue-50/30 to-white dark:from-[#0c1626] dark:via-[#09101d] dark:to-[#070b14] border border-sky-200/90 dark:border-slate-800 shadow-sm hover:shadow-md transition-all">
-                <Zap className="w-6 h-6 text-sky-600 dark:text-sky-400 mb-3" />
-                <h5 className="font-extrabold text-slate-900 dark:text-white text-sm mb-1.5">Technical Agent</h5>
-                <p className="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">RSI, MACD, BB, SMA 50/200 Golden Cross confluence</p>
-              </div>
-              <div className="p-6 rounded-3xl bg-gradient-to-br from-emerald-50 via-teal-50/30 to-white dark:from-[#091b1a] dark:via-[#071314] dark:to-[#050e0f] border border-emerald-200/90 dark:border-slate-800 shadow-sm hover:shadow-md transition-all">
-                <BarChart2 className="w-6 h-6 text-emerald-600 dark:text-emerald-400 mb-3" />
-                <h5 className="font-extrabold text-slate-900 dark:text-white text-sm mb-1.5">On-Chain Flow</h5>
-                <p className="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">Order-book imbalance, exchange reserves, whale net-flow</p>
-              </div>
-              <div className="p-6 rounded-3xl bg-gradient-to-br from-purple-50 via-indigo-50/30 to-white dark:from-[#180d26] dark:via-[#11091b] dark:to-[#0b0512] border border-purple-200/90 dark:border-slate-800 shadow-sm hover:shadow-md transition-all">
-                <Cpu className="w-6 h-6 text-purple-600 dark:text-purple-400 mb-3" />
-                <h5 className="font-extrabold text-slate-900 dark:text-white text-sm mb-1.5">Macro Intelligence</h5>
-                <p className="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">Historical post-halving analogs &amp; macro liquidity vectors</p>
-              </div>
-              <div className="p-6 rounded-3xl bg-gradient-to-br from-amber-50 via-orange-50/30 to-white dark:from-[#1b1509] dark:via-[#140f06] dark:to-[#0d0a04] border border-amber-200/90 dark:border-slate-800 shadow-sm hover:shadow-md transition-all">
-                <ShieldCheck className="w-6 h-6 text-amber-600 dark:text-amber-400 mb-3" />
-                <h5 className="font-extrabold text-slate-900 dark:text-white text-sm mb-1.5">Supervisor Node</h5>
-                <p className="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">Resolves conflict, calculates entry, TP, and stop-loss</p>
-              </div>
+            <div className="space-y-2 border-l-2 border-emerald-500/80 pl-4">
+              <span className="text-xs font-mono font-bold text-emerald-600 dark:text-emerald-400 block uppercase tracking-wider">02. Order Flow Depth</span>
+              <h4 className="text-xl font-black text-slate-900 dark:text-white">Microstructure Scanning</h4>
+              <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-mono">
+                Bid-to-ask depth ratios and liquidity pressure verified before signal emission.
+              </p>
             </div>
+
+            <div className="space-y-2 border-l-2 border-purple-500/80 pl-4">
+              <span className="text-xs font-mono font-bold text-purple-600 dark:text-purple-400 block uppercase tracking-wider">03. Scenario Modeling</span>
+              <h4 className="text-xl font-black text-slate-900 dark:text-white">Historical Analogs</h4>
+              <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-mono">
+                Post-halving cycles and macro liquidity vectors cross-referenced continuously.
+              </p>
+            </div>
+
+            <div className="space-y-2 border-l-2 border-amber-500/80 pl-4">
+              <span className="text-xs font-mono font-bold text-amber-600 dark:text-amber-400 block uppercase tracking-wider">04. Capital Preservation</span>
+              <h4 className="text-xl font-black text-slate-900 dark:text-white">Strict Risk Limits</h4>
+              <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-mono">
+                Automated dynamic ATR targets, trailing stops, and controlled capital allocation.
+              </p>
+            </div>
+          </div>
+
+          {/* Action Row */}
+          <div className="pt-4 flex flex-wrap items-center gap-4">
+            <Link
+              href="/signals"
+              className="px-7 py-3.5 rounded-2xl bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-950 font-mono font-bold text-xs shadow-md transition-all duration-200 hover:-translate-y-0.5"
+            >
+              Open Live Signal Terminal →
+            </Link>
+            <Link
+              href="/about"
+              className="px-7 py-3.5 rounded-2xl border border-slate-300 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-900 dark:text-white font-mono font-bold text-xs transition-all duration-200"
+            >
+              Read Architecture Methodology
+            </Link>
           </div>
         </div>
       </section>

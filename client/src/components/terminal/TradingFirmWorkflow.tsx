@@ -164,11 +164,6 @@ export default function TradingFirmWorkflow({
                   </p>
                 </div>
               </div>
-
-              <div className="p-4 rounded-2xl bg-emerald-50/80 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 text-xs font-mono text-emerald-900 dark:text-emerald-300">
-                <strong>Consensus Formula:</strong> Aggregate Score = (Technical × 0.30) + (Microstructure × 0.25) + (RAG × 0.25) + (Risk × 0.20).
-                If Aggregate Score &gt; +35, publish a <strong>STRONG BUY</strong> signal with calculated targets.
-              </div>
             </div>
 
             {/* Right Column: Visual Trading Screen */}
@@ -183,18 +178,7 @@ export default function TradingFirmWorkflow({
                   className="w-full h-auto object-cover rounded-xl block transition-transform duration-500 group-hover:scale-105"
                   style={{ maxHeight: '420px', aspectRatio: '16 / 10' }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
-                <div className="absolute bottom-3 left-3 right-3 p-3 bg-slate-900/90 backdrop-blur-md rounded-xl text-white text-[11px] font-mono flex items-center justify-between border border-slate-800">
-                  <span className="flex items-center gap-1.5 font-bold">
-                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                    Alpha Factor Engine
-                  </span>
-                  <span className="text-emerald-400 font-bold">Consensus: BUY</span>
-                </div>
               </div>
-              <p className="text-xs text-slate-500 dark:text-slate-400 font-mono text-center">
-                Our quants observe live confluence across multi-timeframe candle envelopes.
-              </p>
             </div>
           </div>
         </div>

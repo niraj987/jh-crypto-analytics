@@ -87,58 +87,49 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* 2. Innovative Architectural Bento Matrix */}
+      {/* 2. Open, Freely Spaced Institutional Matrix */}
       <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12">
           
-          {/* Bento Card 1: Firm Identity & Verification (4 Cols) */}
-          <div className="lg:col-span-4 p-6 sm:p-7 rounded-2xl bg-slate-950/60 border border-slate-800/80 flex flex-col justify-between space-y-6">
-            <div className="space-y-4">
-              <div className="flex items-center gap-3">
-                {/* Crystal-Clear JH Logo Badge */}
-                <div className="w-11 h-11 rounded-xl bg-white dark:bg-[#0c1322] border border-slate-700 p-1 flex items-center justify-center shadow-sm shrink-0">
-                  <Image
-                    src="/jh-logo.png"
-                    alt="JH Crypto Analytics"
-                    width={32}
-                    height={32}
-                    className="object-contain"
-                    unoptimized
-                  />
-                </div>
-                <div>
-                  <h3 className="font-black text-white text-base tracking-tight">
-                    JH <span className="text-amber-400">CRYPTO ANALYTICS</span>
-                  </h3>
-                  <span className="text-[10px] font-mono text-cyan-400 block font-semibold">
-                    QUANTITATIVE TRADING DESK
-                  </span>
-                </div>
+          {/* Column 1: Firm Identity & Principles (4 Cols) */}
+          <div className="lg:col-span-4 space-y-5">
+            <div className="flex items-center gap-3">
+              {/* Crystal-Clear JH Logo Badge */}
+              <div className="w-11 h-11 rounded-xl bg-white dark:bg-[#0c1322] border border-slate-700 p-1 flex items-center justify-center shadow-sm shrink-0">
+                <Image
+                  src="/jh-logo.png"
+                  alt="JH Crypto Analytics"
+                  width={32}
+                  height={32}
+                  className="object-contain"
+                  unoptimized
+                />
               </div>
-
-              <p className="text-slate-400 leading-relaxed text-xs">
-                Our firm provides advanced algorithmic execution and predictive crypto intelligence denominated in Indian Rupee (&#8377;). Engineered with rigorous mathematical risk boundaries, Level 2 orderbook microstructure inspection, and stochastic forecasting models.
-              </p>
+              <div>
+                <h3 className="font-black text-white text-base tracking-tight">
+                  JH <span className="text-amber-400">CRYPTO ANALYTICS</span>
+                </h3>
+                <span className="text-[10px] font-mono text-cyan-400 block font-semibold">
+                  QUANTITATIVE TRADING DESK
+                </span>
+              </div>
             </div>
 
-            <div className="p-3 rounded-xl bg-slate-900 border border-slate-800/90 text-[11px] font-mono space-y-1.5">
-              <div className="flex justify-between items-center">
-                <span className="text-slate-400">System Status:</span>
-                <span className="text-emerald-400 font-bold">Operational</span>
-              </div>
-              <div className="flex justify-between items-center">
-                <span className="text-slate-400">Execution Protocol:</span>
-                <span className="text-white font-bold">Cryptographically Verified</span>
-              </div>
-              <div className="flex justify-between items-center">
-                <span className="text-slate-400">Base Currency:</span>
-                <span className="text-amber-400 font-bold">INR (₹) Real-Time</span>
-              </div>
+            <p className="text-slate-400 leading-relaxed text-xs">
+              Our firm provides advanced algorithmic execution and predictive crypto intelligence denominated in Indian Rupee (&#8377;). Engineered with mathematical risk boundaries, Level 2 orderbook microstructure inspection, and predictive forecasting scenarios.
+            </p>
+
+            <div className="text-[11px] font-mono space-y-1 text-slate-400 pt-3 border-t border-slate-800/80">
+              <p className="flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                <span>Operational Status: All Systems Active</span>
+              </p>
+              <p className="text-slate-500">Base Currency: INR (₹) • 48 Liquid Assets</p>
             </div>
           </div>
 
-          {/* Bento Card 2: Terminal Workspaces (2.5 Cols) */}
-          <div className="lg:col-span-3 p-6 sm:p-7 rounded-2xl bg-slate-950/60 border border-slate-800/80 space-y-4">
+          {/* Column 2: Terminal Workspaces (3 Cols) */}
+          <div className="lg:col-span-3 space-y-4">
             <h4 className="text-amber-400 font-bold text-xs uppercase font-mono tracking-wider flex items-center gap-2">
               <Terminal className="w-3.5 h-3.5" />
               Terminal Workspaces
@@ -171,8 +162,8 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Bento Card 3: Quantitative Solutions (2.5 Cols) */}
-          <div className="lg:col-span-2 p-6 sm:p-7 rounded-2xl bg-slate-950/60 border border-slate-800/80 space-y-4">
+          {/* Column 3: Quantitative Solutions (2 Cols) */}
+          <div className="lg:col-span-2 space-y-4">
             <h4 className="text-cyan-400 font-bold text-xs uppercase font-mono tracking-wider flex items-center gap-2">
               <Cpu className="w-3.5 h-3.5" />
               Quant Desks
@@ -201,14 +192,14 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Bento Card 4: Quantitative Research Dispatch (3 Cols) */}
-          <div className="lg:col-span-3 p-6 sm:p-7 rounded-2xl bg-slate-950/60 border border-slate-800/80 flex flex-col justify-between space-y-4">
+          {/* Column 4: Quantitative Research Dispatch (3 Cols) */}
+          <div className="lg:col-span-3 space-y-4">
             <div className="space-y-2">
               <h4 className="text-white font-bold text-xs uppercase font-mono tracking-wider flex items-center gap-2">
                 <Sparkles className="w-3.5 h-3.5 text-amber-400" />
                 Quant Research Dispatch
               </h4>
-              <p className="text-slate-400 text-[11px] leading-relaxed">
+              <p className="text-slate-400 text-xs leading-relaxed">
                 Receive weekly market intelligence from our firm, macro liquidity analysis, and quantitative signal reports.
               </p>
             </div>
@@ -225,7 +216,7 @@ export default function Footer() {
                   value={emailInput}
                   onChange={(e) => setEmailInput(e.target.value)}
                   placeholder="investor@fund.com"
-                  className="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-xs text-white placeholder-slate-500 font-mono focus:outline-none focus:border-amber-400 transition-colors"
+                  className="w-full bg-slate-950/80 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs text-white placeholder-slate-500 font-mono focus:outline-none focus:border-amber-400 transition-colors"
                 />
                 <button
                   type="submit"
@@ -240,13 +231,13 @@ export default function Footer() {
 
         </div>
 
-        {/* 3. Regulatory Compliance & Disclosures Card */}
-        <div className="mt-8 p-5 sm:p-6 rounded-2xl bg-slate-950/40 border border-slate-800/70 space-y-3">
+        {/* 3. Regulatory Compliance & Disclosures (Clean Unboxed Strip) */}
+        <div className="mt-12 pt-8 border-t border-slate-800/80 space-y-2">
           <div className="flex items-center gap-2 text-amber-400 font-bold text-xs uppercase font-mono">
             <ShieldAlert className="w-4 h-4" />
             <span>Risk Disclosure &amp; Regulatory Transparency</span>
           </div>
-          <p className="text-slate-400 text-[11px] leading-relaxed">
+          <p className="text-slate-500 text-xs leading-relaxed max-w-5xl">
             Cryptocurrency assets and digital token derivatives involve significant market risk and high volatility. All quantitative models, consensus matrix signals, and predictive forecasting corridors provided by <strong>our firm</strong> are mathematical formulations intended for analytical risk management and market research purposes only, and do not constitute personal financial or investment advice. Orders routed through connected exchange gateways (CoinSwitch PRO) execute under authenticated cryptographic verification. Capital management protocols and strict risk boundaries are continuously applied.
           </p>
         </div>

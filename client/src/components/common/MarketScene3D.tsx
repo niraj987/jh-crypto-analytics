@@ -1,8 +1,7 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import * as THREE from 'three';
-import { Play, Pause, RefreshCw, Layers, Sparkles } from 'lucide-react';
 
 interface MarketScene3DProps {
   symbol?: string;
@@ -11,9 +10,7 @@ interface MarketScene3DProps {
 
 export default function MarketScene3D({ symbol = 'BTC', price = 67850 }: MarketScene3DProps) {
   const mountRef = useRef<HTMLDivElement>(null);
-  const [isRotating, setIsRotating] = useState(true);
-  const isRotatingRef = useRef(isRotating);
-  isRotatingRef.current = isRotating;
+  const isRotatingRef = useRef(true);
 
   useEffect(() => {
     const container = mountRef.current;
@@ -255,22 +252,6 @@ export default function MarketScene3D({ symbol = 'BTC', price = 67850 }: MarketS
     <div className="relative w-full h-[360px] rounded-3xl bg-gradient-to-br from-white/90 via-slate-50/80 to-emerald-50/40 border border-slate-200/80 shadow-[0_12px_36px_-8px_rgba(15,23,42,0.08),inset_0_1px_0_0_rgba(255,255,255,0.9)] overflow-hidden">
       {/* Three.js Canvas Container */}
       <div ref={mountRef} className="w-full h-full cursor-grab active:cursor-grabbing" />
-
-      {/* Floating Controls */}
-      <div className="absolute bottom-4 right-5 flex items-center gap-2">
-        <button
-          onClick={() => setIsRotating(!isRotating)}
-          className="px-3 py-1.5 rounded-xl bg-white/90 hover:bg-white text-slate-700 text-xs font-mono font-semibold border border-slate-200 shadow-sm flex items-center gap-1.5 transition-all hover:scale-105"
-        >
-          {isRotating ? <Pause className="w-3.5 h-3.5 text-slate-600" /> : <Play className="w-3.5 h-3.5 text-emerald-600" />}
-          <span>{isRotating ? 'Pause Orbit' : 'Auto Rotate'}</span>
-        </button>
-      </div>
-
-      {/* Hint Badge */}
-      <div className="absolute bottom-4 left-5 text-[10px] font-mono text-slate-600 bg-white/80 px-2.5 py-1 rounded-lg border border-slate-200/60 shadow-sm pointer-events-none">
-        Drag to orbit in 3D • Hover to tilt camera
-      </div>
     </div>
   );
 }
