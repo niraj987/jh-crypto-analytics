@@ -213,9 +213,7 @@ function SignalsTerminal() {
             <div>
               <div className="flex items-center gap-2">
                 <span className="font-black text-white text-sm">CoinSwitch PRO Account Connected</span>
-                <span className="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-400/40 font-bold">LIVE API</span>
               </div>
-              <p className="text-[11px] text-slate-400 hidden sm:block">Authenticated via Ed25519 Private Key • Direct coinswitchx INR Order Routing</p>
             </div>
           </div>
 

@@ -147,7 +147,7 @@ export function getFallbackConsensus(symbol: string): {
         keyMetrics: { RSI_14: 58.4, EMA_Cross: 'Bullish', Volatility_ATR: '2.4%' },
         reasoning: [
           `Price trading above 20 EMA and 50 SMA with positive momentum drift.`,
-          `MACD histogram expansion indicates institutional bid accumulation.`,
+          `MACD histogram expansion indicates strong bid accumulation.`,
         ],
         executionTimeMs: 142,
       },
@@ -161,7 +161,7 @@ export function getFallbackConsensus(symbol: string): {
         keyMetrics: { FundingRate: '+0.012%', OpenInterest: 'Expanding', OrderFlowRatio: '1.42' },
         reasoning: [
           `Funding rates neutral-to-positive; no crowded long liquidations evident.`,
-          `Institutional OTC flow signals active accumulation around VWAP support bands.`,
+          `OTC order flow signals active accumulation around VWAP support bands.`,
         ],
         executionTimeMs: 185,
       },
@@ -250,7 +250,7 @@ export function getFallbackConsensus(symbol: string): {
   const ragDocuments: RAGDocument[] = [
     {
       id: 'doc-1',
-      title: `${match.symbol} Institutional Liquidity & Order Book Imbalance`,
+      title: `${match.symbol} Market Liquidity & Order Book Imbalance`,
       category: 'Market Microstructure',
       content: `Sub-second L2/L3 order book analytics indicate buy-side liquidity wall positioned 1.8% below spot price.`,
       similarityScore: 0.94,
@@ -273,7 +273,7 @@ export function getFallbackConsensus(symbol: string): {
     logs: [
       `[Consensus Engine] Initialized multi-agent analysis for ${match.symbol}`,
       `[Technical Quant] Evaluated 14 technical indicators across 4h and 1D intervals`,
-      `[RAG Memory] Retrieved top semantic embeddings from institutional repository`,
+      `[RAG Memory] Retrieved top semantic embeddings from quantitative repository`,
       `[Monte Carlo] Simulated 10,000 Geometric Brownian Motion iterations`,
       `[Kelly Sizing] Computed optimal position sizing at 3.8% equity`,
     ],

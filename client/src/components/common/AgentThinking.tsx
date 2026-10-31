@@ -73,7 +73,7 @@ export default function AgentThinking({ insights, logs = [] }: AgentThinkingProp
           </div>
           <div>
             <h3 className="text-lg font-black text-slate-900 flex items-center gap-2.5">
-              Institutional Quantitative Consensus Stream
+              Our Firm&apos;s Quantitative Consensus Stream
               <span className="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-300 font-extrabold">
                 4 Specialized Nodes
               </span>
@@ -174,7 +174,7 @@ export default function AgentThinking({ insights, logs = [] }: AgentThinkingProp
       {/* Graph Trace Logs */}
       {showLogs && logs.length > 0 && (
         <div className="mt-8 p-5 rounded-2xl bg-slate-900 text-slate-200 font-mono text-xs space-y-1.5 max-h-56 overflow-y-auto shadow-inner">
-          <p className="text-emerald-400 font-bold mb-2">// Quantitative State Transition Logs:</p>
+          <p className="text-emerald-400 font-bold mb-2">Quantitative State Transition Logs:</p>
           {logs.map((log, idx) => (
             <p key={idx} className="text-slate-400 leading-relaxed">
               <span className="text-emerald-400 font-bold mr-2">{`>`}</span>

@@ -69,17 +69,14 @@ export default function TradingFirmWorkflow({
             <span className="text-[11px] font-mono px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800 font-extrabold uppercase shadow-sm">
               QUANTITATIVE ARCHITECTURE
             </span>
-            <span className="text-xs font-mono text-slate-500 dark:text-slate-400 font-bold">
-              WALL STREET &amp; CRYPTO PROP-DESK WORKFLOW
-            </span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-black tracking-tight mt-2">
             <span className="bg-gradient-to-r from-emerald-600 via-teal-600 to-sky-600 dark:from-emerald-400 dark:via-teal-300 dark:to-sky-400 bg-clip-text text-transparent">
-              How JH Crypto Analytics Operates Like Top Trading Firms
+              How Our Firm Operates Like Top Trading Firms
             </span>
           </h2>
           <p className="text-sm text-slate-600 dark:text-slate-300 mt-1 max-w-3xl font-medium">
-            Explore the 4-phase quantitative engine: How institutional firms formulate signals, calibrate mathematical risk, slice zero-impact block orders, and maintain delta-neutral portfolios.
+            Explore the 4-phase quantitative engine: How our firm formulates signals, calibrates mathematical risk, slices zero-impact block orders, and maintains delta-neutral portfolios.
           </p>
         </div>
 
@@ -117,7 +114,7 @@ export default function TradingFirmWorkflow({
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-7 space-y-4">
               <span className="text-xs font-mono font-bold text-sky-700 dark:text-sky-400 uppercase tracking-wider">
-                Phase 1 // Multi-Factor Alpha Discovery
+                Phase 1: Multi-Factor Alpha Discovery
               </span>
               <h3 className="text-xl font-black text-slate-900 dark:text-white">
                 How Trading Firms Formulate High-Conviction Signals
@@ -196,7 +193,7 @@ export default function TradingFirmWorkflow({
                 </div>
               </div>
               <p className="text-xs text-slate-500 dark:text-slate-400 font-mono text-center">
-                Institutional quants observe live confluence across multi-timeframe candle envelopes.
+                Our quants observe live confluence across multi-timeframe candle envelopes.
               </p>
             </div>
           </div>
@@ -212,7 +209,7 @@ export default function TradingFirmWorkflow({
             <div className="lg:col-span-6 space-y-5">
               <div>
                 <span className="text-xs font-mono font-bold text-emerald-700 dark:text-emerald-400 uppercase tracking-wider">
-                  Phase 2 // Capital Risk Sizing
+                  Phase 2: Capital Risk Sizing
                 </span>
                 <h3 className="text-xl font-black text-slate-900 dark:text-white mt-1">
                   How Top Trading Desks Calculate Exact Trade Sizing
@@ -278,9 +275,9 @@ export default function TradingFirmWorkflow({
                 {/* Safety Fraction (Quarter Kelly) */}
                 <div className="space-y-1.5">
                   <div className="flex justify-between text-xs font-mono">
-                    <span className="text-slate-600 dark:text-slate-400 font-bold">Institutional Safety Sizing:</span>
+                    <span className="text-slate-600 dark:text-slate-400 font-bold">Risk Boundary Sizing:</span>
                     <span className="text-purple-700 dark:text-purple-400 font-black text-sm">
-                      {kellyFraction === 0.25 ? 'Quarter Kelly (0.25x - Institutional)' : 'Half Kelly (0.50x)'}
+                      {kellyFraction === 0.25 ? 'Quarter Kelly (0.25x - Conservative)' : 'Half Kelly (0.50x)'}
                     </span>
                   </div>
                   <div className="flex gap-2">
@@ -365,13 +362,13 @@ export default function TradingFirmWorkflow({
             <div className="lg:col-span-6 space-y-5">
               <div>
                 <span className="text-xs font-mono font-bold text-amber-700 dark:text-amber-400 uppercase tracking-wider">
-                  Phase 3 // Smart Order Slicing &amp; Anti-Slippage
+                  Phase 3: Smart Order Slicing &amp; Anti-Slippage
                 </span>
                 <h3 className="text-xl font-black text-slate-900 dark:text-white mt-1">
                   How Trading Firms Buy and Sell Large Block Orders
                 </h3>
                 <p className="text-xs text-slate-600 dark:text-slate-300 mt-1 font-medium">
-                  If an institution buys ₹10,00,000 of crypto at market, the order sweeps the book, moves the price against them, and incurs massive slippage. Instead, they use <strong>TWAP (Time-Weighted)</strong> and <strong>VWAP (Volume-Weighted)</strong> order slicing with <strong>Iceberg orders</strong>.
+                  If a desk buys ₹10,00,000 of crypto at market, the order sweeps the book, moves the price against them, and incurs massive slippage. Instead, our firm uses <strong>TWAP (Time-Weighted)</strong> and <strong>VWAP (Volume-Weighted)</strong> order slicing with <strong>Iceberg orders</strong>.
                 </p>
               </div>
 
@@ -477,7 +474,7 @@ export default function TradingFirmWorkflow({
                 </div>
               </div>
               <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 text-xs font-mono text-slate-600 dark:text-slate-300 leading-relaxed">
-                <strong>Why this matters:</strong> Institutional crypto traders never submit raw market orders. They execute via algorithmic routing engines that distribute volume across decentralized pools and centralized order books to achieve the volume-weighted average price (VWAP).
+                <strong>Why this matters:</strong> Professional quants at our firm never submit raw market orders. They execute via algorithmic routing engines that distribute volume across decentralized pools and centralized order books to achieve the volume-weighted average price (VWAP).
               </div>
             </div>
 
@@ -494,7 +491,7 @@ export default function TradingFirmWorkflow({
             <div className="lg:col-span-6 space-y-5">
               <div>
                 <span className="text-xs font-mono font-bold text-purple-700 dark:text-purple-400 uppercase tracking-wider">
-                  Phase 4 // Portfolio &amp; Risk Management
+                  Phase 4: Portfolio &amp; Risk Management
                 </span>
                 <h3 className="text-xl font-black text-slate-900 dark:text-white mt-1">
                   How Trading Firms Manage Market Risk (Delta-Neutral Hedging)

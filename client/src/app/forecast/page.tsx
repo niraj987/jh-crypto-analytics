@@ -107,9 +107,6 @@ function ForecastWorkspace() {
                     Scenario Forecasting
                   </span>
                 </h1>
-                <span className="text-[10px] sm:text-[11px] font-mono px-3 py-1 rounded-full bg-cyan-50 dark:bg-cyan-950/60 text-cyan-800 dark:text-cyan-300 border border-cyan-300 dark:border-cyan-800 font-extrabold shadow-sm">
-                  TARGETS (₹)
-                </span>
               </div>
               <p className="text-xs sm:text-base text-slate-500 dark:text-slate-400 font-mono mt-1.5 font-medium">
                 Historical cycle analogs, halving supply dynamics, and probabilistic Monte Carlo price corridors

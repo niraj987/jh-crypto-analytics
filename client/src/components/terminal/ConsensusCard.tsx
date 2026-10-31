@@ -39,7 +39,7 @@ export default function ConsensusCard({ verdict, onRefresh, isLoading }: Consens
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
               QUANT REASONING
             </span>
-            <span className="text-xs text-slate-500 dark:text-slate-400 font-medium">Institutional Algorithmic Desk</span>
+            <span className="text-xs text-slate-500 dark:text-slate-400 font-medium">Our Firm&apos;s Algorithmic Desk</span>
           </div>
 
           <h3 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight leading-snug">
@@ -196,19 +196,6 @@ export default function ConsensusCard({ verdict, onRefresh, isLoading }: Consens
             {verdict.riskRewardRatio}R
           </span>
         </div>
-      </div>
-
-      {/* Executive Summary Thesis - Spacious and Highly Readable */}
-      <div className="mt-5 p-5 rounded-2xl bg-gradient-to-br from-slate-50 to-emerald-50/30 dark:from-[#0c1017] dark:to-emerald-950/20 border border-slate-200/90 dark:border-slate-800 text-slate-800 dark:text-slate-200 shadow-sm">
-        <div className="flex items-center gap-2 mb-2">
-          <Sparkles className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
-          <h4 className="text-xs font-black uppercase tracking-wider text-slate-900 dark:text-white">
-            Executive Multi-Agent Consensus Thesis
-          </h4>
-        </div>
-        <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-normal">
-          {verdict.executiveSummary}
-        </p>
       </div>
 
     </div>

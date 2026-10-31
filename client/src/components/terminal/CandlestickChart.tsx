@@ -438,7 +438,7 @@ export default function CandlestickChart({ candles, symbol, sma50Val, sma200Val 
         <div className="w-full sm:w-auto">
           <div className="flex flex-wrap items-center gap-2.5 sm:gap-3">
             <h2 className="text-base sm:text-xl font-black text-slate-900 dark:text-white tracking-tight">
-              {symbol} / INR Institutional Candlesticks
+              {symbol} / INR Candlestick Chart
             </h2>
             
             {/* Interactive Timeframe Buttons: 1D, 1W, 1M, 6M, 1Y, 5Y */}

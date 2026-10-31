@@ -21,13 +21,13 @@ export async function POST(req: NextRequest) {
 
     if (!GEMINI_API_KEY) {
       return NextResponse.json({
-        reply: `[JH Quant Intelligence] Quantitative models confirm healthy market liquidity and steady accumulation across active pairs. Recommended allocation strictly follows Half-Kelly bounds with defined stop-loss targets.`,
-        model: 'JH Quant Engine',
+        reply: `[Our Firm's Quant Copilot] Quantitative models confirm healthy market liquidity and steady accumulation across active pairs. Recommended allocation strictly follows Half-Kelly bounds with defined stop-loss targets.`,
+        model: 'Quant Engine',
         isFallback: true,
       });
     }
 
-    const systemPrompt = `You are the Senior Quantitative Analyst & AI Copilot at JH Crypto Analytics (Institutional Crypto Quant Desk).
+    const systemPrompt = `You are the Senior Quantitative Analyst & AI Copilot at our firm (Quantitative Crypto Desk).
 The user is asking a market, quantitative, or trading strategy question about ${assetName} (${assetSymbol}).
 Current Live Market Context:
 - Asset: ${assetName} (${assetSymbol})
@@ -38,9 +38,9 @@ Current Live Market Context:
 - Base Currency: Indian Rupee (₹)
 
 Guidelines:
-1. Provide a professional, realistic, institutional-grade answer.
+1. Provide a professional, realistic, quantitative answer representing our firm.
 2. Directly answer their question: provide clear buy/sell reasoning, exact INR entry/exit/stop-loss recommendations, or mathematical risk context (Kelly criterion, volatility bands).
-3. Be concise and crisp (2-3 short, impactful paragraphs). Never give generic disclaimers that take up the whole response. Always sound like an elite hedge-fund quant analyst.`;
+3. Be concise and crisp (2-3 short, impactful paragraphs). Never give generic disclaimers that take up the whole response. Always sound like a top quant analyst at our firm.`;
 
     const payload = {
       contents: [
@@ -70,8 +70,8 @@ Guidelines:
       const errText = await res.text();
       console.warn('Gemini API call failed with status:', res.status, errText);
       return NextResponse.json({
-        reply: `[JH Quant Intelligence] For ${assetSymbol} at ${currentPrice}: Momentum indicators (RSI ${rsi}) and moving average confluence indicate ${trend}. Optimal institutional accumulation is favored near key support, targeting a +6.5% to +12% risk-adjusted swing exit with stop-loss protection at -4.5%. Kelly criterion bounds position sizing to 2-4% of total equity.`,
-        model: 'gemini-fallback',
+        reply: `[Our Firm's Quant Copilot] For ${assetSymbol} at ${currentPrice}: Momentum indicators (RSI ${rsi}) and moving average confluence indicate ${trend}. Optimal accumulation is favored near key support, targeting a +6.5% to +12% risk-adjusted swing exit with stop-loss protection at -4.5%. Kelly criterion bounds position sizing to 2-4% of total equity.`,
+        model: 'Quant Engine',
         isFallback: true,
       });
     }
@@ -83,21 +83,21 @@ Guidelines:
     if (textPart) {
       return NextResponse.json({
         reply: textPart.trim(),
-        model: 'gemini-3.8-flash',
+        model: 'AI Copilot',
         isFallback: false,
       });
     }
 
     return NextResponse.json({
-      reply: `[JH Quant Intelligence] Consensus for ${assetSymbol}: Multi-agent models verify ${consensusAction} signal at ${currentPrice}. Maintain disciplined risk parameters.`,
-      model: 'gemini-fallback',
+      reply: `[Our Firm's Quant Copilot] Consensus for ${assetSymbol}: Quantitative models verify ${consensusAction} signal at ${currentPrice}. Maintain disciplined risk parameters.`,
+      model: 'Quant Engine',
       isFallback: true,
     });
   } catch (error: any) {
     console.error('Error in /api/gemini route:', error);
     return NextResponse.json({
-      reply: `[JH Quant Intelligence] Quantitative models confirm healthy market liquidity and steady accumulation across active pairs. Recommended allocation strictly follows Half-Kelly bounds with defined stop-loss targets.`,
-      model: 'gemini-fallback',
+      reply: `[Our Firm's Quant Copilot] Quantitative models confirm healthy market liquidity and steady accumulation across active pairs. Recommended allocation strictly follows Half-Kelly bounds with defined stop-loss targets.`,
+      model: 'Quant Engine',
       isFallback: true,
     });
   }

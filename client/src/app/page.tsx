@@ -58,9 +58,9 @@ export default function HomePage() {
           {/* Left Column: Brand & Hero Copy */}
           <div ref={heroRef} className="lg:col-span-7 space-y-6">
             
-            {/* Headline with Prestigious Institutional Typography */}
+            {/* Headline with Prestigious Typography */}
             <h1 className="text-4xl sm:text-6xl font-black tracking-tight text-slate-900 dark:text-white leading-[1.12]">
-              Institutional Crypto Terminal Powered by{' '}
+              Our Firm&apos;s Crypto Terminal Powered by{' '}
               <span className="text-gradient-gold">
                 Quantitative Intelligence
               </span>
@@ -131,7 +131,7 @@ export default function HomePage() {
               </div>
               <div>
                 <h2 className="text-2xl font-black text-slate-900 dark:text-white tracking-tight">
-                  Comprehensive 48-Asset Institutional Index
+                  Comprehensive 48-Asset Market Index
                 </h2>
                 <p className="text-xs text-slate-500 dark:text-slate-400 font-mono mt-0.5">
                   Real-time prices across Majors, Layer-1s, Memes, DeFi protocols, and AI tokens
@@ -236,7 +236,7 @@ export default function HomePage() {
           </div>
           <div>
             <h2 className="text-2xl font-black text-slate-900 dark:text-white tracking-tight">
-              Institutional Trading Floor &amp; Mathematical Research Lab
+              Our Firm&apos;s Trading Floor &amp; Mathematical Research Lab
             </h2>
             <p className="text-xs text-slate-500 dark:text-slate-400 font-mono mt-0.5">
               Live multi-screen trading terminals, depth order flow monitors, and verified risk mathematical models
@@ -254,7 +254,7 @@ export default function HomePage() {
                 <span className="text-xs font-mono font-bold text-cyan-900 dark:text-cyan-300 bg-cyan-100 dark:bg-cyan-950/80 px-2.5 py-0.5 rounded-full border border-cyan-300 dark:border-cyan-700">Active Live Floor</span>
               </div>
               <h3 className="text-lg font-black mb-1.5">
-                <span className="text-gradient-cyan">Multi-Monitor Institutional Execution Terminals</span>
+                <span className="text-gradient-cyan">Multi-Monitor Execution Terminals</span>
               </h3>
               <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
                 Proprietary traders, quant analysts, and risk officers monitoring tick-by-tick order flow, depth charts, and multi-asset price action in real time.
@@ -375,13 +375,13 @@ export default function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-5">
               <span className="text-xs font-mono text-emerald-800 dark:text-emerald-400 font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800">
-                Institutional Quantitative Consensus
+                Our Firm&apos;s Quantitative Consensus
               </span>
               <h3 className="text-2xl sm:text-4xl font-black text-slate-900 dark:text-white leading-tight">
-                How JH Crypto Analytics Formulates Real-Time Buy/Sell Signals
+                How Our Firm Formulates Real-Time Buy/Sell Signals
               </h3>
               <p className="text-slate-600 dark:text-slate-300 leading-relaxed font-normal text-base">
-                At <strong>JH Crypto Analytics</strong>, our quantitative engine evaluates multiple market dimensions simultaneously: Multi-Timeframe Momentum, On-Chain Order Flow, Macro Historical Analogs, and Parametric Volatility Boundaries. Deliberations are weighted mathematically to produce audited Buy/Sell recommendations in real time.
+                At <strong>our firm</strong>, our quantitative engine evaluates multiple market dimensions simultaneously: Multi-Timeframe Momentum, On-Chain Order Flow, Macro Historical Analogs, and Parametric Volatility Boundaries. Deliberations are weighted mathematically to produce audited Buy/Sell recommendations in real time.
               </p>
               <div className="pt-2">
                 <Link

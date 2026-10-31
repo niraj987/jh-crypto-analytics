@@ -119,24 +119,23 @@ export default function GaugeMeter({ score, action, confidence }: GaugeMeterProp
           </g>
         </svg>
 
-        {/* Real-time score readout inside gauge center */}
-        <div className="absolute bottom-1 flex flex-col items-center">
-          <div className="flex items-baseline gap-1">
-            <span ref={scoreTextRef} className="text-4xl font-extrabold font-mono text-white tracking-tight drop-shadow-md">
-              {score}
+        {/* Real-time score readout inside gauge center (Perfect Center, No 100, Chance of Buy) */}
+        <div className="absolute inset-0 flex flex-col items-center justify-end pb-2 pointer-events-none">
+          <div className="flex flex-col items-center text-center">
+            <span ref={scoreTextRef} className="text-4xl font-black font-mono text-white tracking-tight drop-shadow-md">
+              {score}%
             </span>
-            <span className="text-xs text-steel-400 font-mono">/ 100</span>
+            <span className="text-[11px] font-mono font-bold text-amber-400 uppercase tracking-wider mt-0.5">
+              Chance of Buy
+            </span>
           </div>
         </div>
       </div>
 
       {/* Decision Pill with Pop-up Glow */}
-      <div className="mt-3.5 flex flex-col items-center gap-1.5">
-        <span className={`px-5 py-1.5 rounded-xl text-sm font-extrabold font-mono tracking-wider border transition-all duration-300 hover:scale-105 cursor-pointer ${getBadgeStyle()}`}>
+      <div className="mt-3 flex flex-col items-center">
+        <span className={`px-6 py-2 rounded-xl text-sm font-extrabold font-mono tracking-wider border transition-all duration-300 hover:scale-105 cursor-pointer shadow-sm ${getBadgeStyle()}`}>
           {action}
-        </span>
-        <span className="text-xs font-mono text-steel-400">
-          Agent Consensus Agreement: <strong className="text-sky-light font-bold">{confidence}%</strong>
         </span>
       </div>
     </div>

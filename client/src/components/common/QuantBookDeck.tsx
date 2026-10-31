@@ -35,10 +35,10 @@ const DECK_PAGES: SlidePage[] = [
   {
     id: 1,
     title: 'Macro Alpha & Dual-Factor Momentum Stream',
-    category: 'Chapter 01 // Quantitative Signal Formulation',
+    category: 'Chapter 01: Quantitative Signal Formulation',
     badge: 'LIVE ALPHA DESK',
     image: '/photos/sajad-nori-XihAgOYNHn4-unsplash.jpg',
-    subtitle: 'How institutional prop desks identify high-probability trend continuation before retail order flow arrives.',
+    subtitle: 'How our firm identifies high-probability trend continuation before retail order flow arrives.',
     bulletPoints: [
       'Multi-timeframe RSI(14) momentum convergence across 15m, 1h, and 1D candlesticks.',
       'Moving average dynamic ribbon analysis combining 20 EMA, 50 SMA, and 200 SMA baseline.',
@@ -54,10 +54,10 @@ const DECK_PAGES: SlidePage[] = [
   {
     id: 2,
     title: 'Order Book Microstructure & Real-Time L2 Depth',
-    category: 'Chapter 02 // Market Liquidity & Spreads',
+    category: 'Chapter 02: Market Liquidity & Spreads',
     badge: 'COINSWITCH PRO GATEWAY',
     image: '/photos/gettyimages-2112329817-612x612.jpg',
-    subtitle: 'Deep liquidity scanning to detect hidden institutional iceberg orders and optimize fill prices denominated in INR.',
+    subtitle: 'Deep liquidity scanning to detect hidden iceberg orders and optimize fill prices denominated in INR.',
     bulletPoints: [
       'Sub-second Level 2 order book inspection tracking real-time bid-to-ask depth imbalance ratios.',
       'Slippage mitigation routing ensuring large block tickets execute at or better than VWAP.',
@@ -68,12 +68,12 @@ const DECK_PAGES: SlidePage[] = [
       { label: 'Bid Ratio', value: '88% Depth', color: 'text-emerald-500' },
       { label: 'Protocol', value: 'Ed25519', color: 'text-indigo-500' },
     ],
-    quote: '"Large market orders move the book against you. Smart institutional execution slices liquidity into imperceptible algorithmic fills."',
+    quote: '"Large market orders move the book against you. Smart execution slices liquidity into imperceptible algorithmic fills."',
   },
   {
     id: 3,
     title: 'Stochastic Calculus, Brownian Motion & Kelly Sizing',
-    category: 'Chapter 03 // Mathematical Risk Calibration',
+    category: 'Chapter 03: Mathematical Risk Calibration',
     badge: 'STOCHASTIC LAB',
     image: '/photos/pexels-thales13-39398846.jpg',
     subtitle: 'Replacing human emotional bias with verified mathematical probability distributions and geometric growth optimization.',
@@ -92,8 +92,8 @@ const DECK_PAGES: SlidePage[] = [
   },
   {
     id: 4,
-    title: 'Institutional Execution Floor & Delta-Neutral Hedging',
-    category: 'Chapter 04 // Portfolio Preservation',
+    title: 'Our Firm\'s Execution Floor & Delta-Neutral Hedging',
+    category: 'Chapter 04: Portfolio Preservation',
     badge: 'HEDGE FUND OPERATIONS',
     image: '/photos/quant-ambition-chess.jpg',
     subtitle: 'Eliminating directional market beta exposure to extract pure idiosyncratic risk-adjusted return.',
@@ -155,7 +155,7 @@ export default function QuantBookDeck() {
             </span>
           </div>
           <h3 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight mt-1">
-            Institutional Quantitative Methodology Deck
+            Our Firm&apos;s Quantitative Methodology Deck
           </h3>
         </div>
 

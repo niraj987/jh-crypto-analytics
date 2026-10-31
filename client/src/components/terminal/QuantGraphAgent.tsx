@@ -173,10 +173,6 @@ Optimal entry is favored near support at ${formatINR(supportLevelINR, true)}, wi
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                 ACTIVE COPILOT
               </span>
-              <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-purple-50 dark:bg-purple-950/50 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800 text-xs font-semibold">
-                <BrainCircuit className="w-3.5 h-3.5" />
-                Gemini 3.8 Flash Powered
-              </span>
               <span className="text-xs text-slate-500 dark:text-slate-400 font-medium hidden sm:inline">Sub-second Latency</span>
             </div>
 
@@ -242,7 +238,7 @@ Optimal entry is favored near support at ${formatINR(supportLevelINR, true)}, wi
           </div>
 
           <div className="p-3 rounded-xl bg-white/90 dark:bg-[#0c1017] border border-cyan-200/80 dark:border-cyan-900/60 text-xs text-cyan-950 dark:text-cyan-300 leading-relaxed font-normal">
-            Statistical indicators reveal <strong>{quantScore >= 60 ? 'sustained institutional accumulation' : 'cautious range contraction'}</strong> across volume-weighted bands.
+            Statistical indicators reveal <strong>{quantScore >= 60 ? 'sustained algorithmic accumulation' : 'cautious range contraction'}</strong> across volume-weighted bands.
           </div>
         </div>
 
@@ -323,17 +319,18 @@ Optimal entry is favored near support at ${formatINR(supportLevelINR, true)}, wi
 
       </div>
 
-      {/* Ask Gemini AI Market Copilot Interactive Query Bar */}
+      {/* Ask AI Market Copilot Interactive Query Bar */}
       <div className="space-y-4 pt-2">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <MessageSquare className="w-4 h-4 text-purple-600 dark:text-purple-400" />
             <h4 className="text-xs font-black uppercase tracking-wider text-slate-900 dark:text-white">
-              Ask Gemini AI Quantitative Copilot
+              Ask AI Quantitative Copilot
             </h4>
           </div>
-          <span className="text-[11px] text-purple-600 dark:text-purple-400 font-medium">
-            Active Model: <span className="font-bold">{activeModel}</span>
+          <span className="text-[11px] text-emerald-600 dark:text-emerald-400 font-medium flex items-center gap-1.5">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+            Autonomous Copilot Ready
           </span>
         </div>
 
@@ -342,7 +339,7 @@ Optimal entry is favored near support at ${formatINR(supportLevelINR, true)}, wi
             type="text"
             value={userQuery}
             onChange={(e) => setUserQuery(e.target.value)}
-            placeholder={`Ask Gemini: "Should I buy ${asset.symbol} right now?", "What are the key resistance levels?", or "Explain Kelly sizing"...`}
+            placeholder={`Ask Copilot: "Should I buy ${asset.symbol} right now?", "What are the key resistance levels?", or "Explain Kelly sizing"...`}
             className="flex-1 bg-white dark:bg-[#0c1017] border border-slate-300 dark:border-slate-800 rounded-2xl py-3.5 px-5 text-sm text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-purple-600 focus:ring-2 focus:ring-purple-100 dark:focus:ring-purple-950 shadow-sm transition-all"
           />
           <button
@@ -355,7 +352,7 @@ Optimal entry is favored near support at ${formatINR(supportLevelINR, true)}, wi
             ) : (
               <Send className="w-4 h-4 text-purple-200" />
             )}
-            <span>{isAnalyzing ? 'Consulting Gemini...' : 'Consult Copilot'}</span>
+            <span>{isAnalyzing ? 'Processing...' : 'Enter'}</span>
           </button>
         </form>
 

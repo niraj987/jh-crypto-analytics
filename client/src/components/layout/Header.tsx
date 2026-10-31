@@ -102,11 +102,11 @@ export default function Header() {
                 JH <span className="text-gradient-gold">CRYPTO ANALYTICS</span>
               </span>
               <span className="hidden xl:inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-[10px] font-mono font-bold text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
-                INSTITUTIONAL
+                OUR FIRM
               </span>
             </div>
             <p className="text-[10px] sm:text-[11px] font-mono text-slate-500 dark:text-slate-400 font-medium tracking-tight hidden xs:block">
-              Quantitative Alpha &amp; Predictive Forecasting Desk // INR (₹)
+              Quantitative Alpha &amp; Predictive Forecasting Desk &bull; INR (&#8377;)
             </p>
           </div>
         </Link>
@@ -181,7 +181,7 @@ export default function Header() {
               className="flex items-center gap-2 px-3 py-2 rounded-xl bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800 shadow-sm text-slate-800 dark:text-slate-200 text-xs font-mono font-bold transition-all"
             >
               <User className="w-3.5 h-3.5 text-amber-500" />
-              <span className="font-bold text-slate-900 dark:text-white">JH-DESK</span>
+              <span className="font-bold text-slate-900 dark:text-white">OUR DESK</span>
             </button>
 
             {profileOpen && (
@@ -191,8 +191,8 @@ export default function Header() {
                     JH
                   </div>
                   <div>
-                    <h4 className="text-sm font-black text-slate-900 dark:text-white">JH Crypto Analytics</h4>
-                    <p className="text-xs text-slate-500 dark:text-slate-400 font-mono">Institutional Quant Desk</p>
+                    <h4 className="text-sm font-black text-slate-900 dark:text-white">Our Quant Desk</h4>
+                    <p className="text-xs text-slate-500 dark:text-slate-400 font-mono">Proprietary Quantitative Firm</p>
                   </div>
                 </div>
                 <div className="py-3.5 text-xs space-y-2.5 font-mono text-slate-600 dark:text-slate-400">

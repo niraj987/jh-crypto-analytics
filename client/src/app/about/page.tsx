@@ -24,7 +24,7 @@ export default function AboutPage() {
   const pillars = [
     {
       id: 'pillar-1',
-      step: '01 // SUGGEST (ALPHA)',
+      step: '01. SUGGEST (ALPHA)',
       title: 'How Top Firms Suggest (Alpha Generation)',
       titleGradient: 'text-gradient-sunset',
       subtitle: 'Statistical Significance & Multi-Factor Scoring',
@@ -40,7 +40,7 @@ export default function AboutPage() {
     },
     {
       id: 'pillar-2',
-      step: '02 // RISK (KELLY SIZING)',
+      step: '02. RISK (KELLY SIZING)',
       title: 'How Top Firms Manage Risk (Capital Sizing)',
       titleGradient: 'text-gradient-lime',
       subtitle: 'Quarter-Kelly Staking & Parametric VaR Limits',
@@ -56,7 +56,7 @@ export default function AboutPage() {
     },
     {
       id: 'pillar-3',
-      step: '03 // BUY/SELL (SMART ROUTING)',
+      step: '03. BUY/SELL (SMART ROUTING)',
       title: 'How Top Firms Buy & Sell (Execution)',
       titleGradient: 'text-gradient-cyan',
       subtitle: 'TWAP, VWAP Slicing & Anti-MEV Icebergs',
@@ -68,11 +68,11 @@ export default function AboutPage() {
       iconColor: 'text-cyan-500',
       formula: 'VWAP = Σ (P_i · V_i) / Σ V_i',
       description:
-        'Large institutional block orders (₹10,00,000+) are never sent as market orders. Smart order routers decompose orders into micro child slices over 30 to 60-minute windows using TWAP and VWAP algorithms. Iceberg orders mask cumulative sizes to prevent predatory front-running and MEV sandwich bots.',
+        'Large block orders (₹10,00,000+) are never sent as raw market orders. Smart order routers decompose orders into micro child slices over 30 to 60-minute windows using TWAP and VWAP algorithms. Iceberg orders mask cumulative sizes to prevent predatory front-running and MEV sandwich bots.',
     },
     {
       id: 'pillar-4',
-      step: '04 // MANAGE (DELTA-NEUTRAL)',
+      step: '04. MANAGE (DELTA-NEUTRAL)',
       title: 'How Top Firms Manage Portfolios (Hedging)',
       titleGradient: 'text-gradient-berry',
       subtitle: 'Beta Hedging & Cross-Asset Market Neutrality',
@@ -164,7 +164,7 @@ export default function AboutPage() {
             />
           </div>
           <span className="text-xs font-mono font-black text-slate-900 dark:text-white">
-            JH CRYPTO ANALYTICS // INSTITUTIONAL METHODOLOGY
+            OUR FIRM &bull; QUANTITATIVE METHODOLOGY
           </span>
         </div>
 
@@ -182,7 +182,7 @@ export default function AboutPage() {
         </h1>
 
         <p className="text-slate-600 dark:text-slate-300 text-base sm:text-xl lg:text-2xl leading-relaxed font-normal w-full max-w-none">
-          <strong className="text-slate-900 dark:text-white font-black">JH Crypto Analytics</strong> delivers institutional hedge-fund capabilities to cryptocurrency traders: algorithmic multi-agent consensus, Half-Kelly risk sizing, zero-impact TWAP/VWAP order execution, and semantic RAG forecasting in <strong className="text-emerald-600 dark:text-emerald-400 font-black">Indian Rupee (₹)</strong>.
+          <strong className="text-slate-900 dark:text-white font-black">Our firm</strong> delivers advanced quantitative capabilities to cryptocurrency traders: algorithmic multi-agent consensus, Half-Kelly risk sizing, zero-impact TWAP/VWAP order execution, and semantic RAG forecasting in <strong className="text-emerald-600 dark:text-emerald-400 font-black">Indian Rupee (₹)</strong>.
         </p>
       </div>
 
@@ -195,7 +195,7 @@ export default function AboutPage() {
           <div className="flex flex-wrap items-center justify-between gap-4">
             <div>
               <span className="text-xs font-mono font-bold text-emerald-700 dark:text-emerald-400 uppercase tracking-wider px-3.5 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800">
-                Institutional Prop-Trading Blueprint
+                Our Firm&apos;s Quantitative Blueprint
               </span>
               <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black mt-2 tracking-tight">
                 <span className="bg-gradient-to-r from-slate-900 via-indigo-900 to-slate-800 dark:from-white dark:via-sky-200 dark:to-emerald-300 bg-clip-text text-transparent">
@@ -425,7 +425,7 @@ export default function AboutPage() {
             Ready to Analyze Real-Time Crypto Prices in Indian Rupee (₹)?
           </h3>
           <p className="text-emerald-100 text-sm max-w-xl font-normal">
-            Step onto the institutional execution desk with live ticking L2 order book, AI consensus matrix, and direct order tickets.
+            Step onto our firm&apos;s execution desk with live ticking L2 order book, AI consensus matrix, and direct order tickets.
           </p>
         </div>
         <Link

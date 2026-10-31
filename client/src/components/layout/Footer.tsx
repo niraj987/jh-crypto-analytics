@@ -111,13 +111,13 @@ export default function Footer() {
                     JH <span className="text-amber-400">CRYPTO ANALYTICS</span>
                   </h3>
                   <span className="text-[10px] font-mono text-cyan-400 block font-semibold">
-                    INSTITUTIONAL QUANT DESK
+                    QUANTITATIVE TRADING DESK
                   </span>
                 </div>
               </div>
 
               <p className="text-slate-400 leading-relaxed text-xs">
-                Institutional-grade algorithmic execution and predictive crypto intelligence denominated in Indian Rupee (₹). Engineered with rigorous mathematical risk boundaries, Level 2 orderbook microstructure inspection, and stochastic forecasting models.
+                Our firm provides advanced algorithmic execution and predictive crypto intelligence denominated in Indian Rupee (&#8377;). Engineered with rigorous mathematical risk boundaries, Level 2 orderbook microstructure inspection, and stochastic forecasting models.
               </p>
             </div>
 
@@ -146,25 +146,25 @@ export default function Footer() {
             <ul className="space-y-3 font-mono font-medium text-xs">
               <li>
                 <Link href="/" className="hover:text-white transition-colors flex items-center justify-between group">
-                  <span className="group-hover:translate-x-0.5 transition-transform">01 // Market Overview</span>
+                  <span className="group-hover:translate-x-0.5 transition-transform">01. Market Overview</span>
                   <ArrowUpRight className="w-3 h-3 text-slate-500 group-hover:text-amber-400 transition-colors" />
                 </Link>
               </li>
               <li>
                 <Link href="/signals" className="hover:text-white transition-colors flex items-center justify-between group">
-                  <span className="group-hover:translate-x-0.5 transition-transform">02 // Real-Time Signals</span>
+                  <span className="group-hover:translate-x-0.5 transition-transform">02. Real-Time Signals</span>
                   <ArrowUpRight className="w-3 h-3 text-slate-500 group-hover:text-emerald-400 transition-colors" />
                 </Link>
               </li>
               <li>
                 <Link href="/forecast" className="hover:text-white transition-colors flex items-center justify-between group">
-                  <span className="group-hover:translate-x-0.5 transition-transform">03 // AI RAG Forecast</span>
+                  <span className="group-hover:translate-x-0.5 transition-transform">03. AI RAG Forecast</span>
                   <ArrowUpRight className="w-3 h-3 text-slate-500 group-hover:text-cyan-400 transition-colors" />
                 </Link>
               </li>
               <li>
                 <Link href="/about" className="hover:text-white transition-colors flex items-center justify-between group">
-                  <span className="group-hover:translate-x-0.5 transition-transform">04 // Quant Methodology</span>
+                  <span className="group-hover:translate-x-0.5 transition-transform">04. Quant Methodology</span>
                   <ArrowUpRight className="w-3 h-3 text-slate-500 group-hover:text-purple-400 transition-colors" />
                 </Link>
               </li>
@@ -201,7 +201,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Bento Card 4: Institutional Research Dispatch & Newsletter (3 Cols) */}
+          {/* Bento Card 4: Quantitative Research Dispatch (3 Cols) */}
           <div className="lg:col-span-3 p-6 sm:p-7 rounded-2xl bg-slate-950/60 border border-slate-800/80 flex flex-col justify-between space-y-4">
             <div className="space-y-2">
               <h4 className="text-white font-bold text-xs uppercase font-mono tracking-wider flex items-center gap-2">
@@ -209,14 +209,14 @@ export default function Footer() {
                 Quant Research Dispatch
               </h4>
               <p className="text-slate-400 text-[11px] leading-relaxed">
-                Receive weekly institutional market intelligence, macro liquidity analysis, and quantitative signal reports.
+                Receive weekly market intelligence from our firm, macro liquidity analysis, and quantitative signal reports.
               </p>
             </div>
 
             {subscribed ? (
               <div className="p-3 rounded-xl bg-emerald-950/40 border border-emerald-800 text-emerald-300 text-xs font-mono flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span>Subscribed to Institutional Digest.</span>
+                <span>Subscribed to Research Digest.</span>
               </div>
             ) : (
               <form onSubmit={handleSubscribe} className="space-y-2">
@@ -244,17 +244,17 @@ export default function Footer() {
         <div className="mt-8 p-5 sm:p-6 rounded-2xl bg-slate-950/40 border border-slate-800/70 space-y-3">
           <div className="flex items-center gap-2 text-amber-400 font-bold text-xs uppercase font-mono">
             <ShieldAlert className="w-4 h-4" />
-            <span>Institutional Risk Disclosure &amp; Regulatory Transparency</span>
+            <span>Risk Disclosure &amp; Regulatory Transparency</span>
           </div>
           <p className="text-slate-400 text-[11px] leading-relaxed">
-            Cryptocurrency assets and digital token derivatives involve significant market risk and high volatility. All quantitative models, consensus matrix signals, and predictive forecasting corridors provided by <strong>JH Crypto Analytics</strong> are mathematical formulations intended for analytical risk management and institutional research purposes only, and do not constitute personal financial or investment advice. Orders routed through connected exchange gateways (CoinSwitch PRO) execute under authenticated Ed25519 signing. Desk capital management protocols and fractional sizing bounds are strictly recommended.
+            Cryptocurrency assets and digital token derivatives involve significant market risk and high volatility. All quantitative models, consensus matrix signals, and predictive forecasting corridors provided by <strong>our firm</strong> are mathematical formulations intended for analytical risk management and market research purposes only, and do not constitute personal financial or investment advice. Orders routed through connected exchange gateways (CoinSwitch PRO) execute under authenticated Ed25519 signing. Desk capital management protocols and fractional sizing bounds are strictly recommended.
           </p>
         </div>
 
         {/* 4. Bottom Legal & Back to Top Strip */}
         <div className="mt-10 pt-6 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-[11px]">
           <p className="text-slate-400">
-            &copy; {new Date().getFullYear()} JH Crypto Analytics. Institutional Proprietary Trading Desk. All rights reserved.
+            &copy; {new Date().getFullYear()} JH Crypto Analytics. Proprietary Quantitative Trading Desk. All rights reserved.
           </p>
 
           <div className="flex items-center gap-6">
