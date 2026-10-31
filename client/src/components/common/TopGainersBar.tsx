@@ -76,7 +76,7 @@ export default function TopGainersBar() {
 
       tweenRef.current = gsap.to(el, {
         x: `-=${totalWidth}`,
-        duration: 90,
+        duration: 180, // Slower, calm scrolling speed
         ease: 'none',
         repeat: -1,
         modifiers: {

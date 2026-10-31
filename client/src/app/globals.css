@@ -127,6 +127,18 @@ html.dark .text-gradient-berry {
   -webkit-text-fill-color: transparent;
 }
 
+.text-gradient-lime {
+  background: linear-gradient(135deg, #15803d 0%, #16a34a 50%, #65a30d 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+html.dark .text-gradient-lime {
+  background: linear-gradient(135deg, #bbf7d0 0%, #4ade80 50%, #a3e635 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 /* Warm, Eye-Soothing Cream-Tinted Glassmorphic Tile */
 .glass-tile {
   background: rgba(255, 253, 249, 0.94);

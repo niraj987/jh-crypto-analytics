@@ -4,6 +4,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ApiClient } from '@/lib/api';
 import { CryptoAsset } from '@/lib/types';
 import { formatINR, formatINRLarge, toINR, toUSD } from '@/lib/currency';
@@ -13,6 +14,10 @@ import MarketScene3D from '@/components/common/MarketScene3D';
 import TradingFirmWorkflow from '@/components/terminal/TradingFirmWorkflow';
 import QuantBookDeck from '@/components/common/QuantBookDeck';
 import { Activity, TrendingUp, Cpu, ShieldCheck, ArrowRight, Sparkles, BarChart2, Zap, Layers, CheckCircle2, Compass } from 'lucide-react';
+
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 export default function HomePage() {
   const [catalog, setCatalog] = useState<CryptoAsset[]>([]);
@@ -25,21 +30,56 @@ export default function HomePage() {
     }
     load();
 
-    if (heroRef.current) {
-      gsap.fromTo(
-        heroRef.current.children,
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.7, stagger: 0.1, ease: 'power2.out' }
-      );
+    if (typeof window !== 'undefined') {
+      const ctx = gsap.context(() => {
+        // Hero entrance animation
+        if (heroRef.current) {
+          gsap.fromTo(
+            heroRef.current.children,
+            { opacity: 0, y: 25 },
+            { opacity: 1, y: 0, duration: 0.8, stagger: 0.12, ease: 'power2.out' }
+          );
+        }
+
+        // Scroll-triggered animations for sections and technique phases
+        const scrollElements = gsap.utils.toArray<HTMLElement>('.gsap-reveal');
+        scrollElements.forEach((el) => {
+          gsap.fromTo(
+            el,
+            { opacity: 0, y: 35 },
+            {
+              opacity: 1,
+              y: 0,
+              duration: 0.85,
+              ease: 'power3.out',
+              scrollTrigger: {
+                trigger: el,
+                start: 'top 85%',
+                toggleActions: 'play none none none',
+              },
+            }
+          );
+        });
+      });
+
+      return () => ctx.revert();
     }
   }, []);
 
   return (
-    <div className="w-full">
-      {/* Live Marquee Ticker with Indian Rupee Prices */}
+    <div className="w-full relative">
+      {/* Dynamic Multi-Color Ambient Mesh Glows (Warm Natural, Cyan, Emerald, Berry, Gold) */}
+      <div className="fixed inset-0 pointer-events-none -z-10 overflow-hidden">
+        <div className="absolute top-[8%] -left-[12%] w-[550px] h-[550px] rounded-full bg-gradient-to-br from-cyan-500/12 to-sky-400/0 blur-[130px]" />
+        <div className="absolute top-[32%] -right-[12%] w-[600px] h-[600px] rounded-full bg-gradient-to-bl from-emerald-500/10 to-teal-400/0 blur-[140px]" />
+        <div className="absolute top-[58%] -left-[12%] w-[650px] h-[650px] rounded-full bg-gradient-to-tr from-fuchsia-500/10 to-purple-500/0 blur-[150px]" />
+        <div className="absolute top-[82%] -right-[12%] w-[700px] h-[700px] rounded-full bg-gradient-to-tl from-amber-500/12 to-orange-400/0 blur-[150px]" />
+      </div>
+
+      {/* Live Marquee Ticker with Calm Legible Speed */}
       <TickerMarquee assets={catalog} />
 
-      {/* Real-Time CoinSwitch PRO Top Gainers Bar */}
+      {/* Real-Time CoinSwitch PRO Top Gainers Bar with USD/INR Exchange Rate */}
       <TopGainersBar />
 
       {/* Spacious Hero Section with Warm Natural Tone & Three.js 3D Model */}
@@ -102,7 +142,7 @@ export default function HomePage() {
       </section>
 
       {/* Spacious 48-Token Institutional Market Index */}
-      <section className="px-6 sm:px-8 lg:px-12 max-w-[1440px] mx-auto py-12">
+      <section className="gsap-reveal px-6 sm:px-8 lg:px-12 max-w-[1440px] mx-auto py-12">
         <div className="flex flex-wrap items-center justify-between gap-4 mb-8 pb-4 border-b border-slate-200 dark:border-slate-800">
           <div>
             <div className="flex items-center gap-3">
@@ -201,201 +241,311 @@ export default function HomePage() {
       </section>
 
       {/* Interactive Financial Book & PPT Presentation Deck (Slide / Book-Turn Experience) */}
-      <section className="px-6 sm:px-8 lg:px-12 max-w-[1440px] mx-auto py-12">
+      <section className="gsap-reveal px-6 sm:px-8 lg:px-12 max-w-[1440px] mx-auto py-12">
         <QuantBookDeck />
       </section>
 
       {/* Institutional Trading Firm Workflow Engine (How Firms Suggest, Buy, Sell, and Manage) */}
-      <section className="px-6 sm:px-8 lg:px-12 max-w-[1440px] mx-auto py-12">
+      <section className="gsap-reveal px-6 sm:px-8 lg:px-12 max-w-[1440px] mx-auto py-12">
         <TradingFirmWorkflow />
       </section>
 
-      {/* Institutional Visual Showcase: Real Multi-Monitor Trading Screens & Quantitative Mathematics */}
-      <section className="px-6 sm:px-8 lg:px-12 max-w-[1440px] mx-auto py-12">
-        <div className="flex items-center gap-3 mb-8 pb-4 border-b border-slate-200 dark:border-slate-800">
-          <div className="w-10 h-10 rounded-2xl bg-sky-50 dark:bg-sky-950/60 border border-sky-200 dark:border-sky-800 flex items-center justify-center text-sky-700 dark:text-sky-400 shadow-sm">
-            <Layers className="w-5 h-5" />
+      {/* Institutional Visual Showcase: Real Multi-Monitor Trading Screens & Quantitative Mathematics (Unboxed Expansive Presentation) */}
+      <section className="gsap-reveal w-full max-w-[1536px] mx-auto px-6 sm:px-10 lg:px-14 py-20 lg:py-28 border-t border-slate-200/80 dark:border-slate-800/80">
+        
+        {/* Section Header with Dynamic Typographic Scale */}
+        <div className="max-w-4xl mb-16 space-y-4">
+          <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-sky-100 dark:bg-sky-950/80 border border-sky-300 dark:border-sky-800 text-sky-800 dark:text-sky-300 text-xs font-mono font-bold tracking-wider uppercase">
+            <span className="w-2 h-2 rounded-full bg-sky-500 animate-pulse" />
+            <span>Proprietary Floor Architecture</span>
           </div>
-          <div>
-            <h2 className="text-2xl font-black text-slate-900 dark:text-white tracking-tight">
-              Our Firm&apos;s Trading Floor &amp; Mathematical Research Lab
-            </h2>
-          </div>
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black text-slate-900 dark:text-white tracking-tight leading-[1.08]">
+            Our Firm&apos;s Trading Floor &amp;{' '}
+            <span className="text-gradient-cyan">Mathematical Research Lab</span>
+          </h2>
+          <p className="text-base sm:text-xl text-slate-600 dark:text-slate-300 font-normal leading-relaxed">
+            A comprehensive look into our physical and computational operations — from multi-monitor execution terminals and sub-second signal pipelines to round-the-clock trading floor collaboration and stochastic risk mathematics.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
-          
-          {/* Card 1: Ocean Turquoise & Cyan */}
-          <div className="p-7 rounded-3xl bg-gradient-to-br from-cyan-50/90 via-sky-50/30 to-white dark:from-[#051722] dark:via-[#031018] dark:to-[#02080d] border border-cyan-300/90 dark:border-cyan-800/80 shadow-xl flex flex-col justify-between space-y-4 hover:-translate-y-1 hover:shadow-2xl transition-all duration-300">
-            <div>
-              <div className="flex items-center justify-between pb-3 border-b border-cyan-100 dark:border-cyan-900/50 mb-4">
-                <span className="text-xs font-mono font-bold text-cyan-800 dark:text-cyan-300 uppercase">Trading Desks In Action</span>
-                <span className="text-xs font-mono font-bold text-cyan-900 dark:text-cyan-300 bg-cyan-100 dark:bg-cyan-950/80 px-2.5 py-0.5 rounded-full border border-cyan-300 dark:border-cyan-700">Active Live Floor</span>
+        {/* 4 Technique Phases: Pure Unboxed Typographic Layout across the Full Webpage Breadth */}
+        <div className="space-y-24">
+
+          {/* Phase 01: Multi-Monitor Execution Terminals (Cyan / Sky Scheme) */}
+          <div className="gsap-reveal grid grid-cols-1 lg:grid-cols-12 gap-10 items-center border-b border-cyan-500/20 pb-20">
+            <div className="lg:col-span-7 space-y-5">
+              <div className="flex items-center gap-3">
+                <span className="text-xs font-mono font-black tracking-widest text-cyan-600 dark:text-cyan-400 uppercase">
+                  Phase 01 // Execution Floor
+                </span>
+                <span className="w-12 h-px bg-cyan-500/40" />
+                <span className="text-[11px] font-mono font-bold text-slate-400 uppercase">
+                  Sub-Millisecond Ingestion
+                </span>
               </div>
-              <h3 className="text-lg font-black mb-1.5">
+              <h3 className="text-3xl sm:text-5xl font-black tracking-tight leading-tight">
                 <span className="text-gradient-cyan">Multi-Monitor Execution Terminals</span>
               </h3>
-              <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
-                Proprietary traders, quant analysts, and risk officers monitoring tick-by-tick order flow, depth charts, and multi-asset price action in real time.
+              <p className="text-lg sm:text-2xl font-bold text-slate-800 dark:text-slate-100 leading-snug">
+                Real-Time Order Flow Ingestion &amp; Sub-Millisecond Liquidity Queue Surveillance
               </p>
+              <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
+                Across our firm&apos;s active execution desks, dedicated trading stations monitor tick-by-tick order flow and liquidity distribution across all 48 crypto pairs simultaneously. High-resolution multi-screen matrices track depth-of-market bid-ask queues, sudden wall cancellations, and institutional block allocations without visual compression.
+              </p>
+              <div className="pt-2 flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-xs text-slate-500 dark:text-slate-400">
+                <div><span className="font-bold text-cyan-600 dark:text-cyan-400">Throughput:</span> 120,000 ticks/sec</div>
+                <div><span className="font-bold text-cyan-600 dark:text-cyan-400">Routing:</span> Sub-Second CoinSwitchX</div>
+                <div><span className="font-bold text-cyan-600 dark:text-cyan-400">Depth:</span> 50 Bid × 50 Ask Levels</div>
+              </div>
             </div>
-
-            <div className="relative rounded-2xl overflow-hidden border border-cyan-200 dark:border-cyan-900 shadow-md bg-slate-950 flex items-center justify-center min-h-[260px] group">
-              <img
-                src="/photos/gettyimages-1309660543-612x612.jpg"
-                alt="Institutional Multi-Monitor Trader Screen"
-                className="w-full h-auto object-cover rounded-xl block transition-transform duration-500 group-hover:scale-105"
-                style={{ maxHeight: '420px', aspectRatio: '16 / 10' }}
-              />
+            <div className="lg:col-span-5">
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-cyan-200 dark:border-cyan-900/60 group">
+                <img
+                  src="/photos/gettyimages-1309660543-612x612.jpg"
+                  alt="Multi-Monitor Execution Terminals"
+                  className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
+                  style={{ maxHeight: '380px', aspectRatio: '16 / 10' }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-cyan-950/70 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-xs font-mono text-white/90">
+                  <span className="font-bold tracking-wide">Multi-Screen Execution Desk</span>
+                  <span className="text-cyan-300 font-bold">18ms Latency</span>
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* Card 2: Spring Lime & Chartreuse Jade */}
-          <div className="p-7 rounded-3xl bg-gradient-to-br from-lime-50/90 via-emerald-50/30 to-white dark:from-[#0c1f09] dark:via-[#071505] dark:to-[#030b02] border border-lime-300/90 dark:border-lime-800/80 shadow-xl flex flex-col justify-between space-y-4 hover:-translate-y-1 hover:shadow-2xl transition-all duration-300">
-            <div>
-              <div className="flex items-center justify-between pb-3 border-b border-lime-100 dark:border-lime-900/50 mb-4">
-                <span className="text-xs font-mono font-bold text-lime-800 dark:text-lime-300 uppercase">Terminal Architecture</span>
-                <span className="text-xs font-mono font-bold text-lime-900 dark:text-lime-300 bg-lime-100 dark:bg-lime-950/80 px-2.5 py-0.5 rounded-full border border-lime-300 dark:border-lime-700">Sub-Second Ticks</span>
+          {/* Phase 02: Terminal Architecture (Emerald / Lime Scheme) */}
+          <div className="gsap-reveal grid grid-cols-1 lg:grid-cols-12 gap-10 items-center border-b border-lime-500/20 pb-20">
+            <div className="lg:col-span-5 order-2 lg:order-1">
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-lime-200 dark:border-lime-900/60 group">
+                <img
+                  src="/photos/behnam-norouzi-RDXcFY5g5O4-unsplash.jpg"
+                  alt="Terminal Architecture"
+                  className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
+                  style={{ maxHeight: '380px', aspectRatio: '16 / 10' }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-lime-950/70 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-xs font-mono text-white/90">
+                  <span className="font-bold tracking-wide">Algorithmic Tick Terminal</span>
+                  <span className="text-lime-300 font-bold">EMA 20 × SMA 50 × 200</span>
+                </div>
               </div>
-              <h3 className="text-lg font-black mb-1.5">
-                <span className="text-gradient-lime">Real-Time Quantitative Signal Dashboard</span>
-              </h3>
-              <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
-                Real-time algorithmic dashboard calculating RSI momentum, 50/200 SMA trend envelopes, and disciplined position sizing.
-              </p>
             </div>
-
-            <div className="relative rounded-2xl overflow-hidden border border-lime-200 dark:border-lime-900 shadow-md bg-slate-950 flex items-center justify-center min-h-[260px] group">
-              <img
-                src="/photos/behnam-norouzi-RDXcFY5g5O4-unsplash.jpg"
-                alt="Institutional Crypto Candlestick Terminal"
-                className="w-full h-auto object-cover rounded-xl block transition-transform duration-500 group-hover:scale-105"
-                style={{ maxHeight: '420px', aspectRatio: '16 / 10' }}
-              />
+            <div className="lg:col-span-7 space-y-5 order-1 lg:order-2">
+              <div className="flex items-center gap-3">
+                <span className="text-xs font-mono font-black tracking-widest text-lime-600 dark:text-lime-400 uppercase">
+                  Phase 02 // Computational Engine
+                </span>
+                <span className="w-12 h-px bg-lime-500/40" />
+                <span className="text-[11px] font-mono font-bold text-slate-400 uppercase">
+                  Signal Synthesis
+                </span>
+              </div>
+              <h3 className="text-3xl sm:text-5xl font-black tracking-tight leading-tight">
+                <span className="text-gradient-lime">Terminal Architecture</span>
+              </h3>
+              <p className="text-lg sm:text-2xl font-bold text-slate-800 dark:text-slate-100 leading-snug">
+                Sub-Second Signal Formulation, Trend Envelopes &amp; Moving Average Ribbon Confluence
+              </p>
+              <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
+                The terminal engine synthesizes multi-timeframe price momentum with microsecond efficiency. On every newly arriving tick, the engine recalculates 14-period RSI momentum bounds, dynamic 50-day and 200-day Simple Moving Average trend ribbons, and ATR volatility bands, only publishing high-conviction trade setups when mathematical confluence is reached.
+              </p>
+              <div className="pt-2 flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-xs text-slate-500 dark:text-slate-400">
+                <div><span className="font-bold text-lime-600 dark:text-lime-400">Latency:</span> ~18ms Engine Tick</div>
+                <div><span className="font-bold text-lime-600 dark:text-lime-400">Ribbons:</span> 20 EMA / 50 SMA / 200 SMA</div>
+                <div><span className="font-bold text-lime-600 dark:text-lime-400">Confidence:</span> Statistical Dual-Factor</div>
+              </div>
             </div>
           </div>
 
-          {/* Card 3: Neon Fuchsia & Berry Magenta */}
-          <div className="p-7 rounded-3xl bg-gradient-to-br from-fuchsia-50/90 via-pink-50/30 to-white dark:from-[#22071d] dark:via-[#170413] dark:to-[#0d020a] border border-fuchsia-300/90 dark:border-fuchsia-800/80 shadow-xl flex flex-col justify-between space-y-4 hover:-translate-y-1 hover:shadow-2xl transition-all duration-300">
-            <div>
-              <div className="flex items-center justify-between pb-3 border-b border-fuchsia-100 dark:border-fuchsia-900/50 mb-4">
-                <span className="text-xs font-mono font-bold text-fuchsia-800 dark:text-fuchsia-300 uppercase">Trading Floor Operations</span>
-                <span className="text-xs font-mono font-bold text-fuchsia-900 dark:text-fuchsia-300 bg-fuchsia-100 dark:bg-fuchsia-950/80 px-2.5 py-0.5 rounded-full border border-fuchsia-300 dark:border-fuchsia-700">Macro &amp; Liquidity Hub</span>
+          {/* Phase 03: Trading Floor Operations (Berry / Fuchsia Scheme) */}
+          <div className="gsap-reveal grid grid-cols-1 lg:grid-cols-12 gap-10 items-center border-b border-fuchsia-500/20 pb-20">
+            <div className="lg:col-span-7 space-y-5">
+              <div className="flex items-center gap-3">
+                <span className="text-xs font-mono font-black tracking-widest text-fuchsia-600 dark:text-fuchsia-400 uppercase">
+                  Phase 03 // Floor Supervision
+                </span>
+                <span className="w-12 h-px bg-fuchsia-500/40" />
+                <span className="text-[11px] font-mono font-bold text-slate-400 uppercase">
+                  Collaborative Flow
+                </span>
               </div>
-              <h3 className="text-lg font-black mb-1.5">
-                <span className="text-gradient-berry">Multi-Asset Trading Floor Collaboration</span>
+              <h3 className="text-3xl sm:text-5xl font-black tracking-tight leading-tight">
+                <span className="text-gradient-berry">Trading Floor Operations</span>
               </h3>
-              <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
-                Multi-analyst desk layout showing the flow of market data through quant research, risk supervision, and algorithmic order routing.
+              <p className="text-lg sm:text-2xl font-bold text-slate-800 dark:text-slate-100 leading-snug">
+                24/7 Desk Collaboration, Macro Ingestion &amp; Cross-Venue Liquidity Balancing
               </p>
+              <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
+                Our trading floor maintains continuous 24/7 rotational desks where quantitative researchers, risk controllers, and order routing analysts collaborate side by side. Global liquidity flows, central bank rate decisions, and synthetic cross-exchange price spreads are synthesized into the desk workflow to safeguard capital across all market cycles.
+              </p>
+              <div className="pt-2 flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-xs text-slate-500 dark:text-slate-400">
+                <div><span className="font-bold text-fuchsia-600 dark:text-fuchsia-400">Coverage:</span> 24/7 Floor Operations</div>
+                <div><span className="font-bold text-fuchsia-600 dark:text-fuchsia-400">Supervision:</span> Pre-Trade Multi-Gate</div>
+                <div><span className="font-bold text-fuchsia-600 dark:text-fuchsia-400">Liquidity:</span> Cross-Venue Balancing</div>
+              </div>
             </div>
-
-            <div className="relative rounded-2xl overflow-hidden border border-fuchsia-200 dark:border-fuchsia-900 shadow-md bg-slate-950 flex items-center justify-center min-h-[260px] group">
-              <img
-                src="/photos/gettyimages-2112329817-612x612.jpg"
-                alt="Institutional Trading Floor"
-                className="w-full h-auto object-cover rounded-xl block transition-transform duration-500 group-hover:scale-105"
-                style={{ maxHeight: '420px', aspectRatio: '16 / 10' }}
-              />
+            <div className="lg:col-span-5">
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-fuchsia-200 dark:border-fuchsia-900/60 group">
+                <img
+                  src="/photos/gettyimages-2112329817-612x612.jpg"
+                  alt="Trading Floor Operations"
+                  className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
+                  style={{ maxHeight: '380px', aspectRatio: '16 / 10' }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-fuchsia-950/70 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-xs font-mono text-white/90">
+                  <span className="font-bold tracking-wide">Institutional Trading Floor</span>
+                  <span className="text-fuchsia-300 font-bold">24/7 Coverage</span>
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* Card 4: Sunset Tangerine & Honey Amber Gold */}
-          <div className="p-7 rounded-3xl bg-gradient-to-br from-amber-50/90 via-orange-50/30 to-white dark:from-[#211204] dark:via-[#160b02] dark:to-[#0c0501] border border-amber-300/90 dark:border-amber-800/80 shadow-xl flex flex-col justify-between space-y-4 hover:-translate-y-1 hover:shadow-2xl transition-all duration-300">
-            <div>
-              <div className="flex items-center justify-between pb-3 border-b border-amber-100 dark:border-amber-900/50 mb-4">
-                <span className="text-xs font-mono font-bold text-amber-800 dark:text-amber-300 uppercase">Stochastic &amp; Risk Mathematics</span>
-                <span className="text-xs font-mono font-bold text-amber-900 dark:text-amber-300 bg-amber-100 dark:bg-amber-950/80 px-2.5 py-0.5 rounded-full border border-amber-300 dark:border-amber-700">Mathematical Calibration</span>
+          {/* Phase 04: Stochastic & Risk Mathematics (Sunset Tangerine / Amber Scheme) */}
+          <div className="gsap-reveal grid grid-cols-1 lg:grid-cols-12 gap-10 items-center pb-8">
+            <div className="lg:col-span-5 order-2 lg:order-1">
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-amber-200 dark:border-amber-900/60 group">
+                <img
+                  src="/photos/pexels-thales13-39398846.jpg"
+                  alt="Stochastic & Risk Mathematics"
+                  className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
+                  style={{ maxHeight: '380px', aspectRatio: '16 / 10' }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-amber-950/70 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-xs font-mono text-white/90">
+                  <span className="font-bold tracking-wide">Stochastic Modeling Desk</span>
+                  <span className="text-amber-300 font-bold">VaR 99.0% Discipline</span>
+                </div>
               </div>
-              <h3 className="text-lg font-black mb-1.5">
-                <span className="text-gradient-sunset">Systematic Capital Allocation &amp; Risk Mathematics</span>
-              </h3>
-              <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
-                Every trade suggestion and order slice is backed by verified stochastic models: dynamic capital sizing, volatility corridors, and risk-adjusted return optimization.
-              </p>
             </div>
-
-            <div className="relative rounded-2xl overflow-hidden border border-amber-200 dark:border-amber-900 shadow-md bg-slate-950 flex items-center justify-center min-h-[280px] group">
-              <img
-                src="/photos/pexels-thales13-39398846.jpg"
-                alt="Quantitative Mathematics Blackboard"
-                className="w-full h-auto object-cover rounded-xl block transition-transform duration-500 group-hover:scale-105"
-                style={{ maxHeight: '420px', aspectRatio: '16 / 10' }}
-              />
+            <div className="lg:col-span-7 space-y-5 order-1 lg:order-2">
+              <div className="flex items-center gap-3">
+                <span className="text-xs font-mono font-black tracking-widest text-amber-600 dark:text-amber-400 uppercase">
+                  Phase 04 // Mathematical Foundations
+                </span>
+                <span className="w-12 h-px bg-amber-500/40" />
+                <span className="text-[11px] font-mono font-bold text-slate-400 uppercase">
+                  Stochastic Calibration
+                </span>
+              </div>
+              <h3 className="text-3xl sm:text-5xl font-black tracking-tight leading-tight">
+                <span className="text-gradient-sunset">Stochastic &amp; Risk Mathematics</span>
+              </h3>
+              <p className="text-lg sm:text-2xl font-bold text-slate-800 dark:text-slate-100 leading-snug">
+                Continuous Capital Boundaries, Geometric Brownian Motion &amp; Value-at-Risk Constraints
+              </p>
+              <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
+                Every trade suggestion, position sizing calculation, and order slice is calibrated by verified stochastic mathematics. Dynamic Brownian motion volatility corridors govern trailing boundaries, while parametric Value-at-Risk (VaR 99%) enforces automated stop-loss invalidation floors to ensure long-term capital preservation without emotional bias.
+              </p>
+              <div className="pt-2 flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-xs text-slate-500 dark:text-slate-400">
+                <div><span className="font-bold text-amber-600 dark:text-amber-400">Risk Model:</span> Parametric VaR 99%</div>
+                <div><span className="font-bold text-amber-600 dark:text-amber-400">Calculus:</span> Volatility Corridors</div>
+                <div><span className="font-bold text-amber-600 dark:text-amber-400">Sizing:</span> Risk-Adjusted Allocation</div>
+              </div>
             </div>
           </div>
 
         </div>
       </section>
 
-      {/* High-Impact Typographic Ambition & Methodological Statement */}
-      <section className="px-6 sm:px-8 lg:px-12 max-w-[1440px] mx-auto py-20 border-t border-slate-200/80 dark:border-slate-800/80">
-        <div className="space-y-12">
-          {/* Eyebrow & Headline in Big/Small Dynamic Typographic Hierarchy */}
-          <div className="max-w-4xl space-y-4">
-            <span className="text-xs font-mono font-bold tracking-widest text-amber-600 dark:text-amber-400 uppercase block">
-              Proprietary Mathematical Discipline
-            </span>
-            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black text-slate-900 dark:text-white tracking-tight leading-[1.08]">
+      {/* High-Impact Typographic Ambition Section (Full Webpage Breadth, Unconstrained, Massive Typography) */}
+      <section className="gsap-reveal w-full max-w-[1536px] mx-auto px-6 sm:px-10 lg:px-14 py-24 lg:py-36 border-t border-slate-200/80 dark:border-slate-800/80">
+        <div className="space-y-16">
+          
+          {/* Eyebrow & Full Webpage Headline */}
+          <div className="space-y-6">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-100 dark:bg-amber-950/80 border border-amber-300 dark:border-amber-800 text-amber-900 dark:text-amber-300 text-xs font-mono font-bold tracking-widest uppercase">
+              <Sparkles className="w-3.5 h-3.5 text-amber-500" />
+              <span>Proprietary Ambition &amp; Quantitative Manifesto</span>
+            </div>
+
+            <h2 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-slate-900 dark:text-white tracking-tight leading-[1.04]">
               Our Ambition Is To Deliver{' '}
               <span className="text-gradient-gold">Precision Quantitative Alpha</span>{' '}
               Without Directional Bias.
             </h2>
-            <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 font-normal leading-relaxed max-w-3xl pt-2">
+
+            <p className="text-xl sm:text-2xl md:text-3xl text-slate-700 dark:text-slate-200 font-normal leading-relaxed max-w-5xl pt-2">
               At our firm, we formulate real-time Buy and Sell intelligence across 48 digital assets by synthesizing multi-timeframe price momentum, order book microstructure, macroeconomic analogs, and continuous capital risk boundaries.
             </p>
           </div>
 
-          {/* Clean Open Minimalist Principles (No Rigid Clutter Boxes) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pt-4">
-            <div className="space-y-2 border-l-2 border-cyan-500/80 pl-4">
-              <span className="text-xs font-mono font-bold text-cyan-600 dark:text-cyan-400 block uppercase tracking-wider">01. Momentum Confluence</span>
-              <h4 className="text-xl font-black text-slate-900 dark:text-white">Multi-Timeframe Signals</h4>
-              <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-mono">
-                RSI momentum envelopes and 50/200 moving averages evaluated tick-by-tick.
+          {/* Full Webpage 4-Pillar Layout with Dynamic Monospace & Large Numbering */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 pt-6">
+            
+            <div className="space-y-3 border-l-2 border-cyan-500/80 pl-5">
+              <span className="text-4xl font-black font-mono text-cyan-600/40 dark:text-cyan-400/30 block">01</span>
+              <span className="text-xs font-mono font-bold text-cyan-700 dark:text-cyan-300 block uppercase tracking-wider">
+                Momentum Confluence
+              </span>
+              <h4 className="text-2xl font-black text-slate-900 dark:text-white">
+                Multi-Timeframe Signals
+              </h4>
+              <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
+                RSI momentum envelopes and 50/200 moving averages evaluated tick-by-tick across short and macro horizons.
               </p>
             </div>
 
-            <div className="space-y-2 border-l-2 border-emerald-500/80 pl-4">
-              <span className="text-xs font-mono font-bold text-emerald-600 dark:text-emerald-400 block uppercase tracking-wider">02. Order Flow Depth</span>
-              <h4 className="text-xl font-black text-slate-900 dark:text-white">Microstructure Scanning</h4>
-              <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-mono">
-                Bid-to-ask depth ratios and liquidity pressure verified before signal emission.
+            <div className="space-y-3 border-l-2 border-emerald-500/80 pl-5">
+              <span className="text-4xl font-black font-mono text-emerald-600/40 dark:text-emerald-400/30 block">02</span>
+              <span className="text-xs font-mono font-bold text-emerald-700 dark:text-emerald-300 block uppercase tracking-wider">
+                Order Flow Depth
+              </span>
+              <h4 className="text-2xl font-black text-slate-900 dark:text-white">
+                Microstructure Scanning
+              </h4>
+              <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
+                Sub-second bid-to-ask depth ratios and liquidity pressure verified before any signal is emitted to the desk.
               </p>
             </div>
 
-            <div className="space-y-2 border-l-2 border-purple-500/80 pl-4">
-              <span className="text-xs font-mono font-bold text-purple-600 dark:text-purple-400 block uppercase tracking-wider">03. Scenario Modeling</span>
-              <h4 className="text-xl font-black text-slate-900 dark:text-white">Historical Analogs</h4>
-              <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-mono">
-                Post-halving cycles and macro liquidity vectors cross-referenced continuously.
+            <div className="space-y-3 border-l-2 border-purple-500/80 pl-5">
+              <span className="text-4xl font-black font-mono text-purple-600/40 dark:text-purple-400/30 block">03</span>
+              <span className="text-xs font-mono font-bold text-purple-700 dark:text-purple-300 block uppercase tracking-wider">
+                Scenario Modeling
+              </span>
+              <h4 className="text-2xl font-black text-slate-900 dark:text-white">
+                Historical Analogs
+              </h4>
+              <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
+                Post-halving supply cycles and global macroeconomic liquidity vectors cross-referenced continuously with AI RAG.
               </p>
             </div>
 
-            <div className="space-y-2 border-l-2 border-amber-500/80 pl-4">
-              <span className="text-xs font-mono font-bold text-amber-600 dark:text-amber-400 block uppercase tracking-wider">04. Capital Preservation</span>
-              <h4 className="text-xl font-black text-slate-900 dark:text-white">Strict Risk Limits</h4>
-              <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-mono">
-                Automated dynamic ATR targets, trailing stops, and controlled capital allocation.
+            <div className="space-y-3 border-l-2 border-amber-500/80 pl-5">
+              <span className="text-4xl font-black font-mono text-amber-600/40 dark:text-amber-400/30 block">04</span>
+              <span className="text-xs font-mono font-bold text-amber-700 dark:text-amber-300 block uppercase tracking-wider">
+                Capital Preservation
+              </span>
+              <h4 className="text-2xl font-black text-slate-900 dark:text-white">
+                Strict Risk Limits
+              </h4>
+              <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
+                Automated dynamic ATR targets, trailing stops, and controlled capital allocation to guarantee maximum drawdown survival.
               </p>
             </div>
+
           </div>
 
           {/* Action Row */}
-          <div className="pt-4 flex flex-wrap items-center gap-4">
+          <div className="pt-8 flex flex-wrap items-center gap-5">
             <Link
               href="/signals"
-              className="px-7 py-3.5 rounded-2xl bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-950 font-mono font-bold text-xs shadow-md transition-all duration-200 hover:-translate-y-0.5"
+              className="px-8 py-4 rounded-2xl bg-slate-900 hover:bg-slate-800 dark:bg-slate-100 dark:hover:bg-white text-white dark:text-slate-950 font-mono font-black text-sm shadow-xl shadow-slate-900/15 transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 flex items-center gap-3"
             >
-              Open Live Signal Terminal →
+              <span>Launch Live Trading Signals Desk</span>
+              <ArrowRight className="w-4 h-4 text-amber-400 dark:text-amber-600" />
             </Link>
             <Link
               href="/about"
-              className="px-7 py-3.5 rounded-2xl border border-slate-300 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-900 dark:text-white font-mono font-bold text-xs transition-all duration-200"
+              className="px-8 py-4 rounded-2xl border border-slate-300 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-900 dark:text-white font-mono font-bold text-sm transition-all duration-200"
             >
               Read Architecture Methodology
             </Link>
           </div>
+
         </div>
       </section>
     </div>
