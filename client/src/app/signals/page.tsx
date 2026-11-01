@@ -208,33 +208,6 @@ function SignalsTerminal() {
             </div>
           </div>
         )}
-
-        {/* Live CoinSwitch PRO Connected Account Banner */}
-        <div className="flex flex-wrap items-center justify-between gap-4 p-4 rounded-2xl bg-gradient-to-r from-slate-900 via-slate-900 to-indigo-950 text-white font-mono text-xs shadow-md border border-slate-800">
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-xl bg-emerald-500/20 border border-emerald-400/40 flex items-center justify-center text-emerald-400 font-bold shrink-0">
-              CS
-            </div>
-            <div>
-              <div className="flex items-center gap-2">
-                <span className="font-black text-white text-sm">CoinSwitch PRO Account Connected</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="flex flex-wrap items-center gap-3 sm:gap-4 text-xs">
-            <div className="px-3 py-1.5 rounded-xl bg-slate-800/90 border border-slate-700">
-              <span className="text-slate-400 block text-[10px]">Cash Balance:</span>
-              <span className="text-emerald-400 font-black text-sm">₹{csPortfolio?.balances.find((b: any) => b.currency === 'INR')?.main_balance || '0.30'}</span>
-            </div>
-            <div className="px-3 py-1.5 rounded-xl bg-slate-800/90 border border-slate-700">
-              <span className="text-slate-400 block text-[10px]">Crypto Holdings:</span>
-              <span className="text-white font-bold">
-                {csPortfolio?.balances.filter((b: any) => b.currency !== 'INR').map((b: any) => `${b.currency}: ${b.main_balance}`).join(' • ') || 'FLOKI: 1704.71 • PEPE: 2544.89'}
-              </span>
-            </div>
-          </div>
-        </div>
       </div>
 
       {/* Main Workspace Bento Grid with Best-Fit Alignment */}

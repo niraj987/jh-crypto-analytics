@@ -64,7 +64,6 @@ export default function AssetSelector({ assets, selectedSymbol, onSelect, onCust
             {filteredAssets.length} of {assets.length} Tokens
           </span>
         </div>
-        <p className="text-xs text-slate-500 dark:text-slate-400 font-mono mt-0.5">Select from 48+ active cryptocurrency pairs with live price streams</p>
       </div>
 
       {/* Search Bar */}

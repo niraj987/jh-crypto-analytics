@@ -16,7 +16,6 @@ export default function ForecastCards({ forecast }: ForecastCardsProps) {
   const cards = [
     {
       horizon: '24-Hour Horizon',
-      sub: 'Intraday Scalp Envelope',
       icon: Clock,
       data: tf['24h'],
       accentColor: 'text-amber-600 dark:text-amber-400',
@@ -27,7 +26,6 @@ export default function ForecastCards({ forecast }: ForecastCardsProps) {
     },
     {
       horizon: '7-Day Horizon',
-      sub: 'Swing Momentum Corridor',
       icon: TrendingUp,
       data: tf['7d'],
       accentColor: 'text-lime-600 dark:text-lime-400',
@@ -38,7 +36,6 @@ export default function ForecastCards({ forecast }: ForecastCardsProps) {
     },
     {
       horizon: '30-Day Horizon',
-      sub: 'Regime Macro Projection',
       icon: Calendar,
       data: tf['30d'],
       accentColor: 'text-fuchsia-600 dark:text-fuchsia-400',
@@ -70,7 +67,6 @@ export default function ForecastCards({ forecast }: ForecastCardsProps) {
                   </div>
                   <div>
                     <h4 className="text-base font-black text-slate-900 dark:text-white leading-tight">{card.horizon}</h4>
-                    <p className="text-[11px] font-mono text-slate-500 dark:text-slate-400 font-medium">{card.sub}</p>
                   </div>
                 </div>
                 <span className="text-[11px] font-mono px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-extrabold shadow-inner">

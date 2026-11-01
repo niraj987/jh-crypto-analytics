@@ -78,7 +78,6 @@ export default function AgentThinking({ insights, logs = [] }: AgentThinkingProp
                 4 Specialized Nodes
               </span>
             </h3>
-            <p className="text-xs text-slate-500 font-mono mt-0.5">Multi-model algorithmic deliberation synthesizing real-time quantitative conviction</p>
           </div>
         </div>
 

@@ -149,9 +149,6 @@ function ForecastWorkspace() {
               <h3 className="text-base sm:text-lg font-black text-slate-900 dark:text-white tracking-tight">
                 Interactive Macro Scenario Stress-Testing
               </h3>
-              <p className="text-xs text-slate-500 dark:text-slate-400 font-mono mt-0.5">
-                Dynamically stress-test price projections against macro liquidity shifts and volatility shocks
-              </p>
             </div>
           </div>
 

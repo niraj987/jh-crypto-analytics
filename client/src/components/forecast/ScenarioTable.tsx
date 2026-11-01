@@ -54,15 +54,9 @@ export default function ScenarioTable({ scenarios }: ScenarioTableProps) {
   return (
     <div className="rounded-3xl bg-white dark:bg-[#0c1222] border border-slate-200 dark:border-slate-800 p-8 shadow-xl">
       <div className="mb-8 pb-4 border-b border-slate-200 dark:border-slate-800">
-        <h3 className="text-xl font-black text-slate-900 dark:text-white flex items-center gap-2.5">
-          <span>Predictive Scenario Probability Matrix</span>
-          <span className="text-[10px] font-mono px-3 py-1 rounded-full bg-purple-50 dark:bg-purple-950/60 text-purple-800 dark:text-purple-300 border border-purple-200 dark:border-purple-800 font-extrabold">
-            3 REGIMES
-          </span>
+        <h3 className="text-xl font-black text-slate-900 dark:text-white">
+          Predictive Scenario Probability Matrix
         </h3>
-        <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-mono mt-1 font-medium">
-          Dynamic scenario weights synthesized by historical cycle retrieval and market volatility
-        </p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

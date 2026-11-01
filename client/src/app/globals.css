@@ -5,20 +5,20 @@
 @tailwind utilities;
 
 :root {
-  --background: #faf7f2;
+  --background: #f6f8fb;
   --foreground: #0f172a;
 }
 
 body {
   color: var(--foreground);
-  background-color: #faf7f2;
+  background-color: #f6f8fb;
   background-image: 
-    radial-gradient(circle at 10% 12%, rgba(251, 146, 60, 0.12) 0%, transparent 45%),
-    radial-gradient(circle at 90% 15%, rgba(168, 85, 247, 0.13) 0%, transparent 45%),
-    radial-gradient(circle at 25% 75%, rgba(236, 72, 153, 0.09) 0%, transparent 45%),
-    radial-gradient(circle at 75% 80%, rgba(6, 182, 212, 0.11) 0%, transparent 45%),
-    radial-gradient(circle at 50% 50%, rgba(234, 179, 8, 0.08) 0%, transparent 50%),
-    linear-gradient(to bottom, #faf7f2 0%, #f7f3ec 50%, #f1f5fa 100%);
+    radial-gradient(circle at 10% 12%, rgba(224, 237, 252, 0.65) 0%, transparent 50%),
+    radial-gradient(circle at 90% 15%, rgba(254, 245, 231, 0.55) 0%, transparent 50%),
+    radial-gradient(circle at 25% 75%, rgba(230, 240, 254, 0.50) 0%, transparent 50%),
+    radial-gradient(circle at 75% 80%, rgba(253, 246, 234, 0.45) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(240, 246, 254, 0.40) 0%, transparent 55%),
+    linear-gradient(to bottom, #f7f9fc 0%, #fbf9f4 45%, #f2f6fc 100%);
   background-attachment: fixed;
   font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   overflow-x: hidden;

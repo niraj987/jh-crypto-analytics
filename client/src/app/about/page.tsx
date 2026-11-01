@@ -2,12 +2,10 @@
 
 import React, { useEffect } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { 
   Network, 
-  Cpu, 
   Database, 
   TrendingUp, 
   ShieldCheck, 
@@ -16,10 +14,7 @@ import {
   Zap, 
   SlidersHorizontal,
   Activity,
-  CheckCircle2,
-  Sparkles,
-  BarChart2,
-  Compass
+  Sparkles
 } from 'lucide-react';
 
 if (typeof window !== 'undefined') {
@@ -57,71 +52,47 @@ export default function AboutPage() {
   const pillars = [
     {
       id: 'pillar-1',
-      step: '01. SUGGEST // ALPHA FORMULATION',
-      title: 'How Top Firms Suggest (Alpha Generation)',
+      title: 'Alpha Formulation & Signal Generation',
       titleGradient: 'text-gradient-sunset',
-      subtitle: 'Statistical Significance & Multi-Factor Scoring',
+      subtitle: 'Multi-Factor Confluence & Statistical Significance',
       image: '/photos/behnam-norouzi-hScr17JG74Q-unsplash.jpg',
-      badge: 'Information Ratio > 1.5',
-      badgeColor: 'text-amber-500 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/80 border-amber-300 dark:border-amber-700',
       icon: Zap,
-      iconColor: 'text-amber-500',
-      borderColor: 'border-amber-500/25',
-      benchmark: 'Information Edge: α > +35 Consensus Score',
+      accentText: 'text-amber-500 dark:text-amber-400',
       description:
-        'Our firm does not speculate on gut feeling. Statistical indicators (RSI divergence, volume momentum, moving average ribbon envelopes, and order block accumulation) are computed tick-by-tick. When composite alpha exceeds +35 with high statistical significance, the supervisor publishes an automated recommendation with mathematically calibrated targets.',
-      metrics: ['Tick-by-Tick Evaluation', 'Multi-Factor Alpha Matrix', 'Zero Speculative Discretion'],
+        'Our firm formulates high-conviction market signals by synthesizing multi-timeframe price action, order flow momentum, and structural liquidity boundaries. When statistical significance confirms an edge, our systems generate precision buy and sell guidance with calibrated target zones and defined risk horizons.',
     },
     {
       id: 'pillar-2',
-      step: '02. RISK // CAPITAL PRESERVATION',
-      title: 'How Our Firm Manages Risk (Capital Sizing)',
+      title: 'Capital Preservation & Risk Calibration',
       titleGradient: 'text-gradient-lime',
-      subtitle: 'Dynamic Capital Sizing & Parametric VaR Limits',
+      subtitle: 'Dynamic Position Sizing & Ruin Boundaries',
       image: '/photos/gettyimages-2270333130-612x612.jpg',
-      badge: 'Controlled Sizing (0.25x)',
-      badgeColor: 'text-lime-500 dark:text-lime-400 bg-lime-50 dark:bg-lime-950/80 border-lime-300 dark:border-lime-700',
       icon: ShieldCheck,
-      iconColor: 'text-lime-500',
-      borderColor: 'border-lime-500/25',
-      benchmark: 'Risk Objective: Ruin Probability < 0.01%',
+      accentText: 'text-lime-500 dark:text-lime-400',
       description:
-        'Capital preservation always takes precedence over returns. Our trading desk scales trade size conservatively using disciplined risk fraction boundaries to eliminate ruin risk during fat-tailed drawdowns. Dynamic ATR envelopes set automated stop-losses, and single-desk Value-at-Risk (VaR 99%) is strictly capped at 2% of total equity.',
-      metrics: ['Parametric VaR (99.0%)', 'Dynamic ATR Trailing Stops', 'Quarter-Kelly Capital Sizing'],
+        'Capital preservation is the foundation of our trading philosophy. Our models scale exposure conservatively using dynamic volatility envelopes to protect portfolio value across severe market shocks, maintaining strict allocation corridors on every active position.',
     },
     {
       id: 'pillar-3',
-      step: '03. BUY & SELL // SMART EXECUTION',
-      title: 'How Our Firm Executes (Smart Order Routing)',
+      title: 'Smart Order Routing & Execution',
       titleGradient: 'text-gradient-cyan',
-      subtitle: 'Algorithmic Slicing & Anti-MEV Icebergs',
+      subtitle: 'Zero-Impact Slicing & Liquidity Protection',
       image: '/photos/pierre-borthiry-peiobty-vBCVcWUyvyM-unsplash.jpg',
-      badge: 'Zero Slippage Routing',
-      badgeColor: 'text-cyan-500 dark:text-cyan-400 bg-cyan-50 dark:bg-cyan-950/80 border-cyan-300 dark:border-cyan-700',
       icon: SlidersHorizontal,
-      iconColor: 'text-cyan-500',
-      borderColor: 'border-cyan-500/25',
-      benchmark: 'Execution Objective: Slippage < 0.05%',
+      accentText: 'text-cyan-500 dark:text-cyan-400',
       description:
-        'Large block tickets are never sent as raw market orders. Smart order routers decompose orders into micro child slices over 30 to 60-minute windows using proprietary TWAP/VWAP execution algorithms. Stealth iceberg orders mask cumulative book depth to prevent predatory front-running and MEV sandwich extraction.',
-      metrics: ['TWAP / VWAP Slicing', 'Anti-MEV Iceberg Protection', 'Direct Exchange Gateways'],
+        'Large block transactions are executed with surgical care. Intelligent routing schedules slice orders dynamically over time to prevent adverse price drift, front-running, and market impact across major liquidity pools.',
     },
     {
       id: 'pillar-4',
-      step: '04. MANAGE // PORTFOLIO PRESERVATION',
-      title: 'How Our Firm Manages Portfolios (Hedging)',
+      title: 'Portfolio Hedging & Market Neutrality',
       titleGradient: 'text-gradient-berry',
-      subtitle: 'Beta Hedging & Cross-Asset Market Neutrality',
+      subtitle: 'Cross-Asset Balance & Directional Protection',
       image: '/photos/gettyimages-2112329817-612x612.jpg',
-      badge: 'Market Beta ≈ 0.00',
-      badgeColor: 'text-fuchsia-500 dark:text-fuchsia-400 bg-fuchsia-50 dark:bg-fuchsia-950/80 border-fuchsia-300 dark:border-fuchsia-700',
       icon: Layers,
-      iconColor: 'text-fuchsia-500',
-      borderColor: 'border-fuchsia-500/25',
-      benchmark: 'Hedging Objective: Portfolio Beta ≈ 0.00',
+      accentText: 'text-fuchsia-500 dark:text-fuchsia-400',
       description:
-        'Firms neutralize broader directional market volatility by maintaining a zero-beta portfolio. They hold high-conviction long positions in strong crypto assets while simultaneously shorting equivalent beta exposure on BTC/ETH perpetuals, unlocking uncorrelated returns regardless of whether the broader market rallies or drops.',
-      metrics: ['Delta-Neutral Hedging', 'Uncorrelated Alpha Extraction', 'Continuous Beta Rebalancing'],
+        'Our strategies seek consistent returns regardless of overall market direction. By balancing directional exposure and maintaining cross-asset hedges, our firm preserves capital stability through both expansion regimes and market corrections.',
     },
   ];
 
@@ -134,53 +105,41 @@ export default function AboutPage() {
       image: '/photos/pexels-thales13-39589930.jpg',
       icon: Zap,
       accentText: 'text-cyan-600 dark:text-cyan-400',
-      tag: '50/200 SMA · RSI(14) · ATR Volatility',
-      borderColor: 'border-cyan-500/20',
       description:
-        'Computes dynamic 50/200 SMA golden and death crosses, 20 EMA trailing support, RSI(14) divergence regimes, MACD signal line crossovers, Bollinger Band squeeze breakout states, and 14-period Average True Range (ATR) volatility envelopes in real time.',
-      status: 'Active Tick Stream Contributor',
+        'Monitors dynamic trend structures, moving average confluence, momentum divergences, volatility expansion channels, and price envelope boundaries in real time.',
     },
     {
       id: 'agent-2',
       title: 'On-Chain & Liquidity Microstructure Specialist',
       titleGradient: 'text-gradient-lime',
-      role: 'Order Book Depth, Whale Inflows & Exchange Reserves',
+      role: 'Order Book Depth & Exchange Liquidity Flows',
       image: '/photos/kanchanara-7cmA9ZL5dDk-unsplash.jpg',
       icon: Database,
       accentText: 'text-lime-600 dark:text-lime-400',
-      tag: 'CEX Reserves · Net Inflows · Book Depth',
-      borderColor: 'border-lime-500/20',
       description:
-        'Monitors centralized exchange net deposit/withdrawal flows, 24-hour volume-to-market-cap velocity, perpetual funding rate overheating, open interest (OI) leverage clusters, and order book bid-ask liquidity absorption.',
-      status: 'Live Microstructure Node',
+        'Analyzes centralized and decentralized liquidity depth, institutional volume velocity, perpetual market balances, and bid-ask order absorption across primary trading pairs.',
     },
     {
       id: 'agent-3',
-      title: 'Macro Narrative & RAG Analogs Specialist',
+      title: 'Macro Narrative & Semantic Analogs Specialist',
       titleGradient: 'text-gradient-berry',
-      role: 'Vector Embeddings, Halving Cycles & Fed Liquidity',
+      role: 'Historical Cycle Dynamics & Global Liquidity Shifts',
       image: '/photos/behnam-norouzi-RDXcFY5g5O4-unsplash.jpg',
       icon: Network,
       accentText: 'text-fuchsia-600 dark:text-fuchsia-400',
-      tag: 'Semantic RAG · Halving Supply · M2 Global',
-      borderColor: 'border-fuchsia-500/20',
       description:
-        'Queries an in-memory semantic vector store containing deep domain knowledge: 2016, 2020, and 2024 post-halving structural supply constriction, Global M2 expansion correlation, Fed interest rate easing cycles, and spot ETF liquidity absorption.',
-      status: 'Semantic Vector Retrieval Active',
+        'Contextualizes present market conditions against multi-cycle history, halving dynamics, institutional adoption trends, and macroeconomic liquidity flows.',
     },
     {
       id: 'agent-4',
       title: 'Predictive Horizon & Risk Boundary Specialist',
       titleGradient: 'text-gradient-sunset',
-      role: 'Predictive Scenarios & Structural Invalidation Targets',
+      role: 'Multi-Horizon Scenarios & Structural Risk Envelopes',
       image: '/photos/kanchanara-GnWfl_nnZro-unsplash.jpg',
       icon: TrendingUp,
       accentText: 'text-amber-600 dark:text-amber-400',
-      tag: 'Bull/Base/Bear · 24h / 7d / 30d Horizons',
-      borderColor: 'border-amber-500/20',
       description:
-        'Synthesizes multi-horizon price envelopes for 24 hours, 7 days, and 30 days. Generates dynamic Bull, Base, and Bear scenarios with explicit probabilities, optimal entry targets, and structural invalidation stop-loss levels.',
-      status: 'Horizon State Calculator',
+        'Synthesizes forward-looking price projections across short and medium horizons, establishing clear probability corridors, entry invalidation points, and capital preservation thresholds.',
     },
   ];
 
@@ -197,20 +156,9 @@ export default function AboutPage() {
         
         {/* Full Webpage Breadth Header: Exactly 1 to 2 Lines with Multi-Color Mix */}
         <div className="gsap-reveal w-full space-y-6 pt-2">
-          <div className="inline-flex items-center gap-3 px-4 py-2 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
-            <div className="w-8 h-8 rounded-xl overflow-hidden flex items-center justify-center p-0.5 border border-slate-100 dark:border-slate-800">
-              <Image
-                src="/jh-logo.png"
-                alt="JH Logo"
-                width={32}
-                height={32}
-                className="object-contain"
-                unoptimized
-              />
-            </div>
-            <span className="text-xs font-mono font-black text-slate-900 dark:text-white">
-              OUR FIRM &bull; QUANTITATIVE METHODOLOGY
-            </span>
+          <div className="flex items-center gap-2 text-xs font-mono font-black tracking-widest text-indigo-600 dark:text-indigo-400 uppercase">
+            <Sparkles className="w-4 h-4 text-indigo-500" />
+            <span>OUR MISSION &amp; CORE IDENTITY</span>
           </div>
 
           {/* 1 or 2 lines full width headline with vibrant multi-color gradient */}
@@ -226,8 +174,8 @@ export default function AboutPage() {
             </span>
           </h1>
 
-          <p className="text-slate-600 dark:text-slate-300 text-lg sm:text-2xl leading-relaxed font-normal w-full max-w-5xl">
-            <strong className="text-slate-900 dark:text-white font-black">Our firm</strong> delivers advanced quantitative capabilities to cryptocurrency traders: algorithmic multi-agent consensus, disciplined risk sizing, zero-impact order execution, and semantic scenario forecasting across 48 liquid crypto assets.
+          <p className="text-slate-700 dark:text-slate-200 text-lg sm:text-2xl leading-relaxed font-medium w-full max-w-6xl">
+            Our firm delivers advanced quantitative capabilities to cryptocurrency traders: algorithmic multi-agent consensus, disciplined risk sizing, zero-impact order execution, and semantic scenario forecasting across 48 liquid crypto assets.
           </p>
         </div>
 
@@ -236,15 +184,12 @@ export default function AboutPage() {
             (Completely Unboxed Expansive Layout - No Card Boxes)
            ---------------------------------------------------- */}
         <section className="gsap-reveal space-y-16">
-          <div className="pb-6 border-b border-slate-200 dark:border-slate-800 flex flex-wrap items-end justify-between gap-6">
-            <div className="space-y-3 max-w-3xl">
-              <span className="text-xs font-mono font-bold text-emerald-700 dark:text-emerald-400 uppercase tracking-widest px-3.5 py-1.5 rounded-full bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-300 dark:border-emerald-800">
-                Our Firm&apos;s Quantitative Blueprint
-              </span>
+          <div className="pb-6 border-b border-slate-200/80 dark:border-slate-800/80 flex flex-wrap items-end justify-between gap-6">
+            <div className="space-y-3 max-w-4xl">
               <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 dark:text-white">
                 The 4 Pillars of a Quantitative Trading Firm
               </h2>
-              <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 font-normal leading-relaxed">
+              <p className="text-base sm:text-xl text-slate-600 dark:text-slate-300 font-normal leading-relaxed">
                 How elite quantitative desks discover statistical alpha, control drawdown ruin, execute block orders without slippage, and maintain delta neutrality.
               </p>
             </div>
@@ -267,17 +212,16 @@ export default function AboutPage() {
               return (
                 <div
                   key={p.id}
-                  className={`gsap-reveal grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center border-b ${p.borderColor} pb-20`}
+                  className="gsap-reveal grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center border-b border-slate-200/60 dark:border-slate-800/60 pb-20"
                 >
                   {/* Text Column */}
-                  <div className={`space-y-6 ${isEven ? 'lg:col-span-7 lg:order-2' : 'lg:col-span-7'}`}>
+                  <div className={`space-y-5 ${isEven ? 'lg:col-span-7 lg:order-2' : 'lg:col-span-7'}`}>
                     <div className="flex items-center gap-3">
-                      <span className="text-xs font-mono font-black tracking-widest text-slate-500 dark:text-slate-400 uppercase">
-                        {p.step}
-                      </span>
-                      <span className="w-10 h-px bg-slate-300 dark:bg-slate-700" />
-                      <span className={`text-[11px] font-mono font-bold px-3 py-1 rounded-full border shadow-sm ${p.badgeColor}`}>
-                        {p.badge}
+                      <div className="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white">
+                        <Icon className={`w-5 h-5 ${p.accentText}`} />
+                      </div>
+                      <span className="text-xs font-mono font-bold tracking-widest text-slate-500 uppercase">
+                        Pillar 0{idx + 1}
                       </span>
                     </div>
 
@@ -285,36 +229,16 @@ export default function AboutPage() {
                       <span className={p.titleGradient}>{p.title}</span>
                     </h3>
 
-                    <p className="text-lg sm:text-xl font-bold text-slate-800 dark:text-slate-100 leading-snug">
+                    <p className="text-xl sm:text-2xl font-bold text-slate-800 dark:text-slate-100 leading-snug">
                       {p.subtitle}
                     </p>
 
                     <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
                       {p.description}
                     </p>
-
-                    {/* Benchmark Strip */}
-                    <div className="p-4 rounded-2xl bg-slate-100/80 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 font-mono text-xs flex flex-wrap items-center justify-between gap-3 shadow-inner">
-                      <span className="text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider">
-                        Quantitative Objective:
-                      </span>
-                      <span className="text-slate-950 dark:text-white font-black tracking-wide">
-                        {p.benchmark}
-                      </span>
-                    </div>
-
-                    {/* Quick Metric Pills */}
-                    <div className="flex flex-wrap items-center gap-3 font-mono text-xs text-slate-500 dark:text-slate-400">
-                      {p.metrics.map((m, mIdx) => (
-                        <div key={mIdx} className="flex items-center gap-1.5">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />
-                          <span>{m}</span>
-                        </div>
-                      ))}
-                    </div>
                   </div>
 
-                  {/* Image Column */}
+                  {/* Image Column (No image overlays) */}
                   <div className={`${isEven ? 'lg:col-span-5 lg:order-1' : 'lg:col-span-5'}`}>
                     <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-200 dark:border-slate-800 group">
                       <img
@@ -323,11 +247,6 @@ export default function AboutPage() {
                         className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
                         style={{ maxHeight: '380px', aspectRatio: '16 / 10' }}
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
-                      <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-xs font-mono text-white/90">
-                        <span className="font-bold tracking-wide">{p.subtitle}</span>
-                        <span className="text-emerald-400 font-bold">{p.badge}</span>
-                      </div>
                     </div>
                   </div>
                 </div>
@@ -345,19 +264,13 @@ export default function AboutPage() {
           {/* Trading Floor Desk */}
           <div className="space-y-6">
             <div className="space-y-3">
-              <div className="flex items-center gap-3">
-                <span className="text-xs font-mono font-bold text-sky-600 dark:text-sky-400 uppercase tracking-widest">
-                  Live Operations
-                </span>
-                <span className="w-8 h-px bg-sky-500/30" />
-                <span className="text-xs font-mono font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 px-3 py-0.5 rounded-full border border-emerald-300 dark:border-emerald-800">
-                  Latency: 18ms
-                </span>
-              </div>
+              <span className="text-xs font-mono font-bold text-sky-600 dark:text-sky-400 uppercase tracking-widest block">
+                Live Operations
+              </span>
               <h3 className="text-2xl sm:text-4xl font-black text-slate-900 dark:text-white tracking-tight">
                 Multi-Screen Trading Floor &amp; Microstructure Desk
               </h3>
-              <p className="text-base text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
+              <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
                 Proprietary execution specialists monitor sub-second order book depth, cross-exchange liquidity imbalances, and tick-by-tick order fills across centralized and decentralized venues.
               </p>
             </div>
@@ -369,31 +282,20 @@ export default function AboutPage() {
                 className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
                 style={{ maxHeight: '360px', aspectRatio: '16 / 10' }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
-              <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-xs font-mono text-white/90">
-                <span className="font-bold">High-Frequency Order Router</span>
-                <span className="text-emerald-400 font-bold">Cryptographically Verified</span>
-              </div>
             </div>
           </div>
 
           {/* Stochastic Research Lab */}
           <div className="space-y-6">
             <div className="space-y-3">
-              <div className="flex items-center gap-3">
-                <span className="text-xs font-mono font-bold text-amber-600 dark:text-amber-400 uppercase tracking-widest">
-                  Mathematical Verification
-                </span>
-                <span className="w-8 h-px bg-amber-500/30" />
-                <span className="text-xs font-mono font-bold text-purple-600 dark:text-purple-400 bg-purple-50 dark:bg-purple-950/60 px-3 py-0.5 rounded-full border border-purple-300 dark:border-purple-800">
-                  GBM &amp; Jump Diffusion
-                </span>
-              </div>
+              <span className="text-xs font-mono font-bold text-amber-600 dark:text-amber-400 uppercase tracking-widest block">
+                Mathematical Verification
+              </span>
               <h3 className="text-2xl sm:text-4xl font-black text-slate-900 dark:text-white tracking-tight">
                 Stochastic Calculus &amp; Risk Research Lab
               </h3>
-              <p className="text-base text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
-                Every buy/sell suggestion is bounded by verified mathematical mechanics: geometric Brownian motion for volatility corridors, Kelly optimal fractions for trade sizes, and conditional Value-at-Risk limits.
+              <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
+                Every buy/sell suggestion is bounded by verified mathematical mechanics: dynamic volatility corridors, optimal fractions for trade sizes, and conditional capital preservation limits.
               </p>
             </div>
 
@@ -404,11 +306,6 @@ export default function AboutPage() {
                 className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
                 style={{ maxHeight: '360px', aspectRatio: '16 / 10' }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
-              <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-xs font-mono text-white/90">
-                <span className="font-bold">Risk Calibration Models</span>
-                <span className="text-amber-300 font-bold">Sharpe Ratio &gt; 2.4</span>
-              </div>
             </div>
           </div>
 
@@ -419,16 +316,12 @@ export default function AboutPage() {
             (Completely Unboxed Expansive Layout - No Card Boxes)
            ---------------------------------------------------- */}
         <section className="gsap-reveal space-y-16">
-          <div className="pb-6 border-b border-slate-200 dark:border-slate-800 space-y-3">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-50 dark:bg-indigo-950/60 border border-indigo-300 dark:border-indigo-800 text-indigo-700 dark:text-indigo-300 text-xs font-mono font-bold uppercase tracking-widest">
-              <Cpu className="w-3.5 h-3.5" />
-              <span>Autonomous Deliberation Mesh</span>
-            </div>
+          <div className="pb-6 border-b border-slate-200/80 dark:border-slate-800/80 space-y-3">
             <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 dark:text-white">
               The 4 Specialist Quantitative Deliberation Agents
             </h2>
-            <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 font-normal leading-relaxed max-w-4xl">
-              Independent agents deliberate concurrently on every market tick and publish verified quantitative insights to the unified consensus state matrix.
+            <p className="text-base sm:text-xl text-slate-600 dark:text-slate-300 font-normal leading-relaxed max-w-4xl">
+              Independent analytical agents deliberate concurrently on every market tick and publish verified quantitative insights to the unified consensus state matrix.
             </p>
           </div>
 
@@ -441,7 +334,7 @@ export default function AboutPage() {
               return (
                 <div
                   key={ag.id}
-                  className={`gsap-reveal grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center border-b ${ag.borderColor} pb-16`}
+                  className="gsap-reveal grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center border-b border-slate-200/60 dark:border-slate-800/60 pb-16"
                 >
                   {/* Image Column */}
                   <div className={`lg:col-span-4 ${isEven ? 'lg:order-2' : ''}`}>
@@ -449,13 +342,9 @@ export default function AboutPage() {
                       <img
                         src={ag.image}
                         alt={ag.title}
-                        className="w-full h-auto object-cover opacity-85 transition-transform duration-700 group-hover:scale-105"
+                        className="w-full h-auto object-cover opacity-90 transition-transform duration-700 group-hover:scale-105"
                         style={{ maxHeight: '280px', aspectRatio: '16 / 10' }}
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
-                      <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-xs font-mono">
-                        <span className="font-bold text-slate-200">{ag.tag}</span>
-                      </div>
                     </div>
                   </div>
 
@@ -475,21 +364,13 @@ export default function AboutPage() {
                       </div>
                     </div>
 
-                    <p className="text-base sm:text-lg font-bold text-slate-800 dark:text-slate-100">
+                    <p className="text-lg sm:text-xl font-bold text-slate-800 dark:text-slate-100">
                       {ag.role}
                     </p>
 
-                    <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
+                    <p className="text-base text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
                       {ag.description}
                     </p>
-
-                    <div className="pt-2 flex items-center gap-3 text-xs font-mono">
-                      <span className="text-emerald-700 dark:text-emerald-400 font-black flex items-center gap-1.5">
-                        <CheckCircle2 className="w-3.5 h-3.5" /> {ag.status}
-                      </span>
-                      <span className="text-slate-400">&bull;</span>
-                      <span className="text-slate-500 font-bold">Sub-Second Refresh Rate</span>
-                    </div>
                   </div>
                 </div>
               );
