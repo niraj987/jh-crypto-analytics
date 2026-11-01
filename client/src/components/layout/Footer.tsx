@@ -68,9 +68,6 @@ export default function Footer() {
               <Activity className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />
               <span>Multi-Asset Liquidity Matrix</span>
             </div>
-            <div className="hidden lg:flex items-center gap-2">
-              <span className="text-amber-800 dark:text-amber-300 font-bold bg-amber-100/90 dark:bg-amber-950/60 px-3 py-0.5 rounded-full border border-amber-300 dark:border-amber-800/80">Forex: $1 USD = ₹86.85</span>
-            </div>
           </div>
 
           <div className="flex items-center gap-4 text-slate-800 dark:text-slate-200 font-bold">
