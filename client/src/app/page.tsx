@@ -370,25 +370,33 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* High-Impact Typographic Ambition Section (Full Webpage Breadth, Unconstrained, Massive Typography) */}
-      <section className="gsap-reveal w-full max-w-[1536px] mx-auto px-6 sm:px-10 lg:px-14 py-24 lg:py-36 border-t border-slate-200/80 dark:border-slate-800/80">
-        <div className="space-y-16">
+      {/* High-Impact Typographic Ambition Section (Full Webpage Breadth, No Side Margin Vacancy) */}
+      <section className="gsap-reveal w-full px-4 sm:px-8 lg:px-12 xl:px-16 py-20 lg:py-32 border-t border-slate-200/80 dark:border-slate-800/80">
+        <div className="w-full space-y-12">
           
           {/* Eyebrow & Full Webpage Headline */}
-          <div className="space-y-6">
+          <div className="space-y-6 w-full">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-100 dark:bg-amber-950/80 border border-amber-300 dark:border-amber-800 text-amber-900 dark:text-amber-300 text-xs font-mono font-bold tracking-widest uppercase">
               <Sparkles className="w-3.5 h-3.5 text-amber-500" />
               <span>Proprietary Ambition &amp; Quantitative Manifesto</span>
             </div>
 
-            <h2 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-slate-900 dark:text-white tracking-tight leading-[1.04]">
+            <h2 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black text-slate-900 dark:text-white tracking-tight leading-[1.02] w-full">
               Our Ambition Is To Deliver{' '}
               <span className="text-gradient-gold">Precision Quantitative Alpha</span>{' '}
               Without Directional Bias.
             </h2>
 
-            <p className="text-xl sm:text-2xl md:text-3xl text-slate-700 dark:text-slate-200 font-normal leading-relaxed max-w-5xl pt-2">
-              At our firm, we formulate real-time Buy and Sell intelligence across 48 digital assets by synthesizing multi-timeframe price momentum, order book microstructure, macroeconomic analogs, and continuous capital risk boundaries.
+            <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-slate-600 dark:text-slate-300 font-medium leading-relaxed w-full pt-4">
+              At our firm, we formulate real-time{' '}
+              <span className="text-emerald-600 dark:text-emerald-400 font-black">Buy</span>{' '}
+              and{' '}
+              <span className="text-rose-600 dark:text-rose-400 font-black">Sell</span>{' '}
+              intelligence across premier digital assets by synthesizing{' '}
+              <span className="text-sky-600 dark:text-sky-400 font-bold">multi-timeframe price momentum</span>,{' '}
+              <span className="text-amber-600 dark:text-amber-400 font-bold">order book microstructure</span>,{' '}
+              <span className="text-slate-900 dark:text-white font-bold">macroeconomic analogs</span>, and{' '}
+              <span className="text-rose-600 dark:text-rose-400 font-bold">continuous capital risk boundaries</span>.
             </p>
           </div>
 

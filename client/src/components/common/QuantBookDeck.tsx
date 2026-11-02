@@ -6,8 +6,6 @@ import {
   ChevronRight, 
   Play, 
   Pause, 
-  BookOpen, 
-  Presentation, 
   Layers, 
   ShieldCheck, 
   Zap, 
@@ -186,7 +184,6 @@ const DECK_PAGES: SlidePage[] = [
 
 export default function QuantBookDeck() {
   const [currentPage, setCurrentPage] = useState<number>(0);
-  const [viewMode, setViewMode] = useState<'ppt' | 'book'>('ppt');
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [pageDirection, setPageDirection] = useState<'next' | 'prev'>('next');
 
@@ -213,85 +210,43 @@ export default function QuantBookDeck() {
   };
 
   return (
-    <div className="w-full rounded-3xl bg-white dark:bg-[#121721] border border-slate-200 dark:border-slate-800 p-6 sm:p-10 shadow-xl overflow-hidden space-y-8 transition-all duration-300">
+    <div className="w-full rounded-3xl bg-gradient-to-br from-[#f8fbff] via-[#f1f6fc] to-[#eaf2fb] dark:from-[#0b121e] dark:via-[#080d16] dark:to-[#05080f] border border-sky-100/80 dark:border-slate-800/80 p-6 sm:p-10 shadow-sm relative overflow-hidden space-y-8 transition-all duration-300">
       
       {/* Top Deck Controls Header */}
-      <div className="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-slate-200/80 dark:border-slate-800">
+      <div className="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-slate-200/60 dark:border-slate-800/80">
         <div>
           <h3 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tracking-tight">
             Our Firm&apos;s Quantitative Methodology Deck
           </h3>
-          <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-mono mt-1">
-            An interactive walkthrough explaining how our quantitative research, risk boundaries, and execution models operate.
-          </p>
         </div>
 
-        {/* View Mode & Presentation Controls */}
+        {/* Presentation Controls */}
         <div className="flex items-center gap-3">
-          {/* Mode Switcher: PPT vs Book */}
-          <div className="flex items-center p-1 rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
-            <button
-              onClick={() => setViewMode('ppt')}
-              className={`px-3 py-1.5 rounded-xl text-xs font-bold flex items-center gap-1.5 transition-all ${
-                viewMode === 'ppt'
-                  ? 'bg-white dark:bg-slate-800 text-slate-900 dark:text-white shadow-sm'
-                  : 'text-slate-500 hover:text-slate-900 dark:hover:text-white'
-              }`}
-            >
-              <Presentation className="w-3.5 h-3.5" />
-              <span>PPT Slide</span>
-            </button>
-            <button
-              onClick={() => setViewMode('book')}
-              className={`px-3 py-1.5 rounded-xl text-xs font-bold flex items-center gap-1.5 transition-all ${
-                viewMode === 'book'
-                  ? 'bg-white dark:bg-slate-800 text-slate-900 dark:text-white shadow-sm'
-                  : 'text-slate-500 hover:text-slate-900 dark:hover:text-white'
-              }`}
-            >
-              <BookOpen className="w-3.5 h-3.5" />
-              <span>Book Turn</span>
-            </button>
-          </div>
-
           {/* Auto-Play Toggle */}
           <button
             onClick={() => setIsPlaying(!isPlaying)}
-            className={`p-2.5 rounded-2xl border transition-all ${
+            className={`px-3.5 py-2 rounded-2xl border text-xs font-bold font-mono flex items-center gap-2 transition-all ${
               isPlaying
                 ? 'bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 border-emerald-300'
                 : 'bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-800 hover:bg-slate-50'
             }`}
             title={isPlaying ? 'Pause Auto-Play' : 'Auto-Play Presentation'}
           >
-            {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
+            {isPlaying ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5" />}
+            <span>{isPlaying ? 'Pause' : 'Auto Play'}</span>
           </button>
         </div>
       </div>
 
-      {/* Main Slide & Book Viewport (Full Width Unboxed Presentation, No Photos) */}
-      <div 
-        className={`relative rounded-3xl overflow-hidden transition-all duration-500 ${
-          viewMode === 'book'
-            ? 'border-2 border-amber-900/20 dark:border-amber-500/20 shadow-2xl bg-gradient-to-r from-amber-50/20 via-white to-amber-50/10 dark:from-slate-950 dark:via-[#10141d] dark:to-slate-950 p-4 sm:p-8'
-            : 'border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0d1118] p-6 sm:p-10'
-        }`}
-        style={{ perspective: '1200px' }}
-      >
-        {/* Book Spine Center Crease Visual (when in Book mode) */}
-        {viewMode === 'book' && (
-          <div className="hidden lg:block absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-8 bg-gradient-to-r from-black/5 via-black/15 to-transparent pointer-events-none z-20 shadow-inner" />
-        )}
-
+      {/* Main Slide Viewport (Open, Fluid Presentation) */}
+      <div className="relative overflow-hidden">
         {/* Content Container */}
         <div 
           key={page.id}
-          className={`space-y-8 transition-all duration-500 ${
-            viewMode === 'book'
-              ? 'animate-in fade-in zoom-in-95'
-              : pageDirection === 'next'
-                ? 'animate-in slide-in-from-right-8 duration-300'
-                : 'animate-in slide-in-from-left-8 duration-300'
+          className={`space-y-8 transition-all duration-400 ${
+            pageDirection === 'next'
+              ? 'animate-in fade-in slide-in-from-right-6 duration-300'
+              : 'animate-in fade-in slide-in-from-left-6 duration-300'
           }`}
         >
           {/* Header Row */}
@@ -301,7 +256,7 @@ export default function QuantBookDeck() {
                 {page.category}
               </span>
               <span className="w-8 h-px bg-slate-300 dark:bg-slate-700" />
-              <span className="text-[10px] font-mono px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-extrabold border border-slate-200 dark:border-slate-700">
+              <span className="text-[10px] font-mono px-3 py-1 rounded-full bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-extrabold border border-slate-200 dark:border-slate-700 shadow-xs">
                 {page.badge}
               </span>
             </div>
@@ -341,7 +296,7 @@ export default function QuantBookDeck() {
           </div>
 
           {/* Detailed Analytical Breakdown & Step-by-Step Logic */}
-          <div className="pt-2 border-t border-slate-100 dark:border-slate-800/80 space-y-3">
+          <div className="pt-2 border-t border-slate-200/60 dark:border-slate-800/80 space-y-3">
             <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">
               Operational Methodology &amp; Workflow
             </h4>
@@ -355,8 +310,8 @@ export default function QuantBookDeck() {
             </ul>
           </div>
 
-          {/* Core Takeaway Banner (No Formulas, Pure Practical Philosophy) */}
-          <div className="p-5 rounded-2xl border-l-4 border-emerald-500 bg-slate-50/90 dark:bg-slate-900/80 text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300 leading-relaxed shadow-sm">
+          {/* Core Takeaway Banner */}
+          <div className="p-5 rounded-2xl border-l-4 border-emerald-500 bg-white/80 dark:bg-slate-900/80 text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300 leading-relaxed shadow-xs">
             <span className="font-bold text-slate-900 dark:text-white block mb-1">
               Analytical Principle:
             </span>
@@ -370,16 +325,16 @@ export default function QuantBookDeck() {
         <div className="flex items-center gap-2">
           <button
             onClick={handlePrev}
-            className="p-3 rounded-2xl bg-slate-100 dark:bg-slate-900 hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-800 font-bold text-xs flex items-center gap-2 transition-all hover:scale-105 active:scale-95 shadow-sm"
+            className="p-3 rounded-2xl bg-white dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-800 font-bold text-xs flex items-center gap-2 transition-all hover:scale-105 active:scale-95 shadow-sm"
           >
             <ChevronLeft className="w-4 h-4" />
-            <span>{viewMode === 'book' ? 'Previous Page' : 'Previous Slide'}</span>
+            <span>Previous Stage</span>
           </button>
           <button
             onClick={handleNext}
             className="p-3 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center gap-2 transition-all hover:scale-105 active:scale-95 shadow-md shadow-emerald-600/20"
           >
-            <span>{viewMode === 'book' ? 'Next Page' : 'Next Slide'}</span>
+            <span>Next Stage</span>
             <ChevronRight className="w-4 h-4" />
           </button>
         </div>
@@ -402,7 +357,7 @@ export default function QuantBookDeck() {
             />
           ))}
           <span className="ml-3 font-mono text-xs font-bold text-slate-500 dark:text-slate-400">
-            Slide {currentPage + 1} of {DECK_PAGES.length}
+            Stage {currentPage + 1} of {DECK_PAGES.length}
           </span>
         </div>
       </div>

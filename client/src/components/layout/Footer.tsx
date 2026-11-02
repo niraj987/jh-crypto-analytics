@@ -84,6 +84,56 @@ export default function Footer() {
         </div>
       </div>
 
+      {/* 1B. Calm, Readable Real-Time Market Rail: Top Gainers, Losers & Coin Prices */}
+      <div className="w-full overflow-hidden border-b border-sky-200/60 dark:border-sky-900/40 bg-sky-50/50 dark:bg-[#060c18] py-2.5 text-xs font-mono">
+        <div className="flex items-center whitespace-nowrap animate-marquee-slow hover:[animation-play-state:paused]">
+          {[
+            { label: 'TOP GAINER', pair: 'MARSCOIN/INR', price: '₹12.20', change: '+1008.99%', isGain: true },
+            { label: 'BENCHMARK', pair: 'BTC/INR', price: '₹78,94,796', change: '-2.97%', isGain: false },
+            { label: 'TOP GAINER', pair: 'PARTI/INR', price: '₹5.3996', change: '+37.87%', isGain: true },
+            { label: 'BENCHMARK', pair: 'ETH/INR', price: '₹3,14,210', change: '+2.15%', isGain: true },
+            { label: 'TOP GAINER', pair: 'M3M3/INR', price: '₹0.0324', change: '+28.06%', isGain: true },
+            { label: 'HIGH BETA', pair: 'SOL/INR', price: '₹16,240', change: '+5.84%', isGain: true },
+            { label: 'TOP GAINER', pair: 'STORJ/INR', price: '₹3.315', change: '+25.37%', isGain: true },
+            { label: 'TOP LOSER', pair: 'SHIB/INR', price: '₹0.00185', change: '-8.15%', isGain: false },
+            { label: 'TOP GAINER', pair: 'PEPE/INR', price: '₹0.00092', change: '+14.50%', isGain: true },
+            { label: 'TOP LOSER', pair: 'XRP/INR', price: '₹46.50', change: '-6.40%', isGain: false },
+            { label: 'TOP GAINER', pair: 'BONK/INR', price: '₹0.00248', change: '+11.80%', isGain: true },
+            { label: 'TOP LOSER', pair: 'DOGE/INR', price: '₹14.28', change: '-4.12%', isGain: false },
+            { label: 'HIGH MOMENTUM', pair: 'SUI/INR', price: '₹195.40', change: '+8.90%', isGain: true },
+            // Repeat for seamless infinite scrolling loop
+            { label: 'TOP GAINER', pair: 'MARSCOIN/INR', price: '₹12.20', change: '+1008.99%', isGain: true },
+            { label: 'BENCHMARK', pair: 'BTC/INR', price: '₹78,94,796', change: '-2.97%', isGain: false },
+            { label: 'TOP GAINER', pair: 'PARTI/INR', price: '₹5.3996', change: '+37.87%', isGain: true },
+            { label: 'BENCHMARK', pair: 'ETH/INR', price: '₹3,14,210', change: '+2.15%', isGain: true },
+            { label: 'TOP GAINER', pair: 'M3M3/INR', price: '₹0.0324', change: '+28.06%', isGain: true },
+            { label: 'HIGH BETA', pair: 'SOL/INR', price: '₹16,240', change: '+5.84%', isGain: true },
+            { label: 'TOP GAINER', pair: 'STORJ/INR', price: '₹3.315', change: '+25.37%', isGain: true },
+            { label: 'TOP LOSER', pair: 'SHIB/INR', price: '₹0.00185', change: '-8.15%', isGain: false },
+            { label: 'TOP GAINER', pair: 'PEPE/INR', price: '₹0.00092', change: '+14.50%', isGain: true },
+            { label: 'TOP LOSER', pair: 'XRP/INR', price: '₹46.50', change: '-6.40%', isGain: false },
+            { label: 'TOP GAINER', pair: 'BONK/INR', price: '₹0.00248', change: '+11.80%', isGain: true },
+            { label: 'TOP LOSER', pair: 'DOGE/INR', price: '₹14.28', change: '-4.12%', isGain: false },
+            { label: 'HIGH MOMENTUM', pair: 'SUI/INR', price: '₹195.40', change: '+8.90%', isGain: true },
+          ].map((item, idx) => (
+            <div key={idx} className="inline-flex items-center gap-2 px-5 py-0.5 border-r border-slate-300/60 dark:border-slate-800">
+              <span className={`text-[9px] font-bold px-1.5 py-0.5 rounded ${
+                item.isGain 
+                  ? 'bg-emerald-100 dark:bg-emerald-950/80 text-emerald-800 dark:text-emerald-300' 
+                  : 'bg-rose-100 dark:bg-rose-950/80 text-rose-800 dark:text-rose-300'
+              }`}>
+                {item.label}
+              </span>
+              <span className="font-bold text-slate-800 dark:text-slate-200">{item.pair}</span>
+              <span className="text-slate-600 dark:text-slate-400 font-semibold">{item.price}</span>
+              <span className={`font-black ${item.isGain ? 'text-emerald-600 dark:text-emerald-400' : 'text-rose-600 dark:text-rose-400'}`}>
+                {item.change}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+
       {/* 2. Open, Freely Spaced Institutional Matrix with Upgraded Font Typography */}
       <div className="max-w-[1536px] mx-auto px-6 sm:px-10 lg:px-14 py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-16">
@@ -112,16 +162,8 @@ export default function Footer() {
             </div>
 
             <p className="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed font-normal">
-              Our firm provides advanced algorithmic execution, disciplined capital risk boundaries, and predictive scenario forecasting across 48 liquid digital asset pairs.
+              Our firm delivers institutional-grade algorithmic execution, disciplined capital risk boundaries, and predictive scenario forecasting across global digital asset markets.
             </p>
-
-            <div className="text-xs font-mono space-y-1.5 text-slate-500 dark:text-slate-400 pt-4 border-t border-sky-200 dark:border-slate-800">
-              <p className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_6px_#10b981]" />
-                <span className="text-slate-800 dark:text-slate-200 font-bold">Operational Status: All Desks Live</span>
-              </p>
-              <p className="text-slate-600 dark:text-slate-400">48 Active Digital Asset Pairs</p>
-            </div>
           </div>
 
           {/* Column 2: Terminal Workspaces (3 Cols) */}

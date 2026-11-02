@@ -60,23 +60,22 @@ export default function TradingFirmWorkflow({
   const shortHedgeINR = longAssetINR * betaValue;
 
   return (
-    <div className="rounded-3xl bg-white dark:bg-[#0c1222] border border-slate-200/90 dark:border-slate-800 p-5 sm:p-8 shadow-xl space-y-6 sm:space-y-8">
+    <div className="relative w-full rounded-3xl bg-gradient-to-b from-slate-100/40 via-sky-50/20 to-transparent dark:from-slate-900/40 dark:via-slate-950/20 dark:to-transparent border-t border-b border-slate-200/60 dark:border-slate-800/60 p-6 sm:p-10 space-y-8 transition-all duration-500">
       
       {/* Top Banner & Header */}
-      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b border-slate-200 dark:border-slate-800">
-        <div>
-          <div className="flex items-center gap-3">
-            <span className="text-[11px] font-mono px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800 font-extrabold uppercase shadow-sm">
-              QUANTITATIVE ARCHITECTURE
-            </span>
+      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b border-slate-200/60 dark:border-slate-800/60">
+        <div className="space-y-2">
+          <div className="flex items-center gap-2 text-xs font-mono font-black tracking-widest text-emerald-700 dark:text-emerald-400 uppercase">
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+            <span>QUANTITATIVE ARCHITECTURE &amp; EXECUTION WORKFLOW</span>
           </div>
-          <h2 className="text-2xl sm:text-3xl font-black tracking-tight mt-2">
+          <h2 className="text-2xl sm:text-4xl font-black tracking-tight">
             <span className="bg-gradient-to-r from-emerald-600 via-teal-600 to-sky-600 dark:from-emerald-400 dark:via-teal-300 dark:to-sky-400 bg-clip-text text-transparent">
               Proprietary Quantitative Execution Framework
             </span>
           </h2>
-          <p className="text-sm text-slate-600 dark:text-slate-300 mt-1 max-w-3xl font-medium">
-            A disciplined multi-phase methodology integrating alpha formulation, capital risk boundaries, precision order execution, and continuous portfolio supervision.
+          <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 max-w-4xl font-normal leading-relaxed">
+            A disciplined, end-to-end operational methodology: from multi-factor signal formulation and mathematical risk boundaries to automated liquidity slicing and continuous portfolio supervision.
           </p>
         </div>
 

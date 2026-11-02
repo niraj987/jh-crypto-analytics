@@ -14,7 +14,8 @@ import {
   Zap, 
   SlidersHorizontal,
   Activity,
-  Sparkles
+  Sparkles,
+  CheckCircle2
 } from 'lucide-react';
 
 if (typeof window !== 'undefined') {
@@ -107,6 +108,11 @@ export default function AboutPage() {
       accentText: 'text-cyan-600 dark:text-cyan-400',
       description:
         'Monitors dynamic trend structures, moving average confluence, momentum divergences, volatility expansion channels, and price envelope boundaries in real time.',
+      points: [
+        'Validates 20 EMA, 50 SMA, and 200 SMA trend ribbon envelopes across timeframes',
+        'Calculates real-time RSI momentum divergences to detect early trend exhaustion',
+        'Identifies volatility breakout channels using dynamic Average True Range corridors',
+      ],
     },
     {
       id: 'agent-2',
@@ -118,6 +124,11 @@ export default function AboutPage() {
       accentText: 'text-lime-600 dark:text-lime-400',
       description:
         'Analyzes centralized and decentralized liquidity depth, institutional volume velocity, perpetual market balances, and bid-ask order absorption across primary trading pairs.',
+      points: [
+        'Inspects real-time L2 order book bid-to-ask depth imbalance ratios tick-by-tick',
+        'Tracks institutional whale wallet accumulation and exchange reserve outflows',
+        'Monitors perpetual funding rate overheating and liquidation leverage clusters',
+      ],
     },
     {
       id: 'agent-3',
@@ -129,6 +140,11 @@ export default function AboutPage() {
       accentText: 'text-fuchsia-600 dark:text-fuchsia-400',
       description:
         'Contextualizes present market conditions against multi-cycle history, halving dynamics, institutional adoption trends, and macroeconomic liquidity flows.',
+      points: [
+        'Cross-references historical post-halving structural supply constriction cycles',
+        'Correlates asset price regimes with Global M2 money supply and central bank liquidity',
+        'Analyzes institutional ETF net liquidity absorption and sovereign capital flows',
+      ],
     },
     {
       id: 'agent-4',
@@ -140,6 +156,11 @@ export default function AboutPage() {
       accentText: 'text-amber-600 dark:text-amber-400',
       description:
         'Synthesizes forward-looking price projections across short and medium horizons, establishing clear probability corridors, entry invalidation points, and capital preservation thresholds.',
+      points: [
+        'Calculates forward-looking 24-hour, 7-day, and 30-day volatility corridors',
+        'Projects dynamic probability corridors across Bull, Base, and Bear scenarios',
+        'Establishes structural stop-loss and capital preservation invalidation limits',
+      ],
     },
   ];
 
@@ -154,19 +175,19 @@ export default function AboutPage() {
 
       <div className="max-w-[1536px] mx-auto px-6 sm:px-10 lg:px-14 py-12 lg:py-20 space-y-28">
         
-        {/* Full Webpage Breadth Header: Exactly 1 to 2 Lines with Multi-Color Mix */}
+        {/* Full Webpage Breadth Header: Clean, Professional Alignment */}
         <div className="gsap-reveal w-full space-y-6 pt-2">
           <div className="flex items-center gap-2 text-xs font-mono font-black tracking-widest text-indigo-600 dark:text-indigo-400 uppercase">
             <Sparkles className="w-4 h-4 text-indigo-500" />
             <span>OUR MISSION &amp; CORE IDENTITY</span>
           </div>
 
-          {/* 1 or 2 lines full width headline with vibrant multi-color gradient */}
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-[1.12] w-full">
+          {/* Full width headline with structured multi-color gradient */}
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-black tracking-tight leading-[1.08] w-full">
             <span className="bg-gradient-to-r from-sky-600 via-blue-600 to-indigo-600 dark:from-sky-400 dark:via-blue-400 dark:to-indigo-300 bg-clip-text text-transparent">
               How Top Trading Firms Operate
             </span>{' '}
-            <span className="text-amber-500 dark:text-amber-400 font-light mx-1">
+            <span className="text-amber-500 dark:text-amber-400 font-light mx-2">
               &amp;
             </span>{' '}
             <span className="bg-gradient-to-r from-teal-600 via-emerald-600 to-cyan-500 dark:from-teal-300 dark:via-emerald-400 dark:to-cyan-300 bg-clip-text text-transparent">
@@ -174,8 +195,8 @@ export default function AboutPage() {
             </span>
           </h1>
 
-          <p className="text-slate-700 dark:text-slate-200 text-lg sm:text-2xl leading-relaxed font-medium w-full max-w-6xl">
-            Our firm delivers advanced quantitative capabilities to cryptocurrency traders: algorithmic multi-agent consensus, disciplined risk sizing, zero-impact order execution, and semantic scenario forecasting across 48 liquid crypto assets.
+          <p className="text-xl sm:text-2xl md:text-3xl text-slate-700 dark:text-slate-200 leading-relaxed font-normal w-full pt-2">
+            Our firm delivers advanced quantitative capabilities to digital asset markets: algorithmic multi-agent consensus, disciplined risk calibration, zero-impact order execution, and semantic scenario forecasting across leading liquid cryptocurrencies.
           </p>
         </div>
 
@@ -318,14 +339,18 @@ export default function AboutPage() {
         <section className="gsap-reveal space-y-16">
           <div className="pb-6 border-b border-slate-200/80 dark:border-slate-800/80 space-y-3">
             <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 dark:text-white">
-              The 4 Specialist Quantitative Deliberation Agents
+              The 4 Specialist{' '}
+              <span className="bg-gradient-to-r from-cyan-600 via-teal-500 to-indigo-600 dark:from-cyan-400 dark:via-teal-300 dark:to-indigo-300 bg-clip-text text-transparent">
+                Quantitative Deliberation
+              </span>{' '}
+              Agents
             </h2>
             <p className="text-base sm:text-xl text-slate-600 dark:text-slate-300 font-normal leading-relaxed max-w-4xl">
               Independent analytical agents deliberate concurrently on every market tick and publish verified quantitative insights to the unified consensus state matrix.
             </p>
           </div>
 
-          {/* 4 Unboxed Agent Presentation Rows */}
+          {/* 4 Unboxed Agent Presentation Rows with Image Animations & Defined Points */}
           <div className="space-y-20">
             {agents.map((ag, idx) => {
               const Icon = ag.icon;
@@ -334,15 +359,15 @@ export default function AboutPage() {
               return (
                 <div
                   key={ag.id}
-                  className="gsap-reveal grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center border-b border-slate-200/60 dark:border-slate-800/60 pb-16"
+                  className="gsap-reveal group grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center border-b border-slate-200/60 dark:border-slate-800/60 pb-16 transition-all duration-500 hover:translate-x-1"
                 >
                   {/* Image Column */}
                   <div className={`lg:col-span-4 ${isEven ? 'lg:order-2' : ''}`}>
-                    <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-200 dark:border-slate-800 bg-slate-950 group">
+                    <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-200 dark:border-slate-800 bg-slate-950 group-hover:border-slate-400 dark:group-hover:border-slate-600 transition-all duration-500">
                       <img
                         src={ag.image}
                         alt={ag.title}
-                        className="w-full h-auto object-cover opacity-90 transition-transform duration-700 group-hover:scale-105"
+                        className="w-full h-auto object-cover opacity-90 transition-transform duration-700 ease-out group-hover:scale-105 group-hover:opacity-100"
                         style={{ maxHeight: '280px', aspectRatio: '16 / 10' }}
                       />
                     </div>
@@ -371,6 +396,16 @@ export default function AboutPage() {
                     <p className="text-base text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
                       {ag.description}
                     </p>
+
+                    {/* Agent Points */}
+                    <ul className="space-y-2 pt-2 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
+                      {ag.points.map((pt, pIdx) => (
+                        <li key={pIdx} className="flex items-start gap-2.5 leading-relaxed">
+                          <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
+                          <span>{pt}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
               );

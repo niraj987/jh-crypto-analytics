@@ -56,6 +56,17 @@ html.dark body {
   animation: pulseGlow 3.5s ease-in-out infinite;
 }
 
+@keyframes marqueeSlow {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee-slow {
+  display: flex;
+  width: max-content;
+  animation: marqueeSlow 65s linear infinite;
+}
+
 /* ----------------------------------------------------
    INSTITUTIONAL QUANTITATIVE COLOR SCHEME UTILITIES
    (Disciplined, prestigious dual-tone schemes - No rainbow noise)
