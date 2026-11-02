@@ -5,10 +5,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { 
   ShieldAlert, 
-  ShieldCheck,
   ArrowUpRight, 
   Clock, 
-  Activity, 
   Lock, 
   ArrowUp, 
   CheckCircle2, 
@@ -17,12 +15,17 @@ import {
   Terminal,
   Cpu
 } from 'lucide-react';
+import { ApiClient } from '@/lib/api';
+import { FALLBACK_CATALOG } from '@/lib/offlineFallback';
+import { formatINR } from '@/lib/currency';
+import { CryptoAsset } from '@/lib/types';
 
 export default function Footer() {
   const [currentTimeIST, setCurrentTimeIST] = useState<string>('');
   const [currentTimeUTC, setCurrentTimeUTC] = useState<string>('');
   const [emailInput, setEmailInput] = useState<string>('');
   const [subscribed, setSubscribed] = useState<boolean>(false);
+  const [catalog, setCatalog] = useState<CryptoAsset[]>(FALLBACK_CATALOG);
 
   // Live clocks for Indian Standard Time (IST) & UTC
   useEffect(() => {
@@ -35,6 +38,27 @@ export default function Footer() {
     updateClocks();
     const interval = setInterval(updateClocks, 1000);
     return () => clearInterval(interval);
+  }, []);
+
+  // Real-time catalog polling for dynamic live prices
+  useEffect(() => {
+    let active = true;
+    async function loadCatalog() {
+      try {
+        const data = await ApiClient.getCatalog();
+        if (active && Array.isArray(data) && data.length > 0) {
+          setCatalog(data);
+        }
+      } catch {
+        // preserve current catalog state
+      }
+    }
+    loadCatalog();
+    const interval = setInterval(loadCatalog, 10000);
+    return () => {
+      active = false;
+      clearInterval(interval);
+    };
   }, []);
 
   const handleSubscribe = (e: React.FormEvent) => {
@@ -51,25 +75,13 @@ export default function Footer() {
   return (
     <footer className="w-full bg-gradient-to-b from-[#eaf2fb] via-[#e2ecf8] to-[#d6e5f6] dark:bg-gradient-to-b dark:from-[#081226] dark:via-[#060e1d] dark:to-[#040813] text-slate-700 dark:text-slate-300 mt-28 border-t border-sky-200/90 dark:border-sky-950/80 transition-colors duration-200">
       
-      {/* 1. Real-Time Telemetry & Dual Market Clock Ribbon */}
-      <div className="w-full border-b border-sky-200/80 dark:border-sky-900/60 bg-white/70 dark:bg-[#070e1b]/95 backdrop-blur-md px-6 sm:px-10 lg:px-14 py-3.5 font-mono text-xs sm:text-[13px]">
-        <div className="max-w-[1536px] mx-auto flex flex-wrap items-center justify-between gap-4">
-          
-          <div className="flex flex-wrap items-center gap-5 sm:gap-8">
-            <div className="flex items-center gap-2.5">
-              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_8px_#10b981]" />
-              <span className="text-slate-900 dark:text-white font-bold tracking-tight">Proprietary Analytics Feed Active</span>
-            </div>
-            <div className="hidden sm:flex items-center gap-2 text-slate-600 dark:text-slate-300">
-              <ShieldCheck className="w-4 h-4 text-amber-600 dark:text-amber-400" />
-              <span>Cryptographic Security Verified</span>
-            </div>
-            <div className="hidden md:flex items-center gap-2 text-slate-600 dark:text-slate-300">
-              <Activity className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />
-              <span>Multi-Asset Liquidity Matrix</span>
-            </div>
+      {/* 1. Real-Time Dual Market Clock Ribbon */}
+      <div className="w-full border-b border-sky-200/80 dark:border-sky-900/60 bg-white/70 dark:bg-[#070e1b]/95 backdrop-blur-md px-6 sm:px-10 lg:px-14 py-2.5 font-mono text-xs sm:text-[13px]">
+        <div className="max-w-[1536px] mx-auto flex items-center justify-between flex-wrap gap-4">
+          <div className="flex items-center gap-2 text-slate-800 dark:text-slate-200 font-bold">
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+            <span className="tracking-wide">MARKET OPERATIONS DESK</span>
           </div>
-
           <div className="flex items-center gap-4 text-slate-800 dark:text-slate-200 font-bold">
             <div className="flex items-center gap-2">
               <Clock className="w-4 h-4 text-amber-600 dark:text-amber-400" />
@@ -80,57 +92,62 @@ export default function Footer() {
               <span>{currentTimeUTC || '10:00:00 UTC'}</span>
             </div>
           </div>
-
         </div>
       </div>
 
-      {/* 1B. Calm, Readable Real-Time Market Rail: Top Gainers, Losers & Coin Prices */}
+      {/* 1B. Calm, Readable Real-Time Market Rail: Dynamic Top Gainers, Losers & Benchmarks */}
       <div className="w-full overflow-hidden border-b border-sky-200/60 dark:border-sky-900/40 bg-sky-50/50 dark:bg-[#060c18] py-2.5 text-xs font-mono">
         <div className="flex items-center whitespace-nowrap animate-marquee-slow hover:[animation-play-state:paused]">
-          {[
-            { label: 'TOP GAINER', pair: 'MARSCOIN/INR', price: '₹12.20', change: '+1008.99%', isGain: true },
-            { label: 'BENCHMARK', pair: 'BTC/INR', price: '₹78,94,796', change: '-2.97%', isGain: false },
-            { label: 'TOP GAINER', pair: 'PARTI/INR', price: '₹5.3996', change: '+37.87%', isGain: true },
-            { label: 'BENCHMARK', pair: 'ETH/INR', price: '₹3,14,210', change: '+2.15%', isGain: true },
-            { label: 'TOP GAINER', pair: 'M3M3/INR', price: '₹0.0324', change: '+28.06%', isGain: true },
-            { label: 'HIGH BETA', pair: 'SOL/INR', price: '₹16,240', change: '+5.84%', isGain: true },
-            { label: 'TOP GAINER', pair: 'STORJ/INR', price: '₹3.315', change: '+25.37%', isGain: true },
-            { label: 'TOP LOSER', pair: 'SHIB/INR', price: '₹0.00185', change: '-8.15%', isGain: false },
-            { label: 'TOP GAINER', pair: 'PEPE/INR', price: '₹0.00092', change: '+14.50%', isGain: true },
-            { label: 'TOP LOSER', pair: 'XRP/INR', price: '₹46.50', change: '-6.40%', isGain: false },
-            { label: 'TOP GAINER', pair: 'BONK/INR', price: '₹0.00248', change: '+11.80%', isGain: true },
-            { label: 'TOP LOSER', pair: 'DOGE/INR', price: '₹14.28', change: '-4.12%', isGain: false },
-            { label: 'HIGH MOMENTUM', pair: 'SUI/INR', price: '₹195.40', change: '+8.90%', isGain: true },
-            // Repeat for seamless infinite scrolling loop
-            { label: 'TOP GAINER', pair: 'MARSCOIN/INR', price: '₹12.20', change: '+1008.99%', isGain: true },
-            { label: 'BENCHMARK', pair: 'BTC/INR', price: '₹78,94,796', change: '-2.97%', isGain: false },
-            { label: 'TOP GAINER', pair: 'PARTI/INR', price: '₹5.3996', change: '+37.87%', isGain: true },
-            { label: 'BENCHMARK', pair: 'ETH/INR', price: '₹3,14,210', change: '+2.15%', isGain: true },
-            { label: 'TOP GAINER', pair: 'M3M3/INR', price: '₹0.0324', change: '+28.06%', isGain: true },
-            { label: 'HIGH BETA', pair: 'SOL/INR', price: '₹16,240', change: '+5.84%', isGain: true },
-            { label: 'TOP GAINER', pair: 'STORJ/INR', price: '₹3.315', change: '+25.37%', isGain: true },
-            { label: 'TOP LOSER', pair: 'SHIB/INR', price: '₹0.00185', change: '-8.15%', isGain: false },
-            { label: 'TOP GAINER', pair: 'PEPE/INR', price: '₹0.00092', change: '+14.50%', isGain: true },
-            { label: 'TOP LOSER', pair: 'XRP/INR', price: '₹46.50', change: '-6.40%', isGain: false },
-            { label: 'TOP GAINER', pair: 'BONK/INR', price: '₹0.00248', change: '+11.80%', isGain: true },
-            { label: 'TOP LOSER', pair: 'DOGE/INR', price: '₹14.28', change: '-4.12%', isGain: false },
-            { label: 'HIGH MOMENTUM', pair: 'SUI/INR', price: '₹195.40', change: '+8.90%', isGain: true },
-          ].map((item, idx) => (
-            <div key={idx} className="inline-flex items-center gap-2 px-5 py-0.5 border-r border-slate-300/60 dark:border-slate-800">
-              <span className={`text-[9px] font-bold px-1.5 py-0.5 rounded ${
-                item.isGain 
-                  ? 'bg-emerald-100 dark:bg-emerald-950/80 text-emerald-800 dark:text-emerald-300' 
-                  : 'bg-rose-100 dark:bg-rose-950/80 text-rose-800 dark:text-rose-300'
-              }`}>
-                {item.label}
-              </span>
-              <span className="font-bold text-slate-800 dark:text-slate-200">{item.pair}</span>
-              <span className="text-slate-600 dark:text-slate-400 font-semibold">{item.price}</span>
-              <span className={`font-black ${item.isGain ? 'text-emerald-600 dark:text-emerald-400' : 'text-rose-600 dark:text-rose-400'}`}>
-                {item.change}
-              </span>
-            </div>
-          ))}
+          {(() => {
+            const topGainers = [...catalog].sort((a, b) => b.change24h - a.change24h).slice(0, 5);
+            const topLosers = [...catalog].sort((a, b) => a.change24h - b.change24h).slice(0, 4);
+            const benchmarks = catalog.filter((c) => ['BTC', 'ETH', 'SOL', 'BNB'].includes(c.symbol));
+
+            const railItems = [
+              ...topGainers.map((c) => ({
+                label: 'TOP GAINER',
+                pair: `${c.symbol}/INR`,
+                price: formatINR(c.currentPrice),
+                change: `${c.change24h >= 0 ? '+' : ''}${c.change24h}%`,
+                isGain: c.change24h >= 0,
+              })),
+              ...benchmarks.map((c) => ({
+                label: 'BENCHMARK',
+                pair: `${c.symbol}/INR`,
+                price: formatINR(c.currentPrice),
+                change: `${c.change24h >= 0 ? '+' : ''}${c.change24h}%`,
+                isGain: c.change24h >= 0,
+              })),
+              ...topLosers.map((c) => ({
+                label: 'TOP LOSER',
+                pair: `${c.symbol}/INR`,
+                price: formatINR(c.currentPrice),
+                change: `${c.change24h >= 0 ? '+' : ''}${c.change24h}%`,
+                isGain: c.change24h >= 0,
+              })),
+            ];
+
+            const repeated = [...railItems, ...railItems];
+
+            return repeated.map((item, idx) => (
+              <div key={idx} className="inline-flex items-center gap-2 px-5 py-0.5 border-r border-slate-300/60 dark:border-slate-800">
+                <span
+                  className={`text-[9px] font-bold px-1.5 py-0.5 rounded ${
+                    item.isGain
+                      ? 'bg-emerald-100 dark:bg-emerald-950/80 text-emerald-800 dark:text-emerald-300'
+                      : 'bg-rose-100 dark:bg-rose-950/80 text-rose-800 dark:text-rose-300'
+                  }`}
+                >
+                  {item.label}
+                </span>
+                <span className="font-bold text-slate-800 dark:text-slate-200">{item.pair}</span>
+                <span className="text-slate-600 dark:text-slate-400 font-semibold">{item.price}</span>
+                <span className={`font-black ${item.isGain ? 'text-emerald-600 dark:text-emerald-400' : 'text-rose-600 dark:text-rose-400'}`}>
+                  {item.change}
+                </span>
+              </div>
+            ));
+          })()}
         </div>
       </div>
 
@@ -162,7 +179,7 @@ export default function Footer() {
             </div>
 
             <p className="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed font-normal">
-              Our firm delivers institutional-grade algorithmic execution, disciplined capital risk boundaries, and predictive scenario forecasting across global digital asset markets.
+              Our firm delivers algorithmic execution, disciplined capital risk boundaries, and predictive scenario forecasting across global digital asset markets.
             </p>
           </div>
 

@@ -5,17 +5,20 @@ import gsap from 'gsap';
 import { ArrowUpRight, ArrowDownRight } from 'lucide-react';
 import { CryptoAsset } from '@/lib/types';
 import { formatINR } from '@/lib/currency';
+import { FALLBACK_CATALOG } from '@/lib/offlineFallback';
 
 interface TickerMarqueeProps {
-  assets: CryptoAsset[];
+  assets?: CryptoAsset[];
 }
 
 export default function TickerMarquee({ assets }: TickerMarqueeProps) {
   const marqueeRef = useRef<HTMLDivElement>(null);
   const tweenRef = useRef<gsap.core.Tween | null>(null);
 
+  const activeAssets = (assets && assets.length > 0) ? assets : FALLBACK_CATALOG;
+
   useEffect(() => {
-    if (!marqueeRef.current || assets.length === 0) return;
+    if (!marqueeRef.current || activeAssets.length === 0) return;
 
     const ctx = gsap.context(() => {
       const el = marqueeRef.current!;
@@ -33,13 +36,13 @@ export default function TickerMarquee({ assets }: TickerMarqueeProps) {
     }, marqueeRef);
 
     return () => ctx.revert();
-  }, [assets]);
+  }, [activeAssets]);
 
   const handleMouseEnter = () => tweenRef.current?.pause();
   const handleMouseLeave = () => tweenRef.current?.resume();
 
   // Duplicate list to achieve seamless infinite loop
-  const displayItems = [...assets, ...assets, ...assets];
+  const displayItems = [...activeAssets, ...activeAssets, ...activeAssets];
 
   return (
     <div 

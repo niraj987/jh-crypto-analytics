@@ -7,7 +7,8 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ApiClient } from '@/lib/api';
 import { CryptoAsset } from '@/lib/types';
-import { formatINR, formatINRLarge, toINR, toUSD } from '@/lib/currency';
+import { formatINR, formatINRLarge, toINR, formatUSD } from '@/lib/currency';
+import { FALLBACK_CATALOG } from '@/lib/offlineFallback';
 import TickerMarquee from '@/components/common/TickerMarquee';
 import TopGainersBar from '@/components/common/TopGainersBar';
 import MarketScene3D from '@/components/common/MarketScene3D';
@@ -20,16 +21,30 @@ if (typeof window !== 'undefined') {
 }
 
 export default function HomePage() {
-  const [catalog, setCatalog] = useState<CryptoAsset[]>([]);
+  const [catalog, setCatalog] = useState<CryptoAsset[]>(FALLBACK_CATALOG);
   const heroRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    let active = true;
     async function load() {
-      const data = await ApiClient.getCatalog();
-      setCatalog(data);
+      try {
+        const data = await ApiClient.getCatalog();
+        if (active && Array.isArray(data) && data.length > 0) {
+          setCatalog(data);
+        }
+      } catch {
+        // preserve current catalog state
+      }
     }
     load();
+    const interval = setInterval(load, 8000);
+    return () => {
+      active = false;
+      clearInterval(interval);
+    };
+  }, []);
 
+  useEffect(() => {
     if (typeof window !== 'undefined') {
       const ctx = gsap.context(() => {
         // Hero entrance animation
@@ -210,7 +225,7 @@ export default function HomePage() {
                         {formatINR(asset.currentPrice)}
                       </span>
                       <span className="text-xs font-mono font-bold text-slate-500 dark:text-slate-400">
-                        (${toUSD(asset.currentPrice).toLocaleString('en-US')})
+                        ({formatUSD(asset.currentPrice)})
                       </span>
                     </div>
                     <p className="text-xs text-slate-600 dark:text-slate-400 mt-1 font-medium">
@@ -371,32 +386,32 @@ export default function HomePage() {
       </section>
 
       {/* High-Impact Typographic Ambition Section (Full Webpage Breadth, No Side Margin Vacancy) */}
-      <section className="gsap-reveal w-full px-4 sm:px-8 lg:px-12 xl:px-16 py-20 lg:py-32 border-t border-slate-200/80 dark:border-slate-800/80">
-        <div className="w-full space-y-12">
+      <section className="gsap-reveal w-full px-4 sm:px-6 md:px-10 lg:px-14 py-16 lg:py-24 border-t border-slate-200/80 dark:border-slate-800/80">
+        <div className="w-full space-y-8">
           
           {/* Eyebrow & Full Webpage Headline */}
-          <div className="space-y-6 w-full">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-100 dark:bg-amber-950/80 border border-amber-300 dark:border-amber-800 text-amber-900 dark:text-amber-300 text-xs font-mono font-bold tracking-widest uppercase">
+          <div className="space-y-4 w-full">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-800 dark:text-slate-200 text-xs font-mono font-bold tracking-widest uppercase">
               <Sparkles className="w-3.5 h-3.5 text-amber-500" />
               <span>Proprietary Ambition &amp; Quantitative Manifesto</span>
             </div>
 
-            <h2 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black text-slate-900 dark:text-white tracking-tight leading-[1.02] w-full">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-slate-950 dark:text-white tracking-tight leading-tight w-full">
               Our Ambition Is To Deliver{' '}
               <span className="text-gradient-gold">Precision Quantitative Alpha</span>{' '}
               Without Directional Bias.
             </h2>
 
-            <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-slate-600 dark:text-slate-300 font-medium leading-relaxed w-full pt-4">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-slate-700 dark:text-slate-200 font-normal leading-relaxed w-full pt-2">
               At our firm, we formulate real-time{' '}
-              <span className="text-emerald-600 dark:text-emerald-400 font-black">Buy</span>{' '}
+              <span className="text-emerald-700 dark:text-emerald-400 font-bold">Buy</span>{' '}
               and{' '}
-              <span className="text-rose-600 dark:text-rose-400 font-black">Sell</span>{' '}
+              <span className="text-rose-700 dark:text-rose-400 font-bold">Sell</span>{' '}
               intelligence across premier digital assets by synthesizing{' '}
-              <span className="text-sky-600 dark:text-sky-400 font-bold">multi-timeframe price momentum</span>,{' '}
-              <span className="text-amber-600 dark:text-amber-400 font-bold">order book microstructure</span>,{' '}
-              <span className="text-slate-900 dark:text-white font-bold">macroeconomic analogs</span>, and{' '}
-              <span className="text-rose-600 dark:text-rose-400 font-bold">continuous capital risk boundaries</span>.
+              <span className="text-cyan-800 dark:text-cyan-300 font-semibold">multi-timeframe price momentum</span>,{' '}
+              <span className="text-indigo-800 dark:text-indigo-300 font-semibold">order book microstructure</span>,{' '}
+              <span className="text-amber-800 dark:text-amber-300 font-semibold">macroeconomic analogs</span>, and{' '}
+              <span className="text-teal-800 dark:text-teal-300 font-semibold">continuous capital risk boundaries</span>.
             </p>
           </div>
 

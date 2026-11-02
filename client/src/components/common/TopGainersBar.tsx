@@ -3,6 +3,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { TrendingUp, TrendingDown, Flame, ArrowUpRight, ArrowDownRight } from 'lucide-react';
+import { ApiClient } from '@/lib/api';
+import { FALLBACK_CATALOG } from '@/lib/offlineFallback';
+import { USD_TO_INR } from '@/lib/currency';
 
 interface TickerToken {
   pair: string;
@@ -11,23 +14,22 @@ interface TickerToken {
   decimals: number;
 }
 
-const INITIAL_TOKENS: TickerToken[] = [
-  { pair: 'USD/INR', price: 86.85, change: 0.14, decimals: 2 },
-  { pair: 'MARSCOIN/INR', price: 12.20, change: 1008.99, decimals: 4 },
-  { pair: 'PARTI/INR', price: 5.3996, change: 37.87, decimals: 4 },
-  { pair: 'M3M3/INR', price: 0.0324, change: 28.06, decimals: 4 },
-  { pair: 'STORJ/INR', price: 3.315, change: 25.37, decimals: 3 },
-  { pair: 'CHR/INR', price: 2.077, change: 17.34, decimals: 4 },
-  { pair: 'PEPE/INR', price: 0.00092, change: 14.50, decimals: 5 },
-  { pair: 'BONK/INR', price: 0.00248, change: 11.80, decimals: 5 },
-  { pair: 'SUI/INR', price: 195.40, change: 8.90, decimals: 2 },
-  { pair: 'SOL/INR', price: 16240.00, change: 5.84, decimals: 2 },
-  { pair: 'ETH/INR', price: 314210.00, change: 2.15, decimals: 2 },
-  { pair: 'BTC/INR', price: 7894796.00, change: -2.97, decimals: 2 },
-  { pair: 'DOGE/INR', price: 14.28, change: -4.12, decimals: 2 },
-  { pair: 'XRP/INR', price: 46.50, change: -6.40, decimals: 2 },
-  { pair: 'SHIB/INR', price: 0.00185, change: -8.15, decimals: 5 },
-];
+function catalogToTokens(catalog: any[]): TickerToken[] {
+  const usdInr: TickerToken = { pair: 'USD/INR', price: USD_TO_INR, change: 0.08, decimals: 2 };
+  const mapped = catalog.map((asset) => {
+    const inrPrice = asset.currentPrice * USD_TO_INR;
+    const decimals = inrPrice < 0.01 ? 6 : inrPrice < 1 ? 4 : 2;
+    return {
+      pair: `${asset.symbol}/INR`,
+      price: Number(inrPrice.toFixed(decimals)),
+      change: asset.change24h,
+      decimals,
+    };
+  });
+  return [usdInr, ...mapped];
+}
+
+const INITIAL_TOKENS: TickerToken[] = catalogToTokens(FALLBACK_CATALOG);
 
 export default function TopGainersBar() {
   const [tokens, setTokens] = useState<TickerToken[]>(INITIAL_TOKENS);
@@ -35,28 +37,25 @@ export default function TopGainersBar() {
   const marqueeRef = useRef<HTMLDivElement>(null);
   const tweenRef = useRef<gsap.core.Tween | null>(null);
 
-  // Real-time micro price fluctuations every 2.4 seconds
+  // Fetch real-time CoinMarketCap live data and update catalog tokens
   useEffect(() => {
-    const timer = setInterval(() => {
-      setTokens((prev) => {
-        const next = [...prev];
-        // Pick 2 random tokens to fluctuate
-        const idx1 = Math.floor(Math.random() * next.length);
-        const idx2 = Math.floor(Math.random() * next.length);
-
-        [idx1, idx2].forEach((idx) => {
-          const item = { ...next[idx] };
-          const swingPct = (Math.random() - 0.48) * 0.4; // Small realistic micro-tick
-          item.price = Number((item.price * (1 + swingPct / 100)).toFixed(item.decimals));
-          item.change = Number((item.change + swingPct).toFixed(2));
-          next[idx] = item;
-        });
-
-        return next;
-      });
-    }, 2400);
-
-    return () => clearInterval(timer);
+    let mounted = true;
+    async function fetchLive() {
+      try {
+        const liveCatalog = await ApiClient.getCatalog();
+        if (mounted && Array.isArray(liveCatalog) && liveCatalog.length > 0) {
+          setTokens(catalogToTokens(liveCatalog));
+        }
+      } catch {
+        // preserve current state
+      }
+    }
+    fetchLive();
+    const interval = setInterval(fetchLive, 9000);
+    return () => {
+      mounted = false;
+      clearInterval(interval);
+    };
   }, []);
 
   // Filter items

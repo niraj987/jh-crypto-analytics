@@ -5,7 +5,7 @@ import { useSearchParams } from 'next/navigation';
 import Image from 'next/image';
 import { ApiClient } from '@/lib/api';
 import { CryptoAsset, TechnicalIndicators, ConsensusVerdict, AgentInsight } from '@/lib/types';
-import { formatINR, formatINRLarge, toINR, toUSD } from '@/lib/currency';
+import { formatINR, formatINRLarge, toINR, formatUSD } from '@/lib/currency';
 import AssetSelector from '@/components/terminal/AssetSelector';
 import CandlestickChart from '@/components/terminal/CandlestickChart';
 import IndicatorsGrid from '@/components/terminal/IndicatorsGrid';
@@ -146,7 +146,7 @@ function SignalsTerminal() {
                 </span>
                 {currentAsset && (
                   <span className="text-xs sm:text-sm font-mono font-bold text-slate-500 dark:text-slate-400">
-                    (${toUSD(currentAsset.currentPrice).toLocaleString('en-US')})
+                    ({formatUSD(currentAsset.currentPrice)})
                   </span>
                 )}
                 <span className={`font-black text-xs sm:text-sm px-2.5 py-0.5 rounded-lg border ${currentAsset && currentAsset.change24h >= 0 ? 'bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-300 border-emerald-300 dark:border-emerald-800' : 'bg-rose-50 dark:bg-rose-950/50 text-rose-700 dark:text-rose-300 border-rose-300 dark:border-rose-800'}`}>
